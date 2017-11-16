@@ -1,7 +1,7 @@
 # Description
-With [AFrame](https://aframe.io/) framework, we create a curriculum vitae on different 3D panels, moreover we create a area dedicated to the publication of the person (conferences, journals and others publications).
-
-The whole uses database to fill panels and publications. Of course you can visit this 3D CV with VR techonologies such as HTC Vive headset or cardboard. 
+This app, based on the framework AFrame](https://aframe.io/) draws in VR a Curriculum Vitae within a loft on different 3D panels. In addition, an area is dedicated to researchers, allowing to the shwo information about publications (conferences, journals and other things).
+AFrame allows to visit this 3D CV with many VR techonologies, such as HTC Vive headset, Windows VR, Cardboard, etc. 
+The panels are filled with texts stored in a Mysql database. 
 
 # Images
 <div>
@@ -10,32 +10,27 @@ The whole uses database to fill panels and publications. Of course you can visit
 <img src="resources/images/AFrame-CV-Default-Screenshot3.png" heigth="190" width="32%">
 </div>
 
-# Using
+# Requirement
+A web server and a Mysql server
 
-## Database
-
-### Create your database
-Import the file AFrame-CV-Default.sql on PhpMyAdmin.
-
-### Access at your database
-You will need to change in the config file in the project's config folder.:
-1. The login.
-2. The password.
+# Installation
+You need to change the crederntials stored in the config file (config folder).
+Import the file AFrame-CV-Default.sql, for example with PhpMyAdmin.
+Copy the content of this project on the Wrb server
+That's it, call the Web app :-)
 
 # Test
 
 ## PHPUnit
-This file is using for the tests
-1. You can find the tests on the folder /testFiles/PHPUnit Tests.
+You can find the test cases on the folder /testFiles/PHPUnit Tests.
 
-To execute the tests on the server: 
+To execute them on the server: 
 1. Go on project root.
-2. Execute this command : `./resources/phpunit ./testFiles/PHPUnit Tests/`
+2. Execute  `./resources/phpunit ./testFiles/PHPUnit Tests/`
 
-## Selenium
-1. You need Mozilla ESR 52.
-2. Download [Selenium IDE](https://addons.mozilla.org/fr/firefox/addon/selenium-ide/) for Mozilla.
-3. You can open one test and execute him on Selenium IDE.
+## Selenium IDE
+1. You need Mozilla ESR 52 (noc 2017)
+2. Open every test case and execute it with Selenium IDE.
 
 # Authors
 Alexandre Lefebvre - Sylvain Escassut - Nils Fradin
