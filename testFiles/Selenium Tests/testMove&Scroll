@@ -9,11 +9,11 @@
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">testSelenium</td></tr>
+<tr><td rowspan="1" colspan="3">testMove&Scroll</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/WebVR/</td>
+	<td>/AFrame-CV-Default/</td>
 	<td></td>
 </tr>
 <tr>

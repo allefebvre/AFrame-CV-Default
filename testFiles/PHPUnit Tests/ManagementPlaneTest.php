@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 class ManagementPlaneTest extends TestCase {
 
     private static $managementPlane;
-    const pathHTML = "Test Files/fichier.txt";
+    const pathHTML = "testFiles/PHPUnit Tests/fichier.txt";
     const targetId = "ID_TEST";
     const posX = 54;
     const posY = 5;

@@ -13,12 +13,12 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/CVStatic/</td>
+	<td>/AFrame-CV-Default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>ProjetWebVR</td>
+	<td>AFrame-CV-Default</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>Index of /CVStatic/Resources/PDF</td>
+	<td>Index of /AFrame-CV-Default/resources/PDF</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>ProjetWebVR</td>
+	<td>AFrame-CV-Default</td>
 	<td></td>
 </tr>
 

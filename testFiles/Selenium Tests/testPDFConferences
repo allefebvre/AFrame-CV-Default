@@ -9,16 +9,16 @@
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">testSelenium</td></tr>
+<tr><td rowspan="1" colspan="3">testPDFConferences</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/CVStatic/</td>
+	<td>/AFrame-CV-Default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>ProjetWebVR</td>
+	<td>AFrame-CV-Default</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>Index of /CVStatic/Resources/PDF/Conferences</td>
+	<td>Index of /AFrame-CV-Default/resources/PDF/Conferences</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 	<td>assertTitle</td>
-	<td>ProjetWebVR</td>
+	<td>AFrame-CV-Default</td>
 	<td></td>
 </tr>
 </tbody></table>
