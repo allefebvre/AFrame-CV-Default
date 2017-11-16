@@ -117,7 +117,6 @@ if (!$window2) {
 
 
 <!-- Lighting --> 
-<!--
 <a-entity light-toggle position="<?php echo $loftLenght / 2 - 2; ?> <?php echo $height; ?> <?php echo $loftWidth / 2 - 2; ?>">
     <a-light intensity="0.16"  type="point"></a-light>
     <a-sphere radius="0.5" shader="flat"></a-sphere>
@@ -143,7 +142,6 @@ if (!$window2) {
     <a-sphere radius="0.5" shader="flat"></a-sphere>
 </a-entity>
 <!-- End lighting -->
--->
 
 <!-- 1st wall -->
 <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$a; ?> <?php echo $i; ?> 0" scale="0.25 <?php echo $height; ?> <?php echo $e; ?>" ></a-box>
@@ -322,10 +320,10 @@ function spot($x, $y, $z, $rotation) { ?>
 <?php } ?>
 
 <?php
-// spot(-2, 4, 8, 0);
-// spot(-2, 4, -8, 180);
+spot(-2, 4, 8, 0);
+spot(-2, 4, -8, 180);
 
-// spot(6, 4, 0, 90);
-// spot(-10, 4, 0, -90);
+spot(6, 4, 0, 90);
+spot(-10, 4, 0, -90);
 ?>
 <!-- End spots -->
