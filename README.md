@@ -19,7 +19,7 @@ import the file AFrame-CV-Default.sql on PhpMyAdmin.
 
 ### Access at your database
 You will need to change in the config file in the project's config folder.:
-1. The username.
+1. The login.
 2. The password.
 
 ## Test
