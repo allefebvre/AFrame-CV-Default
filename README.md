@@ -30,7 +30,7 @@ This file is using for the tests
 
 To execute the tests on the server: 
 1. Go on project root.
-2. Execute this command : './resources/phpunit ./testFiles/PHPUnit Tests/'
+2. Execute this command : `./resources/phpunit ./testFiles/PHPUnit Tests/`
 
 ## Selenium
 1. You need Mozilla ESR 52.
