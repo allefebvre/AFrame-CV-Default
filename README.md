@@ -37,5 +37,5 @@ To execute the tests on the server:
 2. Download [Selenium IDE](https://addons.mozilla.org/fr/firefox/addon/selenium-ide/) for Mozilla.
 3. You can open one test and execute him on Selenium IDE.
 
-#Authors
+# Authors
 Alexandre Lefebvre - Sylvain Escassut - Nils Fradin
