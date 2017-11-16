@@ -9,6 +9,7 @@ The whole uses database to fill panels and publications. Of course you can visit
 <img src="resources/images/AFrame-CV-Default-Screenshot2.png" heigth="190" width="32%">
 <img src="resources/images/AFrame-CV-Default-Screenshot3.png" heigth="190" width="32%">
 </div>
+
 # Using
 
 ## Database
