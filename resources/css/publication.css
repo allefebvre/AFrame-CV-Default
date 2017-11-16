@@ -1,0 +1,56 @@
+.publication{
+	background-color: #ffffff;
+	height: 100%; 
+	width: 100%; 
+	padding: 3px; 
+	padding-bottom: 10000px;
+}
+
+.publi-ref{
+    color: #3593dd;
+}
+
+.publi-authors{}
+
+.publi-title{
+    font-style: italic;
+}
+
+.publi-date{
+}
+
+.publi-journal{
+    font-weight: bold;
+}
+
+.publi-volume{}
+
+.publi-number{}
+
+.publi-pages{}
+
+.publi-note{}
+
+.publi-abstract{
+    border: 1px dashed #ddd;
+    background-color: #f9f9f9;
+    padding: 2px;
+    display: inline-block;
+    width: 100%;
+}
+
+
+.publi-keywords{
+    font-size: 10px;
+}
+
+.publi-localite{}
+
+.publi-publisher{}
+
+.publi-editor{}
+
+
+
+
+

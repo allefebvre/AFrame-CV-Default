@@ -1,0 +1,40 @@
+<!-- Door -->
+<!-- 1st Door -->
+<a-box id="door1" static-body position="0.418 7.1 5.44" scale="0.2 3.8 2.15" rotation="0 90.01166961505233 0" color="#b9a8a8">
+    <!-- Animations Portes 1 -->
+    <a-animation attribute="position" from="0.418 7.1 5.44" to="0.418 7.1 5.64" begin="come"></a-animation>
+    <a-animation attribute="position" from="0.418 7.1 5.64" to="2.565 7.1 5.64" begin="move"></a-animation>
+
+    <a-animation attribute="position" from="2.565 7.1 5.64" to="0.418 7.1 5.64" begin="remove"></a-animation>
+    <a-animation attribute="position" from="0.418 7.1 5.64" to="0.418 7.1 5.44" begin="back"></a-animation>
+</a-box>
+<!-- End 1st Door -->
+
+<!-- 2nd Door -->
+<a-box id="door2" static-body position="-1.737 7.1 5.44" scale="0.2 3.8 2.15" rotation="0 90.01166961505233 0" color="#b9a8a8">    
+    <!-- Animations Portes 2 -->
+    <a-animation attribute="position" from="-1.737 7.1 5.44" to="-1.737 7.1 5.64" begin="come"></a-animation>
+    <a-animation attribute="position" from="-1.737 7.1 5.64" to="-3.884 7.1 5.64" begin="move"></a-animation>
+
+    <a-animation attribute="position" from="-3.884 7.1 5.64" to="-1.737 7.1 5.64" begin="remove"></a-animation>
+    <a-animation attribute="position" from="-1.737 7.1 5.64" to="-1.737 7.1 5.44" begin="back"></a-animation>    
+</a-box>
+<!-- End 2nd Door -->
+
+<!-- Button --> 
+<a-cylinder 
+    position="4.1 7.1 5.45" 
+    rotation="90 0 0" 
+    scale="1 0.4 1"
+    color="#b9a8a8" 
+    radius="0.1"   
+    event-set__enter="_event: mouseenter; color: #534949" 
+    event-set__leave="_event: mouseleave; color: #b9a8a8"
+   open-double-door>  
+    <a-light color="green" distance="0.001" type="point" position="0 0.70 0"></a-light>
+    <a-light color="green" distance="0.001" type="point" position="0 -0.70 0"></a-light>
+</a-cylinder>
+<!-- End button --> 
+<!-- Fin Portes -->
+
+<a-box static-body position="-0.638 9.5 5.44" scale="0.2 1 4.3" rotation="0 90.01166961505233 0"></a-box>
