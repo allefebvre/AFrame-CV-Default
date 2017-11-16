@@ -4,9 +4,9 @@ With AFrame framework, we create a curriculum vitae on different 3D panels, more
 The whole uses database to fill panels and publications. Of course you can visit this 3D CV with VR techonologies such as HTC Vive headset or cardboard. 
 
 # Images
-<img src=" AFrame-CV-Default/resources/images/AFrame-CV-Default-Screenshot1.png" heigth="190" width="32%">
-<img src=" AFrame-CV-Default/resources/images/AFrame-CV-Default-Screenshot2.png" heigth="190" width="32%">
-<img src=" AFrame-CV-Default/resources/images/AFrame-CV-Default-Screenshot3.png" heigth="190" width="32%">
+<img src="resources/images/AFrame-CV-Default-Screenshot1.png" heigth="190" width="32%">
+<img src="resources/images/AFrame-CV-Default-Screenshot2.png" heigth="190" width="32%">
+<img src="resources/images/AFrame-CV-Default-Screenshot3.png" heigth="190" width="32%">
 
 # Using
 
