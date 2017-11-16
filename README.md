@@ -14,7 +14,7 @@ The whole uses database to fill panels and publications. Of course you can visit
 
 ## Database
 
-### Create your database, 
+### Create your database
 import the file AFrame-CV-Default.sql on PhpMyAdmin.
 
 ### Access at your database
