@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>ProjetWebVR</title>
+        <title>AFrame-CV-Default</title>
 
         <!-- Library A-FRAME -->
         <script src="resources/libraryJS/aframe.min.js"></script>
