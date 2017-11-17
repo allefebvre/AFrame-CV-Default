@@ -4,29 +4,30 @@ class VisitorController {
 
     /**
      * Controller of visitor
-     * @global type $dir
-     * @global type $views
+     * @global string $dir
+     * @global array $views
      */
     public function __construct() {
         global $dir, $views;
         $dataError = array ();
 
         try{
-		$this->display3DEnvironment();
+            $this->display3DEnvironment();
         } 
         catch (PDOException $e) {
-            $dataError[] = ["Error database !", $e->getMessage()];
+            $dataError[] = ["Database error !", $e->getMessage()];
             require ($dir.$views['error']);
         }
         catch (Exception $e2){
-            $dataError[] = ["Error unexpected !", $e2->getMessage()];
+            $dataError[] = ["Unexpected error !", $e2->getMessage()];
             require ($dir.$views['error']);     
         }
     }
+    
     /**
      * Display the 3D environment 
-     * @global type $dir
-     * @global type $views
+     * @global string $dir
+     * @global array $views
      */
     public function display3DEnvironment() {
         global $dir,$views;

@@ -1,5 +1,6 @@
 <?php
 class ByDateGateway {
+    
     private $connection;
     
     public function __construct(Connection $con) {
@@ -8,9 +9,9 @@ class ByDateGateway {
     
     /**
      * Get all the publication order by Date on database
-     * @return type
+     * @return array
      */
-    public function getAllByDates (){
+    public function getAllByDates () :array {
         $query='DELETE FROM ByDate;';
         $this->connection->executeQuery($query);
         
@@ -25,6 +26,7 @@ class ByDateGateway {
         
         $query='SELECT * FROM ByDate ORDER BY date DESC;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
 }

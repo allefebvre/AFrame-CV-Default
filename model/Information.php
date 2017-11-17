@@ -1,6 +1,7 @@
 <?php 
 
 class Information{
+    
     private $id;
     private $status;
     private $name;
@@ -11,7 +12,7 @@ class Information{
     private $phone;
     private $mail;
     
-    function __construct($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail) {
+    function __construct(int $id, string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail) {
         $this->id = $id;
         $this->status = $status;
         $this->name = $name;
@@ -24,23 +25,23 @@ class Information{
     }
 
     
-    public function getId() {return $this->id;}
+    function getId() :int {return $this->id;}
 
-    public function getStatus() {return $this->status;}
+    function getStatus() :string {return $this->status;}
 
-    public function getName() {return $this->name;}
+    function getName() :string {return $this->name;}
 
-    public function getFirstName() {return $this->firstName;}
+    function getFirstName() :string {return $this->firstName;}
 
-    public function getPhoto() {return $this->photo;}
+    function getPhoto() :string {return $this->photo;}
 
-    public function getAge() {return $this->age;}
+    function getAge() :string {return $this->age;}
 
-    public function getAddress() {return $this->address;}
+    function getAddress() :string {return $this->address;}
 
-    public function getPhone() {return $this->phone;}
+    function getPhone() :string {return $this->phone;}
 
-    public function getMail() {return $this->mail;}
+    function getMail() :string {return $this->mail;}
     
 }
 ?>

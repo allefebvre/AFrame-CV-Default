@@ -1,15 +1,13 @@
 <?php
 
-class Autoload
-{
+class Autoload {
+    
     private static $_instance = null;
 
     /** 
      * @throws RuntimeException
-     * @throws type
      */
-    public static function load()
-    {
+    public static function load() {
         if(null !== self::$_instance) {
             throw new RuntimeException(sprintf('%s is already started', __CLASS__));
         }
@@ -22,8 +20,7 @@ class Autoload
     /**
      * @throws RuntimeException
      */
-    public static function shutDown()
-    {
+    public static function shutDown() {
         if(null !== self::$_instance) {
             if(!spl_autoload_unregister(array(self::$_instance, '_autoload'))) {
                 throw new RuntimeException('Could not stop the autoload');
@@ -33,11 +30,10 @@ class Autoload
     }
 
     /**
-     * @global type $dir
-     * @param type $class
+     * @global string $dir
+     * @param string $class
      */
-    private static function _autoload($class)
-    {
+    private static function _autoload(string $class) {
         global $dir;
         $filename = $class.'.php';
         $dir2 =array('model/','./','config/','controller/','views/');

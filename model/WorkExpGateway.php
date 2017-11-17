@@ -1,5 +1,6 @@
 <?php
 class WorkExpGateway {
+    
     private $connection;
     
     public function __construct(Connection $con) {
@@ -8,9 +9,9 @@ class WorkExpGateway {
         
     /**
      * Get all work experiences on database
-     * @return type
+     * @return array
      */
-    public function getAllWorkExps (){
+    public function getAllWorkExps() :array {
         $query='SELECT * FROM WorkExp;';
         $this->connection->executeQuery($query);
         return $this->connection->getResults();

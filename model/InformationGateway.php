@@ -1,5 +1,6 @@
 <?php
 class InformationGateway {
+    
     private $connection;
     
     public function __construct(Connection $connection) {
@@ -8,9 +9,9 @@ class InformationGateway {
      
     /**
      * Get all personal information on database
-     * @return type
+     * @return array
      */
-    public function getAllInformation (){
+    public function getAllInformation() :array {
         $query='SELECT * FROM Information;';
         $this->connection->executeQuery($query);
         return $this->connection->getResults();

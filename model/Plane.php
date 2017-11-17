@@ -1,6 +1,7 @@
 <?php
 
 class Plane {
+    
     private $pathHTML;
     private $targetId;
     private $posX;
@@ -10,7 +11,7 @@ class Plane {
     private $scroll;
     private $action;
 
-    public function __construct($pathHTML, $targetId ,$posX, $posY, $posZ, $rotation, $scroll, $action) {
+    public function __construct(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action) {
         $this->pathHTML = $pathHTML;
         $this->targetId = $targetId;
         $this->posX = $posX;
@@ -21,35 +22,35 @@ class Plane {
         $this->action = $action;
     }
     
-    public function getPathHTML(){
+    public function getPathHTML() :string {
         return $this->pathHTML;
     }    
     
-    public function getTargetId(){
+    public function getTargetId() :string {
         return $this->targetId;
     }
     
-    public function getPosX(){
+    public function getPosX() :float {
         return $this->posX;
     }
     
-    public function getPosY(){
+    public function getPosY() :float {
         return $this->posY;
     }
     
-    public function getPosZ(){
+    public function getPosZ() :float {
         return $this->posZ;
     }
     
-    public function getRotation(){
+    public function getRotation() :int {
         return $this->rotation;
     }
     
-    public function getScroll(){
+    public function getScroll() :bool{
         return $this->scroll;
     }
     
-    public function getAction(){
+    public function getAction() :string {
         return $this->action;
     }
 }

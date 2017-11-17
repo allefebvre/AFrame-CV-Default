@@ -1,6 +1,7 @@
 <?php 
 
 class Conference{
+    
     private $id;
     private $reference;
     private $authors;
@@ -21,7 +22,7 @@ class Conference{
     private $date_display;
     private $categorie_id;
     
-    function __construct($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $categorie_id) {
+    function __construct(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $categorie_id) {
         $this->id = $id;
         $this->reference = $reference;
         $this->authors = $authors;
@@ -44,43 +45,43 @@ class Conference{
     }
 
     
-    function getId() {return $this->id;}
+    function getId() :int {return $this->id;}
 
-    public function getReference() {return $this->reference;}
+    function getReference() :string {return $this->reference;}
 
-    function getAuthors() {return $this->authors;}
+    function getAuthors() :string {return $this->authors;}
 
-    function getTitle() {return $this->title;}
+    function getTitle() :string {return $this->title;}
 
-    function getDate() {return $this->date;}
+    function getDate() :string {return $this->date;}
 
-    function getJournal() {return $this->journal;}
+    function getJournal() :string {return $this->journal;}
 
-    function getVolume() {return $this->volume;}
+    function getVolume() :string {return $this->volume;}
 
-    function getNumber() {return $this->number;}
+    function getNumber() :string {return $this->number;}
 
-    function getPages() {return $this->pages;}
+    function getPages() :string {return $this->pages;}
 
-    function getNote() {return $this->note;}
+    function getNote() :string {return $this->note;}
 
-    function getAbstract() {return $this->abstract;}
+    function getAbstract() :string {return $this->abstract;}
     
-    function getKeywords() {return $this->keywords;}
+    function getKeywords() :string {return $this->keywords;}
 
-    function getSeries() {return $this->series;}
+    function getSeries() :string {return $this->series;}
 
-    function getLocalite() {return $this->localite;}
+    function getLocalite() :string {return $this->localite;}
 
-    function getPublisher() {return $this->publisher;}
+    function getPublisher() :string {return $this->publisher;}
 
-    function getEditor() {return $this->editor;}
+    function getEditor() :string {return $this->editor;}
 
-    function getPdf() {return $this->pdf;}
+    function getPdf() :string {return $this->pdf;}
 
-    function getDate_display() {return $this->date_display;}
+    function getDate_display() :string {return $this->date_display;}
 
-    function getCategorie_id() {return $this->categorie_id;}
+    function getCategorie_id() :int {return $this->categorie_id;}
     
 }
 ?>

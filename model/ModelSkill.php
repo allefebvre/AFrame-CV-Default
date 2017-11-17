@@ -2,23 +2,24 @@
 class ModelSkill {
     
     /**
-     * Fil table with Skills object array from a SQL query
-     * @global type $base
-     * @global type $login
-     * @global type $password
-     * @return \Skill
+     * Fill table with Skills object array from a SQL query
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @return array
      */
-    public static function getAllSkills (){
+    public static function getAllSkills() :array {
 
  	global $base, $login, $password;
 
         $skillGW = new SkillGateway(new Connection($base, $login, $password));
-        $results = $skillGW->getAllSkills(); 
+        $results = $skillGW->getAllSkills();
+        $data = array();
         foreach ($results as $row){
             $data[] = new Skill ($row['ID'], $row['category'], $row['details']);
         }
         return $data;
-	}
+    }
 }
 ?>  
 

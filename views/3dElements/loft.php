@@ -241,7 +241,16 @@ if (!$window2) {
 
 <?php
 
-function fence($number, $position_min, $position_max, $position_x, $position_y, $rotation = FALSE) {
+/**
+ * Build fences
+ * @param int $number
+ * @param float $position_min
+ * @param float $position_max
+ * @param float $position_x
+ * @param float $position_y
+ * @param bool $rotation
+ */
+function fence(int $number, float $position_min, float $position_max, float $position_x, float $position_y, bool $rotation = FALSE) {
     $nbr = $number;
     $pos_min = $position_min;
     $pos_max = $position_max;
@@ -267,6 +276,7 @@ fence(30, -($loftWidth / 2 - 0.5), $loftWidth / 2 - 10.3, ($f / 2 - 0.15), 5.750
 fence(8, -($loftWidth / 2 - 26), $loftWidth / 2 - 0.5, ($f / 2 - 0.15), 5.750);
 fence(8, -($loftWidth / 2 - 21.1), $loftWidth / 2 - 4.4, 14.379, 5.750);
 fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
+
 ?>
 <!-- End fence -->
 
@@ -284,7 +294,14 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 <!-- Spots -->
 <?php
 
-function spot($x, $y, $z, $rotation) { ?>
+/**
+ * Build light spot
+ * @param float $x
+ * @param float $y
+ * @param float $z
+ * @param int $rotation
+ */
+function spot(float $x, float $y, float $z, int $rotation) { ?>
     <a-entity light-toggle-spot position="<?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>" rotation="-16 <?php echo $rotation; ?> 0">
         <a-light light="distance:8;intensity:0.6;type:spot"></a-light>
         <a-light light="distance:0.5;type:point;intensity:5" position="0 0 -0.05"></a-light>
@@ -325,5 +342,6 @@ spot(-2, 4, -8, 180);
 
 spot(6, 4, 0, 90);
 spot(-10, 4, 0, -90);
+
 ?>
 <!-- End spots -->

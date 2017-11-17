@@ -1,5 +1,6 @@
 <?php
 class JournalGateway {
+    
     private $connection;
     
     public function __construct(Connection $con) {
@@ -8,9 +9,9 @@ class JournalGateway {
         
     /**
      * Get all journals publication on database
-     * @return type
+     * @return array
      */
-    public function getAllJournals (){
+    public function getAllJournals() :array {
         $query='SELECT * FROM Journal ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         return $this->connection->getResults();

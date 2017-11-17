@@ -1,22 +1,23 @@
 <?php 
 
-class WorkExp{
+class WorkExp {
+    
     private $id;
     private $date;
     private $workExp;
     
-    function __construct($id, $date, $workExp) {
+    function __construct(int $id, string $date, string $workExp) {
         $this->id = $id;
         $this->date = $date;
         $this->workExp = $workExp;
     }
 
     
-    public function getId() {return $this->id;}
+    function getId() :int {return $this->id;}
 
-    public function getDate() {return $this->date;}
+    function getDate() :string {return $this->date;}
 
-    public function getWorkExp() {return $this->workExp;}
+    function getWorkExp() :string {return $this->workExp;}
     
 }
 ?>

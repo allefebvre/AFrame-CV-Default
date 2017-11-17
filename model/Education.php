@@ -1,22 +1,23 @@
 <?php 
 
 class Education{
+    
     private $id;
     private $date;
     private $education;
     
-    function __construct($id, $date, $education) {
+    function __construct(int $id, string $date, string $education) {
         $this->id = $id;
         $this->date = $date;
         $this->education = $education;
     }
 
     
-    public function getId() {return $this->id;}
+    function getId() :int {return $this->id;}
 
-    public function getDate() {return $this->date;}
+    function getDate() :string {return $this->date;}
 
-    public function getEducation() {return $this->education;}
+    function getEducation() :string {return $this->education;}
     
 }
 ?>

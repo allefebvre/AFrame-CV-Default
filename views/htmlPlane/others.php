@@ -2,21 +2,21 @@
     <div>
         <h1>Others</h1><div>
         <?php
-        foreach ($data['others'] as $c) {
-		$reference = $c->getReference();
-		$authors = $c->getAuthors();
-		$title = $c->getTitle();
-		$date = $c->getDate();
-		$journal = $c->getJournal();
-		$volume = $c->getVolume();
-		$number = $c->getNumber();
-		$pages = $c->getPages();
-		$note = $c->getNote();
-		$abstract = $c->getAbstract();
-		$keywords =  $c->getKeywords();
-		$localite = $c->getLocalite();
-		$publisher = $c->getPublisher();
-		$editor = $c->getEditor();		
+        foreach ($data['others'] as $o) {
+            $reference = $o->getReference();
+            $authors = $o->getAuthors();
+            $title = $o->getTitle();
+            $date = $o->getDate();
+            $journal = $o->getJournal();
+            $volume = $o->getVolume();
+            $number = $o->getNumber();
+            $pages = $o->getPages();
+            $note = $o->getNote();
+            $abstract = $o->getAbstract();
+            $keywords =  $o->getKeywords();
+            $localite = $o->getLocalite();
+            $publisher = $o->getPublisher();
+            $editor = $o->getEditor();		
 
             
             echo "<span class=\"publi-ref\">[$reference]</span>";
@@ -46,21 +46,21 @@
             }
             
             if($date != ""){
-                echo "<span class=\"publi-date\">$date</span><br>";
+                echo "<span class=\"publi-date\">$date</span></br>";
             }
             if($note != ""){
-                echo "<span class=\"publi-note\">$note</span><br>";
+                echo "<span class=\"publi-note\">$note</span></br>";
             }
             if($abstract != ""){
-               echo "<span class=\"publi-abstract\">$abstract</span><br>"; 
+               echo "<span class=\"publi-abstract\">$abstract</span></br>"; 
             }            
             if($keywords != ""){
-                echo"<span class=\"publi-keywords\">Keywords : $keywords</span><br> ";
+                echo"<span class=\"publi-keywords\">Keywords : $keywords</span></br> ";
             }
             if($localite != ""){
-                echo"<span class=\"publi-localite\">$localite</span><br> ";
+                echo"<span class=\"publi-localite\">$localite</span></br> ";
             }
-            echo "<br>";
+            echo "</br>";
         }
         ?>
         </div>

@@ -4,26 +4,28 @@ require_once 'model/Plane.php';
 class ManagementPlane {
 
     private $listPLane = [];
-
+    
     /**
      * Add a plane to loft
      * @param string $pathHTML path to html file to display
-     * @param number $posX position X
-     * @param number $posY position Y
-     * @param number $posZ position Z
-     * @param number $rotation rotation
-     * @param boolean $scroll enable scroll
+     * @param string $targetId
+     * @param float $posX position X
+     * @param float $posY position Y
+     * @param float $posZ position Z
+     * @param int $rotation rotation
+     * @param bool $scroll enable scroll
+     * @param string $action
      */
-    public function addPlane($pathHTML, $targetId, $posX, $posY, $posZ, $rotation, $scroll, $action) {
+    public function addPlane(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action) {
         $this->listPLane[] = new Plane($pathHTML, $targetId, $posX, $posY, $posZ, $rotation, $scroll, $action);
     }
 
     /**
      * Place a plane
-     * @param type $data
+     * @param array $data
      */
-    public function placeHTML($data) {
-        for ($index = 0; $index < count($this->listPLane); $index++) {
+    public function placeHTML(array $data) {
+        for ($index=0 ; $index<count($this->listPLane) ; $index++) {
             echo "<div class=\"hide\">";
             require $this->listPLane[$index]->getPathHTML();
             echo "</div>";
@@ -34,14 +36,14 @@ class ManagementPlane {
      * Using for tests
      */
     public function reset() {
-        $this->listPLane = [];
+        $this->listPLane = array();
     }
 
     /**
      * Call this function once in the scene
      */
     public function placeEntity() {
-        for ($index = 0; $index < count($this->listPLane); $index++) {
+        for ($index=0 ; $index<count($this->listPLane) ; $index++) {
             $plane = $this->listPLane[$index];
             ?>
 
