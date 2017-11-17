@@ -30,12 +30,12 @@ To execute them on the server:
 
 Every tests in the folder `PHPUnit Tests` test on class of the folder `model`
 
-Some tests are lade to test connections and requests on database.
+* Some tests are lade to test connections and requests on database.
 	* `ConnectionTest.php`
 	* `ByDateGatewayTest.php`
-Else are here to test the  constructors and the return of gueter.
+* Else are here to test the  constructors and the return of gueter.
 	* `JournalTest.php`
-And the other are lade to test the different methods present in the classes. 
+* And the other are lade to test the different methods present in the classes. 
 	* `ManagementPlaneTest.php`
 
 ## Selenium IDE
