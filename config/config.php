@@ -8,6 +8,8 @@
     $password="root";
 
 	//Views
+        $views['head'] = "views/head.html";
+        $views['foot'] = "views/foot.html";
 	$views['error'] = "views/error.php";
 	$views['home'] = "views/home.php";
 	$views['loft'] = "views/3dElements/loft.php";

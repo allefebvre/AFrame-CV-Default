@@ -47,21 +47,21 @@
             }
             
             if($date != ""){
-                echo "<span class=\"publi-date\">$date</span></br>";
+                echo "<span class=\"publi-date\">$date</span><br>";
             }
             if($note != ""){
-                echo "<span class=\"publi-note\">$note</span></br>";
+                echo "<span class=\"publi-note\">$note</span><br>";
             }
             if($abstract != ""){
-               echo "<span class=\"publi-abstract\">$abstract</span></br>"; 
+               echo "<span class=\"publi-abstract\">$abstract</span><br>"; 
             }            
             if($keywords != ""){
-                echo"<span class=\"publi-keywords\">Keywords : $keywords</span></br> ";
+                echo"<span class=\"publi-keywords\">Keywords : $keywords</span><br> ";
             }
             if($localite != ""){
-                echo"<span class=\"publi-localite\">$localite</span></br> ";
+                echo"<span class=\"publi-localite\">$localite</span><br> ";
             }
-            echo "</br>";
+            echo "<br>";
         }
         ?>
         </div>

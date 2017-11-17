@@ -22,7 +22,6 @@ class VisitorController {
             $dataError[] = ["Error unexpected !", $e2->getMessage()];
             require ($dir.$views['error']);     
         }
-        exit(0);
     }
     /**
      * Display the 3D environment 

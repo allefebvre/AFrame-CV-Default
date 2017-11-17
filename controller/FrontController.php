@@ -7,6 +7,7 @@ class FrontController {
          */
 	public function __construct() {
 		global $dir,$views;
+                require $views["head"];
 		$dataError = array();
 		try {
 			$ctrl = new VisitorController();
@@ -17,6 +18,7 @@ class FrontController {
 			$dataError[] = ["Error database !", $e2->getMessage()];
 			require ($dir.$views['error']);
 		}
+                require $views["foot"];
 	}
 }
 ?>

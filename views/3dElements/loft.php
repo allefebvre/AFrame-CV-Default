@@ -97,10 +97,10 @@ if (!$window2) {
 
 <!-- Loading textures -->
 <a-assets>
-    <img id="wallTexture" src="resources/textures/whiteWall.jpg" />
-    <img id="floorTexture" src="resources/textures/blueFloor.jpeg" />
-    <img id="roofTexture" src="resources/textures/roof.jpg" />
-    <img id="woodTexture" src="resources/textures/wood.jpg" />
+    <img id="wallTexture" src="resources/textures/whiteWall.jpg" alt="whiteWall"/>
+    <img id="floorTexture" src="resources/textures/blueFloor.jpeg" alt="blueFloor"/>
+    <img id="roofTexture" src="resources/textures/roof.jpg" alt="roof"/>
+    <img id="woodTexture" src="resources/textures/wood.jpg" alt="wood"/>
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
 </a-assets>
 <!-- End loading textures -->
@@ -187,7 +187,7 @@ if (!$window2) {
     <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$h; ?> <?php echo $i; ?> <?php echo $b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
 
     <a-entity position="<?php echo $d; ?> <?php echo $i; ?> <?php echo $b; ?>" rotation="0 90 0">
-        <a-box src="#woodTexture" mixin="wall" static-body static-body  scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
+        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
         <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
     </a-entity>
 
