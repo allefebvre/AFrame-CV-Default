@@ -24,24 +24,42 @@ class Information{
         $this->mail = $mail;
     }
 
-    
-    function getId() :int {return $this->id;}
+    /* --- Getters --- */
+    function getId() :int {
+        return $this->id;
+    }
 
-    function getStatus() :string {return $this->status;}
+    function getStatus() :string {
+        return $this->status;
+    }
 
-    function getName() :string {return $this->name;}
+    function getName() :string {
+        return $this->name;
+    }
 
-    function getFirstName() :string {return $this->firstName;}
+    function getFirstName() :string {
+        return $this->firstName;
+    }
 
-    function getPhoto() :string {return $this->photo;}
+    function getPhoto() :string {
+        return $this->photo;
+    }
 
-    function getAge() :string {return $this->age;}
+    function getAge() :string {
+        return $this->age;
+    }
 
-    function getAddress() :string {return $this->address;}
+    function getAddress() :string {
+        return $this->address;
+    }
 
-    function getPhone() :string {return $this->phone;}
+    function getPhone() :string {
+        return $this->phone;
+    }
 
-    function getMail() :string {return $this->mail;}
+    function getMail() :string {
+        return $this->mail;
+    }
     
 }
 ?>

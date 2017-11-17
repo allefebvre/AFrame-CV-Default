@@ -44,44 +44,82 @@ class Other{
         $this->categorie_id = $categorie_id;
     }
 
+    /* --- Getters --- */
+    function getId() :int {
+        return $this->id;
+    }
+
+    function getReference() :string {
+        return $this->reference;
+    }
+
+    function getAuthors() :string {
+        return $this->authors;
+    }
+
+    function getTitle() :string {
+        return $this->title;
+    }
+
+    function getDate() :string {
+        return $this->date;
+    }
+
+    function getJournal() :string {
+        return $this->journal;
+    }
+
+    function getVolume() :string {
+        return $this->volume;
+    }
+
+    function getNumber() :string {
+        return $this->number;
+    }
+
+    function getPages() :string {
+        return $this->pages;
+    }
+
+    function getNote() :string {
+        return $this->note;
+    }
+
+    function getAbstract() :string {
+        return $this->abstract;
+    }
     
-    function getId() :int {return $this->id;}
+    function getKeywords() :string {
+        return $this->keywords;
+    }
 
-    function getReference() :string {return $this->reference;}
+    function getSeries() :string {
+        return $this->series;
+    }
 
-    function getAuthors() :string {return $this->authors;}
+    function getLocalite() :string {
+        return $this->localite;
+    }
 
-    function getTitle() :string {return $this->title;}
+    function getPublisher() :string {
+        return $this->publisher;
+    }
 
-    function getDate() :string {return $this->date;}
+    function getEditor() :string {
+        return $this->editor;
+    }
 
-    function getJournal() :string {return $this->journal;}
+    function getPdf() :string {
+        return $this->pdf;
+    }
 
-    function getVolume() :string {return $this->volume;}
+    function getDate_display() :string {
+        return $this->date_display;
+    }
 
-    function getNumber() :string {return $this->number;}
-
-    function getPages() :string {return $this->pages;}
-
-    function getNote() :string {return $this->note;}
-
-    function getAbstract() :string {return $this->abstract;}
-    
-    function getKeywords() :string {return $this->keywords;}
-
-    function getSeries() :string {return $this->series;}
-
-    function getLocalite() :string {return $this->localite;}
-
-    function getPublisher() :string {return $this->publisher;}
-
-    function getEditor() :string {return $this->editor;}
-
-    function getPdf() :string {return $this->pdf;}
-
-    function getDate_display() :string {return $this->date_display;}
-
-    function getCategorie_id() :int {return $this->categorie_id;}
+    function getCategorie_id() :int {
+        return $this->categorie_id;
+    }
     
 }
 ?>

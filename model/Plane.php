@@ -22,6 +22,7 @@ class Plane {
         $this->action = $action;
     }
     
+    /* --- Getters --- */
     public function getPathHTML() :string {
         return $this->pathHTML;
     }    

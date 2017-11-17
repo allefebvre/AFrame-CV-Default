@@ -12,12 +12,18 @@ class Education{
         $this->education = $education;
     }
 
-    
-    function getId() :int {return $this->id;}
+    /* --- Getters --- */
+    function getId() :int {
+        return $this->id;
+    }
 
-    function getDate() :string {return $this->date;}
+    function getDate() :string {
+        return $this->date;
+    }
 
-    function getEducation() :string {return $this->education;}
+    function getEducation() :string {
+        return $this->education;
+    }
     
 }
 ?>

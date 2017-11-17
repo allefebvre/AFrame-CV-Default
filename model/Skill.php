@@ -12,12 +12,18 @@ class Skill {
         $this->details = $details;
     }
 
-    
-    function getId() :int {return $this->id;}
+    /* --- Getters --- */
+    function getId() :int {
+        return $this->id;
+    }
 
-    function getCategory() :string {return $this->category;}
+    function getCategory() :string {
+        return $this->category;
+    }
 
-    function getDetails() :string {return $this->details;}
+    function getDetails() :string {
+        return $this->details;
+    }
     
 }
 ?>

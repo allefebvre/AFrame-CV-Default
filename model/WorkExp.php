@@ -12,12 +12,18 @@ class WorkExp {
         $this->workExp = $workExp;
     }
 
-    
-    function getId() :int {return $this->id;}
+    /* --- Getters --- */
+    function getId() :int {
+        return $this->id;
+    }
 
-    function getDate() :string {return $this->date;}
+    function getDate() :string {
+        return $this->date;
+    }
 
-    function getWorkExp() :string {return $this->workExp;}
+    function getWorkExp() :string {
+        return $this->workExp;
+    }
     
 }
 ?>
