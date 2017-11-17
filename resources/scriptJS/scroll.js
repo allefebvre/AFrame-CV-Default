@@ -77,15 +77,19 @@ AFRAME.registerComponent('scroll', {
     init: function () {
         var htmlElm = document.getElementById(this.data);
         var margin = 0;
-        this.el.scrollDown = function (nbrPx) {
+        var el = this.el;
+        
+        el.scrollDown = function (nbrPx) {
             margin = margin - nbrPx;
-            htmlElm.style.marginTop = margin + "px";
+            htmlElm.children[0].style.marginTop = margin + "px";
+            el.updateCanvas();
         };
-        this.el.scrollUp = function (nbrPx) {
+        el.scrollUp = function (nbrPx) {
             margin = margin + nbrPx;
             if (margin > 0)
                 margin = 0;
-            htmlElm.style.marginTop = margin + "px";
+            htmlElm.children[0].style.marginTop = margin + "px";
+            el.updateCanvas();
         };
     }
 });

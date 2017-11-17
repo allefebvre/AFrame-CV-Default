@@ -102,6 +102,7 @@ if (!$window2) {
     <img id="roofTexture" src="resources/textures/roof.jpg" alt="roof"/>
     <img id="woodTexture" src="resources/textures/wood.jpg" alt="wood"/>
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
+    <div id="assets_canvas"></div>
 </a-assets>
 <!-- End loading textures -->
 

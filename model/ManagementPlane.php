@@ -50,7 +50,7 @@ class ManagementPlane {
             <a-entity position="<?php echo $plane->getPosX() . " " . $plane->getPosY() . " " . $plane->getPosZ(); ?>" rotation="0 <?php echo $plane->getRotation(); ?> 0">
                 <?php if ($plane->getScroll()) { ?>
                     <a-plane <?php echo $plane->getAction(); ?> scroll="<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" 
-                        material="shader: html; target: #<?php echo $plane->getTargetId(); ?>; width: 800; height: 450; fps:3" color="#fff">
+                        html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff" shader="flat">
                     </a-plane>
 
                     <a-entity button-up="display<?php echo $plane->getTargetId(); ?>" position="3.6 0.2 0.05" rotation="0 0 0" scale="0.5 0.5 0.5">
@@ -72,7 +72,7 @@ class ManagementPlane {
                     </a-entity>
 
                 <?php } else { ?>
-                    <a-plane <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" material="shader: html; target: #<?php echo $plane->getTargetId(); ?>; width: 800; height: 450; fps:0" color="#fff"></a-plane>
+                    <a-plane <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" shader="flat" html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff"></a-plane>
                     <?php } ?>
             </a-entity>
             <?php
