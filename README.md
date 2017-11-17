@@ -19,6 +19,14 @@ Import the file AFrame-CV-Default.sql, for example with PhpMyAdmin.
 Copy the content of this project on the **Web server**.
 That's it, call the Web app :-)
 
+# Features
+* PHP7
+* HTML (W3C) 
+* SQL
+* JavaScript
+* CSS
+
+
 # Test
 
 ## PHPUnit
