@@ -41,6 +41,3 @@ Every tests in the folder `PHPUnit Tests` test on class of the folder `model`
 ## Selenium IDE
 1. You need Mozilla ESR 52 (noc 2017)
 2. Open every test case and execute it with Selenium IDE.
-
-# Authors
-Alexandre Lefebvre - Sylvain Escassut - Nils Fradin
