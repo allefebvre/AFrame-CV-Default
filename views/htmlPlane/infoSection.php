@@ -3,7 +3,7 @@
         <?php
             $myInfo = $data['myInformation'][0];
             $status = $myInfo->getStatus();
-            echo "<center><h3>$status</h3></center>";
+            echo "<h3 style=\"text-align: center\">$status</h3>";
             echo "<div id=\"leftInfo\">";
             $name = $myInfo->getName();
             $firstName = $myInfo->getFirstName();

@@ -14,7 +14,7 @@ The panels are filled with texts stored in a Mysql database.
 **A web server and a Mysql server.**
 
 # Installation
-You need to change the crederntials stored in the config file (config folder).
+You need to change the credentials stored in the config file (config folder).
 Import the file AFrame-CV-Default.sql, for example with PhpMyAdmin.
 Copy the content of this project on the **Web server**.
 That's it, call the Web app :-)
@@ -41,7 +41,7 @@ Every tests in the folder `PHPUnit Tests` test on class of the folder `model`
 * Some tests are lade to test connections and requests on database.
 	* `ConnectionTest.php`
 	* `ByDateGatewayTest.php`
-* Else are here to test the  constructors and the return of gueter.
+* Else are here to test the  constructors and the return of getters.
 	* `JournalTest.php`
 * And the other are lade to test the different methods present in the classes. 
 	* `ManagementPlaneTest.php`
