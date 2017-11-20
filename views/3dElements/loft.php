@@ -5,7 +5,7 @@
 $posX = filter_input(INPUT_GET, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 if ($posX == NULL || $posX == false) {
     $posX = filter_input(INPUT_COOKIE, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posX == NULL || $posX == false) {
+    if ($posX == NULL || $posX == false || $posX > 19.5 || $posX < -19.5) {
         $posX = 17.5;
     }
 }
@@ -13,7 +13,7 @@ if ($posX == NULL || $posX == false) {
 $posY = filter_input(INPUT_GET, 'posY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 if ($posY == NULL || $posY == false) {
     $posY = filter_input(INPUT_COOKIE, 'posY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posY == NULL || $posY == false) {
+    if ($posY == NULL || $posY == false || $posY > 10.5 || $posY < 0) {
         $posY = 0;
     }
 }
@@ -21,7 +21,7 @@ if ($posY == NULL || $posY == false) {
 $posZ = filter_input(INPUT_GET, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 if ($posZ == NULL || $posZ == false) {
     $posZ = filter_input(INPUT_COOKIE, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posZ == NULL || $posZ == false) {
+    if ($posZ == NULL || $posZ == false || $posZ > 14.5 || $posZ < -14.5) {
         $posZ = -12.5;
     }
 }
