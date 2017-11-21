@@ -18,7 +18,11 @@ AFRAME.registerComponent('html2canvas', {
                 var assets_canvas = document.getElementById("assets_canvas");
                 canvas.id = target + "_canvas";
                 assets_canvas.appendChild(canvas);
-                el.setAttribute("src", "#" + canvas.id);
+				var image = document.createElement("img");
+				image.src = canvas.toDataURL();
+				image.id = canvas.id + "_img";
+				assets_canvas.appendChild(image);
+                el.setAttribute("src", "#" + image.id);
                 el.updateComponents();
                 canvas_old = canvas;
             },
@@ -33,9 +37,12 @@ AFRAME.registerComponent('html2canvas', {
                     var assets_canvas = document.getElementById("assets_canvas");
                     canvas.id = target + "_canvas" + count;
                     assets_canvas.replaceChild(canvas, canvas_old);
-                    console.log(assets_canvas);
-                    el.setAttribute("src", "#changement");
-                    el.setAttribute("src", "#" + canvas.id);
+					var image = document.createElement("img");
+					image.src = canvas.toDataURL();
+					image.id = canvas.id + "_img";
+					assets_canvas.appendChild(image);
+					el.setAttribute("src", "#changement");
+					el.setAttribute("src", "#" + image.id);
                     el.updateComponents();
                     canvas_old = canvas;
                     count++;
