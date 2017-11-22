@@ -285,13 +285,13 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 <!-- Interior walls -->
 <!--
 <a-box static-body mixin="wall" position="-2 <?php echo $height / 4; ?> 0" scale="10 <?php echo $height / 2; ?> 10"></a-box>
-
+-->
 <a-box static-body mixin="wall" position="<?php echo -($f / 2 - 0.15); ?> <?php echo $height * 0.75; ?> -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
 <a-box static-body mixin="wall" position="7 7.5 -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
 
 <a-box static-body mixin="wall" position="4.294 7.5 5.44" scale="0.2 5 5.611" rotation="0 90 0"></a-box>
 <a-box static-body mixin="wall" position="-6.609 7.5 5.44" scale="0.2 5 7.655" rotation="0 90 0"></a-box>
--->
+
 <!-- End interior walls -->
 
 <!-- Spots -->
