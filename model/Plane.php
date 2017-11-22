@@ -10,8 +10,9 @@ class Plane {
     private $rotation;
     private $scroll;
     private $action;
+    private $scale;
 
-    public function __construct(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action) {
+    public function __construct(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action, float $scale) {
         $this->pathHTML = $pathHTML;
         $this->targetId = $targetId;
         $this->posX = $posX;
@@ -20,6 +21,7 @@ class Plane {
         $this->rotation = $rotation;
         $this->scroll = $scroll;
         $this->action = $action;
+        $this->scale = $scale;
     }
     
     /* --- Getters --- */
@@ -53,5 +55,9 @@ class Plane {
     
     public function getAction() :string {
         return $this->action;
+    }
+    
+    public function getScale() : float {
+        return $this->scale;
     }
 }

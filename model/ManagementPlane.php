@@ -16,8 +16,8 @@ class ManagementPlane {
      * @param bool $scroll enable scroll
      * @param string $action
      */
-    public function addPlane(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action) {
-        $this->listPLane[] = new Plane($pathHTML, $targetId, $posX, $posY, $posZ, $rotation, $scroll, $action);
+    public function addPlane(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action, float $scale = 1) {
+        $this->listPLane[] = new Plane($pathHTML, $targetId, $posX, $posY, $posZ, $rotation, $scroll, $action, $scale);
     }
 
     /**
@@ -45,6 +45,7 @@ class ManagementPlane {
     public function placeEntity() {
         for ($index=0 ; $index<count($this->listPLane) ; $index++) {
             $plane = $this->listPLane[$index];
+            $scale = $plane->getScale();
             ?>
 
             <a-entity position="<?php echo $plane->getPosX() . " " . $plane->getPosY() . " " . $plane->getPosZ(); ?>" rotation="0 <?php echo $plane->getRotation(); ?> 0">
@@ -72,7 +73,7 @@ class ManagementPlane {
                     </a-entity>
 
                 <?php } else { ?>
-                    <a-plane <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" shader="flat" html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff"></a-plane>
+                    <a-plane <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="<?php echo 6 * $scale; ?> <?php echo 3.375 * $scale; ?> 1" shader="flat" html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff"></a-plane>
                     <?php } ?>
             </a-entity>
             <?php

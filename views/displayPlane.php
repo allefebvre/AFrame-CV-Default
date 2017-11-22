@@ -26,7 +26,7 @@ $nbRows = 3;
 
 
 // Add plane of headings
-$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", -19.3, 2.5, 0, 90, FALSE,"");
+$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", -19.3, 3.5, 0, 90, FALSE,"", 1.6);
 //$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
 
 $scroll = checkScroll($data['myEducation'], $nbRows);
