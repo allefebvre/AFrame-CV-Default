@@ -20,7 +20,8 @@ AFRAME.registerComponent("persistence-position", {
             setCookie("posX", el.getAttribute("position").x);
             setCookie("posY", el.getAttribute("position").y);
             setCookie("posZ", el.getAttribute("position").z);
-            setCookie("rotation", el.getAttribute("rotation").y);
+            setCookie("rotationX", el.getAttribute("rotation").x);
+            setCookie("rotationY", el.getAttribute("rotation").y);
         }, 2000);
     }
 });

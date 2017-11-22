@@ -6,7 +6,7 @@ $posX = filter_input(INPUT_GET, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLA
 if ($posX == NULL || $posX == false) {
     $posX = filter_input(INPUT_COOKIE, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     if ($posX == NULL || $posX == false || $posX > 19.5 || $posX < -19.5) {
-        $posX = 17.5;
+        $posX = -10;
     }
 }
 
@@ -22,15 +22,23 @@ $posZ = filter_input(INPUT_GET, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLA
 if ($posZ == NULL || $posZ == false) {
     $posZ = filter_input(INPUT_COOKIE, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     if ($posZ == NULL || $posZ == false || $posZ > 14.5 || $posZ < -14.5) {
-        $posZ = -12.5;
+        $posZ = 0;
     }
 }
 
-$rotation = filter_input(INPUT_GET, 'rotation', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($rotation == NULL || $rotation == false) {
-        $rotation = filter_input(INPUT_COOKIE, 'rotation', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($rotation == NULL || $rotation == false) {
-        $rotation = 135;
+$rotationX = filter_input(INPUT_GET, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+if ($rotationX == NULL || $rotationX == false) {
+        $rotationX = filter_input(INPUT_COOKIE, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    if ($rotationX == NULL || $rotationX == false) {
+        $rotationX = 10;
+    }
+}
+
+$rotationY = filter_input(INPUT_GET, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+if ($rotationY == NULL || $rotationY == false) {
+        $rotationY = filter_input(INPUT_COOKIE, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    if ($rotationY == NULL || $rotationY == false) {
+        $rotationY = 90;
     }
 }
 
@@ -43,7 +51,7 @@ if ($rotation == NULL || $rotation == false) {
           jump-ability
           universal-controls
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
-          rotation="0 <?php echo $rotation; ?> 0"
+          rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
           kinematic-body>
     <a-cursor raycaster="far:10"></a-cursor>
 </a-entity>
