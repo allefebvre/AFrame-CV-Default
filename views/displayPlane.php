@@ -30,19 +30,19 @@ $managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation
 //$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
 
 $scroll = checkScroll($data['myEducation'], $nbRows);
-$managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", 5, 2.5, 14.35, 180, FALSE,"");
+$managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", 5, 2.5, 14.35, 180, $scroll,"");
 //$managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", -2, 2.5, -5.2, 180, $scroll, "");
 
 $scroll = checkScroll($data['myWorkExp'], $nbRows);
-$managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -5, 2.5, 14.35, 180, FALSE,"");
+$managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -5, 2.5, 14.35, 180, $scroll,"");
 //$managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -2, 2.5, 5.2, 0, $scroll, "");
 
 $scroll = checkScroll($data['mySkills'], $nbRows);
-$managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", 5, 2.5, -14.35, 0, FALSE,"");
+$managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", 5, 2.5, -14.35, 0, $scroll,"");
 //$managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", -7.1, 2.5, 0, -90, $scroll, "");
 
-
-$managementPlane->addPlane("views/htmlPlane/diverseSection.php", "targetDiverse", -5, 2.5, -14.35, 0, FALSE,"");
+$scroll = checkScroll($data['diverse'], 5);
+$managementPlane->addPlane("views/htmlPlane/diverseSection.php", "targetDiverse", -5, 2.5, -14.35, 0, $scroll,"");
 
 
 
