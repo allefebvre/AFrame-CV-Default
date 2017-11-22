@@ -209,7 +209,27 @@ if (!$window2) {
 <!-- End 3rd wall -->
 
 <!-- 4th wall -->
-<a-box src="#wallTexture" mixin="wall" static-body position="0 <?php echo $i; ?> <?php echo -$b; ?>"  scale="0.25 <?php echo $height; ?> <?php echo $f; ?>" rotation="0 90 0"></a-box>
+<!--<a-box src="#wallTexture" mixin="wall" static-body position="0 <?php echo $i; ?> <?php echo -$b; ?>"  scale="0.25 <?php echo $height; ?> <?php echo $f; ?>" rotation="0 90 0"></a-box>-->
+<a-box src="#wallTexture" mixin="wall" static-body position="0 2.5 -14.5" scale="0.25 5 21" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="7.5 7.5 -14.5" scale="0.25 5 6" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-9.4 7.5 -14.5" scale="0.25 5 2.8" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-1.753 5.065 -15.5" scale="0.25 13.228 2" rotation="0 0 90"></a-box>
+<a-box static-body position="4.719 7.554 -15.492" scale="0.25 5 2.022" material="visible:false"></a-box>
+<a-box static-body position="-8.2 7.554 -15.492" scale="0.25 5 2.022" material="visible:false"></a-box>
+<a-box static-body position="-1.775 7.55 -16" scale="0.25 5 13.51" rotation="0 90 0" material="visible:false"></a-box>
+<a-box static-body position="-1.775 10.033 -15.482" scale="0.25 1.726 13.51" rotation="0 90 90" material="visible:false"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-1.753 9.5 -14.5" scale="0.24 13.228 1.045" rotation="90 0 90"></a-box>
+<a-box static-body src="#woodTexture" mixin="wall" position="-1.753 6.5 -16.473" scale="0.07 0.15 13.081" color="#e1a975" rotation="0 90 0"></a-box>
+<a-box static-body src="#woodTexture" mixin="wall" position="4.75 6.5 -15.54" scale="0.07 0.15 1.936" color="#e1a975"></a-box>
+<a-box static-body src="#woodTexture" mixin="wall" position="-8.29 6.5 -15.54" scale="0.07 0.15 1.936" color="#e1a975"></a-box>
+<?php 
+    fence(20, -8, 4.4, -16.473, 5.750, TRUE);
+    fence(2, -16.2, -14.9, 4.75, 5.750);
+    fence(2, -16.2, -14.9, -8.29, 5.750);
+?>
+
+
+
 <?php if ($window2) { ?>
     <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $h; ?> <?php echo $i; ?> <?php echo -$b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
     <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$h; ?> <?php echo $i; ?> <?php echo -$b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>

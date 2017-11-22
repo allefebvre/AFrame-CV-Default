@@ -25,7 +25,7 @@ AFRAME.registerComponent('height-correction', {
                     var posX = el.getAttribute("position").x;
                     if (posX > -10 && posX <= 10) { // we are on the plateforme (in X)
                         var posZ = el.getAttribute("position").z;
-                        if (posZ > -14.5 && posZ < 14.5) { // we are on the plateforme (in Z)
+                        if (posZ > -16 && posZ < 14.5) { // we are on the plateforme (in Z)
                             positioning(el, 2, 6.9);
                         }
                     } else if (posX > 10 && posX < 14.4) { // we are on the plateforme (in X)
