@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Check if a plane need scroll
+ * @param array $data
+ * @param int $nbRows
+ * @return bool
+ */
+function checkScroll(array $data, int $nbRows) : bool {
+    if(count($data) >= $nbRows) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
 
 // Data for the headings
 $data['myInformation'] = ModelInformation::getAllInformation();
@@ -15,25 +28,13 @@ $nbRows = 3;
 // Add plane of headings
 $managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
 
-if (count($data['myEducation']) >= $nbRows) {
-    $scroll = TRUE;
-} else {
-    $scroll = FALSE;
-}
+$scroll = checkScroll($data['myEducation'], $nbRows);
 $managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", -2, 2.5, -5.2, 180, $scroll, "");
 
-if (count($data['myWorkExp']) >= $nbRows) {
-    $scroll = TRUE;
-} else {
-    $scroll = FALSE;
-}
+$scroll = checkScroll($data['myWorkExp'], $nbRows);
 $managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -2, 2.5, 5.2, 0, $scroll, "");
 
-if (count($data['mySkills']) >= $nbRows) {
-    $scroll = TRUE;
-} else {
-    $scroll = FALSE;
-}
+$scroll = checkScroll($data['mySkills'], $nbRows);
 $managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", -7.1, 2.5, 0, -90, $scroll, "");
 
 $managementPlane->addPlane("views/htmlPlane/diverseSection.php", "targetDiverse", -19.3, 2.5, 0, 90, FALSE,"");
