@@ -112,6 +112,11 @@ if (!$window2) {
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
+    
+    <a-asset-item id="desk_obj" src="resources/model3D/desk.obj"></a-asset-item>
+    <a-asset-item id="desk_mtl" src="resources/model3D/desk.mtl"></a-asset-item>
+    
+    
 </a-assets>
 <!-- End loading textures -->
 
@@ -121,6 +126,7 @@ if (!$window2) {
 
 <!-- Floor -->
 <a-box src="#floorTexture" mixin="wall" static-body position="0 -1 0" scale="<?php echo $loftLenght; ?> 2 <?php echo $loftWidth; ?>"></a-box>
+<a-box static-body position="0 -1 0" scale="250 2 250" material="visible:false"></a-box>
 
 <!-- Roof -->
 <a-box src="#roofTexture" mixin="wall" static-body position="0 <?php echo $height + 0.5; ?> 0" scale="<?php echo $loftLenght; ?> 1 <?php echo $loftWidth; ?>"></a-box>
@@ -385,3 +391,14 @@ spot(-10, 4, 0, 90);
 
 ?>
 <!-- End spots -->
+
+<a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
+<a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
+<a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
+<a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
+<a-entity obj-model="obj:#desk_obj;mtl:#desk_mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
+<a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
+
+<a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
+<a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.199 -4.598" scale="0.04 0.04 0.04"></a-entity>
+<a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.67 6.608 -4.598" scale="0.035 0.035 0.035"></a-entity>
