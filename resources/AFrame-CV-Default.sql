@@ -347,3 +347,35 @@ ALTER TABLE `Journal`
 --
 ALTER TABLE `Other`
   ADD PRIMARY KEY (`ID`);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Parameter`
+--
+
+CREATE TABLE `Parameter` (
+  `ID` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Parameter`
+--
+
+INSERT INTO `Parameter` (`ID`, `name`, `value`) VALUES
+(1, 'Plane1', 'TRUE'),
+(2, 'Plane2', 'TRUE'),
+(3, 'Plane3', 'TRUE'),
+(4, 'Plane4', 'TRUE'),
+(5, 'Plane5', 'TRUE'),
+(6, 'Publicatins', 'TRUE');
+
+--
+-- Indexes for table `Parameter`
+--
+ALTER TABLE `Parameter`
+  ADD PRIMARY KEY (`ID`);
+
+-- --------------------------------------------------------
