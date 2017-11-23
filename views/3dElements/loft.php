@@ -403,3 +403,6 @@ spot(-10, 4, 0, 90);
 <a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>
 <a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
 <a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
+<a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
+<a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
+<a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
