@@ -15,8 +15,26 @@
                 <td><input id="plane3" type="checkbox"></td>
                 <td>Plane3</td>
             </tr>
+            <tr>
+                <td><input id="plane4" type="checkbox"></td>
+                <td>Plane4</td>
+            </tr>
+            <tr>
+                <td><input id="plane5" type="checkbox"></td>
+                <td>Plane5</td>
+            </tr>
         </table>
-        <a href="" id="parametersSave">Save</a>
+        <h3>Display publications ?</h3>
+        <p id="pRadioInput">
+            <input type="radio" name="publications" value="yes"> Yes<br>
+            <input type="radio" name="publications" value="no"> No<br>
+        </p>
+        <p>
+            <a id="parametersSave" href="index.php?action=saveParameters">Save</a>
+        </p>
+        <p>
+            <a id="addData" href="insertInDatabase.php">Add Data</a>
+        </p>
     </div>
 </aside>
 

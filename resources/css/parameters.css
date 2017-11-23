@@ -37,7 +37,11 @@
     margin-bottom: 20px;
 }
 
-#parametersSave {
+#pRadioInput {
+    margin-bottom: 50px;
+}
+
+#parametersSave, #addData{
     background-color: #ffffff;
     border: 3px solid #ffffff;
     color: #000000;

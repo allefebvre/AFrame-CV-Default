@@ -10,10 +10,22 @@ class FrontController {
         global $dir,$views;
 	require ($dir.$views['head']);
         $dataError = array();
+        $listAdminAction = array('saveParameters');
         
         try {
-            $ctrl = new VisitorController();
-            //$ctrl = new AdminController();
+            if (isset($_REQUEST['action'])){
+                $action = $_REQUEST['action'];
+            } else {
+                $action = null;
+            }
+            
+            foreach($listAdminAction as $adminAction){
+                if($action === $adminAction){
+                    $ctrl = new AdminController($action);
+                }
+            }
+            //$ctrl = new VisitorController();
+            $ctrl = new AdminController($action);
         } catch (Exception $e) {
             $dataError[] = ['Unexpected error !', $e->getMessage()];
             require($dir.$views['error']);
