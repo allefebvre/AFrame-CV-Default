@@ -12,8 +12,8 @@ class ModelEducation {
 
  	global $base, $login, $password;
 
-        $EducationGW = new EducationGateway(new Connection($base, $login, $password));
-        $results = $EducationGW->getAllEducation(); 
+        $educationGW = new EducationGateway(new Connection($base, $login, $password));
+        $results = $educationGW->getAllEducation(); 
         $data = array();
         foreach ($results as $row){
             $data[] = new Education ($row['ID'], $row['date'], $row['education']);
