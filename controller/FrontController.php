@@ -12,8 +12,8 @@ class FrontController {
         $dataError = array();
         
         try {
-            //$ctrl = new VisitorController();
-            $ctrl = new AdminController();
+            $ctrl = new VisitorController();
+            //$ctrl = new AdminController();
         } catch (Exception $e) {
             $dataError[] = ['Unexpected error !', $e->getMessage()];
             require($dir.$views['error']);
