@@ -33,7 +33,7 @@
             <a id="parametersSave" href="index.php?action=saveParameters">Save</a>
         </p>
         <p>
-            <a id="addData" href="insertInDatabase.php">Add Data</a>
+            <a id="addData" href="views/insertInDatabase.php">Add Data</a>
         </p>
     </div>
 </aside>
