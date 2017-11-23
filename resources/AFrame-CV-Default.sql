@@ -370,7 +370,7 @@ INSERT INTO `Parameter` (`ID`, `name`, `value`) VALUES
 (3, 'Plane3', 'TRUE'),
 (4, 'Plane4', 'TRUE'),
 (5, 'Plane5', 'TRUE'),
-(6, 'Publicatins', 'TRUE');
+(6, 'Publications', 'TRUE');
 
 --
 -- Indexes for table `Parameter`
