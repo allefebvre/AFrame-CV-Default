@@ -1,0 +1,50 @@
+.aframe {
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+    height: 100%;
+}
+
+.parameters {
+    width: 20%;
+    background: #ef2d5e;
+    height: 100%;
+    display: inline-block;
+}
+
+#parametersContent {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#parametersContent h1 {
+    font-family: Open Sans;
+    font-size: 36px;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+#parametersContent h3 {
+	font-family: Open Sans;
+	font-size: 28px;
+	color: #ffffff;
+}
+
+#parametersContent table {
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#parametersSave {
+    background-color: #ffffff;
+    border: 3px solid #ffffff;
+    color: #000000;
+    font-family: Open Sans;
+    font-size: 15px;
+    padding: 8px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}

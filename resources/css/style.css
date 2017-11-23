@@ -14,13 +14,13 @@
 }
 
 .hide {
-	width: 800px; 
-	height: 450px;
-	overflow: hidden;
-	position: fixed;
-	z-index: -1;
-	top: 0;
-	left: 0;
-        background-color: #ffffff;
+    width: 800px; 
+    height: 450px;
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
 }
 

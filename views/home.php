@@ -5,7 +5,7 @@ require $dir . $views['displayPlane'];
 
 <!-- Display loading ... -->
 <div class="loading">
-    loading ...<br>
+    Loading ...<br>
     <!--<img style="height: 50px; width: 50px" src="resources/images/loading.gif" alt="loading ..."/>-->
 </div>
 
