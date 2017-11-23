@@ -12,6 +12,8 @@
     $views['foot'] = "views/foot.html";
     $views['error'] = "views/error.php";
     $views['home'] = "views/home.php";
+    $views['homeAdmin'] = "views/homeAdmin.php";
+    $views['parameters'] = "views/parameters.php";
     $views['loft'] = "views/3dElements/loft.php";
     $views['door'] = "views/3dElements/doors.html";
     $views['publication'] = "views/3dElements/publication.html";

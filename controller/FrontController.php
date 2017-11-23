@@ -10,8 +10,10 @@ class FrontController {
         global $dir,$views;
 	require ($dir.$views['head']);
         $dataError = array();
+        
         try {
-            $ctrl = new VisitorController();
+            //$ctrl = new VisitorController();
+            $ctrl = new AdminController();
         } catch (Exception $e) {
             $dataError[] = ['Unexpected error !', $e->getMessage()];
             require($dir.$views['error']);
@@ -19,6 +21,7 @@ class FrontController {
             $dataError[] = ["Database error !", $e2->getMessage()];
             require ($dir.$views['error']);
         }
+        
 	require ($dir.$views['foot']);
     }
 }
