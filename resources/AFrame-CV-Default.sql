@@ -357,14 +357,14 @@ ALTER TABLE `Other`
 CREATE TABLE `Parameter` (
   `ID` int(11) NOT NULL,
   `name` text NOT NULL,
-  `value` text NOT NULL
+  `display` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Parameter`
 --
 
-INSERT INTO `Parameter` (`ID`, `name`, `value`) VALUES
+INSERT INTO `Parameter` (`ID`, `name`, `display`) VALUES
 (1, 'Plane1', 'TRUE'),
 (2, 'Plane2', 'TRUE'),
 (3, 'Plane3', 'TRUE'),

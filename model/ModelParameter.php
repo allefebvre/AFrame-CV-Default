@@ -16,7 +16,7 @@ class ModelParameter {
         $results = $parameterGW->getAllParameter(); 
         $data = array();
         foreach ($results as $row){
-            $data[] = new Parameter ($row['ID'], $row['name'], $row['value']);
+            $data[] = new Parameter ($row['ID'], $row['name'], $row['display']);
         }
         return $data;
     }
