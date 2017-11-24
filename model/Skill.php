@@ -24,7 +24,15 @@ class Skill {
     function getDetails() :string {
         return $this->details;
     }
-    
+    function toString(): string {
+        $theId = $this->getId();
+        $theCategory = $this->getCategory();
+        $theDetails = $this->getDetails();
+        $toReturn = "<td>$theId</td>"
+                . "<td>$theCategory</td>"
+                . "<td>$theDetails</td>";
+        return $toReturn;
+    }
 }
 ?>
 

@@ -25,6 +25,14 @@ class Education{
         return $this->education;
     }
     
+    function toString(): string {
+        $theId = $this->getId();
+        $theDate = $this->getDate();
+        $theEducation = $this->getEducation();
+        $toReturn = "<td>$theId</td><td>$theDate</td><td>$theEducation</td>";
+        return $toReturn;
+    }
+    
 }
 ?>
 

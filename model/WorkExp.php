@@ -24,7 +24,16 @@ class WorkExp {
     function getWorkExp() :string {
         return $this->workExp;
     }
-    
+    function toString(): string {
+        $theId = $this->getId();
+        $theDate = $this->getDate();
+        $theWorkExp = $this->getWorkExp();
+        
+        $toReturn = "<td>$theId</td>"
+                . "<td>$theDate</td>"
+                . "<td>$theWorkExp</td>";
+        return $toReturn;
+    }
 }
 ?>
 

@@ -60,6 +60,27 @@ class Information{
     function getMail() :string {
         return $this->mail;
     }
-    
+    function toString(): string {
+        $theId = $this->getId();
+        $theStatus = $this->getStatus();
+        $theName = $this->getName();
+        $getFirstName = $this->getFirstName();
+        $thePhoto = $this->getPhoto();
+        $theAge = $this->getAge();
+        $theAddress = $this->getAddress();
+        $thePhone = $this->getPhone();
+        $theMais = $this->getMail();
+        $toReturn = "<td>$theId</td>"
+                . "<td>$theStatus</td>"
+                . "<td>$theName</td>"
+                . "<td>$getFirstName</td>"
+                . "<td>$thePhoto</td>"
+                . "<td>$theAge</td>"
+                . "<td>$theAddress</td>"
+                . "<td>$thePhone</td>"
+                . "<td>$theMais</td>";
+                
+        return $toReturn;
+        }
 }
 ?>
