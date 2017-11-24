@@ -30,7 +30,7 @@ $parameters = ModelParameter::getAllParameter();
 foreach($parameters as $parameter) {
     // Add plane of headings
     
-    if($parameter->getName() === "Plane1" && $parameter->getDislay() === "TRUE") {
+    if($parameter->getName() === "Plane1" && $parameter->getDisplay() === "TRUE") {
         $managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", -19.3, 3.5, 0, 90, FALSE,"", 1.6);
         //$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
     }
