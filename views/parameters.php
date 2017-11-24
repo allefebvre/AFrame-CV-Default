@@ -29,10 +29,10 @@
             <input type="radio" name="publications" value="yes"> Yes<br>
             <input type="radio" name="publications" value="no"> No<br>
         </p>
-        <p>
+        <p class="button-parameter">
             <a id="parametersSave" href="index.php?action=saveParameters">Save</a>
         </p>
-        <p>
+        <p class="button-parameter">
             <a id="addData" href="views/insertInDatabase.php">Add Data</a>
         </p>
     </div>

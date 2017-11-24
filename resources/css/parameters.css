@@ -24,6 +24,7 @@
     margin: 0px;
     padding:0px;
     box-sizing: border-box;
+    overflow-y: auto;
 }
 
 #parametersContent {
@@ -62,4 +63,8 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.button-parameter {
+    margin: 40px;
 }
