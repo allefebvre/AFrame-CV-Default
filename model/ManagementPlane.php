@@ -15,6 +15,7 @@ class ManagementPlane {
      * @param int $rotation rotation
      * @param bool $scroll enable scroll
      * @param string $action
+     * @param float $scale
      */
     public function addPlane(string $pathHTML, string $targetId, float $posX, float $posY, float $posZ, int $rotation, bool $scroll, string $action, float $scale = 1) {
         $this->listPLane[] = new Plane($pathHTML, $targetId, $posX, $posY, $posZ, $rotation, $scroll, $action, $scale);

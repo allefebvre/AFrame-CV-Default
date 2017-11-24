@@ -2,36 +2,45 @@
     <div id="parametersContent">
         <h1>Parameters</h1>
         <h3>Display plane :</h3>
-        <table>
-            <tr>
-                <td><input id="plane1" type="checkbox"></td>
-                <td>Plane1</td>
-            </tr>
-            <tr>
-                <td><input id="plane2" type="checkbox"></td>
-                <td>Plane2</td>
-            </tr>
-            <tr>
-                <td><input id="plane3" type="checkbox"></td>
-                <td>Plane3</td>
-            </tr>
-            <tr>
-                <td><input id="plane4" type="checkbox"></td>
-                <td>Plane4</td>
-            </tr>
-            <tr>
-                <td><input id="plane5" type="checkbox"></td>
-                <td>Plane5</td>
-            </tr>
-        </table>
-        <h3>Display publications ?</h3>
-        <p id="pRadioInput">
-            <input type="radio" name="publications" value="yes"> Yes<br>
-            <input type="radio" name="publications" value="no"> No<br>
-        </p>
-        <p class="button-parameter">
-            <a id="parametersSave" href="index.php?action=saveParameters">Save</a>
-        </p>
+        <?php
+        $parameters = ModelParameter::getAllParameter();
+        ?>
+        <form method="post">
+            <table>
+                <?php
+                foreach($parameters as $parameter) {
+                    if($parameter->getName() === "Publications") { continue; }
+                    $id = $parameter->getId();
+                    $name = $parameter->getName();
+                    echo "<tr>";
+                    if($parameter->getDisplay() === "TRUE") {
+                        echo "<td><input name=\"planes[]\" type=\"checkbox\" value=\"$id\" checked></td>";
+                    } else {
+                        echo "<td><input name=\"planes[]\" type=\"checkbox\" value=\"$id\"></td>";
+                    }
+                    echo "<td>$name</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+            <h3>Display publications ?</h3>
+            <p id="pRadioInput">
+                <?php
+                $parameterPublication = ModelParameter::getParameterPublications();
+                if($parameterPublication->getDisplay() === "TRUE") {
+                    echo "<input type=\"radio\" name=\"publications\" value=\"yes\" checked> Yes<br>";
+                    echo "<input type=\"radio\" name=\"publications\" value=\"no\"> No<br>";
+                } else {
+                    echo "<input type=\"radio\" name=\"publications\" value=\"yes\"> Yes<br>";
+                    echo "<input type=\"radio\" name=\"publications\" value=\"no\" checked> No<br>";
+                }
+                ?>    
+            </p>
+            <p class="button-parameter">
+                <input id="parametersSave" type="submit" value="Save">
+            </p>
+            <input type="hidden" name="action" value="saveParameters">
+        </form>
         <p class="button-parameter">
             <a id="addData" href="views/insertInDatabase.php">Add Data</a>
         </p>

@@ -9,7 +9,6 @@ class ModelParameter {
      * @return array
      */
     public static function getAllParameter() :array {
-
  	global $base, $login, $password;
 
         $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
@@ -18,7 +17,40 @@ class ModelParameter {
         foreach ($results as $row){
             $data[] = new Parameter ($row['ID'], $row['name'], $row['display']);
         }
+        
         return $data;
+    }
+    
+    /**
+     * Update a Parameter display column
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id id of parameter to update
+     * @param string $display
+     */
+    public static function updateParameterDisplay(int $id, string $display) {
+        global $base, $login, $password;
+
+        $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
+        $parameterGW->updateParameterDisplay($id, $display);
+    }
+    
+    /**
+     * Get the Parameter with the name "Publications"
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @return Parameter
+     */
+    public static function getParameterPublications() :Parameter{
+        global $base, $login, $password;
+        
+        $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
+        $result = $parameterGW->getParameterPublications();
+        $parameter = new Parameter($result[0]['ID'], $result[0]['name'], $result[0]['display']);
+        
+        return $parameter;
     }
 }
 ?>  
