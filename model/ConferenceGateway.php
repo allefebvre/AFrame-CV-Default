@@ -16,5 +16,18 @@ class ConferenceGateway {
         $this->connection->executeQuery($query);
         return $this->connection->getResults();
     }
+    
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getOneConference(int $id) :array {
+        $query='SELECT * FROM Conference WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+        return $this->connection->getResults();
+    }
 }
 ?>

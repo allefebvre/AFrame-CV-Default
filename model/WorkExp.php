@@ -25,13 +25,18 @@ class WorkExp {
         return $this->workExp;
     }
     function toString(): string {
-        $theId = $this->getId();
-        $theDate = $this->getDate();
-        $theWorkExp = $this->getWorkExp();
-        
-        $toReturn = "<td>$theId</td>"
-                . "<td>$theDate</td>"
-                . "<td>$theWorkExp</td>";
+        $toReturn = "<td>$this->id</td>"
+                . "<td>$this->date</td>"
+                . "<td>$this->workExp</td>";
+        return $toReturn;
+    }
+    
+    function toStringUpdate(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"txtBlason\" value=" . $this->date . " type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Work Experience :</td><td><input name=\"txtBlason\" value=" . $this->workExp . " type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
         return $toReturn;
     }
 }

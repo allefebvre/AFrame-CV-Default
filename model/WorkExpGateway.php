@@ -16,6 +16,19 @@ class WorkExpGateway {
         $this->connection->executeQuery($query);
         return $this->connection->getResults();
     }
+    
+    /**
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function getOneWorkExp(int $id) :array {
+        $query='SELECT * FROM WorkExp WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+        return $this->connection->getResults();
+    }
 }
 ?>
 

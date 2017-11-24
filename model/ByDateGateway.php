@@ -28,6 +28,6 @@ class ByDateGateway {
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
-    }
+    }    
 }
 ?>

@@ -20,6 +20,25 @@ class ModelSkill {
         }
         return $data;
     }
+    
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @return Conference
+     */
+    public static function getOneSkill(int $id) : Skill {
+
+ 	global $base, $login, $password;
+
+        $skillGW = new SkillGateway(new Connection($base, $login, $password));
+        $row = $skillGW->getOneSkill($id);
+        $data = new Skill ($row[0]['ID'], $row[0]['category'], $row[0]['details']);
+        
+        return $data;
+    }
 }
 ?>  
 

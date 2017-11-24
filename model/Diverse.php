@@ -21,9 +21,15 @@ class Diverse {
     }
 
     function toString(): string {
-        $theId = $this->getId();
-        $theDiverse = $this->getDiverse();
-        $toReturn = "<td>$theId</td><td>$theDiverse</td>";
+        $toReturn = "<td>$this->id</td><td>$this->diverse</td>";
+        return $toReturn;
+    }
+    
+    function toStringUpdate(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Diverse :</td><td><input name=\"txtBlason\" value=".$this->diverse." type=\"text\" size=\"10\"></td><tr>"
+                . "</table>";
         return $toReturn;
     }
 
