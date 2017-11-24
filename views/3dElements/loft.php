@@ -330,7 +330,14 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 <a-box mixin="wall" src="#wallTexture" static-body position="10 2.4 0" scale="0.1 5 8"></a-box>
 
 <a-box mixin="wall" src="#wallTexture" static-body position="16.5 5 -8" scale="0.1 10.3 1.7"></a-box>
-<a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane>
+
+<?php
+$parameterPublication = ModelParameter::getParameterPublications();
+if($parameterPublication->getDisplay() === "TRUE") {
+    echo "<a-plane src=\"#panneau\" scale=\"1.5 1.5 1\" position=\"16.4 2 -8\" rotation=\"0 -90 0\"></a-plane>";
+}
+?>
+
 
 <!-- End interior walls -->
 
