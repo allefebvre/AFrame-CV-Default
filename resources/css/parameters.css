@@ -25,46 +25,120 @@
     padding:0px;
     box-sizing: border-box;
     overflow-y: auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#parametersContent {
+.parameters h1 {
+    font-weight: 600;
+    font-size: 24px;
     text-align: center;
+    padding: 10px 0px 10px 0px;
+    background : #10d2a2;
+    margin: 5px;
 }
 
-#parametersContent h1 {
-    font-family: Open Sans;
-    font-size: 36px;
-    color: #ffffff;
-    border-bottom: 1px solid #ffffff;
+.parameters h3 {
+    background-color: #de1c4d;
+    padding: 5px;
 }
 
-#parametersContent h3 {
-	font-family: Open Sans;
-	font-size: 28px;
-	color: #ffffff;
+.listParam input {
+    display : none;
+    position: absolute;
 }
 
-#parametersContent table {
-    margin: auto;
-    margin-bottom: 20px;
+.listParam label {
+    margin-left: -40px;
+    padding: 5px 5px 5px 40px;
 }
 
-#pRadioInput {
-    margin-bottom: 50px;
+.radioButton, .checkButton{
+    width: 15px;
+    height: 15px; 
+    border: #10d2a2 solid 5px;
 }
 
-#parametersSave, #addData{
-    background-color: #ffffff;
-    border: 3px solid #ffffff;
-    color: #000000;
-    font-family: Open Sans;
-    font-size: 15px;
-    padding: 8px 30px;
-    text-align: center;
-    text-transform: uppercase;
+.listParam input:hover ~ .radioButton, .listParam input:hover ~ .checkButton { 
+    border: #00c1b1 solid 5px;
+}
+
+.listParam input:active ~ .radioButton, .listParam input:active ~ .checkButton { 
+    border: #00b0a0 solid 5px;
+}
+
+.listParam input[type=radio]:checked ~ .inside{
+    border: #00b0a0 solid 5px;
+    background-color: #00b0a0;
+}
+
+.listParam input[type=checkbox]:checked ~ .inside{
+    border: #00b0a0 solid 5px;
+    background-color: #00b0a0;
+}
+
+.radioButton {
+    border-radius: 100%;
+}
+
+.listParam li div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.listParam li .checkButton, .listParam li .radioButton{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.inside{
+    width:1px;
+    height:1px;
+    position:relative;
+}
+
+.radioButton ~ .inside {
+    border-radius: 100%;
+    margin: 0px 13px 0px -23px;
+    border: #ef2d5e solid 5px;
+    background-color: #ef2d5e;
+}
+
+.checkButton ~ .inside {
+    margin: 0px 13px 0px -23px;
+    border: #ef2d5e solid 5px;
+    background-color: #ef2d5e;
+}
+
+.listParam li {
+    padding: 3px;
+}
+
+.parameters ul {
+    list-style: none;
+}
+
+.parameters a {
+    color: black;
     text-decoration: none;
+    padding : 3px;
+    background: #10d2a2;
+    margin: 5px;
 }
 
-.button-parameter {
-    margin: 40px;
+.parameters a:hover {
+    background: #00c1b1;
+}
+
+.parameters a:active {
+    background: #00b0a0;
+}
+
+.links {
+    display: block;
+    text-align: center;
+    margin: 50px auto 5px auto;
+    position: relative;
 }
