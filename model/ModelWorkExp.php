@@ -20,6 +20,24 @@ class ModelWorkExp {
         }
         return $data;
     }
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @return Conference
+     */
+    public static function getOneWorkExo(int $id) : WorkExp {
+
+ 	global $base, $login, $password;
+
+        $WorkExpGW = new WorkExpGateway(new Connection($base, $login, $password));
+        $row = $WorkExpGW->getOneWorkExp($id);
+        $data = new WorkExp ($row[0]['ID'], $row[0]['date'], $row[0]['workExp']);
+        
+        return $data;
+    }
 }
 ?>  
 

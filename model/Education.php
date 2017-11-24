@@ -25,6 +25,20 @@ class Education{
         return $this->education;
     }
     
+    function toString(): string {
+        $toReturn = "<td>$this->id</td><td>$this->date</td><td>$this->education</td>";
+        return $toReturn;
+    }
+    
+     function toStringUpdate(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"txtBlason\" value=".$this->date." type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Education :</td><td><input name=\"txtBlason\" value=".$this->education."type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+     }
+    
 }
 ?>
 

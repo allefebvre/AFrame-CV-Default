@@ -22,9 +22,11 @@ $data['tables'] = ModelTables::getAllTables();
                     <?php
                     foreach ($data['tables'] as $table) {
                         $div = $table[0];
-                        echo "<tr>
-                        <td><a href=\"\">$div</a></td> 
+                        if ($div !== "ByDate") {
+                            echo "<tr>
+                        <td><a href=\"defaultTable.php?table=$div\">$div</a></td> 
                          </tr>";
+                        }
                     }
                     ?>
                 </table>

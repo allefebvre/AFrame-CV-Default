@@ -20,6 +20,26 @@ class ModelEducation {
         }
         return $data;
     }
+    
+    
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @return Conference
+     */
+    public static function getOneEducation(int $id) : Education {
+
+ 	global $base, $login, $password;
+
+        $educationGW = new EducationGateway(new Connection($base, $login, $password));
+        $row = $educationGW->getOneEducation($id);
+        $data = new Education ($row[0]['ID'], $row[0]['date'], $row[0]['education']);
+        
+        return $data;
+    }
 }
 ?>  
 

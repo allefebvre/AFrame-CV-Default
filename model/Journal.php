@@ -121,5 +121,53 @@ class Journal{
         return $this->categorie_id;
     }
     
+    function toString(): string {
+        $toReturn = "<td>$this->id</td>"
+                . "<td>$this->reference</td>"
+                . "<td>$this->authors</td>"
+                . "<td>$this->title</td>"
+                . "<td>$this->date</td>"
+                . "<td>$this->journal$</td>"
+                . "<td>$this->volume</td>"
+                . "<td>$this->number</td>"
+                . "<td>$this->pages</td>"
+                . "<td>$this->note</td>"
+                . "<td>$this->abstract</td>"
+                . "<td>$this->keywords</td>"
+                . "<td>$this->series</td>"
+                . "<td>$this->localite</td>"
+                . "<td>$this->publisher</td>"
+                . "<td>$this->editor</td>"
+                . "<td>$this->pdf</td>"
+                . "<td>$this->date_display</td>"
+                . "<td>$this->categorie_id</td>";
+        return $toReturn;
+    }
+    
+    function toStringUpdate(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Reference :</td><td><input name=\"txtBlason\" value=".$this->reference." type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Authors :</td><td><input name=\"txtBlason\" value=".$this->authors." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Title :</td><td><input name=\"txtBlason\" value=".$this->title." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"txtBlason\" value=".$this->date." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Journal :</td><td><input name=\"txtBlason\" value=".$this->journal." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Valume :</td><td><input name=\"txtBlason\" value=".$this->volume." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Number :</td><td><input name=\"txtBlason\" value=".$this->number." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Pages :</td><td><input name=\"txtBlason\" value=".$this->pages." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Note :</td><td><textarea name=\"txtBiographie\" rows=\"5\" cols=\"100\">" .$this->note."</textarea>"
+                . "<tr><td>Abstract :</td><td><textarea name=\"txtBiographie\" rows=\"5\" cols=\"100\">" .$this->abstract."</textarea>"
+                . "<tr><td>Keyword :</td><td><input name=\"txtBlason\" value=".$this->keywords." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Series :</td><td><input name=\"txtBlason\" value=".$this->series." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Localite :</td><td><input name=\"txtBlason\" value=".$this->localite." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Publisher :</td><td><input name=\"txtBlason\" value=".$this->publisher." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Editor :</td><td><input name=\"txtBlason\" value=".$this->editor." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Pdf :</td><td><input name=\"txtBlason\" value=".$this->pdf." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Date display :</td><td><input name=\"txtBlason\" value=".$this->date_display." type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Categorie id :</td><td><input name=\"txtBlason\" value=".$this->categorie_id." type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+    }
+    
 }
 ?>

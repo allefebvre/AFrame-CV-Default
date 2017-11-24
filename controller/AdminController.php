@@ -46,8 +46,29 @@ class AdminController {
      * @global string $dir
      * @global array $views
      */
-    public function saveParameters() {
+    public function saveParameters() {  
         global $dir,$views;
+        
+        $parameters = ModelParameter::getAllParameter();
+        foreach($parameters as $parameter) {
+            if($parameter->getName() === "Publications") {
+                if($_POST['publications'] === "yes") {
+                    ModelParameter::updateParameterDisplay($parameter->getId(), "TRUE");
+                } else {
+                    ModelParameter::updateParameterDisplay($parameter->getId(), "FALSE");
+                }
+                continue;
+            }
+            
+            $display = "FALSE";
+            foreach($_POST['planes'] as $plane) {
+                if ($plane == $parameter->getId()) {
+                    $display = "TRUE"; 
+                    break;
+                }
+            }
+            ModelParameter::updateParameterDisplay($parameter->getId(), $display);
+        }
         require ($dir.$views['homeAdmin']);
     }
 }
