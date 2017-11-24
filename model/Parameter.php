@@ -4,12 +4,12 @@ class Parameter{
     
     private $id;
     private $name;
-    private $value;
+    private $display;
     
-    function __construct(int $id, string $name, bool $value) {
+    function __construct(int $id, string $name, string $display) {
         $this->id = $id;
         $this->name = $name;
-        $this->value = $value;
+        $this->display = $display;
     }
 
     /* --- Getters --- */
@@ -21,8 +21,8 @@ class Parameter{
         return $this->name;
     }
 
-    function getValue() :bool {
-        return $this->value;
+    function getDisplay() :string {
+        return $this->display;
     }
     
 }
