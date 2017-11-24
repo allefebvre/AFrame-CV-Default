@@ -11,7 +11,7 @@ class FrontController {
 	require ($dir.$views['head']);
         $dataError = array();
         $listAdminAction = array('saveParameters');
-        
+
         try {
             if (isset($_REQUEST['action'])){
                 $action = $_REQUEST['action'];
@@ -19,13 +19,18 @@ class FrontController {
                 $action = null;
             }
             
+            $admin_call = FALSE;
+            
             if($admin){
                 foreach($listAdminAction as $adminAction){
                     if($action === $adminAction){
                         $ctrl = new AdminController($action);
+                        $admin_call = TRUE;
                     }
                 }
-                $ctrl = new AdminController($action);
+                if(!$admin_call){
+                    $ctrl = new AdminController($action);
+                }
             } else {
                 $ctrl = new VisitorController();
             }

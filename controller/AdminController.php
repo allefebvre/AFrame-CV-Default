@@ -10,7 +10,7 @@ class AdminController {
     public function __construct($action) {
         global $dir, $views;
         $dataError = array ();
-
+        
         try{
             switch($action) {
                 case null:
@@ -38,7 +38,7 @@ class AdminController {
      */
     public function displayParametersAnd3DEnvironment() {
         global $dir,$views;
-        require ($dir.$views['homeAdmin']);
+        require_once ($dir.$views['homeAdmin']);
     }
     
     /**
@@ -69,7 +69,8 @@ class AdminController {
             }
             ModelParameter::updateParameterDisplay($parameter->getId(), $display);
         }
-        require ($dir.$views['homeAdmin']);
+        
+        $this->displayParametersAnd3DEnvironment();
     }
 }
 ?>
