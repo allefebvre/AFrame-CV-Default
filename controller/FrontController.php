@@ -6,7 +6,7 @@ class FrontController {
      * @global string $dir
      * @global array $views
      */
-    public function __construct() {
+    public function __construct(bool $admin = FALSE) {
         global $dir,$views;
 	require ($dir.$views['head']);
         $dataError = array();
@@ -19,13 +19,17 @@ class FrontController {
                 $action = null;
             }
             
-            foreach($listAdminAction as $adminAction){
-                if($action === $adminAction){
-                    $ctrl = new AdminController($action);
+            if($admin){
+                foreach($listAdminAction as $adminAction){
+                    if($action === $adminAction){
+                        $ctrl = new AdminController($action);
+                    }
                 }
+                $ctrl = new AdminController($action);
+            } else {
+                $ctrl = new VisitorController();
             }
-            //$ctrl = new VisitorController();
-            $ctrl = new AdminController($action);
+            
         } catch (Exception $e) {
             $dataError[] = ['Unexpected error !', $e->getMessage()];
             require($dir.$views['error']);

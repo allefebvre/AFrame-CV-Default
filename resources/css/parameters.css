@@ -1,22 +1,33 @@
 .aframe {
     float: right;
-    display: inline-block;
+    display: block;
     vertical-align: top;
     width: 80%;
     height: 100%;
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    border: 0px;
+    margin: 0px;
+    padding : 0px;
+    box-sizing: border-box;
 }
 
 .parameters {
     width: 20%;
     background: #ef2d5e;
     height: 100%;
-    display: inline-block;
+    display: block;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
 }
 
 #parametersContent {
     text-align: center;
-    width: 100%;
-    height: 100%;
 }
 
 #parametersContent h1 {
