@@ -18,14 +18,16 @@ class ParameterGateway {
     }
     
     /**
-     * Update a Parameter display column
+     * Update a Parameter
      * @param int $id
      * @param string $display
+     * @param string $section
      */
-    public function updateParameterDisplay(int $id, string $display) {
-        $query = 'UPDATE Parameter SET display=:display WHERE ID=:id;';
+    public function updateParameterDisplay(int $id, string $display, string $section = NULL) {
+        $query = 'UPDATE Parameter SET display=:display, section=:section WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':display' => array($display, PDO::PARAM_STR),
+            ':section' => array($section, PDO::PARAM_STR),
             ':id' => array ($id, PDO::PARAM_INT)
         ));
     }

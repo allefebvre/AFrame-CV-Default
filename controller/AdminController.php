@@ -53,9 +53,9 @@ class AdminController {
         foreach($parameters as $parameter) {
             if($parameter->getName() === "Publications") {
                 if($_POST['publications'] === "yes") {
-                    ModelParameter::updateParameterDisplay($parameter->getId(), "TRUE");
+                    ModelParameter::updateParameterDisplay($parameter->getId(), "TRUE", NULL);
                 } else {
-                    ModelParameter::updateParameterDisplay($parameter->getId(), "FALSE");
+                    ModelParameter::updateParameterDisplay($parameter->getId(), "FALSE", NULL);
                 }
                 continue;
             }
@@ -67,9 +67,9 @@ class AdminController {
                     break;
                 }
             }
-            ModelParameter::updateParameterDisplay($parameter->getId(), $display);
+            $section = $_POST['section'.$parameter->getName()];
+            ModelParameter::updateParameterDisplay($parameter->getId(), $display, $section);
         }
-        
         $this->displayParametersAnd3DEnvironment();
     }
 }

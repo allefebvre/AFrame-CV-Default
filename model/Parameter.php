@@ -5,11 +5,13 @@ class Parameter{
     private $id;
     private $name;
     private $display;
+    private $section;
     
-    function __construct(int $id, string $name, string $display) {
+    function __construct(int $id, string $name, string $display, string $section = NULL) {
         $this->id = $id;
         $this->name = $name;
         $this->display = $display;
+        $this->section = $section;
     }
 
     /* --- Getters --- */
@@ -25,5 +27,8 @@ class Parameter{
         return $this->display;
     }
     
+    function getSection() {
+        return $this->section;
+    } 
 }
 ?>

@@ -14,6 +14,31 @@ function checkScroll(array $data, int $nbRows) : bool {
     }
 }
 
+/**
+ * Get the path of the file HTML and the target id of the div to display
+ * @param string $section
+ * @return array
+ */
+function getSectionToDisplay(string $section) :array{
+    switch($section) {
+        case "Informations" :
+            return ["views/htmlPlane/infoSection.php", "targetInformation"];
+            break;
+        case "Education" :
+            return ["views/htmlPlane/educationSection.php", "targetEducation"];
+            break;
+        case "Work Experience":
+            return ["views/htmlPlane/workExpSection.php", "targetWorkPro"];
+            break;
+        case "Skills":
+            return ["views/htmlPlane/skillSection.php", "targetSkill"];
+            break;
+        case "Diverse":
+            return ["views/htmlPlane/diverseSection.php", "targetDiverse"];
+            break;
+    }
+}
+
 // Data for the headings
 $data['myInformation'] = ModelInformation::getAllInformation();
 $data['myEducation'] = ModelEducation::getAllEducation();
@@ -28,29 +53,31 @@ $parameters = ModelParameter::getAllParameter();
 
 // Add plane of headings
 foreach($parameters as $parameter) {      
-    if($parameter->getDisplay() === "FALSE") {
+    if($parameter->getDisplay() === "FALSE" || $parameter->getName() === "Publications") {
         continue;
     }
     
+    $sectionDisplay = getSectionToDisplay($parameter->getSection());
+    
     switch($parameter->getName()) {
         case "Plane1" :
-            $managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", -19.3, 3.5, 0, 90, FALSE, "", 1.6);
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -19.3, 3.5, 0, 90, FALSE, "", 1.6);
             break;
         case "Plane2" : 
             $scroll = checkScroll($data['myEducation'], $nbRows);
-            $managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", 5, 2.5, 14.35, 180, $scroll, "");    
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], 5, 2.5, 14.35, 180, $scroll, "");    
             break;
         case "Plane3" :
             $scroll = checkScroll($data['myWorkExp'], $nbRows);
-            $managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -5, 2.5, 14.35, 180, $scroll, ""); 
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -5, 2.5, 14.35, 180, $scroll, ""); 
             break;
         case "Plane4" :
             $scroll = checkScroll($data['mySkills'], $nbRows);
-            $managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", 5, 2.5, -14.35, 0, $scroll, "");
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], 5, 2.5, -14.35, 0, $scroll, "");
             break;
         case "Plane5" :
             $scroll = checkScroll($data['diverse'], 5);
-            $managementPlane->addPlane("views/htmlPlane/diverseSection.php", "targetDiverse", -5, 2.5, -14.35, 0, $scroll, "");
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -5, 2.5, -14.35, 0, $scroll, "");
             break;
     }     
 }
