@@ -10,7 +10,9 @@ AFRAME.registerComponent('height-correction', {
     init: function () {
         positioning = function (el, it, correction) {
             if (el.getAttribute("position").y < correction) //we verify if the correction is necessary
+                var oldY = el.getAttribute("position").y;
                 el.setAttribute("position", {x: el.getAttribute("position").x, y: correction, z: el.getAttribute("position").z});
+                console.log("height-correction camera : [old-y = " + oldY + " newY = " + correction + "]");
             if (it > 1)
                 setTimeout(positioning, 100, el, it - 1, correction);
         };
