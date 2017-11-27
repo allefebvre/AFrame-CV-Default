@@ -48,6 +48,7 @@ if ($rotationY == NULL || $rotationY == false) {
 <a-entity camera="userHeight: 1.6"
           persistence-position
           height-correction
+          border-position
           jump-ability
           universal-controls
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
