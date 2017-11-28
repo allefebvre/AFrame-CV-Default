@@ -10,8 +10,7 @@ class FrontController {
         global $dir,$views;
 	require ($dir.$views['head']);
         $dataError = array();
-        $listAdminAction = array('saveParameters');
-
+        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp' );        
         try {
             if (isset($_REQUEST['action'])){
                 $action = $_REQUEST['action'];

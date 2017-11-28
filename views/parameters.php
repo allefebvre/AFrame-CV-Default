@@ -86,7 +86,7 @@
             </div>
         </form>
         <div style="text-align: center">
-            <a id="addData" href="views/insertInDatabase.php"><button class="link">Add Data</button></a>
+            <a id="addData" href="admin.php?action=showData"><button class="link">Add Data</button></a>
         </div>
         
     </div>

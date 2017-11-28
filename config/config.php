@@ -18,4 +18,7 @@
     $views['door'] = "views/3dElements/doors.html";
     $views['publication'] = "views/3dElements/publication.html";
     $views['displayPlane'] = "views/displayPlane.php";
+    $views['insertInDB'] = "views/insertInDatabase.php";
+    $views['defaultTable'] = "views/defaultTable.php";
+    $views['updateDefaultData'] = "views/updateDefaultData.php";
 ?>
