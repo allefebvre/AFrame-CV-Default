@@ -128,7 +128,7 @@ class Conference {
                 . "<td>$this->authors</td>"
                 . "<td>$this->title</td>"
                 . "<td>$this->date</td>"
-                . "<td>$this->journal$</td>"
+                . "<td>$this->journal</td>"
                 . "<td>$this->volume</td>"
                 . "<td>$this->number</td>"
                 . "<td>$this->pages</td>"

@@ -57,6 +57,6 @@ switch ($tableName) {
             }
             ?>
         </table>
-        <div class="link"><a id="parametersSave" href="admin.php?action=saveParameters"><div>Save</div></a></div>
+        <div class="link"><a id="parametersSave" href="admin.php?action="><div>Insert</div></a></div>
     </form>
 </div>
