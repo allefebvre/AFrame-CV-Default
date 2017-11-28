@@ -51,12 +51,12 @@ switch ($tableName) {
             foreach ($data['dateTable'] as $table) {
                 $id = $table->getId();
                 echo "<tr class=\"contentTable\">";
-                echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\"><button>Edit</button></a></td><td><a href=\"\"><button>Delete</button></a></td>";
+                echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\"><div class=\"button\">Edit</div></a></td><td><a href=\"\"><div class=\"button\">Delete</div></a></td>";
                 echo $table->toString();
                 echo "</tr>";
             }
             ?>
         </table>
-        <div class="link"><a id="parametersSave" href="admin.php?action=saveParameters"><div>Save</div></a></div>
+        <div class="link"><a id="parametersSave" href="admin.php?action=saveParameters"><div class="link-div">Save</div></a></div>
     </form>
 </div>

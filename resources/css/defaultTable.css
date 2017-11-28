@@ -55,7 +55,7 @@
     color : #111111;
 }
 
-.defaultTable a div {
+.defaultTable a .link-div {
     border: #111111 solid 1px;
     background: #10d2a2;
     width: 200px;
@@ -71,11 +71,12 @@
     background: #00b0a0;
 }
 
-.defaultTable button {
+.defaultTable .button {
     background-color: #10d2a2;
     border: none;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     border: #111111 solid 1px;
+    padding: 2px;
 }
