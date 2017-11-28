@@ -1,0 +1,58 @@
+.panels {
+    background: #ef2d5e;
+    top: 0px;
+    right: 0px;
+    width : 100%;
+    height : 100%;
+    margin : 0px;
+    position: absolute;
+    font-family: "Roboto";
+    color: #111111;
+}
+
+.panels h2 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    background : #10d2a2;
+    margin: 5px;
+}
+
+.panels .liste {
+    align-self: center;
+    margin : 10px auto;
+    width: 202px;
+}
+
+.panels ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.panels li {
+    margin : 5px 0px;
+    text-align: center;
+}
+
+.panels a {
+    text-decoration: none;
+    color : #111111;
+}
+
+.panels a div {
+    border: #111111 solid 1px;
+    background: #10d2a2;
+    width: 200px;
+    height: 24px;
+    padding: 2px 0px 0px 0px;
+}
+
+.panels a:hover div {
+    background: #00c1b1;
+}
+
+.panels a:active div {
+    background: #00b0a0;
+}
