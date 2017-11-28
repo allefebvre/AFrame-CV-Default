@@ -31,40 +31,32 @@ switch ($tableName) {
 }
 ?>
 
-<html>
-    <head>
-        <title>Your <?php echo $tableName; ?></title>
-    </head>
-    <body>
-    <center>
-        <h2>Your <?php echo $tableName; ?></h2>
-        <hr>   
-        <form method="post" >
-            <table>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <?php
-                    for ($i = 0; $i < sizeof($data['theTable']); $i++) {
-                        $var = $data['theTable'][$i][0];
-                        echo "<td>$var</td>";
-                    }
-                    ?>
-                </tr>
+<div class="defaultTable">
+    <h2>Your <?php echo $tableName; ?></h2>
 
+    <form method="post">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr class="headTable">
+                <td></td>
+                <td></td>
                 <?php
-                
-                foreach ($data['dateTable'] as $table) {
-                    $id = $table->getId();
-                    echo "<tr>";
-                    echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\">Edit</a></td><td><a href=\"\">Delete</a></td>";
-                    echo $table->toString();
-                    echo "</tr>";
+                for ($i = 0; $i < sizeof($data['theTable']); $i++) {
+                    $var = $data['theTable'][$i][0];
+                    echo "<td>$var</td>";
                 }
                 ?>
-            </table>
-            <a id="parametersSave" href="index.php?action=saveParameters">Save</a>
-        </form>
-    </center>       
-</body>
-</html>
+            </tr>
+
+            <?php
+            foreach ($data['dateTable'] as $table) {
+                $id = $table->getId();
+                echo "<tr class=\"contentTable\">";
+                echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\"><button>Edit</button></a></td><td><a href=\"\"><button>Delete</button></a></td>";
+                echo $table->toString();
+                echo "</tr>";
+            }
+            ?>
+        </table>
+        <div class="link"><a id="parametersSave" href="admin.php?action=saveParameters"><div>Save</div></a></div>
+    </form>
+</div>
