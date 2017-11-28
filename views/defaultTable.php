@@ -1,11 +1,4 @@
 <?php
-require_once(__DIR__ . '/../config/config.php');
-
-require_once(__DIR__ . '/../config/Autoload.php');
-Autoload::load();
-
-
-
 $tableName = $_GET['table'];
 
 $data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
@@ -64,7 +57,7 @@ switch ($tableName) {
                 foreach ($data['dateTable'] as $table) {
                     $id = $table->getId();
                     echo "<tr>";
-                    echo "<td><a href=\"updateDefaultData.php?table=$tableName&id=$id\">Edit</a></td><td><a href=\"\">Delete</a></td>";
+                    echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\">Edit</a></td><td><a href=\"\">Delete</a></td>";
                     echo $table->toString();
                     echo "</tr>";
                 }

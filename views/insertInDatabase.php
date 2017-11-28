@@ -1,10 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <?php
-require_once(__DIR__ . '/../config/config.php');
-
-require_once(__DIR__ . '/../config/Autoload.php');
-Autoload::load();
-
 
 $data['tables'] = ModelTables::getAllTables();
 ?>
@@ -15,23 +10,20 @@ $data['tables'] = ModelTables::getAllTables();
     <body>
         <center>
             <h2>Your diferent panels </h2>
-            <hr>
-            <!-- affichage de données provenant du modèle -->      
+            <hr>   
             <form method="post" >
                 <table>
                     <?php
                     foreach ($data['tables'] as $table) {
                         $div = $table[0];
-                        if ($div !== "ByDate") {
+                        if ($div !== "ByDate" && $div !== "Parameter") {
                             echo "<tr>
-                        <td><a href=\"defaultTable.php?table=$div\">$div</a></td> 
+                        <td><a href=\"admin.php?table=$div&action=showTable\">$div</a></td> 
                          </tr>";
                         }
                     }
                     ?>
-                </table>
-                <!-- action--> 
-                <input type="hidden" name="action" value="personnageValidation">
+                </table>                
             </form>
         </center>       
     </body>
