@@ -33,9 +33,9 @@ class WorkExp {
     
     function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
-                . "<tr><td>Date :</td><td><input name=\"txtBlason\" value=" . $this->date . " type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Work Experience :</td><td><input name=\"txtBlason\" value=" . $this->workExp . " type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"date\" value=" . $this->date . " type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Work Experience :</td><td><input name=\"workExp\" value=" . $this->workExp . " type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }
