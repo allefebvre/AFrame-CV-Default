@@ -52,6 +52,9 @@ class AdminController {
                 case "updateWorkExp" :
                     $this->updateWorkExp();
                     break;
+                case "deleteDefaultLine" :
+                    $this->deleteDefaultLine();
+                    break;
                 
             }
         } catch (PDOException $e) {
@@ -278,6 +281,15 @@ class AdminController {
         
         ModelWorkExp::updateById($id, $date, $workExp);
         $this->showData();
+    }
+    
+    public function deleteDefaultLine()
+    {
+        $table = Validation::cleanString($_REQUEST['table']);
+        $id = Validation::cleanInt($_REQUEST['id']);
+        
+        ModelDefaultTable::deleteDefaultLine($table, $id);
+        $this->showTable();
     }
 
 }
