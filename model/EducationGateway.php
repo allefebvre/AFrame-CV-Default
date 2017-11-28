@@ -30,5 +30,21 @@ class EducationGateway {
         return $this->connection->getResults();
     }
     
+    /**
+     * 
+     * @param int $id
+     * @param string $date
+     * @param string $education
+     */
+    public function updateById(int $id, string $date, string $education){
+        $query = 'UPDATE Education SET date=:date, education=:education WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':date' => array($date, PDO::PARAM_STR),
+            ':education' => array($education, PDO::PARAM_STR)
+            
+        ));
+    }
+    
 }
 ?>

@@ -39,6 +39,13 @@ class ModelSkill {
         
         return $data;
     }
+    
+    public static function updateById(int $id, string $category, string $details) {
+        global $base, $login, $password;
+
+        $skillGW = new SkillGateway(new Connection($base, $login, $password));
+        $skillGW->updateById($id, $category, $details);
+    }
 }
 ?>  
 

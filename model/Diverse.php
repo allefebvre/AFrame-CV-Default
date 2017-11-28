@@ -27,8 +27,8 @@ class Diverse {
     
     function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
-                . "<tr><td>Diverse :</td><td><input name=\"txtBlason\" value=".$this->diverse." type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=".$this->diverse." type=\"text\" size=\"10\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }

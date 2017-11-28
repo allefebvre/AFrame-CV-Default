@@ -38,6 +38,22 @@ class ModelWorkExp {
         
         return $data;
     }
+    
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @param string $date
+     * @param string $workExp
+     */
+    public static function updateById(int $id, string $date, string $workExp) {
+        global $base, $login, $password;
+
+        $WorkExpGW = new WorkExpGateway(new Connection($base, $login, $password));
+        $WorkExpGW->updateById($id, $date, $workExp);
+    }
 }
 ?>  
 
