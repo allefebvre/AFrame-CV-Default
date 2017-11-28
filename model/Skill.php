@@ -35,9 +35,9 @@ class Skill {
 
     function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"txtBlason\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
-                . "<tr><td>Category :</td><td><input name=\"txtBlason\" value=" . $this->category . " type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Details :</td><td><input name=\"txtBlason\" value=" . $this->details . " type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Category :</td><td><input name=\"category\" value=" . $this->category . " type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Details :</td><td><input name=\"details\" value=" . $this->details . " type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }

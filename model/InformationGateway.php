@@ -29,5 +29,33 @@ class InformationGateway {
         ));
         return $this->connection->getResults();
     }
+    
+    /**
+     * 
+     * @param int $id
+     * @param string $status
+     * @param string $name
+     * @param string $firstName
+     * @param string $photo
+     * @param string $age
+     * @param string $address
+     * @param string $phone
+     * @param string $mail
+     */
+    public function updateById(int $id, string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail){
+        $query = 'UPDATE Information SET status=:status, name=:name, firstName=:firstName, photo=:photo, age=:age, address=:address, phone=:phone, mail=:mail  WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':status' => array($status, PDO::PARAM_STR),
+            ':name' => array($name, PDO::PARAM_STR),
+            ':firstName' => array($firstName, PDO::PARAM_STR),
+            ':photo' => array($photo, PDO::PARAM_STR),
+            ':age' => array($age, PDO::PARAM_STR),
+            ':address' => array($address, PDO::PARAM_STR),
+            ':phone' => array($phone, PDO::PARAM_STR),
+            ':mail' => array($mail, PDO::PARAM_STR)
+            
+        ));
+    }
 }
 ?>

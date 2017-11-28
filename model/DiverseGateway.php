@@ -29,6 +29,14 @@ class DiverseGateway {
         ));
         return $this->connection->getResults();
     }
+    
+    public function updateById(int $id, string $diverse){
+        $query = 'UPDATE Diverse SET diverse=:diverse WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':diverse' => array($diverse, PDO::PARAM_STR)
+        ));
+    }
 }
 ?>
 

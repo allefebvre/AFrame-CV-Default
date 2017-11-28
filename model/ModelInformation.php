@@ -40,5 +40,12 @@ class ModelInformation {
         
         return $data;
     }
+    
+    public static function updateById(int $id, string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail) {
+        global $base, $login, $password;
+
+        $informationGW = new InformationGateway(new Connection($base, $login, $password));
+        $informationGW->updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
+    }
 }
 ?>  

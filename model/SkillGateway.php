@@ -29,6 +29,16 @@ class SkillGateway {
         ));
         return $this->connection->getResults();
     }
+    
+    public function updateById(int $id, string $category, string $details){
+        $query = 'UPDATE Skill SET category=:category, details=:details WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':category' => array($category, PDO::PARAM_STR),
+            ':details' => array($details, PDO::PARAM_STR)
+            
+        ));
+    }
 }
 ?>
 

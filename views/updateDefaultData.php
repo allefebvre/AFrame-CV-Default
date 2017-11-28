@@ -1,6 +1,6 @@
 <?php
-$tableName = $_GET['table'];
-$id = $_GET['id'];
+$tableName = $_REQUEST['table'];
+$id = $_REQUEST['id'];
 
 switch ($tableName) {
     case "Conference":

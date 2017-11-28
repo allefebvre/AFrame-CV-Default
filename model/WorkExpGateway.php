@@ -29,6 +29,16 @@ class WorkExpGateway {
         ));
         return $this->connection->getResults();
     }
+    
+     public function updateById(int $id, string $date, string $workExp){
+        $query = 'UPDATE WorkExp SET date=:date, workExp=:workExp WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':date' => array($date, PDO::PARAM_STR),
+            ':workExp' => array($workExp, PDO::PARAM_STR)
+            
+        ));
+    }
 }
 ?>
 
