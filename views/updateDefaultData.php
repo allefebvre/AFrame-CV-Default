@@ -28,23 +28,15 @@ switch ($tableName) {
         $data = ModelWorkExp::getOneWorkExo($id);
         break;
 }
-
 ?>
-<html>
-    <head>
-        <title>Table : <?php echo $tableName." ID : ". $id; ?></title>
-    </head>
-    <body>
-    <center>
-        <h2>Table : <?php echo $tableName." ID : ". $id; ?></h2>
-        <hr>   
-        <form method="post" >
-            
-            <?php echo $data->toStringUpdate();?>
-            
-            <input type="submit" value="GO">
-            <?php echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; ?>
-        </form>
-    </center>       
-</body>
-</html>
+
+<div class="updateDefaultData">
+    <h2>Table : <?php echo $tableName . " ID : " . $id; ?></h2> 
+    <form method="post" >
+
+        <?php echo $data->toStringUpdate(); ?>
+
+        <input class="link" type="submit" value="GO">
+        <?php echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; ?>
+    </form>
+</div>       

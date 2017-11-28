@@ -1,4 +1,4 @@
-.defaultTable {
+.updateDefaultData {
     background: #ef2d5e;
     top: 0px;
     right: 0px;
@@ -10,7 +10,7 @@
     color: #111111;
 }
 
-.defaultTable h2 {
+.updateDefaultData h2 {
     font-weight: bold;
     font-size: 24px;
     text-align: center;
@@ -20,63 +20,55 @@
     
 }
 
-.defaultTable form {
+.updateDefaultData form {
     text-align: center;
 }
 
-.defaultTable Table {
+.updateDefaultData Table {
     border-collapse: separate;
-    border-spacing: 0px 6px;
-    
+    border-spacing: 0px 3px;
     margin: 15px auto 15px auto;
     width: 10px;
+    padding-right: 105px;
 }
 
-.defaultTable td {
-    padding: 0px 10px;
-    border-left: #333333 dotted 1px;
+.updateDefaultData td {
+    padding: 0px 5px;
+    text-align: right;
+    min-width: 100px;
 }
 
-.defaultTable .contentTable {
-    background-color: #de1c4d;
+.updateDefaultData input[type="text"] {
+    width: 320px;
+    border-radius: 0px;
+    border: #111111 solid 1px;
+    height: 24px;
+    background: #aaf3e1;
 }
 
-.defaultTable .headTable {
-    background-color: #10d2a2;
+.updateDefaultData textArea {
+    width: 320px;
+    border-radius: 0px;
+    border: #111111 solid 1px;
+    background: #aaf3e1;
 }
 
-.defaultTable .link {
+.updateDefaultData .link {
     margin: 3px auto;
     width: 200px;
-}
-
-.defaultTable a {
     text-decoration: none;
     color : #111111;
-}
-
-.defaultTable a .link-div {
     border: #111111 solid 1px;
     background: #10d2a2;
-    width: 200px;
-    height: 24px;
+    height: 48px;
     padding: 2px 0px 0px 0px;
+    margin-bottom: 40px;
 }
 
-.defaultTable a:hover div {
+.updateDefaultData .link:hover {
     background: #00c1b1;
 }
 
-.defaultTable a:active div {
+.updateDefaultData .link:active {
     background: #00b0a0;
-}
-
-.defaultTable .button {
-    background-color: #10d2a2;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: #111111 solid 1px;
-    padding: 2px;
 }
