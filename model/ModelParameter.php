@@ -15,7 +15,7 @@ class ModelParameter {
         $results = $parameterGW->getAllParameter(); 
         $data = array();
         foreach ($results as $row){
-            $data[] = new Parameter ($row['ID'], $row['name'], $row['display']);
+            $data[] = new Parameter ($row['ID'], $row['name'], $row['display'], $row['section']);
         }
         
         return $data;
@@ -28,12 +28,13 @@ class ModelParameter {
      * @global string $password
      * @param int $id id of parameter to update
      * @param string $display
+     * @param string $section 
      */
-    public static function updateParameterDisplay(int $id, string $display) {
+    public static function updateParameterDisplay(int $id, string $display, string $section = NULL) {
         global $base, $login, $password;
 
         $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
-        $parameterGW->updateParameterDisplay($id, $display);
+        $parameterGW->updateParameterDisplay($id, $display, $section);
     }
     
     /**

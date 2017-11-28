@@ -357,20 +357,21 @@ ALTER TABLE `Other`
 CREATE TABLE `Parameter` (
   `ID` int(11) NOT NULL,
   `name` text NOT NULL,
-  `display` text NOT NULL
+  `display` text NOT NULL,
+  `section` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Parameter`
 --
 
-INSERT INTO `Parameter` (`ID`, `name`, `display`) VALUES
-(1, 'Plane1', 'TRUE'),
-(2, 'Plane2', 'TRUE'),
-(3, 'Plane3', 'TRUE'),
-(4, 'Plane4', 'TRUE'),
-(5, 'Plane5', 'TRUE'),
-(6, 'Publications', 'TRUE');
+INSERT INTO `Parameter` (`ID`, `name`, `display`, `section`) VALUES
+(1, 'Plane1', 'TRUE', 'Informations'),
+(2, 'Plane2', 'TRUE', 'Education'),
+(3, 'Plane3', 'TRUE', 'Work Experience'),
+(4, 'Plane4', 'TRUE', 'Skills'),
+(5, 'Plane5', 'TRUE', 'Diverse'),
+(6, 'Publications', 'TRUE', NULL);
 
 --
 -- Indexes for table `Parameter`

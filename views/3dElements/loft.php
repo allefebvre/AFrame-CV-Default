@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 // Loading of the camera position from the GET and the COOKIES (GET first) //
 
 $posX = filter_input(INPUT_GET, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -28,7 +27,7 @@ if ($posZ == NULL || $posZ == false) {
 
 $rotationX = filter_input(INPUT_GET, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 if ($rotationX == NULL || $rotationX == false) {
-        $rotationX = filter_input(INPUT_COOKIE, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $rotationX = filter_input(INPUT_COOKIE, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     if ($rotationX == NULL || $rotationX == false) {
         $rotationX = 10;
     }
@@ -36,24 +35,36 @@ if ($rotationX == NULL || $rotationX == false) {
 
 $rotationY = filter_input(INPUT_GET, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 if ($rotationY == NULL || $rotationY == false) {
-        $rotationY = filter_input(INPUT_COOKIE, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $rotationY = filter_input(INPUT_COOKIE, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     if ($rotationY == NULL || $rotationY == false) {
         $rotationY = 90;
     }
 }
-
 ?>
+
+
 
 <!-- Camera settings-->
 <a-entity camera="userHeight: 1.6"
           persistence-position
           height-correction
+          border-position
           jump-ability
           universal-controls
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
           rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
           kinematic-body>
-    <a-cursor raycaster="far:10"></a-cursor>
+    
+    <a-entity cursor="fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
+              position="0 0 -1"
+              raycaster="far:10"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: black; shader: flat">
+    </a-entity>
+
+    <a-entity vive-controls="hand: left; model:false"></a-entity>
+    <!--<a-entity vive-controls="hand: right; model:false"></a-entity>-->
+
 </a-entity>
 <!-- End camera settings -->
 
@@ -112,11 +123,11 @@ if (!$window2) {
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
-    
+
     <a-asset-item id="desk_obj" src="resources/model3D/desk.obj"></a-asset-item>
     <a-asset-item id="desk_mtl" src="resources/model3D/desk.mtl"></a-asset-item>
-    
-    
+
+
 </a-assets>
 <!-- End loading textures -->
 
@@ -228,10 +239,10 @@ if (!$window2) {
 <a-box static-body src="#woodTexture" mixin="wall" position="-1.753 6.5 -16.473" scale="0.07 0.15 13.081" color="#e1a975" rotation="0 90 0"></a-box>
 <a-box static-body src="#woodTexture" mixin="wall" position="4.75 6.5 -15.54" scale="0.07 0.15 1.936" color="#e1a975"></a-box>
 <a-box static-body src="#woodTexture" mixin="wall" position="-8.29 6.5 -15.54" scale="0.07 0.15 1.936" color="#e1a975"></a-box>
-<?php 
-    fence(20, -8, 4.4, -16.473, 5.750, TRUE);
-    fence(2, -16.2, -14.9, 4.75, 5.750);
-    fence(2, -16.2, -14.9, -8.29, 5.750);
+<?php
+fence(20, -8, 4.4, -16.473, 5.750, TRUE);
+fence(2, -16.2, -14.9, 4.75, 5.750);
+fence(2, -16.2, -14.9, -8.29, 5.750);
 ?>
 
 
@@ -312,7 +323,6 @@ fence(30, -($loftWidth / 2 - 0.5), $loftWidth / 2 - 10.3, ($f / 2 - 0.15), 5.750
 fence(8, -($loftWidth / 2 - 26), $loftWidth / 2 - 0.5, ($f / 2 - 0.15), 5.750);
 fence(8, -($loftWidth / 2 - 21.1), $loftWidth / 2 - 4.4, 14.379, 5.750);
 fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
-
 ?>
 <!-- End fence -->
 
@@ -333,7 +343,7 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 
 <?php
 $parameterPublication = ModelParameter::getParameterPublications();
-if($parameterPublication->getDisplay() === "TRUE") {
+if ($parameterPublication->getDisplay() === "TRUE") {
     echo "<a-plane src=\"#panneau\" scale=\"1.5 1.5 1\" position=\"16.4 2 -8\" rotation=\"0 -90 0\"></a-plane>";
 }
 ?>
@@ -351,7 +361,8 @@ if($parameterPublication->getDisplay() === "TRUE") {
  * @param float $z
  * @param int $rotation
  */
-function spot(float $x, float $y, float $z, int $rotation) { ?>
+function spot(float $x, float $y, float $z, int $rotation) {
+    ?>
     <a-entity light-toggle-spot position="<?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>" rotation="-16 <?php echo $rotation; ?> 0">
         <a-light light="distance:8;intensity:0.6;type:spot"></a-light>
         <a-light light="distance:0.5;type:point;intensity:5" position="0 0 -0.05"></a-light>
@@ -392,10 +403,8 @@ spot(0, 4, 7, 180);
 spot(-10, 4, 0, 90);
 //spot(-2, 4, 8, 0);
 //spot(-2, 4, -8, 180);
-
 //spot(6, 4, 0, 90);
 //spot(-10, 4, 0, -90);
-
 ?>
 <!-- End spots -->
 
