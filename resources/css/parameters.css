@@ -30,10 +30,16 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #111111;
+    
+    border-right: #111111 solid 2px;
 }
 
 .parameters h1 {
-    font-weight: 600;
+    font-weight: 900;
     font-size: 24px;
     text-align: center;
     padding: 10px 0px 10px 0px;
@@ -70,13 +76,11 @@
     border: #00b0a0 solid 5px;
 }
 
-.listParam input[type=radio]:checked ~ .inside{
-    border: #00b0a0 solid 5px;
+.listParam input[type=radio]:checked ~ .radioButton{
     background-color: #00b0a0;
 }
 
-.listParam input[type=checkbox]:checked ~ .inside{
-    border: #00b0a0 solid 5px;
+.listParam input[type=checkbox]:checked ~ .checkButton{
     background-color: #00b0a0;
 }
 
@@ -84,7 +88,7 @@
     border-radius: 100%;
 }
 
-.listParam li div {
+.listParam li div, .listParam li select {
     display: inline-block;
     vertical-align: middle;
 }
@@ -94,27 +98,9 @@
     margin-bottom: auto;
 }
 
-.inside{
-    width:1px;
-    height:1px;
-    position:relative;
-}
-
-.radioButton ~ .inside {
-    border-radius: 100%;
-    margin: 0px 13px 0px -23px;
-    border: #ef2d5e solid 5px;
-    background-color: #ef2d5e;
-}
-
-.checkButton ~ .inside {
-    margin: 0px 13px 0px -23px;
-    border: #ef2d5e solid 5px;
-    background-color: #ef2d5e;
-}
-
 .listParam li {
     padding: 3px;
+    margin: 3px 0px;
 }
 
 .parameters ul {
@@ -127,6 +113,7 @@
     padding : 3px;
     background: #10d2a2;
     margin: 5px;
+    border: #1e1e1e solid 1px;
 }
 
 .parameters .link:hover {
@@ -137,9 +124,9 @@
     background: #00b0a0;
 }
 
-.links {
-    display: block;
-    text-align: center;
-    margin: 50px auto 5px auto;
-    position: relative;
+.parameters select {
+    background-color: #10d2a2;
+    border: #1e1e1e solid 1px;
+    padding: 1px;
+    margin: 1px;
 }

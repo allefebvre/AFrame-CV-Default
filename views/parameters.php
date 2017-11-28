@@ -51,6 +51,14 @@
     }
 ?>
 
+
+<script type="text/javascript">    
+    var onActionCheckbox = function(el){
+        el.parentNode.children[3].disabled = !el.checked;
+    }
+</script>
+
+
 <aside class="parameters">
     <div>
         <h1>Parameters</h1>
@@ -71,9 +79,8 @@
                     if ($parameter->getDisplay() === "TRUE") {
                         ?>
                         <li>
-                            <input name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
+                            <input onchange="onActionCheckbox(this)" name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
                             <div class="checkButton"></div>
-                            <div class="inside"></div>
                             <div><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                             <select name="section<?php echo $name; ?>">
                                 <?php checkSection($section); ?>
@@ -83,9 +90,8 @@
                     } else {
                         ?>
                         <li>
-                            <input name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
+                            <input onchange="onActionCheckbox(this)" name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
                             <div class="checkButton"></div>
-                            <div class="inside"></div>
                             <div><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                             <select name="section<?php echo $name; ?>" disabled>
                                 <?php checkSection($section); ?>
@@ -105,13 +111,11 @@
                     <li>
                         <input type = "radio" name = "publications" id = "radio_1" value = "yes" checked>
                         <div class = "radioButton"></div>
-                        <div class = "inside"></div>
                         <div><label for = "radio_1">Yes</label></div>
                     </li>
                     <li>
                         <input type = "radio" name = "publications" id = "radio_2" value = "no">
                         <div class = "radioButton"></div>
-                        <div class = "inside"></div>
                         <div><label for = "radio_2">No</label></div>
                     </li>
                 </ul>
@@ -122,20 +126,18 @@
                     <li>
                         <input type = "radio" name = "publications" id = "radio_1" value = "yes">
                         <div class = "radioButton"></div>
-                        <div class = "inside"></div>
                         <div><label for = "radio_1">Yes</label></div>
                     </li>
                     <li>
                         <input type = "radio" name = "publications" id = "radio_2" value = "no" checked>
                         <div class = "radioButton"></div>
-                        <div class = "inside"></div>
                         <div><label for = "radio_2">No</label></div>
                     </li>
                 </ul>
                 <?php
             }
             ?>    
-            <div class="links">
+            <div style="text-align: center">
                 <input class="link" id="parametersSave" type="submit" value="Save">
                 <input type="hidden" name="action" value="saveParameters">
             </div>
@@ -143,7 +145,5 @@
         <div style="text-align: center">
             <a id="addData" href="admin.php?action=showData"><button class="link">Add Data</button></a>
         </div>
-        
-
     </div>
 </aside>

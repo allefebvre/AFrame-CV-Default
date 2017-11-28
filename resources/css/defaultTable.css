@@ -1,0 +1,81 @@
+.defaultTable {
+    background: #ef2d5e;
+    top: 0px;
+    right: 0px;
+    width : 100%;
+    height : 100%;
+    margin : 0px;
+    position: absolute;
+    font-family: "Roboto";
+    color: #111111;
+}
+
+.defaultTable h2 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    background : #10d2a2;
+    margin: 5px auto;
+    
+}
+
+.defaultTable form {
+    text-align: center;
+}
+
+.defaultTable Table {
+    border-collapse: separate;
+    border-spacing: 0px 6px;
+    
+    margin: 15px auto 15px auto;
+    width: 10px;
+}
+
+.defaultTable td {
+    padding: 0px 10px;
+    border-left: #333333 dotted 1px;
+}
+
+.defaultTable .contentTable {
+    background-color: #de1c4d;
+}
+
+.defaultTable .headTable {
+    background-color: #10d2a2;
+}
+
+.defaultTable .link {
+    margin: 3px auto;
+    width: 200px;
+}
+
+.defaultTable a {
+    text-decoration: none;
+    color : #111111;
+}
+
+.defaultTable a div {
+    border: #111111 solid 1px;
+    background: #10d2a2;
+    width: 200px;
+    height: 24px;
+    padding: 2px 0px 0px 0px;
+}
+
+.defaultTable a:hover div {
+    background: #00c1b1;
+}
+
+.defaultTable a:active div {
+    background: #00b0a0;
+}
+
+.defaultTable button {
+    background-color: #10d2a2;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: #111111 solid 1px;
+}
