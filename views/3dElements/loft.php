@@ -331,9 +331,14 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 
 
 <!-- Interior walls -->
-<!--
-<a-box static-body mixin="wall" position="-2 <?php echo $height / 4; ?> 0" scale="10 <?php echo $height / 2; ?> 10"></a-box>
--->
+<?php
+$numberMiddle = ModelParameter::getNbMiddlePlaneDisplay();
+if($numberMiddle > 0) {
+?>
+    <a-box static-body mixin="wall" position="-2 <?php echo $height / 4; ?> 0" scale="10 <?php echo $height / 2; ?> 10"></a-box>
+<?php
+}
+?>
 <a-box static-body mixin="wall" position="<?php echo -($f / 2 - 0.15); ?> <?php echo $height * 0.75; ?> -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
 <a-box static-body mixin="wall" position="7 7.5 -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
 

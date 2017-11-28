@@ -55,6 +55,7 @@
 <script type="text/javascript">    
     var onActionCheckbox = function(el){
         el.parentNode.children[3].disabled = !el.checked;
+        el.parentNode.children[4].disabled = !el.checked;
     }
 </script>
 
@@ -76,6 +77,8 @@
                     $id = $parameter->getId();
                     $name = $parameter->getName();
                     $section = $parameter->getSection();
+                    $scroll = $parameter->getScroll();
+                    
                     if ($parameter->getDisplay() === "TRUE") {
                         ?>
                         <li>
@@ -85,6 +88,19 @@
                             <select name="section<?php echo $name; ?>">
                                 <?php checkSection($section); ?>
                             </select>
+                            <?php
+                            if ($scroll === "TRUE") {
+                            ?>
+                                <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
+                                <!--<div class="checkButton"></div>-->
+                            <?php
+                            } else {
+                            ?>
+                                <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
+                                <!--<div class="checkButton"></div>-->
+                            <?php
+                            }
+                            ?>
                         </li>
                         <?php
                     } else {
@@ -96,6 +112,9 @@
                             <select name="section<?php echo $name; ?>" disabled>
                                 <?php checkSection($section); ?>
                             </select>
+                            <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" disabled>
+                            <!--<div class="checkButton"></div>-->
+
                         </li>
                         <?php
                     }

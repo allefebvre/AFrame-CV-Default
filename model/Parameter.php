@@ -6,12 +6,14 @@ class Parameter{
     private $name;
     private $display;
     private $section;
+    private $scroll;
     
-    function __construct(int $id, string $name, string $display, string $section = NULL) {
+    function __construct(int $id, string $name, string $display, string $section = NULL, string $scroll) {
         $this->id = $id;
         $this->name = $name;
         $this->display = $display;
         $this->section = $section;
+        $this->scroll = $scroll;
     }
 
     /* --- Getters --- */
@@ -30,5 +32,9 @@ class Parameter{
     function getSection() {
         return $this->section;
     } 
+    
+    function getScroll() :string {
+        return $this->scroll;
+    }
 }
 ?>

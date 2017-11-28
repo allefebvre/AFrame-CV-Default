@@ -22,12 +22,14 @@ class ParameterGateway {
      * @param int $id
      * @param string $display
      * @param string $section
+     * @param string $scroll
      */
-    public function updateParameterDisplay(int $id, string $display, string $section = NULL) {
-        $query = 'UPDATE Parameter SET display=:display, section=:section WHERE ID=:id;';
+    public function updateParameter(int $id, string $display, string $section = NULL, string $scroll) {
+        $query = 'UPDATE Parameter SET display=:display, section=:section, scroll=:scroll WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':display' => array($display, PDO::PARAM_STR),
             ':section' => array($section, PDO::PARAM_STR),
+            ':scroll' => array($scroll, PDO::PARAM_STR),
             ':id' => array ($id, PDO::PARAM_INT)
         ));
     }
@@ -44,6 +46,17 @@ class ParameterGateway {
         ));
         
         return $this->connection->getResults();
+    }
+    
+    /**
+     * Get number of plane to display which are in the middle loft 
+     * @return int
+     */
+    public function getNbMiddlePlaneDisplay() :int {
+        $query = "SELECT * FROM Parameter WHERE display=\"TRUE\" AND (name=\"Middle1\" OR name=\"Middle2\" OR name=\"Middle3\" OR name=\"Middle4\");";
+        $this->connection->executeQuery($query);
+        
+        return $this->connection->getNbResults();
     }
 }
 ?>

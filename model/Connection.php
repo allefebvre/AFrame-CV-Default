@@ -36,9 +36,9 @@ class Connection extends PDO {
 
     /**
      * Count rows of an executed query
-     * @return array
+     * @return int
      */
-    public function getNbResults() :array {
+    public function getNbResults() :int {
             return $this->stmt->rowCount();
     }
 }

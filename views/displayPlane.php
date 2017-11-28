@@ -19,8 +19,11 @@ function checkScroll(array $data, int $nbRows) : bool {
  * @param string $section
  * @return array
  */
-function getSectionToDisplay(string $section) :array{
+function getSectionToDisplay(string $section = NULL) :array{
     switch($section) {
+        case NULL:
+            return["", ""];
+            break;
         case "Informations" :
             return ["views/htmlPlane/infoSection.php", "targetInformation"];
             break;
@@ -58,26 +61,34 @@ foreach($parameters as $parameter) {
     }
     
     $sectionDisplay = getSectionToDisplay($parameter->getSection());
-    
+    $scroll = filter_var($parameter->getScroll(), FILTER_VALIDATE_BOOLEAN);
     switch($parameter->getName()) {
-        case "Plane1" :
-            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -19.3, 3.5, 0, 90, FALSE, "", 1.6);
+        case "Front" :
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -19.3, 3.5, 0, 90, $scroll, "", 1.6);
             break;
-        case "Plane2" : 
-            $scroll = checkScroll($data['myEducation'], $nbRows);
+        case "Left1" : 
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], 5, 2.5, 14.35, 180, $scroll, "");    
             break;
-        case "Plane3" :
-            $scroll = checkScroll($data['myWorkExp'], $nbRows);
+        case "Left2" :
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -5, 2.5, 14.35, 180, $scroll, ""); 
             break;
-        case "Plane4" :
-            $scroll = checkScroll($data['mySkills'], $nbRows);
+        case "Right1" :
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], 5, 2.5, -14.35, 0, $scroll, "");
             break;
-        case "Plane5" :
-            $scroll = checkScroll($data['diverse'], 5);
+        case "Right2" :
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -5, 2.5, -14.35, 0, $scroll, "");
+            break;
+        case "Middle1" :
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], 3.2, 2.5, 0, 90, $scroll, "");
+            break;
+        case "Middle2" :
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -2, 2.5, -5.2, 180, $scroll, "");
+            break;
+        case "Middle3" :    
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -2, 2.5, 5.2, 0, $scroll, "");
+            break;
+        case "Middle4" :    
+            $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -7.1, 2.5, 0, -90, $scroll, "");
             break;
     }     
 }
