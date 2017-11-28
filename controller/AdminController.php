@@ -52,6 +52,9 @@ class AdminController {
                 case "updateWorkExp" :
                     $this->updateWorkExp();
                     break;
+                case "deleteDefaultLine" :
+                    $this->deleteDefaultLine();
+                    break;
                 
             }
         } catch (PDOException $e) {
@@ -74,36 +77,55 @@ class AdminController {
     }
 
     /**
+     * Recover Data and update Parameter in Database
+     */
+    private function updateParametersDatabase() {
+        $parameters = ModelParameter::getAllParameter();
+        foreach($parameters as $parameter) {
+            if($parameter->getName() === "Publications") {
+                if($_POST['publications'] === "yes") {
+                    ModelParameter::updateParameter($parameter->getId(), "TRUE", NULL, "FALSE");
+                } else {
+                    ModelParameter::updateParameter($parameter->getId(), "FALSE", NULL, "FALSE");
+                }
+                continue;
+            }
+            $display = "FALSE";
+            if(isset($_POST['planes'])) {
+                foreach($_POST['planes'] as $plane) {
+                    if ($plane == $parameter->getId()) {
+                        $display = "TRUE";
+                        break;
+                    }
+                }
+            }               
+            $scroll = "FALSE";
+            $section = NULL;            
+            if($display === "TRUE") {
+                if(isset($_POST['scroll'])) {
+                    foreach($_POST['scroll'] as $s) {
+                        if($s == $parameter->getId()) {
+                            $scroll = "TRUE";
+                            break;
+                        }
+                    }
+                }                   
+                if(isset($_POST['section'.$parameter->getName()])) {
+                    $section = $_POST['section'.$parameter->getName()];
+                } 
+            }           
+            ModelParameter::updateParameter($parameter->getId(), $display, $section, $scroll);
+        }
+    }
+    
+    /**
      * Save parameters in database and refresh the homeAdmin page
      * @global string $dir
      * @global array $views
      */
     public function saveParameters() {
         global $dir, $views;
-
-        $parameters = ModelParameter::getAllParameter();
-
-        foreach($parameters as $parameter) {
-            if($parameter->getName() === "Publications") {
-                if($_POST['publications'] === "yes") {
-                    ModelParameter::updateParameterDisplay($parameter->getId(), "TRUE", NULL);
-                } else {
-                    ModelParameter::updateParameterDisplay($parameter->getId(), "FALSE", NULL);
-                }
-                continue;
-            }
-
-            $display = "FALSE";
-            foreach ($_POST['planes'] as $plane) {
-                if ($plane == $parameter->getId()) {
-                    $display = "TRUE";
-                    break;
-                }
-            }
-            $section = $_POST['section'.$parameter->getName()];
-            ModelParameter::updateParameterDisplay($parameter->getId(), $display, $section);
-        }
-        
+        $this->updateParametersDatabase();             
         $this->displayParametersAnd3DEnvironment();
     }
 
@@ -278,6 +300,15 @@ class AdminController {
         
         ModelWorkExp::updateById($id, $date, $workExp);
         $this->showData();
+    }
+    
+    public function deleteDefaultLine()
+    {
+        $table = Validation::cleanString($_REQUEST['table']);
+        $id = Validation::cleanInt($_REQUEST['id']);
+        
+        ModelDefaultTable::deleteDefaultLine($table, $id);
+        $this->showTable();
     }
 
 }

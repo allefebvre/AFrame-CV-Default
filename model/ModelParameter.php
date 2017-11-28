@@ -15,26 +15,27 @@ class ModelParameter {
         $results = $parameterGW->getAllParameter(); 
         $data = array();
         foreach ($results as $row){
-            $data[] = new Parameter ($row['ID'], $row['name'], $row['display'], $row['section']);
+            $data[] = new Parameter ($row['ID'], $row['name'], $row['display'], $row['section'], $row['scroll']);
         }
         
         return $data;
     }
     
     /**
-     * Update a Parameter display column
+     * Update a Parameter
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id id of parameter to update
      * @param string $display
      * @param string $section 
+     * @param string $scroll
      */
-    public static function updateParameterDisplay(int $id, string $display, string $section = NULL) {
+    public static function updateParameter(int $id, string $display, string $section = NULL, string $scroll) {
         global $base, $login, $password;
 
         $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
-        $parameterGW->updateParameterDisplay($id, $display, $section);
+        $parameterGW->updateParameter($id, $display, $section, $scroll);
     }
     
     /**
@@ -49,9 +50,25 @@ class ModelParameter {
         
         $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
         $result = $parameterGW->getParameterPublications();
-        $parameter = new Parameter($result[0]['ID'], $result[0]['name'], $result[0]['display']);
+        $parameter = new Parameter($result[0]['ID'], $result[0]['name'], $result[0]['display'], NULL, $result[0]['scroll']);
         
         return $parameter;
+    }
+    
+    /**
+     * Get number of plane to display which are in the middle loft 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @return int
+     */
+    public static function getNbMiddlePlaneDisplay() :int {
+ 	global $base, $login, $password;
+
+        $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
+        $number = $parameterGW->getNbMiddlePlaneDisplay();
+        
+        return $number;
     }
 }
 ?>  
