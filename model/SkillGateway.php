@@ -39,6 +39,15 @@ class SkillGateway {
             
         ));
     }
+    
+    public function insert(string $category, string $details){
+        $query = 'INSERT INTO Skill (`category`, `details`) VALUES (:category, :details);';
+        $this->connection->executeQuery($query, array(
+            ':category' => array($category, PDO::PARAM_STR),
+            ':details' => array($details, PDO::PARAM_STR)
+            
+        ));
+    }
 }
 ?>
 

@@ -78,7 +78,6 @@ class Information {
 
     function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"id\" value=" . $this->id . " type=\"text\" size=\"10\" disabled></td><tr>"
                 . "<tr><td>Status :</td><td><input name=\"status\" value=" . $this->status . " type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Name :</td><td><input name=\"name\" value=" . $this->name . " type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>First Name :</td><td><input name=\"firstName\" value=" . $this->firstName . " type=\"text\" size=\"100\"></td><tr>"
@@ -93,7 +92,6 @@ class Information {
     
     function toStringInsert(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
                 . "<tr><td>Status :</td><td><input name=\"status\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Name :</td><td><input name=\"name\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>First Name :</td><td><input name=\"firstName\" value=\"\" type=\"text\" size=\"100\"></td><tr>"

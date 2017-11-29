@@ -47,6 +47,13 @@ class ModelOther {
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
         $otherGW->updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
+    
+    public static function insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+        global $base, $login, $password;
+
+        $otherGW = new OtherGateway(new Connection($base, $login, $password));
+        $otherGW->Insert( $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+    }
 
 }
 ?>  

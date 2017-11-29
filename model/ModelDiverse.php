@@ -53,5 +53,12 @@ class ModelDiverse {
         $diverseGW = new DiverseGateway(new Connection($base, $login, $password));
         $diverseGW->updateById($id, $diverse);
     }
+    
+    public static function insert(string $diverse){
+        global $base, $login, $password;
+
+        $diverseGW = new DiverseGateway(new Connection($base, $login, $password));
+        $diverseGW->insert($diverse);
+    }    
 }
 ?>  
