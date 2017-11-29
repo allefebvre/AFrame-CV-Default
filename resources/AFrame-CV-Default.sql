@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2017 at 03:28 PM
+-- Generation Time: Nov 29, 2017 at 04:24 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.19-1
 
@@ -19,9 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `AFrame-CV-Default`
 --
-
-CREATE DATABASE IF NOT EXISTS `AFrame-CV-Default` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `AFrame-CV-Default`;
 
 -- --------------------------------------------------------
 
@@ -352,6 +349,12 @@ ALTER TABLE `Journal`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `Login`
+--
+ALTER TABLE `Login`
+  ADD PRIMARY KEY (`Login`);
+
+--
 -- Indexes for table `Other`
 --
 ALTER TABLE `Other`
@@ -373,6 +376,7 @@ ALTER TABLE `Skill`
 -- Indexes for table `Token`
 --
 ALTER TABLE `Token`
+  ADD PRIMARY KEY (`Token`),
   ADD UNIQUE KEY `Token` (`Token`);
 
 --
@@ -425,7 +429,6 @@ ALTER TABLE `Skill`
 --
 ALTER TABLE `WorkExp`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
