@@ -58,7 +58,30 @@ class AdminController {
                 case "insertInBase" :
                     $this->insertInBase();
                     break;
-                    
+                case "insertInConference" :
+                    $this->insertInConference();
+                    break;
+                case "insertInDiverse" :
+                    $this->insertInDiverse();
+                    break;
+                case "insertInEducation" :
+                    $this->insertInEducation();
+                    break;
+                case "insertInInformation" :
+                    $this->insertInInformation();
+                    break;
+                case "insertInJournal" :
+                    $this->insertInJournal();
+                    break;
+                case "insertInOther" :
+                    $this->insertInOther();
+                    break;
+                case "insertInSkill" :
+                    $this->insertInSkill();
+                    break;
+                case "insertInWorkExp" :
+                    $this->insertInWorkExp();
+                    break;
             }
         } catch (PDOException $e) {
             $dataError[] = ["Database error !", $e->getMessage()];
@@ -184,7 +207,7 @@ class AdminController {
         $editor = Validation::cleanString($_POST['editor']);
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanString($_POST['categorie_id']);
+        $category_id = Validation::cleanInt((int)$_POST['categorie_id']);
 
         ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
@@ -226,7 +249,7 @@ class AdminController {
         $age = Validation::cleanString($_POST['age']);
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
-        $mail = Validation::cleanString($_POST['mail']);
+        $mail = Validation::cleanInt((int)$_POST['mail']);
 
         ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
         $this->showData();
@@ -254,7 +277,7 @@ class AdminController {
         $editor = Validation::cleanString($_POST['editor']);
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanString($_POST['categorie_id']);
+        $category_id = Validation::cleanInt((int)$_POST['categorie_id']);
 
         ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
@@ -282,9 +305,9 @@ class AdminController {
         $editor = Validation::cleanString($_POST['editor']);
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanString($_POST['categorie_id']);
+        $category_id = Validation::cleanInt((int)$_POST['categorie_id']);
 
-        ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+        ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
     }
 
@@ -321,9 +344,67 @@ class AdminController {
     }
 
     public function insertInBase() {
-        global $dir, $views;        
-        
+        global $dir, $views;
+
         require $dir . $views['insertInBase'];
+    }
+
+    public function insertInConference() {       
+        $reference = Validation::cleanString($_POST['reference']);
+        $authors = Validation::cleanString($_POST['authors']);
+        $title = Validation::cleanString($_POST['title']);
+        $date = Validation::cleanString($_POST['date']);
+        $journal = Validation::cleanString($_POST['journal']);
+        $volume = Validation::cleanString($_POST['volume']);
+        $number = Validation::cleanString($_POST['number']);
+        $pages = Validation::cleanString($_POST['pages']);
+        $note = Validation::cleanString($_POST['note']);
+        $abstract = Validation::cleanString($_POST['abstract']);
+        $keywords = Validation::cleanString($_POST['keywords']);
+        $series = Validation::cleanString($_POST['series']);
+        $localite = Validation::cleanString($_POST['localite']);
+        $publisher = Validation::cleanString($_POST['publisher']);
+        $editor = Validation::cleanString($_POST['editor']);
+        $pdf = Validation::cleanString($_POST['pdf']);
+        $date_display = Validation::cleanString($_POST['date_display']);
+        $category_id = Validation::cleanInt((int)$_POST['categorie_id']);
+
+        if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
+            if ($category_id === ""){
+                $category_id = NULL;
+            }
+            ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showData();
+        }
+
+    }
+
+    public function insertInDiverse() {
+        
+    }
+
+    public function insertInEducation() {
+        
+    }
+
+    public function insertInInformation() {
+        
+    }
+
+    public function insertInJournal() {
+        
+    }
+
+    public function insertInOther() {
+        
+    }
+
+    public function insertInSkill() {
+        
+    }
+
+    public function insertInWorkExp() {
+        
     }
 
 }

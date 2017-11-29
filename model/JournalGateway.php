@@ -53,7 +53,7 @@ class JournalGateway {
      * @param string $date_display
      * @param string $category_id
      */
-    public function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, string $category_id){
+    public function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
         $query = 'UPDATE Journal SET reference=:reference, authors=:authors, title=:title, date=:date, journal=:journal, volume=:volume, number=:number, pages=:pages, note=:note, abstract=:abstract, keywords=:keywords, series=:series, localite=:localite, publisher=:publisher, editor=:editor, pdf=:pdf, date_display=:date_display, category_id=:category_id  WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
@@ -74,7 +74,7 @@ class JournalGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_STR)
+            ':category_id' => array($category_id, PDO::PARAM_INT)
             
         ));
     }

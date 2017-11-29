@@ -36,6 +36,6 @@ switch ($tableName) {
         <?php echo $data->toStringInsert(); ?>
 
         <input class="link" type="submit" value="GO">
-        <?php echo "<input type=\"hidden\" name=\"action\" value=\"insert$tableName\">"; ?>
+        <?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>
     </form>
 </div>       
