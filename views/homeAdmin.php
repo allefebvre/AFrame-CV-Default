@@ -4,6 +4,6 @@ global $dir, $views;
 require $dir.$views['parameters'];
 ?>
 
-<iframe class="aframe" src="index.php" allowfullscreen></iframe>
+<!-- <iframe class="aframe" src="index.php" allowfullscreen></iframe> -->
 
 
