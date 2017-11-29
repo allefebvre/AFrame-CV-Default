@@ -30,12 +30,18 @@ switch ($tableName) {
 ?>
 
 <div class="updateDefaultData">
-    <h2>Insert in <?php echo $tableName; ?></h2> 
+    <div class="titleBar">
+        <a href="admin.php?table=<?php echo $tableName; ?>&action=showTable"><button id="backButton">&#10229; Back</button></a>
+        <div class="title">
+            <h2>Insert in <?php echo $tableName; ?></h2> 
+        </div>
+    </div>
+    
     <form method="post" >
 
         <?php echo $data->toStringInsert(); ?>
 
         <input class="link" type="submit" value="GO">
-        <?php echo "<input type=\"hidden\" name=\"action\" value=\"insert$tableName\">"; ?>
+        <?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>
     </form>
 </div>       

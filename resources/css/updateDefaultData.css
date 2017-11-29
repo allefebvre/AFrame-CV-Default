@@ -10,14 +10,22 @@
     color: #111111;
 }
 
+.updateDefaultData .titleBar {
+    background : #10d2a2;
+    margin-top: 10px;
+}
+
+.updateDefaultData .title {
+    display: inline-block;
+    text-align: center;
+    width: 90%;
+}
+
 .updateDefaultData h2 {
     font-weight: bold;
     font-size: 24px;
-    text-align: center;
     padding: 10px 0px 10px 0px;
-    background : #10d2a2;
-    margin: 5px auto;
-    
+    margin: 5px auto; 
 }
 
 .updateDefaultData form {
@@ -70,5 +78,22 @@
 }
 
 .updateDefaultData .link:active {
+    background: #00b0a0;
+}
+
+#backButton {
+    color: black;
+    text-decoration: none;
+    padding : 3px;
+    background: #10d2a2;
+    margin: 5px;
+    border: #1e1e1e solid 1px;
+}
+
+#backButton:hover {
+    background: #00c1b1;
+}
+
+#backButton:active {
     background: #00b0a0;
 }

@@ -31,7 +31,12 @@ switch ($tableName) {
 ?>
 
 <div class="updateDefaultData">
-    <h2>Table : <?php echo $tableName . " ID : " . $id; ?></h2> 
+    <div class="titleBar">
+        <a href="admin.php?table=<?php echo $tableName; ?>&action=showTable"><button id="backButton">&#10229; Back</button></a>
+        <div class="title">
+            <h2>Table : <?php echo $tableName . " ID : " . $id; ?></h2> 
+        </div>
+    </div>
     <form method="post" >
 
         <?php echo $data->toStringUpdate(); ?>
