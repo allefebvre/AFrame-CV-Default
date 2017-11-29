@@ -148,5 +148,11 @@
 }
 
 .parameters .label1 {
-    min-width: 75px;
+    min-width: 85px;
+}
+
+.parameters #logout button {
+    margin-top : 50px;
+    color:red;
+    font-weight: 900;
 }
