@@ -55,7 +55,10 @@ class AdminController {
                 case "deleteDefaultLine" :
                     $this->deleteDefaultLine();
                     break;
-                
+                case "insertInBase" :
+                    $this->insertInBase();
+                    break;
+                    
             }
         } catch (PDOException $e) {
             $dataError[] = ["Database error !", $e->getMessage()];
@@ -81,9 +84,9 @@ class AdminController {
      */
     private function updateParametersDatabase() {
         $parameters = ModelParameter::getAllParameter();
-        foreach($parameters as $parameter) {
-            if($parameter->getName() === "Publications") {
-                if($_POST['publications'] === "yes") {
+        foreach ($parameters as $parameter) {
+            if ($parameter->getName() === "Publications") {
+                if ($_POST['publications'] === "yes") {
                     ModelParameter::updateParameter($parameter->getId(), "TRUE", NULL, "FALSE");
                 } else {
                     ModelParameter::updateParameter($parameter->getId(), "FALSE", NULL, "FALSE");
@@ -91,33 +94,33 @@ class AdminController {
                 continue;
             }
             $display = "FALSE";
-            if(isset($_POST['planes'])) {
-                foreach($_POST['planes'] as $plane) {
+            if (isset($_POST['planes'])) {
+                foreach ($_POST['planes'] as $plane) {
                     if ($plane == $parameter->getId()) {
                         $display = "TRUE";
                         break;
                     }
                 }
-            }               
+            }
             $scroll = "FALSE";
-            $section = NULL;            
-            if($display === "TRUE") {
-                if(isset($_POST['scroll'])) {
-                    foreach($_POST['scroll'] as $s) {
-                        if($s == $parameter->getId()) {
+            $section = NULL;
+            if ($display === "TRUE") {
+                if (isset($_POST['scroll'])) {
+                    foreach ($_POST['scroll'] as $s) {
+                        if ($s == $parameter->getId()) {
                             $scroll = "TRUE";
                             break;
                         }
                     }
-                }                   
-                if(isset($_POST['section'.$parameter->getName()])) {
-                    $section = $_POST['section'.$parameter->getName()];
-                } 
-            }           
+                }
+                if (isset($_POST['section' . $parameter->getName()])) {
+                    $section = $_POST['section' . $parameter->getName()];
+                }
+            }
             ModelParameter::updateParameter($parameter->getId(), $display, $section, $scroll);
         }
     }
-    
+
     /**
      * Save parameters in database and refresh the homeAdmin page
      * @global string $dir
@@ -125,7 +128,7 @@ class AdminController {
      */
     public function saveParameters() {
         global $dir, $views;
-        $this->updateParametersDatabase();             
+        $this->updateParametersDatabase();
         $this->displayParametersAnd3DEnvironment();
     }
 
@@ -182,10 +185,11 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanString($_POST['categorie_id']);
-        
+
         ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -194,9 +198,10 @@ class AdminController {
         $diverse = Validation::cleanString($_POST['diverse']);
 
         ModelDiverse::updateById($id, $diverse);
-        
+
         $this->showData();
     }
+
     /**
      * 
      */
@@ -204,10 +209,11 @@ class AdminController {
         $id = Validation::cleanInt($_REQUEST['id']);
         $date = Validation::cleanString($_POST['date']);
         $education = Validation::cleanString($_POST['education']);
-        
+
         ModelEducation::updateById($id, $date, $education);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -221,10 +227,11 @@ class AdminController {
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanString($_POST['mail']);
-        
+
         ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -248,10 +255,11 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanString($_POST['categorie_id']);
-        
+
         ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -275,10 +283,11 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanString($_POST['categorie_id']);
-        
+
         ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -286,10 +295,11 @@ class AdminController {
         $id = Validation::cleanInt($_REQUEST['id']);
         $category = Validation::cleanString($_POST['category']);
         $details = Validation::cleanString($_POST['details']);
-        
+
         ModelSkill::updateById($id, $category, $details);
         $this->showData();
     }
+
     /**
      * 
      */
@@ -297,18 +307,23 @@ class AdminController {
         $id = Validation::cleanInt($_REQUEST['id']);
         $date = Validation::cleanString($_POST['date']);
         $workExp = Validation::cleanString($_POST['workExp']);
-        
+
         ModelWorkExp::updateById($id, $date, $workExp);
         $this->showData();
     }
-    
-    public function deleteDefaultLine()
-    {
+
+    public function deleteDefaultLine() {
         $table = Validation::cleanString($_REQUEST['table']);
         $id = Validation::cleanInt($_REQUEST['id']);
-        
+
         ModelDefaultTable::deleteDefaultLine($table, $id);
         $this->showTable();
+    }
+
+    public function insertInBase() {
+        global $dir, $views;        
+        
+        require $dir . $views['insertInBase'];
     }
 
 }

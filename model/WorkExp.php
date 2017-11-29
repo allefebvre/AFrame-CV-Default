@@ -39,6 +39,16 @@ class WorkExp {
                 . "</table>";
         return $toReturn;
     }
+    
+    function toStringInsert(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Work Experience :</td><td><input name=\"workExp\" value=\"\"  type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+    }
+    
 }
 ?>
 
