@@ -21,5 +21,6 @@
     $views['insertInDB'] = "views/insertInDatabase.php";
     $views['defaultTable'] = "views/defaultTable.php";
     $views['updateDefaultData'] = "views/updateDefaultData.php";
+    $views['connection'] = "views/connection.php";
     $views['insertInBase'] = "views/insertDefaultData.php";
 ?>

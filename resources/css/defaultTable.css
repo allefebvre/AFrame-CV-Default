@@ -10,14 +10,22 @@
     color: #111111;
 }
 
+.defaultTable .titleBar {
+    background : #10d2a2;
+    margin-top: 10px;
+}
+
+.defaultTable .title {
+    display: inline-block;
+    text-align: center;
+    width: 90%;
+}
+
 .defaultTable h2 {
     font-weight: bold;
     font-size: 24px;
-    text-align: center;
     padding: 10px 0px 10px 0px;
-    background : #10d2a2;
-    margin: 5px auto;
-    
+    margin: 5px auto; 
 }
 
 .defaultTable form {
@@ -79,4 +87,21 @@
     cursor: pointer;
     border: #111111 solid 1px;
     padding: 2px;
+}
+
+#backButton {
+    color: black;
+    text-decoration: none;
+    padding : 3px;
+    background: #10d2a2;
+    margin: 5px;
+    border: #1e1e1e solid 1px;
+}
+
+#backButton:hover {
+    background: #00c1b1;
+}
+
+#backButton:active {
+    background: #00b0a0;
 }
