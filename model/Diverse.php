@@ -32,6 +32,14 @@ class Diverse {
                 . "</table>";
         return $toReturn;
     }
+    
+    function toStringInsert(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+    }
 
 }
 ?>

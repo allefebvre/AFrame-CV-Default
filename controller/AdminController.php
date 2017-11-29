@@ -12,7 +12,6 @@ class AdminController {
         $dataError = array();
 
         try {
-            echo $this->verifySession();
             if (!$this->verifySession() && $action != "login") {
                 $this->connection();
             } else {
@@ -58,6 +57,9 @@ class AdminController {
                         break;
                     case "deleteDefaultLine" :
                         $this->deleteDefaultLine();
+                        break;
+                    case "insertInBase" :
+                        $this->insertInBase();
                         break;
                     case "login" :
                         $this->login();
@@ -365,6 +367,12 @@ class AdminController {
 
         ModelDefaultTable::deleteDefaultLine($table, $id);
         $this->showTable();
+    }
+
+    public function insertInBase() {
+        global $dir, $views;        
+        
+        require $dir . $views['insertInBase'];
     }
 
 }

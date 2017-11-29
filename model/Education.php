@@ -38,6 +38,15 @@ class Education{
                 . "</table>";
         return $toReturn;
      }
+     
+     function toStringInsert(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Education :</td><td><input name=\"education\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+     }
     
 }
 ?>

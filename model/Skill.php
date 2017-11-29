@@ -41,6 +41,15 @@ class Skill {
                 . "</table>";
         return $toReturn;
     }
+    
+    function toStringInsert(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Category :</td><td><input name=\"category\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Details :</td><td><input name=\"details\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+    }
 
 }
 ?>

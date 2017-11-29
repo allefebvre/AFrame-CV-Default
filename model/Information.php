@@ -90,6 +90,21 @@ class Information {
                 . "</table>";
         return $toReturn;
     }
+    
+    function toStringInsert(): string {
+        $toReturn = "<table>"
+                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
+                . "<tr><td>Status :</td><td><input name=\"status\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Name :</td><td><input name=\"name\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>First Name :</td><td><input name=\"firstName\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Photo :</td><td><input name=\"photo\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Age :</td><td><input name=\"age\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Address :</td><td><input name=\"address\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Phone :</td><td><input name=\"phone\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Mail :</td><td><input name=\"mail\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
+                . "</table>";
+        return $toReturn;
+    }
 
 }
 
