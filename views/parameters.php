@@ -85,7 +85,7 @@ function checkSection(string $section = NULL) {
                         <li>
                             <input onchange="onActionCheckbox(this)" name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
                             <div class="checkButton"></div>
-                            <div><label class="label1" for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
+                            <div class="label1"><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                             <select name="section<?php echo $name; ?>">
                             <?php checkSection($section); ?>
                             </select>
@@ -173,6 +173,10 @@ function checkSection(string $section = NULL) {
         </form>
         <div style="text-align: center">
             <a id="addData" href="admin.php?action=showData"><button class="link">Add Data</button></a>
+            <br>
+            <a id="logout" href="admin.php?action=logout"><button class="link">Logout</button></a>
+            <br>
+            <!--<a id="changePassword" href="admin.php?action=changePassword"><button class="link">Change password</button></a>-->
         </div>
     </div>
 </aside>

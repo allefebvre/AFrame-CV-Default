@@ -12,53 +12,62 @@ class AdminController {
         $dataError = array();
 
         try {
-            switch ($action) {
-                case null:
-                    $this->displayParametersAnd3DEnvironment();
-                    break;
-                case "saveParameters" :
-                    $this->saveParameters();
-                    break;
-                case "showData" :
-                    $this->showData();
-                    break;
-                case "showTable" :
-                    $this->showTable();
-                    break;
-                case "showLine" :
-                    $this->showLine();
-                    break;
-                case "updateConference" :
-                    $this->updateConference();
-                    break;
-                case "updateDiverse" :
-                    $this->updateDiverse();
-                    break;
-                case "updateEducation" :
-                    $this->updateEducation();
-                    break;
-                case "updateInformation" :
-                    $this->updateInformation();
-                    break;
-                case "updateJournal" :
-                    $this->updateJournal();
-                    break;
-                case "updateOther" :
-                    $this->updateOther();
-                    break;
-                case "updateSkill" :
-                    $this->updateSkill();
-                    break;
-                case "updateWorkExp" :
-                    $this->updateWorkExp();
-                    break;
-                case "deleteDefaultLine" :
-                    $this->deleteDefaultLine();
-                    break;
-                case "insertInBase" :
-                    $this->insertInBase();
-                    break;
-                    
+            if (!$this->verifySession() && $action != "login") {
+                $this->connection();
+            } else {
+                switch ($action) {
+                    case null:
+                        $this->displayParametersAnd3DEnvironment();
+                        break;
+                    case "saveParameters" :
+                        $this->saveParameters();
+                        break;
+                    case "showData" :
+                        $this->showData();
+                        break;
+                    case "showTable" :
+                        $this->showTable();
+                        break;
+                    case "showLine" :
+                        $this->showLine();
+                        break;
+                    case "updateConference" :
+                        $this->updateConference();
+                        break;
+                    case "updateDiverse" :
+                        $this->updateDiverse();
+                        break;
+                    case "updateEducation" :
+                        $this->updateEducation();
+                        break;
+                    case "updateInformation" :
+                        $this->updateInformation();
+                        break;
+                    case "updateJournal" :
+                        $this->updateJournal();
+                        break;
+                    case "updateOther" :
+                        $this->updateOther();
+                        break;
+                    case "updateSkill" :
+                        $this->updateSkill();
+                        break;
+                    case "updateWorkExp" :
+                        $this->updateWorkExp();
+                        break;
+                    case "deleteDefaultLine" :
+                        $this->deleteDefaultLine();
+                        break;
+                    case "insertInBase" :
+                        $this->insertInBase();
+                        break;
+                    case "login" :
+                        $this->login();
+                        break;
+                    case "logout" :
+                        $this->logout();
+                        break;
+                }
             }
         } catch (PDOException $e) {
             $dataError[] = ["Database error !", $e->getMessage()];
@@ -67,6 +76,46 @@ class AdminController {
             $dataError[] = ["Unexpected error !", $e2->getMessage()];
             require ($dir . $views['error']);
         }
+    }
+
+    public function verifySession(): bool {
+        $token = filter_input(INPUT_COOKIE, 'token', FILTER_SANITIZE_STRING);
+        if ($token != "" && $token != null && $token != FALSE) {
+            $login = new Login();
+            return $login->verifyToken($token);
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function connection(string $alert = "") {
+        global $dir, $views;
+        require_once ($dir . $views['connection']);
+    }
+
+    public function login() {
+        $login = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        
+        if ($login != null && $login != "" && $password != null && $password != "") {
+            $login2 = new Login();
+            $result = $login2->Login("$login", "$password");
+            if ($result != "") {
+                setcookie("token", $result, time() + 3600 * 4);
+                $this->displayParametersAnd3DEnvironment();
+            } else {
+                $this->connection("wrong login/password");
+            }
+        } else {
+            $this->connection("please enter login and password");
+        }
+    }
+    
+    public function logout(){
+        setcookie("token", "", time() -1);
+        $login = new Login();
+        $login->deleteToken();
+        $this->connection();
     }
 
     /**
