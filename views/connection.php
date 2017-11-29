@@ -1,5 +1,10 @@
 <div class="connection">
-    <h2>Connection :</h2>
+    <div class="titleBar">
+        <a href="index.php"><button id="backButton">&#10229; Back</button></a>
+        <div class="title">
+            <h2>Connection :</h2>
+        </div>
+    </div>
     
     <form method="post" action="admin.php?action=login">
         <label for="pseudo">Pseudo :</label><br>

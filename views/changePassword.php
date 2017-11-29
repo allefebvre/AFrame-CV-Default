@@ -1,5 +1,10 @@
 <div class="changePassword">
-    <h2>Change password :</h2>
+    <div class="titleBar">
+        <a href="admin.php"><button id="backButton">&#10229; Back</button></a>
+        <div class="title">
+            <h2>Change password :</h2> 
+        </div>
+    </div>
     
     <form method="post" action="admin.php?action=changePassword2">
         <label for="password_old">Old password :</label><br>
