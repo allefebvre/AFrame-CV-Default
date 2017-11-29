@@ -242,7 +242,7 @@ class AdminController {
      */
     public function showData() {
         global $dir, $views;
-        require $dir . $views['insertInDB'];
+        require $dir . $views['showTables'];
     }
 
     /**

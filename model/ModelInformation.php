@@ -41,6 +41,21 @@ class ModelInformation {
         return $data;
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @param string $status
+     * @param string $name
+     * @param string $firstName
+     * @param string $photo
+     * @param string $age
+     * @param string $address
+     * @param string $phone
+     * @param string $mail
+     */
     public static function updateById(int $id, string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail) {
         global $base, $login, $password;
 
@@ -48,7 +63,21 @@ class ModelInformation {
         $informationGW->updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
     }
     
-     public static function insert(string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail) {
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $status
+     * @param string $name
+     * @param string $firstName
+     * @param string $photo
+     * @param string $age
+     * @param string $address
+     * @param string $phone
+     * @param string $mail
+     */
+    public static function insert(string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail) {
         global $base, $login, $password;
 
         $informationGW = new InformationGateway(new Connection($base, $login, $password));

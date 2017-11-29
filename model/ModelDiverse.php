@@ -54,6 +54,13 @@ class ModelDiverse {
         $diverseGW->updateById($id, $diverse);
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $diverse
+     */
     public static function insert(string $diverse){
         global $base, $login, $password;
 

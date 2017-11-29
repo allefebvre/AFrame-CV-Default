@@ -58,6 +58,17 @@ class InformationGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $status
+     * @param string $name
+     * @param string $firstName
+     * @param string $photo
+     * @param string $age
+     * @param string $address
+     * @param string $phone
+     * @param string $mail
+     */
     public function insert(string $status, string $name, string $firstName, string $photo, string $age, string $address, string $phone, string $mail){
         $query = 'INSERT INTO Information (`status`, `name`, `firstName`, `photo`, `age`, `address`, `phone`, `mail`) VALUES (:status, :name, :firstName, :photo, :age, :address, :phone, :mail)';
         $this->connection->executeQuery($query, array(

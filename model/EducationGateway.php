@@ -46,6 +46,11 @@ class EducationGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $date
+     * @param string $education
+     */
     public function insert(string $date, string $education){
         $query = 'INSERT INTO Education (`date`, `education`) VALUES (:date, :education);';
         $this->connection->executeQuery($query, array(

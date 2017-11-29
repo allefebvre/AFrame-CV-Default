@@ -30,6 +30,12 @@ class SkillGateway {
         return $this->connection->getResults();
     }
     
+    /**
+     * 
+     * @param int $id
+     * @param string $category
+     * @param string $details
+     */
     public function updateById(int $id, string $category, string $details){
         $query = 'UPDATE Skill SET category=:category, details=:details WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
@@ -40,6 +46,11 @@ class SkillGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $category
+     * @param string $details
+     */
     public function insert(string $category, string $details){
         $query = 'INSERT INTO Skill (`category`, `details`) VALUES (:category, :details);';
         $this->connection->executeQuery($query, array(

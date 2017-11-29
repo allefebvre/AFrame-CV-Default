@@ -77,6 +77,27 @@ class ConferenceGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $reference
+     * @param string $authors
+     * @param string $title
+     * @param string $date
+     * @param string $journal
+     * @param string $volume
+     * @param string $number
+     * @param string $pages
+     * @param string $note
+     * @param string $abstract
+     * @param string $keywords
+     * @param string $series
+     * @param string $localite
+     * @param string $publisher
+     * @param string $editor
+     * @param string $pdf
+     * @param string $date_display
+     * @param int $category_id
+     */
     public function Insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
         $query = 'INSERT INTO Conference (`reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`)  VALUES (:reference, :authors, :title, :date, :journal, :volume, :number, :pages, :note, :abstract, :keywords, :series, :localite, :publisher, :editor, :pdf, :date_display, :category_id);';
         $this->connection->executeQuery($query, array(
