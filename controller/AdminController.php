@@ -92,6 +92,12 @@ class AdminController {
                     case "logout" :
                         $this->logout();
                         break;
+                    case "changePassword" :
+                        $this->changePassword();
+                        break;
+                    case "changePassword2" :
+                        $this->changePassword2();
+                        break;
                 }
             }
         } catch (PDOException $e) {
@@ -141,6 +147,29 @@ class AdminController {
         $login = new Login();
         $login->deleteToken();
         $this->connection();
+    }
+    
+    public function changePassword($alert = ""){
+        global $dir, $views;
+        require_once ($dir . $views['changePassword']);
+    }
+    
+    public function changePassword2(){
+        $password_old = filter_input(INPUT_POST, 'password_old', FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $password_conf = filter_input(INPUT_POST, 'password_conf', FILTER_SANITIZE_STRING);
+        if($password !== $password_conf) {
+            $this->changePassword("passwords are not the same");
+        }else{
+            $login = new Login();
+            if($login->changePassword($password_old, $password)){
+                global $dir, $views;
+                $msg = "Password changed";
+                require_once ($dir . $views['info']);
+            } else {
+                $this->changePassword("wrong old password");
+            }
+        }
     }
 
     /**

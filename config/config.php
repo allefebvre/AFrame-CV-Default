@@ -23,4 +23,6 @@
     $views['updateDefaultData'] = "views/updateDefaultData.php";
     $views['connection'] = "views/connection.php";
     $views['insertInBase'] = "views/insertDefaultData.php";
+    $views['changePassword'] = "views/changePassword.php";
+    $views['info'] = "views/info.php";
 ?>

@@ -20,6 +20,19 @@ class Login {
         }
     }
     
+    public function changePassword($oldPassword, $newPassword) : bool {
+        $query = "SELECT COUNT(*) FROM Login WHERE Password = '$oldPassword';";
+        $this->connection->executeQuery($query);
+        $result = $this->connection->getResults();
+        if($result[0][0] == 0){
+            return FALSE;
+        }
+        $query = "UPDATE `Login` SET `Password` = '$newPassword'";
+        $this->connection->executeQuery($query);
+        
+        return TRUE;
+    }
+    
     public function verifyToken($token) : bool {
         $query = "SELECT COUNT(*) FROM Token WHERE Token.Token = '$token';";
         $this->connection->executeQuery($query);

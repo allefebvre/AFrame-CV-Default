@@ -176,7 +176,7 @@ function checkSection(string $section = NULL) {
             <br>
             <a id="logout" href="admin.php?action=logout"><button class="link">Logout</button></a>
             <br>
-            <!--<a id="changePassword" href="admin.php?action=changePassword"><button class="link">Change password</button></a>-->
+            <a id="changePassword" href="admin.php?action=changePassword"><button class="link">Change password</button></a>
         </div>
     </div>
 </aside>

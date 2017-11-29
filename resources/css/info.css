@@ -1,0 +1,44 @@
+.info {
+    background: #ef2d5e;
+    top: 0px;
+    right: 0px;
+    min-width : 100%;
+    min-height : 100%;
+    margin : 0px;
+    position: absolute;
+    font-family: "Roboto";
+    color: #111111;
+}
+
+.info h2 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    background : #10d2a2;
+    margin: 10px auto;
+}
+
+.info button {
+    margin : 5px auto;
+    width : 100px;
+    border: #111111 solid 1px;
+    position:relative;
+    display: block;
+    background: #10d2a2;
+    color: #111111;
+    text-decoration: none;
+}
+
+.info a {
+    text-decoration: none;
+    color: #111111;
+}
+
+.info button:hover{
+    background: #00c1b1;
+}
+
+.info button:active{
+    background: #00b0a0;
+}
