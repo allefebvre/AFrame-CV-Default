@@ -1,61 +1,62 @@
 <?php
-    /**
-     * Check if a parameter have already a section
-     * @param string $section
-     */
-    function checkSection(string $section = NULL) {
-        switch($section) {
-            case NULL:
-                echo "<option>Informations
+
+/**
+ * Check if a parameter have already a section
+ * @param string $section
+ */
+function checkSection(string $section = NULL) {
+    switch ($section) {
+        case NULL:
+            echo "<option>Informations
                       <option>Education
                       <option>Work Experience
                       <option>Skills
                       <option>Diverse";
-                break;
-            case "Informations" :
-                echo "<option selected>Informations
+            break;
+        case "Informations" :
+            echo "<option selected>Informations
                       <option>Education
                       <option>Work Experience
                       <option>Skills
                       <option>Diverse";
-                break;
-            case "Education" :
-                echo "<option>Informations
+            break;
+        case "Education" :
+            echo "<option>Informations
                       <option selected>Education
                       <option>Work Experience
                       <option>Skills
                       <option>Diverse";
-                break;
-            case "Work Experience" :
-                echo "<option>Informations
+            break;
+        case "Work Experience" :
+            echo "<option>Informations
                       <option>Education
                       <option selected>Work Experience
                       <option>Skills
                       <option>Diverse";
-                break;
-            case "Skills" :
-                echo "<option>Informations
+            break;
+        case "Skills" :
+            echo "<option>Informations
                       <option>Education
                       <option>Work Experience
                       <option selected>Skills
                       <option>Diverse";
-                break;
-            case "Diverse" :
-                echo "<option>Informations
+            break;
+        case "Diverse" :
+            echo "<option>Informations
                       <option>Education
                       <option>Work Experience
                       <option>Skills
                       <option selected>Diverse";
-                break;
-        }
+            break;
     }
+}
 ?>
 
 
-<script type="text/javascript">    
-    var onActionCheckbox = function(el){
+<script type="text/javascript">
+    var onActionCheckbox = function (el) {
         el.parentNode.children[3].disabled = !el.checked;
-        el.parentNode.children[4].disabled = !el.checked;
+        el.parentNode.children[4].children[0].disabled = !el.checked;
     }
 </script>
 
@@ -78,27 +79,33 @@
                     $name = $parameter->getName();
                     $section = $parameter->getSection();
                     $scroll = $parameter->getScroll();
-                    
+
                     if ($parameter->getDisplay() === "TRUE") {
                         ?>
                         <li>
                             <input onchange="onActionCheckbox(this)" name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
                             <div class="checkButton"></div>
-                            <div><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
+                            <div><label class="label1" for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                             <select name="section<?php echo $name; ?>">
-                                <?php checkSection($section); ?>
+                            <?php checkSection($section); ?>
                             </select>
                             <?php
                             if ($scroll === "TRUE") {
-                            ?>
-                                <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
-                                <!--<div class="checkButton"></div>-->
-                            <?php
+                                ?>
+                            <div>
+                                <input name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" checked>
+                                <div class="checkButton"></div>
+                                <div><label class="label2" for="<?php echo "scroll$name"; ?>"></label></div>
+                            </div>
+                                <?php
                             } else {
-                            ?>
-                                <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
-                                <!--<div class="checkButton"></div>-->
-                            <?php
+                                ?>
+                            <div>
+                                <input name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
+                                <div class="checkButton"></div>
+                                <div><label class="label2" for="<?php echo "scroll$name"; ?>"></label></div>
+                            </div>
+                                <?php
                             }
                             ?>
                         </li>
@@ -108,12 +115,15 @@
                         <li>
                             <input onchange="onActionCheckbox(this)" name="planes[]" id="<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>">
                             <div class="checkButton"></div>
-                            <div><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
+                            <div class="label1"><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                             <select name="section<?php echo $name; ?>" disabled>
-                                <?php checkSection($section); ?>
+        <?php checkSection($section); ?>
                             </select>
-                            <input style="display: initial;" name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" disabled>
-                            <!--<div class="checkButton"></div>-->
+                            <div>
+                                <input name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" disabled>
+                                <div class="checkButton"></div>
+                                <div><label class="label2" for="<?php echo "scroll$name"; ?>"></label></div>
+                            </div>
 
                         </li>
                         <?php
@@ -122,10 +132,10 @@
                 ?>
             </ul>
             <h3>Display publications ?</h3>
-                <?php
-                $parameterPublication = ModelParameter::getParameterPublications();
-                if ($parameterPublication->getDisplay() === "TRUE") {
-                    ?>
+            <?php
+            $parameterPublication = ModelParameter::getParameterPublications();
+            if ($parameterPublication->getDisplay() === "TRUE") {
+                ?>
                 <ul class = "listParam">
                     <li>
                         <input type = "radio" name = "publications" id = "radio_1" value = "yes" checked>
