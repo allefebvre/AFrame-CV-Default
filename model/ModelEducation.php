@@ -56,6 +56,13 @@ class ModelEducation {
         $educationGW = new EducationGateway(new Connection($base, $login, $password));
         $educationGW->updateById($id, $date, $education);
     }
+    
+    public static function insert(string $date, string $education) {
+        global $base, $login, $password;
+
+        $educationGW = new EducationGateway(new Connection($base, $login, $password));
+        $educationGW->insert($date, $education);
+    }
 
 }
 ?>  

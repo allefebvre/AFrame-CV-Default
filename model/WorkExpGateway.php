@@ -39,6 +39,15 @@ class WorkExpGateway {
             
         ));
     }
+    
+    public function insert(string $date, string $workExp){
+        $query = 'INSERT INTO WorkExp (`date`, `workExp`) VALUES(:date, :workExp);';
+        $this->connection->executeQuery($query, array(
+            ':date' => array($date, PDO::PARAM_STR),
+            ':workExp' => array($workExp, PDO::PARAM_STR)
+            
+        ));
+    }
 }
 ?>
 

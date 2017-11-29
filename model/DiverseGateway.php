@@ -37,6 +37,15 @@ class DiverseGateway {
             ':diverse' => array($diverse, PDO::PARAM_STR)
         ));
     }
+    
+    public function insert(string $diverse){
+        $query = 'INSERT INTO Diverse (`diverse`) VALUES (:diverse);';
+        $this->connection->executeQuery($query, array(
+            ':diverse' => array($diverse, PDO::PARAM_STR)
+        ));
+    }
+    
+    
 }
 ?>
 

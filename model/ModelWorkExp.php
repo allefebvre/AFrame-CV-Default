@@ -54,6 +54,13 @@ class ModelWorkExp {
         $WorkExpGW = new WorkExpGateway(new Connection($base, $login, $password));
         $WorkExpGW->updateById($id, $date, $workExp);
     }
+    
+    public static function insert(string $date, string $workExp) {
+        global $base, $login, $password;
+
+        $WorkExpGW = new WorkExpGateway(new Connection($base, $login, $password));
+        $WorkExpGW->insert($date, $workExp);
+    }
 }
 ?>  
 

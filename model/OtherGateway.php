@@ -77,5 +77,29 @@ class OtherGateway {
             
         ));
     }
+    public function Insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+        $query = 'INSERT INTO Other (`reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`)  VALUES (:reference, :authors, :title, :date, :journal, :volume, :number, :pages, :note, :abstract, :keywords, :series, :localite, :publisher, :editor, :pdf, :date_display, :category_id);';
+        $this->connection->executeQuery($query, array(
+            ':reference' => array($reference, PDO::PARAM_STR),
+            ':authors' => array($authors, PDO::PARAM_STR),
+            ':title' => array($title, PDO::PARAM_STR),
+            ':date' => array($date, PDO::PARAM_STR),
+            ':journal' => array($journal, PDO::PARAM_STR),
+            ':volume' => array($volume, PDO::PARAM_STR),
+            ':number' => array($number, PDO::PARAM_STR),
+            ':pages' => array($pages, PDO::PARAM_STR),
+            ':note' => array($note, PDO::PARAM_STR),
+            ':abstract' => array($abstract, PDO::PARAM_STR),
+            ':keywords' => array($keywords, PDO::PARAM_STR),
+            ':series' => array($series, PDO::PARAM_STR),
+            ':localite' => array($localite, PDO::PARAM_STR),
+            ':publisher' => array($publisher, PDO::PARAM_STR),
+            ':editor' => array($editor, PDO::PARAM_STR),
+            ':pdf' => array($pdf, PDO::PARAM_STR),
+            ':date_display' => array($date_display, PDO::PARAM_STR),
+            ':category_id' => array($category_id, PDO::PARAM_INT)
+            
+        ));
+    }
 }
 ?>

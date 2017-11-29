@@ -127,7 +127,7 @@ class Journal{
                 . "<td>$this->authors</td>"
                 . "<td>$this->title</td>"
                 . "<td>$this->date</td>"
-                . "<td>$this->journal$</td>"
+                . "<td>$this->journal</td>"
                 . "<td>$this->volume</td>"
                 . "<td>$this->number</td>"
                 . "<td>$this->pages</td>"
@@ -146,7 +146,6 @@ class Journal{
     
     function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"id\" value=". $this->id ." type=\"text\" size=\"10\" disabled></td><tr>"
                 . "<tr><td>Reference :</td><td><input name=\"reference\" value=".$this->reference." type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Authors :</td><td><input name=\"authors\" value=".$this->authors." type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Title :</td><td><input name=\"title\" value=".$this->title." type=\"text\" size=\"100\"></td><tr>"
@@ -171,7 +170,6 @@ class Journal{
     
     function toStringInsert(): string {
         $toReturn = "<table>"
-                . "<tr><td>ID :</td><td><input name=\"id\" value=\"\" type=\"text\" size=\"10\" disabled></td><tr>"
                 . "<tr><td>Reference :</td><td><input name=\"reference\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Authors :</td><td><input name=\"authors\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Title :</td><td><input name=\"title\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
