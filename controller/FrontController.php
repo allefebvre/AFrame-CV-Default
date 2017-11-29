@@ -11,7 +11,7 @@ class FrontController {
 	require ($dir.$views['head']);
         $dataError = array();
         
-        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'login', 'logout', 'insertInBase');
+        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'login', 'logout', 'insertInBase', 'changePassword', 'changePassword2');
         
         try {
             if (isset($_REQUEST['action'])){
