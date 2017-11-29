@@ -55,6 +55,14 @@ class AdminController {
                 case "deleteDefaultLine" :
                     $this->deleteDefaultLine();
                     break;
+                case "connection" :
+                    $this->connection();
+                    break;
+                case "login" : 
+                    $this->login();
+                    break;
+                    
+                    
                 
             }
         } catch (PDOException $e) {
@@ -63,6 +71,22 @@ class AdminController {
         } catch (Exception $e2) {
             $dataError[] = ["Unexpected error !", $e2->getMessage()];
             require ($dir . $views['error']);
+        }
+    }
+    
+    public function connection(string $alert = "test"){
+        global $dir, $views;
+        require_once ($dir . $views['connection']);
+    }
+    
+    public function login(){
+        $login = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        
+        if($login === "admin" && $password === "root"){
+            $this->displayParametersAnd3DEnvironment();
+        } else {
+            $this->connection("wrong login/password");
         }
     }
 
