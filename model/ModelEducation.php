@@ -57,6 +57,14 @@ class ModelEducation {
         $educationGW->updateById($id, $date, $education);
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $date
+     * @param string $education
+     */
     public static function insert(string $date, string $education) {
         global $base, $login, $password;
 

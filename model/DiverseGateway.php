@@ -30,6 +30,11 @@ class DiverseGateway {
         return $this->connection->getResults();
     }
     
+    /**
+     * 
+     * @param int $id
+     * @param string $diverse
+     */
     public function updateById(int $id, string $diverse){
         $query = 'UPDATE Diverse SET diverse=:diverse WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
@@ -38,6 +43,10 @@ class DiverseGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $diverse
+     */
     public function insert(string $diverse){
         $query = 'INSERT INTO Diverse (`diverse`) VALUES (:diverse);';
         $this->connection->executeQuery($query, array(

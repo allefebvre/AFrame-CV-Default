@@ -30,7 +30,13 @@ class WorkExpGateway {
         return $this->connection->getResults();
     }
     
-     public function updateById(int $id, string $date, string $workExp){
+    /**
+     * 
+     * @param int $id
+     * @param string $date
+     * @param string $workExp
+     */
+    public function updateById(int $id, string $date, string $workExp){
         $query = 'UPDATE WorkExp SET date=:date, workExp=:workExp WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
@@ -40,6 +46,11 @@ class WorkExpGateway {
         ));
     }
     
+    /**
+     * 
+     * @param string $date
+     * @param string $workExp
+     */
     public function insert(string $date, string $workExp){
         $query = 'INSERT INTO WorkExp (`date`, `workExp`) VALUES(:date, :workExp);';
         $this->connection->executeQuery($query, array(

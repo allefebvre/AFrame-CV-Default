@@ -55,6 +55,14 @@ class ModelWorkExp {
         $WorkExpGW->updateById($id, $date, $workExp);
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $date
+     * @param string $workExp
+     */
     public static function insert(string $date, string $workExp) {
         global $base, $login, $password;
 

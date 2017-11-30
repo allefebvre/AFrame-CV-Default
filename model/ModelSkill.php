@@ -40,6 +40,15 @@ class ModelSkill {
         return $data;
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @param string $category
+     * @param string $details
+     */
     public static function updateById(int $id, string $category, string $details) {
         global $base, $login, $password;
 
@@ -47,6 +56,14 @@ class ModelSkill {
         $skillGW->updateById($id, $category, $details);
     }
     
+    /**
+     * 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $category
+     * @param string $details
+     */
     public static function insert(string $category, string $details) {
         global $base, $login, $password;
 
