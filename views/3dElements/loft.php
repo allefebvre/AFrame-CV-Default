@@ -40,6 +40,7 @@ if ($rotationY == NULL || $rotationY == false) {
         $rotationY = 90;
     }
 }
+
 ?>
 
 
@@ -55,21 +56,19 @@ if ($rotationY == NULL || $rotationY == false) {
           rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
           kinematic-body>
     
-    <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: gripdown; upEvents: gripup"
+    <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"
               raycaster="far:10"
               geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
               material="color: black; shader: flat">
-        
-        <a-entity vive-controls="hand: left; model:true" position="-0.40 -1.6 1.2"></a-entity>
-        <a-entity vive-controls="hand: right; model:true" position="-0.40 -1.6 1.2"></a-entity>
-        <a-entity laser-controls="hand: left"></a-entity>
-        <a-entity laser-controls="hand: right"></a-entity>
+        <a-entity vive-controls="hand: left; model:false"></a-entity>
+        <a-entity vive-controls="hand: right; model:false"></a-entity>
     </a-entity>
-
 </a-entity>
 
 
+<!--<a-entity laser-controls="hand: left"></a-entity>
+<a-entity laser-controls="hand: right"></a-entity>-->
 
 <!-- End camera settings -->
 
