@@ -148,21 +148,21 @@ class AdminController {
         $login->deleteToken();
         $this->connection();
     }
-    
-    public function changePassword($alert = ""){
+
+    public function changePassword($alert = "") {
         global $dir, $views;
         require_once ($dir . $views['changePassword']);
     }
-    
-    public function changePassword2(){
+
+    public function changePassword2() {
         $password_old = filter_input(INPUT_POST, 'password_old', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
         $password_conf = filter_input(INPUT_POST, 'password_conf', FILTER_SANITIZE_STRING);
-        if($password !== $password_conf) {
+        if ($password !== $password_conf) {
             $this->changePassword("passwords are not the same");
-        }else{
+        } else {
             $login = new Login();
-            if($login->changePassword($password_old, $password)){
+            if ($login->changePassword($password_old, $password)) {
                 global $dir, $views;
                 $msg = "Password changed";
                 require_once ($dir . $views['info']);
@@ -264,10 +264,9 @@ class AdminController {
         global $dir, $views;
         require $dir . $views['updateDefaultData'];
     }
-    
-    
+
     /* --- Update --- */
-    
+
     /**
      * Get data and update Conference Table
      */
@@ -292,8 +291,12 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-        $this->showTable();
+        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            
+        }
     }
 
     /**
@@ -362,8 +365,12 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-        $this->showTable();
+        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            
+        }
     }
 
     /**
@@ -390,8 +397,12 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-        $this->showTable();
+        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            
+        }
     }
 
     /**
@@ -429,9 +440,8 @@ class AdminController {
         $this->showTable();
     }
 
-    
     /* --- Insert --- */
-    
+
     /**
      * Display form to insert in Database of the selected Table
      * @global string $dir
@@ -467,11 +477,12 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if ($category_id === "") {
-                $category_id = NULL;
+            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+                ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->showTable();
+            } else {
+                
             }
-            ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
         }
     }
 
@@ -489,7 +500,7 @@ class AdminController {
     /**
      * Get data and insert in Education Table 
      */
-    public function insertInEducation() {        
+    public function insertInEducation() {
         $date = Validation::cleanString($_POST['date']);
         $education = Validation::cleanString($_POST['education']);
 
@@ -518,7 +529,7 @@ class AdminController {
      * Get data and insert in Journal Table 
      */
     public function insertInJournal() {
-        
+
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
         $title = Validation::cleanString($_POST['title']);
@@ -539,20 +550,20 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if ($category_id === "") {
-                $category_id = NULL;
+            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+                ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->showTable();
+            } else {
+                
             }
-            ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
         }
-        
     }
 
     /**
      * Get data and insert in Other Table 
      */
     public function insertInOther() {
-        
+
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
         $title = Validation::cleanString($_POST['title']);
@@ -573,13 +584,13 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if ($category_id === "") {
-                $category_id = NULL;
+            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+                ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->showTable();
+            } else {
+                
             }
-            ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
         }
-        
     }
 
     /**
@@ -603,5 +614,7 @@ class AdminController {
         ModelWorkExp::insert($date, $workExp);
         $this->showTable();
     }
+
 }
+
 ?>

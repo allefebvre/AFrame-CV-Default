@@ -32,8 +32,8 @@ class Education{
     
      function toStringUpdate(): string {
         $toReturn = "<table>"
-                . "<tr><td>Date :</td><td><input name=\"date\" value=".$this->date." type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Education :</td><td><input name=\"education\" value=".$this->education."type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Date :</td><td><input name=\"date\" value=\"$this->date\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Education :</td><td><input name=\"education\" value=\"$this->education\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
      }
