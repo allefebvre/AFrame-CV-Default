@@ -152,7 +152,7 @@ class Other{
      * Get HTML to update an Other in Database
      * @return string
      */
-    function toStringUpdate(): string {
+    function toStringForm(): string {
         $toReturn = "<table>"                
                 . "<tr><td>Reference* :</td><td><input name=\"reference\" value=\"$this->reference\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Authors* :</td><td><input name=\"authors\" value=\"$this->authors\" type=\"text\" size=\"100\"></td><tr>"
@@ -172,34 +172,6 @@ class Other{
                 . "<tr><td>Pdf :</td><td><input name=\"pdf\" value=\"$this->pdf\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Date display :</td><td><input name=\"date_display\" value=\"$this->date_display\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Categorie id :</td><td><input name=\"categorie_id\" value=\"$this->categorie_id\" type=\"text\" size=\"100\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert an Other in Database
-     * @return string
-     */
-    function toStringInsert(): string {
-        $toReturn = "<table>"
-                . "<tr><td>Reference :</td><td><input name=\"reference\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Authors :</td><td><input name=\"authors\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Title :</td><td><input name=\"title\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Journal :</td><td><input name=\"journal\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Valume :</td><td><input name=\"volume\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Number :</td><td><input name=\"number\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Pages :</td><td><input name=\"pages\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Note :</td><td><textarea name=\"note\" rows=\"5\" cols=\"100\"></textarea>"
-                . "<tr><td>Abstract :</td><td><textarea name=\"abstract\" rows=\"5\" cols=\"100\"></textarea>"
-                . "<tr><td>Keyword :</td><td><input name=\"keywords\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Series :</td><td><input name=\"series\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Localite :</td><td><input name=\"localite\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Publisher :</td><td><input name=\"publisher\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Editor :</td><td><input name=\"editor\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Pdf :</td><td><input name=\"pdf\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Date display :</td><td><input name=\"date_display\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Categorie id :</td><td><input name=\"categorie_id\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }

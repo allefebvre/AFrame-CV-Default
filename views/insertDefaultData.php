@@ -16,19 +16,19 @@ switch ($tableName) {
         $data = new Skill(0, "", "");
         break;
     case "Diverse":
-        $data = new Diverse(0,"");
+        $data = new Diverse(0, "");
         break;
-    
+
     /* --- Publications : --- */
     case "Conference":
         $data = new Conference(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        break;   
+        break;
     case "Journal":
         $data = new Journal(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
         break;
     case "Other":
         $data = new Other(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        break;  
+        break;
 }
 ?>
 
@@ -39,19 +39,30 @@ switch ($tableName) {
             <h2>Insert in <?php echo $tableName; ?></h2> 
         </div>
     </div>
-    
+
     <form method="post" >
 
-        <?php echo $data->toStringInsert(); 
-            if (isset($alert) && $alert != null && $alert != ""){
-                 ?>
-                    <div class="alert"><?php echo $alert ?></div><br><br>
+        <?php
+        if ($reaload != NULL) {
+            echo $reaload->toStringForm();
+            if (isset($alert) && $alert != null && $alert != "") {
+                ?>
+                <div class="alert"><?php echo $alert ?></div><br><br>
                 <?php
             }
+            
+        } else {
+            echo $data->toStringForm();
+            if (isset($alert) && $alert != null && $alert != "") {
+                ?>
+                <div class="alert"><?php echo $alert ?></div><br><br>
+                <?php
+            }
+        }
         ?>
-        
+
 
         <input class="link" type="submit" value="GO">
-        <?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>
+<?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>
     </form>
 </div>       

@@ -32,20 +32,9 @@ class Diverse {
      * Get HTML to update a Diverse in Database
      * @return string
      */
-    function toStringUpdate(): string {
+    function toStringForm(): string {
         $toReturn = "<table>"
                 . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=\"$this->diverse\" type=\"text\" size=\"10\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert a Diverse in Database
-     * @return string
-     */
-    function toStringInsert(): string {
-        $toReturn = "<table>"
-                . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }
