@@ -97,3 +97,15 @@
 #backButton:active {
     background: #00b0a0;
 }
+
+.updateDefaultData .alert {
+    background-color: #de1c4d;
+    padding: 5px;
+    text-align: center;
+    width: 600px;
+    margin: 0px auto 0px auto;
+    display: block;
+    position: relative;
+    color:black;
+    font-size: 24px;
+}

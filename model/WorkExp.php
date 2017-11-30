@@ -24,6 +24,11 @@ class WorkExp {
     function getWorkExp() :string {
         return $this->workExp;
     }
+    
+    /**
+     * Get HTML to display a WorkExp
+     * @return string
+     */
     function toString(): string {
         $toReturn = "<td>$this->id</td>"
                 . "<td>$this->date</td>"
@@ -31,6 +36,10 @@ class WorkExp {
         return $toReturn;
     }
     
+    /**
+     * Get HTML to update a WorkExp in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"
                 . "<tr><td>Date :</td><td><input name=\"date\" value=\"$this->date\" type=\"text\" size=\"10\"></td><tr>"
@@ -39,14 +48,17 @@ class WorkExp {
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert a WorkExp in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"
                 . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Work Experience :</td><td><input name=\"workExp\" value=\"\"  type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
-    }
-    
+    }    
 }
 ?>
 

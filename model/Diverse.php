@@ -11,7 +11,6 @@ class Diverse {
     }
 
     /* --- Getters --- */
-
     function getId(): int {
         return $this->id;
     }
@@ -20,11 +19,19 @@ class Diverse {
         return $this->diverse;
     }
 
+    /**
+     * Get HTML to display a Diverse
+     * @return string
+     */
     function toString(): string {
         $toReturn = "<td>$this->id</td><td>$this->diverse</td>";
         return $toReturn;
     }
     
+    /**
+     * Get HTML to update a Diverse in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"
                 . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=\"$this->diverse\" type=\"text\" size=\"10\"></td><tr>"
@@ -32,13 +39,16 @@ class Diverse {
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert a Diverse in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"
                 . "<tr><td>Diverse :</td><td><input name=\"diverse\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }
-
 }
 ?>
 

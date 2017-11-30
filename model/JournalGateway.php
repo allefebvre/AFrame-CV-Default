@@ -9,7 +9,7 @@ class JournalGateway {
     }
 
     /**
-     * Get all journals publication on database
+     * Get all Journals in Database
      * @return array
      */
     public function getAllJournals(): array {
@@ -19,7 +19,7 @@ class JournalGateway {
     }
 
     /**
-     * 
+     * Get a Journal by id in Database
      * @param int $id
      * @return array
      */
@@ -32,7 +32,7 @@ class JournalGateway {
     }
     
     /**
-     * 
+     * Update a Journal by id in Database
      * @param int $id
      * @param string $reference
      * @param string $authors
@@ -74,13 +74,12 @@ class JournalGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)          
         ));
     }
     
     /**
-     * 
+     * Insert a Journal in Database
      * @param string $reference
      * @param string $authors
      * @param string $title
@@ -120,11 +119,8 @@ class JournalGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)           
         ));
     }
-
 }
-
 ?>

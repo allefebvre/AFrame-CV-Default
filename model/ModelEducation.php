@@ -3,14 +3,13 @@
 class ModelEducation {
 
     /**
-     * Fill table with Education object array from a SQL query
+     * Get all Education in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllEducation(): array {
-
         global $base, $login, $password;
 
         $educationGW = new EducationGateway(new Connection($base, $login, $password));
@@ -19,19 +18,19 @@ class ModelEducation {
         foreach ($results as $row) {
             $data[] = new Education($row['ID'], $row['date'], $row['education']);
         }
+        
         return $data;
     }
 
     /**
-     * 
+     * Get an Education by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id
-     * @return Conference
+     * @return Education
      */
     public static function getOneEducation(int $id): Education {
-
         global $base, $login, $password;
 
         $educationGW = new EducationGateway(new Connection($base, $login, $password));
@@ -42,7 +41,7 @@ class ModelEducation {
     }
 
     /**
-     * 
+     * Update an Education by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -58,7 +57,7 @@ class ModelEducation {
     }
     
     /**
-     * 
+     * Insert an Education in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -71,7 +70,6 @@ class ModelEducation {
         $educationGW = new EducationGateway(new Connection($base, $login, $password));
         $educationGW->insert($date, $education);
     }
-
 }
 ?>  
 
