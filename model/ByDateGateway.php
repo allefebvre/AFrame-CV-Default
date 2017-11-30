@@ -8,7 +8,7 @@ class ByDateGateway {
     }
     
     /**
-     * Get all the publication order by Date on database
+     * Get all Publications order by Date in Database
      * @return array
      */
     public function getAllByDates () :array {

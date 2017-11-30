@@ -4,30 +4,33 @@ $tableName = $_GET['table'];
 $data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
 
 switch ($tableName) {
-    case "Conference":
-        $data['dateTable'] = ModelConference::getAllConferences();
-        break;
-    case "Diverse":
-        $data['dateTable'] = ModelDiverse::getAllDiverse();
+    /* --- Sections --- */
+    case "Information":
+        $data['dataTable'] = ModelInformation::getAllInformation();
         break;
     case "Education":
-        $data['dateTable'] = ModelEducation::getAllEducation();
-        break;
-    case "Information":
-        $data['dateTable'] = ModelInformation::getAllInformation();
-        break;
-    case "Journal":
-        $data['dateTable'] = ModelJournal::getAllJournals();
-        break;
-    case "Other":
-        $data['dateTable'] = ModelOther::getAllOthers();
-        break;
-    case "Skill":
-        $data['dateTable'] = ModelSkill::getAllSkills();
+        $data['dataTable'] = ModelEducation::getAllEducation();
         break;
     case "WorkExp":
-        $data['dateTable'] = ModelWorkExp::getAllWorkExp();
+        $data['dataTable'] = ModelWorkExp::getAllWorkExp();
         break;
+    case "Skill":
+        $data['dataTable'] = ModelSkill::getAllSkills();
+        break;
+    case "Diverse":
+        $data['dataTable'] = ModelDiverse::getAllDiverse();
+        break;
+    
+    /* --- Publications --- */
+    case "Conference":
+        $data['dataTable'] = ModelConference::getAllConferences();
+        break; 
+    case "Journal":
+        $data['dataTable'] = ModelJournal::getAllJournals();
+        break;
+    case "Other":
+        $data['dataTable'] = ModelOther::getAllOthers();
+        break;  
 }
 ?>
 
@@ -52,17 +55,30 @@ switch ($tableName) {
             </tr>
 
             <?php
-            foreach ($data['dateTable'] as $table) {
+            foreach ($data['dataTable'] as $table) {
                 $id = $table->getId();
                 echo "<tr class=\"contentTable\">";
-                echo "<td><a href=\"admin.php?action=showLine&table=$tableName&id=$id\"><div class=\"button\">Edit</div></a></td><td><a href=admin.php?action=deleteDefaultLine&table=$tableName&id=$id><div class=\"button\">Delete</div></a></td>";
+                echo "<td>"
+                        . "<a href=\"admin.php?action=showLine&table=$tableName&id=$id\">"
+                            . "<div class=\"button\">Edit</div>"
+                        . "</a>"
+                        . "</td>"
+                        . "<td>"
+                        . "<a href=\"admin.php?action=deleteDefaultLine&table=$tableName&id=$id\">"
+                            . "<div class=\"button\">Delete</div>"
+                        . "</a>"
+                    . "</td>";
                 echo $table->toString();
                 echo "</tr>";
             }
             ?>
         </table>
         <?php
-            echo "<div class = \"link\"><a id = \"InsertData\" href = \"admin.php?action=insertInBase&table=$tableName\"><div class = \"link-div\">Insert</div></a></div>";
+            echo "<div class = \"link\">"
+                    . "<a id = \"InsertData\" href = \"admin.php?action=insertInBase&table=$tableName\">"
+                        . "<div class = \"link-div\">Insert</div>"
+                    . "</a>"
+                . "</div>";
         ?>
     </form>
 </div>

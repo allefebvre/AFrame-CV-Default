@@ -14,11 +14,13 @@ $data['tables'] = ModelTables::getAllTables();
             <ul>
                 <?php
                 foreach ($data['tables'] as $table) {
-                    $div = $table[0];
-                    if ($div !== "ByDate" && $div !== "Parameter" && $div !== "Login" && $div !== "Token") {
-                        echo "<li>
-                            <a href=\"admin.php?table=$div&action=showTable\"><div>$div</div></a>
-                             </li>";
+                    $tableName = $table[0];
+                    if ($tableName !== "ByDate" && $tableName !== "Parameter" && $tableName !== "Login" && $tableName !== "Token") {
+                        echo "<li>"
+                                . "<a href=\"admin.php?table=$tableName&action=showTable\">"
+                                    . "<div>$tableName</div>"
+                                . "</a>"
+                            . "</li>";
                     }
                 }
                 ?>

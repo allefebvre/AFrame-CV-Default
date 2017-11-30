@@ -2,7 +2,7 @@
 class ModelParameter {
     
     /**
-     * Fill table with Parameter object array from a SQL query
+     * Get all Parameter in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -22,7 +22,7 @@ class ModelParameter {
     }
     
     /**
-     * Update a Parameter
+     * Update a Parameter by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -39,7 +39,7 @@ class ModelParameter {
     }
     
     /**
-     * Get the Parameter with the name "Publications"
+     * Get the Parameter with the name "Publications" in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -56,7 +56,7 @@ class ModelParameter {
     }
     
     /**
-     * Get number of plane to display which are in the middle loft 
+     * Get number of plane to display which are in the middle loft in Database
      * @global string $base
      * @global string $login
      * @global string $password

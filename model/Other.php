@@ -121,6 +121,10 @@ class Other{
         return $this->categorie_id;
     }
     
+    /**
+     * Get HTML to display an Other
+     * @return string
+     */
     function toString(): string {
        $toReturn = "<td>$this->id</td>"
                 . "<td>$this->reference</td>"
@@ -143,6 +147,11 @@ class Other{
                 . "<td>$this->categorie_id</td>";
         return $toReturn;
     }
+    
+    /**
+     * Get HTML to update an Other in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"                
                 . "<tr><td>Reference* :</td><td><input name=\"reference\" value=\"$this->reference\" type=\"text\" size=\"10\"></td><tr>"
@@ -167,6 +176,10 @@ class Other{
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert an Other in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"
                 . "<tr><td>Reference :</td><td><input name=\"reference\" value=\"\" type=\"text\" size=\"10\"></td><tr>"

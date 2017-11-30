@@ -8,17 +8,18 @@ class WorkExpGateway {
     }
         
     /**
-     * Get all work experiences on database
+     * Get all Work Experiences in Database
      * @return array
      */
     public function getAllWorkExps() :array {
         $query='SELECT * FROM WorkExp;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get a Work Experience by id in Database
      * @param int $id
      * @return array
      */
@@ -27,11 +28,12 @@ class WorkExpGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Update a Work Experience by id in Database
      * @param int $id
      * @param string $date
      * @param string $workExp
@@ -41,13 +43,12 @@ class WorkExpGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
             ':date' => array($date, PDO::PARAM_STR),
-            ':workExp' => array($workExp, PDO::PARAM_STR)
-            
+            ':workExp' => array($workExp, PDO::PARAM_STR)          
         ));
     }
     
     /**
-     * 
+     * Insert a Work Experience in Database
      * @param string $date
      * @param string $workExp
      */
@@ -55,8 +56,7 @@ class WorkExpGateway {
         $query = 'INSERT INTO WorkExp (`date`, `workExp`) VALUES(:date, :workExp);';
         $this->connection->executeQuery($query, array(
             ':date' => array($date, PDO::PARAM_STR),
-            ':workExp' => array($workExp, PDO::PARAM_STR)
-            
+            ':workExp' => array($workExp, PDO::PARAM_STR)       
         ));
     }
 }

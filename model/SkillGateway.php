@@ -8,17 +8,18 @@ class SkillGateway {
     }
         
     /**
-     * Get all skill personal information on database
+     * Get all Skills in Database
      * @return array
      */
     public function getAllSkills() :array {
         $query='SELECT * FROM Skill;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get a Skill by id in Database
      * @param int $id
      * @return array
      */
@@ -27,11 +28,12 @@ class SkillGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Update a Skill by id in Database
      * @param int $id
      * @param string $category
      * @param string $details
@@ -41,13 +43,12 @@ class SkillGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
             ':category' => array($category, PDO::PARAM_STR),
-            ':details' => array($details, PDO::PARAM_STR)
-            
+            ':details' => array($details, PDO::PARAM_STR)   
         ));
     }
     
     /**
-     * 
+     * Insert a Skill in Database
      * @param string $category
      * @param string $details
      */
@@ -55,8 +56,7 @@ class SkillGateway {
         $query = 'INSERT INTO Skill (`category`, `details`) VALUES (:category, :details);';
         $this->connection->executeQuery($query, array(
             ':category' => array($category, PDO::PARAM_STR),
-            ':details' => array($details, PDO::PARAM_STR)
-            
+            ':details' => array($details, PDO::PARAM_STR)      
         ));
     }
 }

@@ -8,17 +8,18 @@ class InformationGateway {
     }
      
     /**
-     * Get all personal information on database
+     * Get all Information in Database
      * @return array
      */
     public function getAllInformation() :array {
         $query='SELECT * FROM Information;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get an Information by id in Database
      * @param int $id
      * @return array
      */
@@ -27,11 +28,12 @@ class InformationGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Update an Information by id in Database
      * @param int $id
      * @param string $status
      * @param string $name
@@ -53,13 +55,12 @@ class InformationGateway {
             ':age' => array($age, PDO::PARAM_STR),
             ':address' => array($address, PDO::PARAM_STR),
             ':phone' => array($phone, PDO::PARAM_STR),
-            ':mail' => array($mail, PDO::PARAM_STR)
-            
+            ':mail' => array($mail, PDO::PARAM_STR)           
         ));
     }
     
     /**
-     * 
+     * Insert an Information in Database
      * @param string $status
      * @param string $name
      * @param string $firstName
@@ -79,8 +80,7 @@ class InformationGateway {
             ':age' => array($age, PDO::PARAM_STR),
             ':address' => array($address, PDO::PARAM_STR),
             ':phone' => array($phone, PDO::PARAM_STR),
-            ':mail' => array($mail, PDO::PARAM_STR)
-            
+            ':mail' => array($mail, PDO::PARAM_STR)           
         ));
     }
 }

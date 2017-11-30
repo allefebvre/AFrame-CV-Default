@@ -3,30 +3,35 @@ $tableName = $_REQUEST['table'];
 $id = $_REQUEST['id'];
 
 switch ($tableName) {
-    case "Conference":
-        $data = ModelConference::getOneConference($id);
-        break;
-    case "Diverse":
-        $data = ModelDiverse::getOneDiverse($id);
+    /* --- Sections : --- */
+    case "Information":
+        $data = ModelInformation::getOneInformation($id);
         break;
     case "Education":
         $data = ModelEducation::getOneEducation($id);
         break;
-    case "Information":
-        $data = ModelInformation::getOneInformation($id);
+    case "WorkExp":
+        $data = ModelWorkExp::getOneWorkExp($id);
         break;
+    case "Skill":
+        $data = ModelSkill::getOneSkill($id);
+        break;
+    case "Diverse":
+        $data = ModelDiverse::getOneDiverse($id);
+        break;
+    
+    /* --- Publications : --- */
+    case "Conference":
+        $data = ModelConference::getOneConference($id);
+        break;  
     case "Journal":
         $data = ModelJournal::getOneJournal($id);
         break;
     case "Other":
         $data = ModelOther::getOneConference($id);
         break;
-    case "Skill":
-        $data = ModelSkill::getOneSkill($id);
-        break;
-    case "WorkExp":
-        $data = ModelWorkExp::getOneWorkExo($id);
-        break;
+    
+    
 }
 ?>
 

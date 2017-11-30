@@ -2,14 +2,13 @@
 class ModelSkill {
     
     /**
-     * Fill table with Skills object array from a SQL query
+     * Get all Skills in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllSkills() :array {
-
  	global $base, $login, $password;
 
         $skillGW = new SkillGateway(new Connection($base, $login, $password));
@@ -18,19 +17,19 @@ class ModelSkill {
         foreach ($results as $row){
             $data[] = new Skill ($row['ID'], $row['category'], $row['details']);
         }
+        
         return $data;
     }
     
     /**
-     * 
+     * Get a Skill by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id
-     * @return Conference
+     * @return Skill
      */
     public static function getOneSkill(int $id) : Skill {
-
  	global $base, $login, $password;
 
         $skillGW = new SkillGateway(new Connection($base, $login, $password));
@@ -41,7 +40,7 @@ class ModelSkill {
     }
     
     /**
-     * 
+     * Update a Skill by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -57,7 +56,7 @@ class ModelSkill {
     }
     
     /**
-     * 
+     * Insert a Skill in Database
      * @global string $base
      * @global string $login
      * @global string $password

@@ -3,14 +3,13 @@
 class ModelConference {
     
     /**
-     * Fill table with Conference object array from a SQL query
+     * Get all Conferences in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllConferences() :array {
-
  	global $base, $login, $password;
 
         $conferenceGW = new ConferenceGateway(new Connection($base, $login, $password));
@@ -19,11 +18,12 @@ class ModelConference {
         foreach ($results as $row){
             $data[]=new Conference ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['category_id']);
         }
+        
         return $data;
     }
     
     /**
-     * 
+     * Get a Conference by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -31,7 +31,6 @@ class ModelConference {
      * @return Conference
      */
     public static function getOneConference(int $id) : Conference {
-
  	global $base, $login, $password;
 
         $conferenceGW = new ConferenceGateway(new Connection($base, $login, $password));
@@ -42,7 +41,7 @@ class ModelConference {
     }
     
     /**
-     * 
+     * Update a Conference by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -74,7 +73,7 @@ class ModelConference {
     }
     
     /**
-     * 
+     * Insert a Conference in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -104,5 +103,4 @@ class ModelConference {
         $conferenceGW->Insert( $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
 }
-
 ?>  

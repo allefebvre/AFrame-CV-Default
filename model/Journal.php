@@ -121,6 +121,10 @@ class Journal{
         return $this->categorie_id;
     }
     
+    /**
+     * Get HTML to dislay a Journal
+     * @return string
+     */
     function toString(): string {
         $toReturn = "<td>$this->id</td>"
                 . "<td>$this->reference</td>"
@@ -144,6 +148,10 @@ class Journal{
         return $toReturn;
     }
     
+    /**
+     * Get HTML to update a Journal in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"                
                 . "<tr><td>Reference* :</td><td><input name=\"reference\" value=\"$this->reference\" type=\"text\" size=\"10\"></td><tr>"
@@ -168,6 +176,10 @@ class Journal{
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert a Journal in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"
                 . "<tr><td>Reference :</td><td><input name=\"reference\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
@@ -190,7 +202,6 @@ class Journal{
                 . "<tr><td>Categorie id :</td><td><input name=\"categorie_id\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
-    }
-    
+    }   
 }
 ?>

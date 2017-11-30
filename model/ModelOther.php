@@ -3,14 +3,13 @@
 class ModelOther {
 
     /**
-     * Fill table with Others object array from a SQL query
+     * Get all Others in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllOthers(): array {
-
         global $base, $login, $password;
 
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
@@ -19,19 +18,19 @@ class ModelOther {
         foreach ($results as $row) {
             $data[] = new Other($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['category_id']);
         }
+        
         return $data;
     }
 
     /**
-     * 
+     * Get an Other by id in Database 
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id
-     * @return Conference
+     * @return Other
      */
     public static function getOneConference(int $id): Other {
-
         global $base, $login, $password;
 
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
@@ -42,7 +41,7 @@ class ModelOther {
     }
     
     /**
-     * 
+     * Update an Other by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -74,7 +73,7 @@ class ModelOther {
     }
     
     /**
-     * 
+     * Insert an Other in Database 
      * @global string $base
      * @global string $login
      * @global string $password
@@ -101,8 +100,7 @@ class ModelOther {
         global $base, $login, $password;
 
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
-        $otherGW->Insert( $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+        $otherGW->insert( $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
-
 }
 ?>  

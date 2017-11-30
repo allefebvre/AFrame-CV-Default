@@ -18,7 +18,7 @@ class DiverseGateway {
     }
     
     /**
-     * 
+     * Get a Diverse by id in Database
      * @param int $id
      * @return array
      */
@@ -31,7 +31,7 @@ class DiverseGateway {
     }
     
     /**
-     * 
+     * Update a Diverse by id Database
      * @param int $id
      * @param string $diverse
      */
@@ -44,7 +44,7 @@ class DiverseGateway {
     }
     
     /**
-     * 
+     * Insert a Diverse in Database
      * @param string $diverse
      */
     public function insert(string $diverse){
@@ -52,9 +52,7 @@ class DiverseGateway {
         $this->connection->executeQuery($query, array(
             ':diverse' => array($diverse, PDO::PARAM_STR)
         ));
-    }
-    
-    
+    } 
 }
 ?>
 
