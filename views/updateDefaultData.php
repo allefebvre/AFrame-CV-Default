@@ -39,9 +39,16 @@ switch ($tableName) {
     </div>
     <form method="post" >
 
-        <?php echo $data->toStringUpdate(); ?>
+        <?php
+        echo $data->toStringUpdate();
+        if (isset($alert) && $alert != null && $alert != "") {
+            ?>
+            <div class="alert"><?php echo $alert ?></div><br><br>
+            <?php
+        }
+        ?>
 
         <input class="link" type="submit" value="GO">
-        <?php echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; ?>
+<?php echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; ?>
     </form>
 </div>       

@@ -39,7 +39,14 @@ switch ($tableName) {
     
     <form method="post" >
 
-        <?php echo $data->toStringInsert(); ?>
+        <?php echo $data->toStringInsert(); 
+            if (isset($alert) && $alert != null && $alert != ""){
+                 ?>
+                    <div class="alert"><?php echo $alert ?></div><br><br>
+                <?php
+            }
+        ?>
+        
 
         <input class="link" type="submit" value="GO">
         <?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>

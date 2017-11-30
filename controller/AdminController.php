@@ -260,7 +260,7 @@ class AdminController {
      * @global string $dir
      * @global array $views
      */
-    public function showLine() {
+    public function showLine(string $alert = "") {
         global $dir, $views;
         require $dir . $views['updateDefaultData'];
     }
@@ -295,7 +295,7 @@ class AdminController {
             ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            
+            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
         }
     }
 
@@ -369,7 +369,7 @@ class AdminController {
             ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            
+             $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
         }
     }
 
@@ -401,7 +401,7 @@ class AdminController {
             ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            
+             $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
         }
     }
 
@@ -447,7 +447,7 @@ class AdminController {
      * @global string $dir
      * @global array $views
      */
-    public function insertInBase() {
+    public function insertInBase(string $alert = "") {
         global $dir, $views;
 
         require $dir . $views['insertInBase'];
@@ -481,7 +481,7 @@ class AdminController {
                 ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-                
+                 $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
             }
         }
     }
@@ -554,7 +554,7 @@ class AdminController {
                 ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-                
+                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
             }
         }
     }
@@ -588,7 +588,7 @@ class AdminController {
                 ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-                
+               $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
             }
         }
     }
@@ -616,5 +616,4 @@ class AdminController {
     }
 
 }
-
 ?>
