@@ -38,22 +38,10 @@ class Education{
      * Get HTML to update an Education in Database
      * @return string
      */
-    function toStringUpdate(): string {
+    function toStringForm(): string {
         $toReturn = "<table>"
                 . "<tr><td>Date :</td><td><input name=\"date\" value=\"$this->date\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Education :</td><td><input name=\"education\" value=\"$this->education\" type=\"text\" size=\"100\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert an Education in Database
-     * @return string
-     */
-    function toStringInsert(): string {
-        $toReturn = "<table>"
-                . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Education :</td><td><input name=\"education\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }
