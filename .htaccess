@@ -1,0 +1,7 @@
+<Files LICENSE>
+    deny from all
+</Files>
+
+<Files README.md>
+    deny from all
+</Files>
