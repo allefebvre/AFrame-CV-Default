@@ -236,7 +236,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Display all Tables  
      * @global string $dir
      * @global array $views
      */
@@ -246,7 +246,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Display selected Table
      * @global string $dir
      * @global array $views
      */
@@ -256,7 +256,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Display a form to update a line
      * @global string $dir
      * @global array $views
      */
@@ -264,9 +264,12 @@ class AdminController {
         global $dir, $views;
         require $dir . $views['updateDefaultData'];
     }
-
+    
+    
+    /* --- Update --- */
+    
     /**
-     * 
+     * Get data and update Conference Table
      */
     public function updateConference() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -294,7 +297,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Diverse Table
      */
     public function updateDiverse() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -306,7 +309,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Education Table
      */
     public function updateEducation() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -318,7 +321,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Information Table
      */
     public function updateInformation() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -336,7 +339,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Journal Table
      */
     public function updateJournal() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -364,7 +367,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Other Table
      */
     public function updateOther() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -392,7 +395,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Skill Table
      */
     public function updateSkill() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -404,7 +407,7 @@ class AdminController {
     }
 
     /**
-     * 
+     * Get data and update Work Experience Table
      */
     public function updateWorkExp() {
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -415,6 +418,9 @@ class AdminController {
         $this->showTable();
     }
 
+    /**
+     * Get table and id to delete the line in Database
+     */
     public function deleteDefaultLine() {
         $table = Validation::cleanString($_REQUEST['table']);
         $id = Validation::cleanInt($_REQUEST['id']);
@@ -423,12 +429,23 @@ class AdminController {
         $this->showTable();
     }
 
+    
+    /* --- Insert --- */
+    
+    /**
+     * Display form to insert in Database of the selected Table
+     * @global string $dir
+     * @global array $views
+     */
     public function insertInBase() {
         global $dir, $views;
 
         require $dir . $views['insertInBase'];
     }
 
+    /**
+     * Get data and insert in Conference Table
+     */
     public function insertInConference() {
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
@@ -458,6 +475,9 @@ class AdminController {
         }
     }
 
+    /**
+     * Get data and insert in Diverse Table
+     */
     public function insertInDiverse() {
         $diverse = Validation::cleanString($_POST['diverse']);
 
@@ -466,6 +486,9 @@ class AdminController {
         $this->showTable();
     }
 
+    /**
+     * Get data and insert in Education Table 
+     */
     public function insertInEducation() {        
         $date = Validation::cleanString($_POST['date']);
         $education = Validation::cleanString($_POST['education']);
@@ -474,6 +497,9 @@ class AdminController {
         $this->showTable();
     }
 
+    /**
+     * Get data and insert in Information Table 
+     */
     public function insertInInformation() {
         $status = Validation::cleanString($_POST['status']);
         $name = Validation::cleanString($_POST['name']);
@@ -488,6 +514,9 @@ class AdminController {
         $this->showTable();
     }
 
+    /**
+     * Get data and insert in Journal Table 
+     */
     public function insertInJournal() {
         
         $reference = Validation::cleanString($_POST['reference']);
@@ -519,6 +548,9 @@ class AdminController {
         
     }
 
+    /**
+     * Get data and insert in Other Table 
+     */
     public function insertInOther() {
         
         $reference = Validation::cleanString($_POST['reference']);
@@ -550,6 +582,9 @@ class AdminController {
         
     }
 
+    /**
+     * Get data and insert in Skill Table 
+     */
     public function insertInSkill() {
         $category = Validation::cleanString($_POST['category']);
         $details = Validation::cleanString($_POST['details']);
@@ -558,6 +593,9 @@ class AdminController {
         $this->showTable();
     }
 
+    /**
+     * Get data and insert in Work Experience Table 
+     */
     public function insertInWorkExp() {
         $date = Validation::cleanString($_POST['date']);
         $workExp = Validation::cleanString($_POST['workExp']);
@@ -565,7 +603,5 @@ class AdminController {
         ModelWorkExp::insert($date, $workExp);
         $this->showTable();
     }
-
 }
-
 ?>
