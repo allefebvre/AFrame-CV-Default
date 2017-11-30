@@ -1,5 +1,31 @@
 <?php
 $data['tables'] = ModelTables::getAllTables();
+
+$data['sectionsTables'] = array();
+$data['publicationsTables'] = array();
+
+foreach ($data['tables'] as $table) {
+    $tableName = $table[0];
+    if ($tableName !== "ByDate" && $tableName !== "Parameter" && $tableName !== "Login" && $tableName !== "Token") {
+        switch ($tableName) {
+            /* --- Sections : --- */
+            case "Information":
+            case "Education":
+            case "WorkExp":
+            case "Skill":
+            case "Diverse":
+                $data['sectionsTables'][] = $tableName;
+                break;
+
+            /* --- Publications : --- */
+            case "Conference": 
+            case "Journal":
+            case "Other":
+                $data['publicationsTables'][] = $tableName;
+                break;   
+        }
+    }
+}
 ?>
 
 <div  class="panels">
@@ -11,20 +37,34 @@ $data['tables'] = ModelTables::getAllTables();
     </div>
     <form method="post" >
         <div class="list">
-            <ul>
+            <div>
+                <h3>Sections :</h3>
+                <ul>
                 <?php
-                foreach ($data['tables'] as $table) {
-                    $tableName = $table[0];
-                    if ($tableName !== "ByDate" && $tableName !== "Parameter" && $tableName !== "Login" && $tableName !== "Token") {
-                        echo "<li>"
-                                . "<a href=\"admin.php?table=$tableName&action=showTable\">"
-                                    . "<div>$tableName</div>"
-                                . "</a>"
-                            . "</li>";
-                    }
+                foreach ($data['sectionsTables'] as $tableName) {
+                    echo "<li>"
+                            . "<a href=\"admin.php?table=$tableName&action=showTable\">"
+                                . "<div>$tableName</div>"
+                            . "</a>"
+                        . "</li>";
                 }
                 ?>
-            </ul>    
+                </ul> 
+            </div>    
+            <div>
+                <h3>Publications :</h3>
+                <ul>
+                <?php
+                foreach ($data['publicationsTables'] as $tableName) {
+                    echo "<li>"
+                            . "<a href=\"admin.php?table=$tableName&action=showTable\">"
+                                . "<div>$tableName</div>"
+                            . "</a>"
+                        . "</li>";
+                }
+                ?>
+                </ul> 
+            </div>     
         </div>            
     </form>
 </div>       

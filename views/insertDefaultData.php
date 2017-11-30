@@ -32,7 +32,7 @@ switch ($tableName) {
 }
 ?>
 
-<div class="updateDefaultData">
+<div class="insertDefaultData">
     <div class="titleBar">
         <a href="admin.php?table=<?php echo $tableName; ?>&action=showTable"><button id="backButton">&#10229; Back</button></a>
         <div class="title">
