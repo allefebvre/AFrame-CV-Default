@@ -11,7 +11,11 @@ class FrontController {
 	require ($dir.$views['head']);
         $dataError = array();
 
-        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInConference','insertInDiverse','insertInEducation','insertInInformation','insertInJournal','insertInOther', 'insertInSkill', 'insertInWorkExp' ,'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 'login', 'logout', 'changePassword', 'changePassword2');        
+        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInConference',
+            'insertInDiverse','insertInEducation','insertInInformation','insertInJournal','insertInOther', 
+            'insertInSkill', 'insertInWorkExp' ,'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 
+            'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
+            'login', 'logout', 'changePassword', 'changePassword2');        
 
         try {
             if (isset($_REQUEST['action'])){
