@@ -37,7 +37,7 @@ class Skill {
     }
 
     /**
-     * Get HTML to update a Skill in Database
+     * Get HTML to build a form of a Skill
      * @return string
      */
     function toStringForm(): string {

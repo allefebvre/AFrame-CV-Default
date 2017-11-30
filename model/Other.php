@@ -149,7 +149,7 @@ class Other{
     }
     
     /**
-     * Get HTML to update an Other in Database
+     * Get HTML to build a form of an Other
      * @return string
      */
     function toStringForm(): string {

@@ -35,7 +35,7 @@ class Education{
     }
     
     /**
-     * Get HTML to update an Education in Database
+     * Get HTML to build a form of an Education
      * @return string
      */
     function toStringForm(): string {
