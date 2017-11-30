@@ -83,7 +83,7 @@ class Information {
      * Get HTML to update an Information in Database
      * @return string
      */
-    function toStringUpdate() : string {
+    function toStringForm() : string {
         $toReturn = "<table>"
                 . "<tr><td>Status :</td><td><input name=\"status\" value=\"$this->status\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Name :</td><td><input name=\"name\" value=\"$this->name\" type=\"text\" size=\"100\"></td><tr>"
@@ -93,24 +93,6 @@ class Information {
                 . "<tr><td>Address :</td><td><input name=\"address\" value=\"$this->address\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Phone :</td><td><input name=\"phone\" value=\"$this->phone\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Mail :</td><td><input name=\"mail\" value=\"$this->mail\" type=\"text\" size=\"100\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert an Information in Database
-     * @return string
-     */
-    function toStringInsert() : string {
-        $toReturn = "<table>"
-                . "<tr><td>Status :</td><td><input name=\"status\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Name :</td><td><input name=\"name\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>First Name :</td><td><input name=\"firstName\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Photo :</td><td><input name=\"photo\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Age :</td><td><input name=\"age\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Address :</td><td><input name=\"address\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Phone :</td><td><input name=\"phone\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Mail :</td><td><input name=\"mail\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }

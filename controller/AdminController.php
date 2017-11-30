@@ -447,7 +447,7 @@ class AdminController {
      * @global string $dir
      * @global array $views
      */
-    public function insertInBase(string $alert = "") {
+    public function insertInBase(string $alert = "", $reaload = NULL) {
         global $dir, $views;
 
         require $dir . $views['insertInBase'];
@@ -481,7 +481,8 @@ class AdminController {
                 ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-                 $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+                $reload = new Conference(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
             }
         }
     }
@@ -554,7 +555,8 @@ class AdminController {
                 ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+                $reload = new Journal(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
             }
         }
     }
@@ -588,7 +590,8 @@ class AdminController {
                 ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
-               $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+                $reload = new Other(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
             }
         }
     }

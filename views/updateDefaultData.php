@@ -43,7 +43,7 @@ switch ($tableName) {
     <form method="post" >
 
         <?php
-        echo $data->toStringUpdate();
+        echo $data->toStringForm();
         if (isset($alert) && $alert != null && $alert != "") {
             ?>
             <div class="alert"><?php echo $alert ?></div><br><br>

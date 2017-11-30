@@ -40,22 +40,10 @@ class Skill {
      * Get HTML to update a Skill in Database
      * @return string
      */
-    function toStringUpdate(): string {
+    function toStringForm(): string {
         $toReturn = "<table>"
                 . "<tr><td>Category :</td><td><input name=\"category\" value=\"$this->category\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Details :</td><td><input name=\"details\" value=\"$this->details\" type=\"text\" size=\"100\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert a Skill in Database
-     * @return string
-     */
-    function toStringInsert(): string {
-        $toReturn = "<table>"
-                . "<tr><td>Category :</td><td><input name=\"category\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Details :</td><td><input name=\"details\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
     }

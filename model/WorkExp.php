@@ -40,25 +40,13 @@ class WorkExp {
      * Get HTML to update a WorkExp in Database
      * @return string
      */
-    function toStringUpdate(): string {
+    function toStringForm(): string {
         $toReturn = "<table>"
                 . "<tr><td>Date :</td><td><input name=\"date\" value=\"$this->date\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Work Experience :</td><td><input name=\"workExp\" value=\"$this->workExp\" type=\"text\" size=\"100\"></td><tr>"
                 . "</table>";
         return $toReturn;
-    }
-    
-    /**
-     * Get HTML to insert a WorkExp in Database
-     * @return string
-     */
-    function toStringInsert(): string {
-        $toReturn = "<table>"
-                . "<tr><td>Date :</td><td><input name=\"date\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Work Experience :</td><td><input name=\"workExp\" value=\"\"  type=\"text\" size=\"100\"></td><tr>"
-                . "</table>";
-        return $toReturn;
-    }    
+    }   
 }
 ?>
 
