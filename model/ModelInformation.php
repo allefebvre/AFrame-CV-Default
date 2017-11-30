@@ -3,14 +3,13 @@
 class ModelInformation {
     
     /**
-     * Fill table with Information object array from a SQL query
+     * Get all Information in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllInformation() :array {
-
  	global $base, $login, $password;
 
         $informationGW = new InformationGateway(new Connection($base, $login, $password));
@@ -19,19 +18,19 @@ class ModelInformation {
         foreach ($results as $row){
             $data[] = new Information ($row['ID'], $row['status'], $row['name'], $row['firstName'], $row['photo'], $row['age'], $row['address'], $row['phone'], $row['mail']);
         }
+        
         return $data;
     }
     
     /**
-     * 
+     * Get an Information by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id
-     * @return Conference
+     * @return Information
      */
     public static function getOneInformation(int $id) : Information {
-
  	global $base, $login, $password;
 
         $informationGW = new InformationGateway(new Connection($base, $login, $password));
@@ -42,7 +41,7 @@ class ModelInformation {
     }
     
     /**
-     * 
+     * Update an information in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -64,7 +63,7 @@ class ModelInformation {
     }
     
     /**
-     * 
+     * Insert an Information in Database
      * @global string $base
      * @global string $login
      * @global string $password

@@ -3,14 +3,13 @@
 class ModelJournal {
 
     /**
-     * Fill table with Journals object array from a SQL query
+     * Get all Journals in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return array
      */
     public static function getAllJournals(): array {
-
         global $base, $login, $password;
 
         $journalGW = new JournalGateway(new Connection($base, $login, $password));
@@ -19,19 +18,19 @@ class ModelJournal {
         foreach ($results as $row) {
             $data[] = new Journal($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['category_id']);
         }
+        
         return $data;
     }
 
     /**
-     * 
+     * Get a Journal by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @param int $id
-     * @return Conference
+     * @return Journal
      */
     public static function getOneJournal(int $id): Journal {
-
         global $base, $login, $password;
 
         $journalGW = new JournalGateway(new Connection($base, $login, $password));
@@ -42,7 +41,7 @@ class ModelJournal {
     }
 
     /**
-     * 
+     * Update a Journal by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -74,7 +73,7 @@ class ModelJournal {
     }
 
     /**
-     * 
+     * Insert a Journal in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -103,6 +102,5 @@ class ModelJournal {
         $journalGW = new JournalGateway(new Connection($base, $login, $password));
         $journalGW->Insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
-
 }
 ?>  

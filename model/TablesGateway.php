@@ -8,12 +8,13 @@ class TablesGateway{
     }
         
     /**
-     * Get all education personal information on database
+     * Get all Tables name
      * @return array
      */
     public function getAllTables() :array {
         $query='SHOW TABLES;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
 }

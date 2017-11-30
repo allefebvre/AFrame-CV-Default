@@ -8,17 +8,18 @@ class ParameterGateway {
     }
         
     /**
-     * Get all Parameter on database
+     * Get all Parameter in Database
      * @return array
      */
     public function getAllParameter() :array {
         $query = 'SELECT * FROM Parameter;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * Update a Parameter
+     * Update a Parameter by id in Database
      * @param int $id
      * @param string $display
      * @param string $section
@@ -35,10 +36,10 @@ class ParameterGateway {
     }
     
     /**
-     * Get the Parameter with the name "Publications"
+     * Get the Parameter with the name "Publications" in Database
      * @return array
      */
-    public function getParameterPublications() :array{
+    public function getParameterPublications() :array {
         $name = "Publications";
         $query = "SELECT * FROM Parameter WHERE name=:name;";
         $this->connection->executeQuery($query, array(
@@ -49,7 +50,7 @@ class ParameterGateway {
     }
     
     /**
-     * Get number of plane to display which are in the middle loft 
+     * Get number of plane to display which are in the middle loft in Database
      * @return int
      */
     public function getNbMiddlePlaneDisplay() :int {

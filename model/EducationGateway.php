@@ -8,17 +8,18 @@ class EducationGateway {
     }
         
     /**
-     * Get all education personal information on database
+     * Get all Education in Database
      * @return array
      */
     public function getAllEducation() :array {
         $query='SELECT * FROM Education;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get an Education by id in Database
      * @param int $id
      * @return array
      */
@@ -27,11 +28,12 @@ class EducationGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Update an Education by id in Database
      * @param int $id
      * @param string $date
      * @param string $education
@@ -41,13 +43,12 @@ class EducationGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
             ':date' => array($date, PDO::PARAM_STR),
-            ':education' => array($education, PDO::PARAM_STR)
-            
+            ':education' => array($education, PDO::PARAM_STR)           
         ));
     }
     
     /**
-     * 
+     * Insert an Education in Database
      * @param string $date
      * @param string $education
      */
@@ -55,8 +56,7 @@ class EducationGateway {
         $query = 'INSERT INTO Education (`date`, `education`) VALUES (:date, :education);';
         $this->connection->executeQuery($query, array(
             ':date' => array($date, PDO::PARAM_STR),
-            ':education' => array($education, PDO::PARAM_STR)
-            
+            ':education' => array($education, PDO::PARAM_STR)           
         ));
     }
 }

@@ -13,7 +13,6 @@ class Skill {
     }
 
     /* --- Getters --- */
-
     function getId(): int {
         return $this->id;
     }
@@ -26,6 +25,10 @@ class Skill {
         return $this->details;
     }
 
+    /**
+     * Get HTML to display a Skill
+     * @return string
+     */
     function toString(): string {
         $toReturn = "<td>$this->id</td>"
                 . "<td>$this->category</td>"
@@ -33,6 +36,10 @@ class Skill {
         return $toReturn;
     }
 
+    /**
+     * Get HTML to update a Skill in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"
                 . "<tr><td>Category :</td><td><input name=\"category\" value=\"$this->category\" type=\"text\" size=\"10\"></td><tr>"
@@ -41,6 +48,10 @@ class Skill {
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert a Skill in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"
                 . "<tr><td>Category :</td><td><input name=\"category\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
@@ -48,7 +59,6 @@ class Skill {
                 . "</table>";
         return $toReturn;
     }
-
 }
 ?>
 

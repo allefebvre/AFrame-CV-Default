@@ -45,7 +45,6 @@ class Conference {
     }
 
     /* --- Getters --- */
-
     function getId(): int {
         return $this->id;
     }
@@ -122,6 +121,10 @@ class Conference {
         return $this->categorie_id;
     }
 
+    /**
+     * Get HTML to display a Conference
+     * @return string
+     */
     function toString(): string {
         $toReturn = "<td>$this->id</td>"
                 . "<td>$this->reference</td>"
@@ -145,6 +148,10 @@ class Conference {
         return $toReturn;
     }
 
+    /**
+     * Get HTML to update a Conference in Database
+     * @return string
+     */
     function toStringUpdate(): string {
         $toReturn = "<table>"                
                 . "<tr><td>Reference* :</td><td><input name=\"reference\" value=\"$this->reference\" type=\"text\" size=\"10\"></td><tr>"
@@ -169,6 +176,10 @@ class Conference {
         return $toReturn;
     }
     
+    /**
+     * Get HTML to insert a Conference in Database
+     * @return string
+     */
     function toStringInsert(): string {
         $toReturn = "<table>"                
                 . "<tr><td>Reference* :</td><td><input name=\"reference\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
@@ -192,7 +203,5 @@ class Conference {
                 . "</table>";
         return $toReturn;
     }
-
 }
-
 ?>

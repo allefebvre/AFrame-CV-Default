@@ -8,17 +8,18 @@ class ConferenceGateway {
     }
     
     /**
-     * Get all conferences publication on database
+     * Get all Conferences in Database
      * @return array
      */
     public function getAllConferences() :array {
         $query='SELECT * FROM Conference ORDER BY date DESC;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get a Conference by id in Database
      * @param int $id
      * @return array
      */
@@ -27,10 +28,12 @@ class ConferenceGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
+    
     /**
-     * 
+     * Update a Conference by id in Database
      * @param int $id
      * @param string $reference
      * @param string $authors
@@ -72,13 +75,12 @@ class ConferenceGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)         
         ));
     }
     
     /**
-     * 
+     * Insert a Conference in Database
      * @param string $reference
      * @param string $authors
      * @param string $title
@@ -118,8 +120,7 @@ class ConferenceGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)      
         ));
     }
 }

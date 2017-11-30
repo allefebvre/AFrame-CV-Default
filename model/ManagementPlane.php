@@ -80,5 +80,4 @@ class ManagementPlane {
             <?php
         }
     }
-
 }

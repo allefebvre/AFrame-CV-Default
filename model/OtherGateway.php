@@ -8,17 +8,18 @@ class OtherGateway {
     }
         
     /**
-     * Get all others publaction on database
+     * Get all Others in Database
      * @return array
      */
     public function getAllOthers() :array {
         $query='SELECT * FROM Other ORDER BY date DESC;';
         $this->connection->executeQuery($query);
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Get an Other by id in Database
      * @param int $id
      * @return array
      */
@@ -27,11 +28,12 @@ class OtherGateway {
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
+        
         return $this->connection->getResults();
     }
     
     /**
-     * 
+     * Update an Other by id in Database
      * @param int $id
      * @param string $reference
      * @param string $authors
@@ -52,7 +54,7 @@ class OtherGateway {
      * @param string $date_display
      * @param string $category_id
      */
-    public function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+    public function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id) {
         $query = 'UPDATE Other SET reference=:reference, authors=:authors, title=:title, date=:date, journal=:journal, volume=:volume, number=:number, pages=:pages, note=:note, abstract=:abstract, keywords=:keywords, series=:series, localite=:localite, publisher=:publisher, editor=:editor, pdf=:pdf, date_display=:date_display, category_id=:category_id  WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
@@ -73,13 +75,12 @@ class OtherGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)            
         ));
     }
     
     /**
-     * 
+     * Insert an Other in Database
      * @param string $reference
      * @param string $authors
      * @param string $title
@@ -99,7 +100,7 @@ class OtherGateway {
      * @param string $date_display
      * @param int $category_id
      */
-    public function Insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+    public function insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
         $query = 'INSERT INTO Other (`reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`)  VALUES (:reference, :authors, :title, :date, :journal, :volume, :number, :pages, :note, :abstract, :keywords, :series, :localite, :publisher, :editor, :pdf, :date_display, :category_id);';
         $this->connection->executeQuery($query, array(
             ':reference' => array($reference, PDO::PARAM_STR),
@@ -119,8 +120,7 @@ class OtherGateway {
             ':editor' => array($editor, PDO::PARAM_STR),
             ':pdf' => array($pdf, PDO::PARAM_STR),
             ':date_display' => array($date_display, PDO::PARAM_STR),
-            ':category_id' => array($category_id, PDO::PARAM_INT)
-            
+            ':category_id' => array($category_id, PDO::PARAM_INT)         
         ));
     }
 }

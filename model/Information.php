@@ -25,7 +25,6 @@ class Information {
     }
 
     /* --- Getters --- */
-
     function getId(): int {
         return $this->id;
     }
@@ -62,7 +61,11 @@ class Information {
         return $this->mail;
     }
 
-    function toString(): string {
+    /**
+     * Get HTML to display an Information
+     * @return string
+     */
+    function toString() : string {
         $toReturn = "<td>$this->id</td>"
                 . "<td>$this->status</td>"
                 . "<td>$this->name</td>"
@@ -76,7 +79,11 @@ class Information {
         return $toReturn;
     }
 
-    function toStringUpdate(): string {
+    /**
+     * Get HTML to update an Information in Database
+     * @return string
+     */
+    function toStringUpdate() : string {
         $toReturn = "<table>"
                 . "<tr><td>Status :</td><td><input name=\"status\" value=\"$this->status\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Name :</td><td><input name=\"name\" value=\"$this->name\" type=\"text\" size=\"100\"></td><tr>"
@@ -90,7 +97,11 @@ class Information {
         return $toReturn;
     }
     
-    function toStringInsert(): string {
+    /**
+     * Get HTML to insert an Information in Database
+     * @return string
+     */
+    function toStringInsert() : string {
         $toReturn = "<table>"
                 . "<tr><td>Status :</td><td><input name=\"status\" value=\"\" type=\"text\" size=\"10\"></td><tr>"
                 . "<tr><td>Name :</td><td><input name=\"name\" value=\"\" type=\"text\" size=\"100\"></td><tr>"
@@ -103,7 +114,5 @@ class Information {
                 . "</table>";
         return $toReturn;
     }
-
 }
-
 ?>
