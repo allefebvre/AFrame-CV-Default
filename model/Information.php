@@ -80,7 +80,7 @@ class Information {
     }
 
     /**
-     * Get HTML to update an Information in Database
+     * Get HTML to build a form of an Information
      * @return string
      */
     function toStringForm() : string {

@@ -37,7 +37,7 @@ class WorkExp {
     }
     
     /**
-     * Get HTML to update a WorkExp in Database
+     * Get HTML to build a form of a WorkExp
      * @return string
      */
     function toStringForm(): string {

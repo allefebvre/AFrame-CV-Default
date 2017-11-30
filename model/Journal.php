@@ -149,7 +149,7 @@ class Journal{
     }
     
     /**
-     * Get HTML to update a Journal in Database
+     * Get HTML to build a form of a Journal
      * @return string
      */
     function toStringForm(): string {

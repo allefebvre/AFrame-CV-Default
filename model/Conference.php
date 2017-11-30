@@ -149,7 +149,7 @@ class Conference {
     }
 
     /**
-     * Get HTML to update a Conference in Database
+     * Get HTML to build a form of a Conference
      * @return string
      */
     function toStringForm(): string {

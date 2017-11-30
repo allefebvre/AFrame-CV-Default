@@ -29,7 +29,7 @@ class Diverse {
     }
     
     /**
-     * Get HTML to update a Diverse in Database
+     * Get HTML to build a form of a Diverse
      * @return string
      */
     function toStringForm(): string {

@@ -29,9 +29,7 @@ switch ($tableName) {
         break;
     case "Other":
         $data = ModelOther::getOneConference($id);
-        break;
-    
-    
+        break;   
 }
 ?>
 
