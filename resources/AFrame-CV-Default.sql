@@ -267,7 +267,12 @@ INSERT INTO `Parameter` (`ID`, `name`, `display`, `section`, `scroll`) VALUES
 (7, 'Middle2', 'FALSE', NULL, 'FALSE'),
 (8, 'Middle3', 'FALSE', NULL, 'FALSE'),
 (9, 'Middle4', 'FALSE', NULL, 'FALSE'),
-(10, 'Publications', 'TRUE', NULL, 'FALSE');
+(10, 'Publications', 'TRUE', NULL, 'FALSE'),
+(11, 'obj3D', 'FALSE', NULL, 'FALSE'),
+(12, 'spotlight', 'TRUE', NULL, 'FALSE'),
+(13, 'light', 'TRUE', NULL, 'FALSE'),
+(14, 'fly', 'FALSE', NULL, 'FALSE'),
+(15, 'door', 'TRUE', NULL, 'FALSE');
 
 -- --------------------------------------------------------
 

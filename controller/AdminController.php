@@ -188,39 +188,46 @@ class AdminController {
     private function updateParametersDatabase() {
         $parameters = ModelParameter::getAllParameter();
         foreach ($parameters as $parameter) {
-            if ($parameter->getName() === "Publications") {
-                if ($_POST['publications'] === "yes") {
-                    ModelParameter::updateParameter($parameter->getId(), "TRUE", NULL, "FALSE");
-                } else {
-                    ModelParameter::updateParameter($parameter->getId(), "FALSE", NULL, "FALSE");
-                }
-                continue;
-            }
-            $display = "FALSE";
-            if (isset($_POST['planes'])) {
-                foreach ($_POST['planes'] as $plane) {
-                    if ($plane == $parameter->getId()) {
-                        $display = "TRUE";
-                        break;
-                    }
-                }
-            }
-            $scroll = "FALSE";
-            $section = NULL;
-            if ($display === "TRUE") {
-                if (isset($_POST['scroll'])) {
-                    foreach ($_POST['scroll'] as $s) {
-                        if ($s == $parameter->getId()) {
-                            $scroll = "TRUE";
-                            break;
+            switch ($parameter->getName()) {
+                case "obj3D" :
+                case "spotlight" :
+                case "light" :
+                case "fly" :
+                case "door" :
+                    $param = filter_input(INPUT_POST, $parameter->getName(), FILTER_SANITIZE_STRING);
+                    ModelParameter::updateParameter($parameter->getId(), count($param) > 0 ? "TRUE" : "FALSE", NULL, "FALSE");
+                    break;
+                case "Publications" :
+                    $param = filter_input(INPUT_POST, 'publication', FILTER_SANITIZE_STRING);
+                    ModelParameter::updateParameter($parameter->getId(), $param === "yes" ? "TRUE" : "FALSE", NULL, "FALSE");
+                    break;
+                default :
+                    $display = "FALSE";
+                    if (isset($_POST['planes'])) {
+                        foreach ($_POST['planes'] as $plane) {
+                            if ($plane == $parameter->getId()) {
+                                $display = "TRUE";
+                                break;
+                            }
                         }
                     }
-                }
-                if (isset($_POST['section' . $parameter->getName()])) {
-                    $section = $_POST['section' . $parameter->getName()];
-                }
+                    $scroll = "FALSE";
+                    $section = NULL;
+                    if ($display === "TRUE") {
+                        if (isset($_POST['scroll'])) {
+                            foreach ($_POST['scroll'] as $s) {
+                                if ($s == $parameter->getId()) {
+                                    $scroll = "TRUE";
+                                    break;
+                                }
+                            }
+                        }
+                        if (isset($_POST['section' . $parameter->getName()])) {
+                            $section = $_POST['section' . $parameter->getName()];
+                        }
+                    }
+                    ModelParameter::updateParameter($parameter->getId(), $display, $section, $scroll);
             }
-            ModelParameter::updateParameter($parameter->getId(), $display, $section, $scroll);
         }
     }
 
@@ -369,7 +376,7 @@ class AdminController {
             ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-             $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
         }
     }
 
@@ -401,7 +408,7 @@ class AdminController {
             ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-             $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
         }
     }
 
@@ -619,4 +626,5 @@ class AdminController {
     }
 
 }
+
 ?>

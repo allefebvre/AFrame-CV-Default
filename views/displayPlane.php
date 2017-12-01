@@ -54,6 +54,12 @@ $nbRows = 3;
 
 $parameters = ModelParameter::getAllParameter();
 
+$obj3D = FALSE;
+$spotlight = FALSE;
+$light = FALSE;
+$fly = FALSE;
+$door = FALSE;
+
 // Add plane of headings
 foreach($parameters as $parameter) {      
     if($parameter->getDisplay() === "FALSE" || $parameter->getName() === "Publications") {
@@ -89,6 +95,21 @@ foreach($parameters as $parameter) {
             break;
         case "Middle4" :    
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -7.1, 2.5, 0, -90, $scroll, "");
+            break;
+        case "obj3D" :
+            $obj3D = TRUE;
+            break;
+        case "light" :
+            $light = TRUE;
+            break;
+        case "spotlight" :
+            $spotlight = TRUE;
+            break;
+        case "fly" :
+            $fly = TRUE;
+            break;
+        case "door" :
+            $door = TRUE;
             break;
     }     
 }

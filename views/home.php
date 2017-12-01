@@ -14,7 +14,12 @@ require $dir . $views['displayPlane'];
 
     <?php
     require $dir . $views['loft'];
-    require $dir . $views['door'];
+    if(!isset($door)){
+        $door = TRUE;
+    }
+    if($door){
+        require $dir . $views['door'];
+    }
     require $dir . $views['publication'];
 
     $managementPlane->placeEntity();

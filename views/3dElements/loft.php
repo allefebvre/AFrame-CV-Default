@@ -41,6 +41,34 @@ if ($rotationY == NULL || $rotationY == false) {
     }
 }
 
+if(!isset($obj3D)){
+    $obj3D = FALSE;
+}
+
+if(!isset($spotlight)){
+    $spotlight = FAlSE;
+}
+
+if(!isset($light)){
+    $light = TRUE;
+}
+
+if(!isset($fly)){
+    $fly = FALSE;
+}
+
+
+//In progress
+/*
+if(!isset($teleportToMove)){
+    $teleportToMove = FALSE;
+} else {
+    if($teleportToMove){
+        $fly = FALSE;
+    }
+}*/
+
+
 ?>
 
 
@@ -48,13 +76,17 @@ if ($rotationY == NULL || $rotationY == false) {
 <!-- Camera settings-->
 <a-entity camera="userHeight: 1.6"
           persistence-position
-          height-correction
-          border-position
-          jump-ability
-          universal-controls
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
           rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
-          kinematic-body>
+          <?php if($fly){
+              echo "look-controls wasd-controls=\"fly:true\""; 
+          } else {
+              echo "jump-ability"
+                . " border-position"
+                . " height-correction"
+                . " universal-controls"
+                . " kinematic-body";
+          } ?>>
     
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"
@@ -128,8 +160,10 @@ if (!$window2) {
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
 
+    <?php if($obj3D) { ?>
     <a-asset-item id="desk_obj" src="resources/model3D/desk.obj"></a-asset-item>
     <a-asset-item id="desk_mtl" src="resources/model3D/desk.mtl"></a-asset-item>
+    <?php } ?>
 
 
 </a-assets>
@@ -146,7 +180,7 @@ if (!$window2) {
 <!-- Roof -->
 <a-box src="#roofTexture" mixin="wall" static-body position="0 <?php echo $height + 0.5; ?> 0" scale="<?php echo $loftLenght; ?> 1 <?php echo $loftWidth; ?>"></a-box>
 
-
+<?php if($light){ ?>
 <!-- Lighting --> 
 <a-entity light-toggle position="<?php echo $loftLenght / 2 - 2; ?> <?php echo $height; ?> <?php echo $loftWidth / 2 - 2; ?>">
     <a-light intensity="0.16"  type="point"></a-light>
@@ -173,6 +207,7 @@ if (!$window2) {
     <a-sphere radius="0.5" shader="flat"></a-sphere>
 </a-entity>
 <!-- End lighting -->
+<?php } ?>
 
 <!-- 1st wall -->
 <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$a; ?> <?php echo $i; ?> 0" scale="0.25 <?php echo $height; ?> <?php echo $e; ?>" ></a-box>
@@ -407,16 +442,21 @@ function spot(float $x, float $y, float $z, int $rotation) {
 <?php } ?>
 
 <?php
-spot(0, 4, -7, 0);
-spot(0, 4, 7, 180);
-spot(-10, 4, 0, 90);
-//spot(-2, 4, 8, 0);
-//spot(-2, 4, -8, 180);
-//spot(6, 4, 0, 90);
-//spot(-10, 4, 0, -90);
+
+if($spotlight){
+    spot(0, 4, -7, 0);
+    spot(0, 4, 7, 180);
+    spot(-10, 4, 0, 90);
+    //spot(-2, 4, 8, 0);
+    //spot(-2, 4, -8, 180);
+    //spot(6, 4, 0, 90);
+    //spot(-10, 4, 0, -90);
+}
+
 ?>
 <!-- End spots -->
 
+<?php if($obj3D) { ?>
 <a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
 <a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
 <a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
@@ -431,3 +471,4 @@ spot(-10, 4, 0, 90);
 <a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
 <a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
 <a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
+<?php } ?>
