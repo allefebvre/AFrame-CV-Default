@@ -178,7 +178,7 @@ if (!isset($light)) {
 <!--<a-box src="#wallTexture" mixin="wall" static-body position="0 5 -14.5"  scale="0.25 10 21" rotation="0 90 0"></a-box>-->
 <a-box static-body src="#wallTexture" mixin="wall"  position="0 2.5 -14.5"              scale="0.25 5 21"           rotation="0 90 0"></a-box>
 <a-box static-body src="#wallTexture" mixin="wall"  position="7.5 7.5 -14.5"            scale="0.25 5 6"            rotation="0 90 0"></a-box>
-<a-box static-body src="#wallTexture" mixin="wall"  position="-9.4 7.5 -14.5"           scale="0.25 5 2.8"          rotation="0 90 0"></a-box>
+<a-box static-body src="#wallTexture" mixin="wall"  position="-9.25 7.5 -14.5"           scale="0.25 5 2.5"          rotation="0 90 0"></a-box>
 <a-box static-body src="#wallTexture" mixin="wall"  position="-1.753 5.065 -15.5"       scale="0.25 13.228 2"       rotation="0 0 90"></a-box>
 <a-box static-body material="visible:false"         position="4.719 7.554 -15.492"      scale="0.25 5 2.022"></a-box>
 <a-box static-body material="visible:false"         position="-8.2 7.554 -15.492"       scale="0.25 5 2.022"></a-box>
