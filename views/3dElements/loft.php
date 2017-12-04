@@ -1,51 +1,4 @@
 <?php
-// Loading of the camera position from the GET and the COOKIES (GET first) //
-
-$default_posX = -10;
-$default_posY = 0;
-$default_posZ = 0;
-$default_rotationX = 10;
-$default_rotationY = 90;
-
-$posX = filter_input(INPUT_GET, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($posX == NULL || $posX == false) {
-    $posX = filter_input(INPUT_COOKIE, 'posX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posX == NULL || $posX == false || $posX > 19.5 || $posX < -19.5) {
-        $posX = $default_posX;
-    }
-}
-
-$posY = filter_input(INPUT_GET, 'posY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($posY == NULL || $posY == false) {
-    $posY = filter_input(INPUT_COOKIE, 'posY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posY == NULL || $posY == false || $posY > 10.5 || $posY < 0) {
-        $posY = $default_posY;
-    }
-}
-
-$posZ = filter_input(INPUT_GET, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($posZ == NULL || $posZ == false) {
-    $posZ = filter_input(INPUT_COOKIE, 'posZ', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($posZ == NULL || $posZ == false || $posZ > 14.5 || $posZ < -14.5) {
-        $posZ = $default_posZ;
-    }
-}
-
-$rotationX = filter_input(INPUT_GET, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($rotationX == NULL || $rotationX == false) {
-    $rotationX = filter_input(INPUT_COOKIE, 'rotationX', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($rotationX == NULL || $rotationX == false) {
-        $rotationX = $default_rotationX;
-    }
-}
-
-$rotationY = filter_input(INPUT_GET, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-if ($rotationY == NULL || $rotationY == false) {
-    $rotationY = filter_input(INPUT_COOKIE, 'rotationY', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    if ($rotationY == NULL || $rotationY == false) {
-        $rotationY = $default_rotationY;
-    }
-}
 
 if (!isset($obj3D)) {
     $obj3D = FALSE;
@@ -60,32 +13,15 @@ if (!isset($light)) {
 }
 ?>
 
-<!-- Camera settings-->
-<a-entity camera="userHeight: 1.6"
-          persistence-position
-          position="<?php echo "$posX $posY $posZ"; ?>"
-          rotation="<?php echo "$rotationX $rotationY 0"; ?>"
-          jump-ability
-          border-position
-          height-correction
-          universal-controls
-          look-controls
-          kinematic-body>
+<!--<a-entity camera="userHeight: 1.6">
+    <a-entity laser-controls></a-entity>
+    <a-entity laser-controls></a-entity>
+</a-entity>-->
 
-    <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
-              position="0 0 -1"
-              raycaster="far:10"
-              geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
-              material="color: black; shader: flat">
-        <a-entity vive-controls="hand: left; model:false"></a-entity>
-        <a-entity vive-controls="hand: right; model:false"></a-entity>
-    </a-entity>
+<a-entity hand-controls="left" teleport-controls="button: trigger"></a-entity>
+<a-entity hand-controls="right" teleport-controls="button: trigger"></a-entity>
+    
 
-</a-entity>
-
-
-
-<!-- End camera settings -->
 
 <!-- Loading textures -->
 <a-assets>
