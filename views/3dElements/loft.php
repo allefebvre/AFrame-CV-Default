@@ -69,16 +69,22 @@ if (!isset($light)) {
           border-position
           height-correction
           universal-controls
+          look-controls
           kinematic-body>
 
-    <a-entity cursor="fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
+    <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"
               raycaster="far:10"
               geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
               material="color: black; shader: flat">
+        <a-entity vive-controls="hand: left; model:false"></a-entity>
+        <a-entity vive-controls="hand: right; model:false"></a-entity>
     </a-entity>
-    
+
 </a-entity>
+
+
+
 <!-- End camera settings -->
 
 <!-- Loading textures -->
