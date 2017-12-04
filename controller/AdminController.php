@@ -192,7 +192,6 @@ class AdminController {
                 case "obj3D" :
                 case "spotlight" :
                 case "light" :
-                case "fly" :
                 case "door" :
                     $param = filter_input(INPUT_POST, $parameter->getName(), FILTER_SANITIZE_STRING);
                     ModelParameter::updateParameter($parameter->getId(), count($param) > 0 ? "TRUE" : "FALSE", NULL, "FALSE");

@@ -52,10 +52,6 @@ if (!isset($spotlight)) {
 if (!isset($light)) {
     $light = TRUE;
 }
-
-if (!isset($fly)) {
-    $fly = FALSE;
-}
 ?>
 
 
@@ -65,17 +61,12 @@ if (!isset($fly)) {
           persistence-position
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
           rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
-          <?php
-          if ($fly) {
-              echo "look-controls wasd-controls=\"fly:true\"";
-          } else {
-              echo "jump-ability"
-              . " border-position"
-              . " height-correction"
-              . " universal-controls"
-              . " kinematic-body";
-          }
-          ?>>
+          jump-ability
+          border-position
+          height-correction
+          universal-controls
+          kinematic-body
+>
 
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"

@@ -202,13 +202,6 @@ function checkSection(string $section = NULL) {
                     <div class="label1"><label for="light">Display light</label></div>
                 </li>
                 <li>
-                    <input name="fly" id="fly" type="checkbox" value="fly" <?php if ($divers["fly"] == "TRUE") {
-                echo "checked";
-            } ?>>
-                    <div class="checkButton"></div>
-                    <div class="label1"><label for="fly">Enable fly</label></div>
-                </li>
-                <li>
                     <input name="door" id="door" type="checkbox" value="door" <?php if ($divers["door"] == "TRUE") {
                 echo "checked";
             } ?>>

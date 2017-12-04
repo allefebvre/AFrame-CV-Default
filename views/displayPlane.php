@@ -57,7 +57,6 @@ $parameters = ModelParameter::getAllParameter();
 $obj3D = FALSE;
 $spotlight = FALSE;
 $light = FALSE;
-$fly = FALSE;
 $door = FALSE;
 
 // Add plane of headings
@@ -104,9 +103,6 @@ foreach($parameters as $parameter) {
             break;
         case "spotlight" :
             $spotlight = TRUE;
-            break;
-        case "fly" :
-            $fly = TRUE;
             break;
         case "door" :
             $door = TRUE;
