@@ -36,10 +36,9 @@ class Autoload {
     private static function _autoload(string $class) {
         global $dir;
         $filename = $class.'.php';
-        $dir2 =array('model/','./','config/','controller/','views/');
+        $dir2 =array('model/','config/','controller/');
         foreach ($dir2 as $d){
             $file=$dir.$d.$filename; 
-            //echo $file;
             if (file_exists($file))
             {
                 include $file;
