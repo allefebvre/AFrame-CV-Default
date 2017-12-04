@@ -296,8 +296,10 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
+        
+        $validate = Validation::dateValidation($date);
 
-        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+        if ($validate) {
             ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
@@ -341,10 +343,17 @@ class AdminController {
         $age = Validation::cleanString($_POST['age']);
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
-        $mail = Validation::cleanInt((int) $_POST['mail']);
-
-        ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
-        $this->showTable();
+        $mail = Validation::cleanMail($_POST['mail']);
+        
+        $validate = Validation::mailValidation($mail);
+        
+        if ($validate) {
+            ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
+            $this->showTable();
+        } else {
+            $reload = new Information($id, $status, $name, $firstName, $photo, $age, $address, $phone, "");
+            $this->showLine("Wrong format for mail : $mail");
+        }
     }
 
     /**
@@ -370,8 +379,10 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
+        
+        $validate = Validation::dateValidation($date);
 
-        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+        if ($validate) {
             ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
@@ -403,7 +414,9 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+        $validate = Validation::dateValidation($date);
+        
+        if ($validate) {
             ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
@@ -485,7 +498,8 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            $validate = Validation::dateValidation($date);       
+            if ($validate) {
                 ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
@@ -529,7 +543,8 @@ class AdminController {
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanMail($_POST['mail']);
-        $validate = Validation::validationMail($mail);
+        
+        $validate = Validation::mailValidation($mail);
         
         if ($validate) {
             ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
@@ -544,7 +559,6 @@ class AdminController {
      * Get data and insert in Journal Table 
      */
     public function insertInJournal() {
-
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
         $title = Validation::cleanString($_POST['title']);
@@ -565,7 +579,8 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            $validate = Validation::dateValidation($date);       
+            if ($validate) {
                 ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
@@ -579,7 +594,6 @@ class AdminController {
      * Get data and insert in Other Table 
      */
     public function insertInOther() {
-
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
         $title = Validation::cleanString($_POST['title']);
@@ -600,7 +614,8 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            if (preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date)) {
+            $validate = Validation::dateValidation($date);      
+            if ($validate) {
                 ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
                 $this->showTable();
             } else {
@@ -631,7 +646,6 @@ class AdminController {
         ModelWorkExp::insert($date, $workExp);
         $this->showTable();
     }
-
 }
 
 ?>

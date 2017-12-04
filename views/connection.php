@@ -20,6 +20,7 @@
                 <?php
             }
         ?>
+
         <input type="submit" name="Login">
         <input type="hidden" name="action" value="login">
     </form>
