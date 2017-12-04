@@ -20,6 +20,6 @@
                 <?php
             }
         ?>
-        <input type="submit" name="Login">
+        <input type="submit" name="Login" value="Login">
     </form>
 </div>
