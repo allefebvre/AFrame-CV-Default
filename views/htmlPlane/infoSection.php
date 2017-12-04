@@ -1,6 +1,7 @@
 <div id="targetInformation" class="section">
     <div>
         <?php
+        if(isset($data['myInformation'][0])) {
             $myInfo = $data['myInformation'][0];
             $status = $myInfo->getStatus();
             echo "<h3 style=\"text-align: center\">$status</h3>";
@@ -31,6 +32,7 @@
                         <img id=\"profilPhoto\" src=\"$profilPhoto\" alt=\"profil\">
                       </div>";
             }
+        }
         ?>
     </div>
 </div>
