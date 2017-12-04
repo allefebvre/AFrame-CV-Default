@@ -18,7 +18,10 @@ class FrontController {
             'login', 'logout', 'changePassword', 'changePassword2');        
 
         try {
-            $action = filter_input(INPUT_REQUEST, 'action', FILTER_SANITIZE_STRING);
+            $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+            if($action == null){
+                $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+            }
             
             $admin_call = FALSE;
             
