@@ -159,7 +159,7 @@ class Conference {
                 . "<tr><td>Title* :</td><td><input name=\"title\" value=\"$this->title\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Date* (YYYY-MM-DD) :</td><td><input name=\"date\" value=\"$this->date\" type=\"text\" value=\"2017-06-01\" \"></td><tr>"
                 . "<tr><td>Journal :</td><td><input name=\"journal\" value=\"$this->journal\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>Valume :</td><td><input name=\"volume\" value=\"$this->volume\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Volume :</td><td><input name=\"volume\" value=\"$this->volume\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Number :</td><td><input name=\"number\" value=\"$this->number\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Pages :</td><td><input name=\"pages\" value=\"$this->pages\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Note :</td><td><textarea name=\"note\" rows=\"5\" cols=\"100\">".$this->note."</textarea>"
