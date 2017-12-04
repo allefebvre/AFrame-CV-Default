@@ -44,11 +44,12 @@ class Validation {
 
     /**
      * Check that date is valid
+     * (YYYY-MM-DD)
      * @param string $date
      * @return bool
      */
     public static function dateValidation (string $date) :bool {
-        preg_match("#^[1-2]([0-9]){3}-[0-1][0-9]-[0-3][0-9]$#", $date) == FALSE ? $bool=FALSE : $bool=TRUE;
+        preg_match("#^(19|20)([0-9]){2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$#", $date) == FALSE ? $bool=FALSE : $bool=TRUE;
         return $bool;
     }  
     
