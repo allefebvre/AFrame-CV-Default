@@ -271,8 +271,7 @@ INSERT INTO `Parameter` (`ID`, `name`, `display`, `section`, `scroll`) VALUES
 (11, 'obj3D', 'FALSE', NULL, 'FALSE'),
 (12, 'spotlight', 'TRUE', NULL, 'FALSE'),
 (13, 'light', 'TRUE', NULL, 'FALSE'),
-(14, 'fly', 'FALSE', NULL, 'FALSE'),
-(15, 'door', 'TRUE', NULL, 'FALSE');
+(14, 'door', 'TRUE', NULL, 'FALSE');
 
 -- --------------------------------------------------------
 
