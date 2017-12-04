@@ -6,7 +6,7 @@
         </div>
     </div>
     
-    <form method="post" action="admin.php?action=login">
+    <form method="post" action="admin.php">
         <label for="pseudo">Pseudo :</label><br>
         <input type="text" name="pseudo" id="pseudo"><br>
         <br>
@@ -21,5 +21,6 @@
             }
         ?>
         <input type="submit" name="Login">
+        <input type="hidden" name="action" value="login">
     </form>
 </div>
