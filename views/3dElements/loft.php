@@ -41,34 +41,21 @@ if ($rotationY == NULL || $rotationY == false) {
     }
 }
 
-if(!isset($obj3D)){
+if (!isset($obj3D)) {
     $obj3D = FALSE;
 }
 
-if(!isset($spotlight)){
+if (!isset($spotlight)) {
     $spotlight = FAlSE;
 }
 
-if(!isset($light)){
+if (!isset($light)) {
     $light = TRUE;
 }
 
-if(!isset($fly)){
+if (!isset($fly)) {
     $fly = FALSE;
 }
-
-
-//In progress
-/*
-if(!isset($teleportToMove)){
-    $teleportToMove = FALSE;
-} else {
-    if($teleportToMove){
-        $fly = FALSE;
-    }
-}*/
-
-
 ?>
 
 
@@ -78,16 +65,18 @@ if(!isset($teleportToMove)){
           persistence-position
           position="<?php echo $posX . " " . $posY . " " . $posZ ?>"
           rotation="<?php echo $rotationX; ?> <?php echo $rotationY; ?> 0"
-          <?php if($fly){
-              echo "look-controls wasd-controls=\"fly:true\""; 
+          <?php
+          if ($fly) {
+              echo "look-controls wasd-controls=\"fly:true\"";
           } else {
               echo "jump-ability"
-                . " border-position"
-                . " height-correction"
-                . " universal-controls"
-                . " kinematic-body";
-          } ?>>
-    
+              . " border-position"
+              . " height-correction"
+              . " universal-controls"
+              . " kinematic-body";
+          }
+          ?>>
+
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"
               raycaster="far:10"
@@ -104,52 +93,6 @@ if(!isset($teleportToMove)){
 
 <!-- End camera settings -->
 
-
-<!-- PHP variables to control the dimensions of the loft -->
-<?php
-// Don't modify //
-
-$loftLenght = 40;
-$loftWidth = 30;
-
-$height = 10;
-
-$window1 = TRUE;
-$window2 = TRUE;
-
-$a = $loftLenght / 2 - 0.5;
-$b = $loftWidth / 2 - 0.5;
-
-$d = $loftLenght / 2 - 5.75;
-$c = $loftWidth / 2 - 5.75;
-
-$f = $loftLenght - 19;
-$e = $loftWidth - 19;
-
-$h = $loftLenght / 2 - 1;
-$g = $loftWidth / 2 - 1;
-
-$i = $height / 2;
-$j = $height - 0.25;
-
-
-if ($loftWidth < 22) {
-    $window1 = FALSE;
-}
-if ($loftLenght < 22) {
-    $window2 = FALSE;
-}
-
-if (!$window1) {
-    $e = $loftWidth;
-}
-if (!$window2) {
-    $f = $loftLenght;
-}
-?>
-<!-- End PHP variables -->
-
-
 <!-- Loading textures -->
 <a-assets>
     <img id="wallTexture" src="resources/textures/whiteWall.jpg" alt="whiteWall"/>
@@ -159,13 +102,6 @@ if (!$window2) {
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
-
-    <?php if($obj3D) { ?>
-    <a-asset-item id="desk_obj" src="resources/model3D/desk.obj"></a-asset-item>
-    <a-asset-item id="desk_mtl" src="resources/model3D/desk.mtl"></a-asset-item>
-    <?php } ?>
-
-
 </a-assets>
 <!-- End loading textures -->
 
@@ -174,98 +110,91 @@ if (!$window2) {
 <a-entity position="0 -1 0" environment="preset: forest; lightPosition: 0 0 0; lighting: non" scale="1.2 1.2 1.2"></a-entity>
 
 <!-- Floor -->
-<a-box src="#floorTexture" mixin="wall" static-body position="0 -1 0" scale="<?php echo $loftLenght; ?> 2 <?php echo $loftWidth; ?>"></a-box>
+<a-box src="#floorTexture" mixin="wall" static-body position="0 -1 0" scale="40 2 30"></a-box>
 <a-box static-body position="0 -1 0" scale="250 2 250" material="visible:false"></a-box>
 
 <!-- Roof -->
-<a-box src="#roofTexture" mixin="wall" static-body position="0 <?php echo $height + 0.5; ?> 0" scale="<?php echo $loftLenght; ?> 1 <?php echo $loftWidth; ?>"></a-box>
+<a-box src="#roofTexture" mixin="wall" static-body position="0 10.5 0" scale="40 1 30"></a-box>
 
-<?php if($light){ ?>
-<!-- Lighting --> 
-<a-entity light-toggle position="<?php echo $loftLenght / 2 - 2; ?> <?php echo $height; ?> <?php echo $loftWidth / 2 - 2; ?>">
-    <a-light intensity="0.16"  type="point"></a-light>
-    <a-sphere radius="0.5" shader="flat"></a-sphere>
-</a-entity>
+<?php if ($light) { ?>
+    <!-- Lighting --> 
+    <a-entity light-toggle position="18 10 13">
+        <a-light intensity="0.16"  type="point"></a-light>
+        <a-sphere radius="0.5" shader="flat"></a-sphere>
+    </a-entity>
 
-<a-entity light-toggle position="<?php echo -($loftLenght / 2 - 2); ?> <?php echo $height; ?> <?php echo $loftWidth / 2 - 2; ?>">
-    <a-light intensity="0.16"  type="point"></a-light>
-    <a-sphere radius="0.5" shader="flat"></a-sphere>
-</a-entity>
+    <a-entity light-toggle position="-18 10 13">
+        <a-light intensity="0.16"  type="point"></a-light>
+        <a-sphere radius="0.5" shader="flat"></a-sphere>
+    </a-entity>
 
-<a-entity light-toggle position="<?php echo $loftLenght / 2 - 2; ?> <?php echo $height; ?> <?php echo -($loftWidth / 2 - 2); ?>">
-    <a-light intensity="0.16"  type="point"></a-light>
-    <a-sphere radius="0.5" shader="flat"></a-sphere>
-</a-entity>
+    <a-entity light-toggle position="18 10 -13">
+        <a-light intensity="0.16"  type="point"></a-light>
+        <a-sphere radius="0.5" shader="flat"></a-sphere>
+    </a-entity>
 
-<a-entity light-toggle position="<?php echo -($loftLenght / 2 - 2); ?> <?php echo $height; ?> <?php echo -($loftWidth / 2 - 2); ?>">
-    <a-light intensity="0.16" type="point"></a-light>
-    <a-sphere radius="0.5" shader="flat"></a-sphere>
-</a-entity>
+    <a-entity light-toggle position="-18 10 -13">
+        <a-light intensity="0.16" type="point"></a-light>
+        <a-sphere radius="0.5" shader="flat"></a-sphere>
+    </a-entity>
 
-<a-entity light-toggle position="0 <?php echo $height; ?> 0">
-    <a-light intensity="0.2" type="point"></a-light>
-    <a-sphere radius="0.5" shader="flat"></a-sphere>
-</a-entity>
-<!-- End lighting -->
+    <a-entity light-toggle position="0 10 0">
+        <a-light intensity="0.2" type="point"></a-light>
+        <a-sphere radius="0.5" shader="flat"></a-sphere>
+    </a-entity>
+    <!-- End lighting -->
 <?php } ?>
 
 <!-- 1st wall -->
-<a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$a; ?> <?php echo $i; ?> 0" scale="0.25 <?php echo $height; ?> <?php echo $e; ?>" ></a-box>
-<?php if ($window1) { ?>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$a; ?> <?php echo $i; ?> <?php echo $g; ?>" scale="0.25 <?php echo $height; ?> 2" ></a-box>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$a; ?> <?php echo $i; ?> <?php echo -$g; ?>" scale="0.25 <?php echo $height; ?> 2" ></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-19.5 5 0" scale="0.25 10 11" ></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-19.5 5 14" scale="0.25 10 2" ></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-19.5 5 -14" scale="0.25 10 2" ></a-box>
 
-    <a-entity position="<?php echo -$a; ?> <?php echo $i; ?> <?php echo $c; ?>">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
-    </a-entity>
+<a-entity position="-19.5 5 9.25">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
+</a-entity>
 
-    <a-entity position="<?php echo -$a; ?> <?php echo $i; ?> <?php echo -$c; ?>">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
-    </a-entity>
-
-<?php } ?>
+<a-entity position="-19.5 5 -9.25">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
+</a-entity>
 <!-- End 1st wall -->
 
 <!-- 2nd wall -->
-<a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $a; ?> <?php echo $i; ?> 0" scale="0.25 <?php echo $height; ?> <?php echo $e; ?>" ></a-box>
-<?php if ($window1) { ?>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $a; ?> <?php echo $i; ?> <?php echo $g; ?>" scale="0.25 <?php echo $height; ?> 2" material=""></a-box>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $a; ?> <?php echo $i; ?> <?php echo -$g; ?>" scale="0.25 <?php echo $height; ?> 2" material=""></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="19.5 5 0" scale="0.25 10 11" ></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="19.5 5 14" scale="0.25 10 2" material=""></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="19.5 5 -14" scale="0.25 10 2" material=""></a-box>
 
-    <a-entity position="<?php echo $a; ?> <?php echo $i; ?> <?php echo $c; ?>">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
-    </a-entity>
+<a-entity position="19.5 5 9.25">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
+</a-entity>
 
-    <a-entity position="<?php echo $a; ?> <?php echo $i; ?> <?php echo -$c; ?>">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
-    </a-entity>
-<?php } ?>
+<a-entity position="19.5 5 -9.25">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
+</a-entity>
 <!-- End 2nd wall -->
 
 <!-- 3rd wall -->
-<a-box src="#wallTexture" mixin="wall" static-body position="0 <?php echo $i; ?> <?php echo $b; ?>"  scale="0.25 <?php echo $height; ?> <?php echo $f; ?>" rotation="0 90 0"></a-box>
-<?php if ($window2) { ?>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $h; ?> <?php echo $i; ?> <?php echo $b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$h; ?> <?php echo $i; ?> <?php echo $b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="0 5 14.5"  scale="0.25 10 21" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="19 5 14.5" scale="0.25 10 2" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-19 5 14.5" scale="0.25 10 2" rotation="0 90 0"></a-box>
 
-    <a-entity position="<?php echo $d; ?> <?php echo $i; ?> <?php echo $b; ?>" rotation="0 90 0">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
-    </a-entity>
+<a-entity position="14.25 5 14.5" rotation="0 90 0">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
+</a-entity>
 
-    <a-entity position="<?php echo -$d; ?> <?php echo $i; ?> <?php echo $b; ?>" rotation="0 90 0">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
-    </a-entity>
-<?php } ?>
+<a-entity position="-14.25 5 14.5" rotation="0 90 0">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
+</a-entity>
 <!-- End 3rd wall -->
 
 <!-- 4th wall -->
-<!--<a-box src="#wallTexture" mixin="wall" static-body position="0 <?php echo $i; ?> <?php echo -$b; ?>"  scale="0.25 <?php echo $height; ?> <?php echo $f; ?>" rotation="0 90 0"></a-box>-->
+<!--<a-box src="#wallTexture" mixin="wall" static-body position="0 5 -14.5"  scale="0.25 10 21" rotation="0 90 0"></a-box>-->
 <a-box src="#wallTexture" mixin="wall" static-body position="0 2.5 -14.5" scale="0.25 5 21" rotation="0 90 0"></a-box>
 <a-box src="#wallTexture" mixin="wall" static-body position="7.5 7.5 -14.5" scale="0.25 5 6" rotation="0 90 0"></a-box>
 <a-box src="#wallTexture" mixin="wall" static-body position="-9.4 7.5 -14.5" scale="0.25 5 2.8" rotation="0 90 0"></a-box>
@@ -284,31 +213,27 @@ fence(2, -16.2, -14.9, 4.75, 5.750);
 fence(2, -16.2, -14.9, -8.29, 5.750);
 ?>
 
+<a-box src="#wallTexture" mixin="wall" static-body position="19 5 -14.5" scale="0.25 10 2" rotation="0 90 0"></a-box>
+<a-box src="#wallTexture" mixin="wall" static-body position="-19 5 -14.5" scale="0.25 10 2" rotation="0 90 0"></a-box>
 
+<a-entity position="14.25 5 -14.5" rotation="0 90 0">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
+</a-entity>
 
-<?php if ($window2) { ?>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo $h; ?> <?php echo $i; ?> <?php echo -$b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
-    <a-box src="#wallTexture" mixin="wall" static-body position="<?php echo -$h; ?> <?php echo $i; ?> <?php echo -$b; ?>" scale="0.25 <?php echo $height; ?> 2" rotation="0 90 0"></a-box>
-
-    <a-entity position="<?php echo $d; ?> <?php echo $i; ?> <?php echo -$b; ?>" rotation="0 90 0">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
-    </a-entity>
-
-    <a-entity position="<?php echo -$d; ?> <?php echo $i; ?> <?php echo -$b; ?>" rotation="0 90 0">
-        <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 <?php echo $height; ?> 0.25" color="#995522"></a-box>
-        <a-box static-body scale="0.1 <?php echo $height; ?> 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
-    </a-entity>
-<?php } ?>
+<a-entity position="14.25 5 -14.5" rotation="0 90 0">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
+</a-entity>
 <!-- End 4th wall-->
 
 
 
 <!-- 1st floor -->
-<a-box static-body src="#wallTexture" mixin="wall" position="0 <?php echo $height / 2; ?> 0" scale="<?php echo $f - 0.01; ?> 0.4 <?php echo $loftWidth - 0.8; ?>"></a-box>
+<a-box static-body src="#wallTexture" mixin="wall" position="0 5 0" scale="20.99 0.4 29.2"></a-box>
 
 <!-- Access ramp on the 1st floor -->
-<a-box static-body src="#wallTexture" mixin="wall" position="<?php echo $f / 2 + 2; ?> <?php echo $height / 2; ?> 8" scale="4 0.4 6"></a-box>
+<a-box static-body src="#wallTexture" mixin="wall" position="12.5 5 8" scale="4 0.4 6"></a-box>
 <a-box static-body src="#wallTexture" mixin="wall" position="12.5 2.292 -0.350" scale="4 0.4 12.171" rotation="-26.699833253096365 0 0"></a-box>
 
 <a-box static-body src="#wallTexture" position="12.5 1.2 1.161" scale="4 3.176 0.602" material="visible:false"></a-box>
@@ -317,7 +242,7 @@ fence(2, -16.2, -14.9, -8.29, 5.750);
 <!-- End access ramp on the 1st floor -->
 
 <!-- Fence -->
-<a-box static-body src="#woodTexture" mixin="wall" position="<?php echo -($f / 2 - 0.15); ?> <?php echo $height / 2 + 1.5; ?> 0" scale="0.07 0.15 <?php echo $loftWidth - 0.8; ?>" color="#e1a975"></a-box>
+<a-box static-body src="#woodTexture" mixin="wall" position="-10.35 6.5 0" scale="0.07 0.15 29.2" color="#e1a975"></a-box>
 <a-box static-body src="#woodTexture" mixin="wall" position="10.35 6.5 -4.458" scale="0.07 0.15 19.86" color="#e1a975"></a-box>
 <a-box static-body src="#woodTexture" mixin="wall" position="10.35 5.75 5.284" scale="0.069 1.5 0.15" color="#e1a975"></a-box>
 <a-box static-body src="#woodTexture" mixin="wall" position="10.35 6.5 12.694" scale="0.07 0.15 3.482" color="#e1a975"></a-box>
@@ -357,10 +282,10 @@ function fence(int $number, float $position_min, float $position_max, float $pos
     }
 }
 
-fence(16, 6, $loftWidth / 2 - 0.5, -($f / 2 - 0.15), 5.750);
-fence(30, -($loftWidth / 2 - 0.5), $loftWidth / 2 - 10.3, ($f / 2 - 0.15), 5.750);
-fence(8, -($loftWidth / 2 - 26), $loftWidth / 2 - 0.5, ($f / 2 - 0.15), 5.750);
-fence(8, -($loftWidth / 2 - 21.1), $loftWidth / 2 - 4.4, 14.379, 5.750);
+fence(16, 6, 14.5, -10.35, 5.750);
+fence(30, -14.5, 4.7, 10.35, 5.750);
+fence(8, 11, 14.5, 10.35, 5.750);
+fence(8, 6.1, 10.6, 14.379, 5.750);
 fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 ?>
 <!-- End fence -->
@@ -369,14 +294,14 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 <!-- Interior walls -->
 <?php
 $numberMiddle = ModelParameter::getNbMiddlePlaneDisplay();
-if($numberMiddle > 0) {
-?>
-    <a-box static-body mixin="wall" position="-2 <?php echo $height / 4; ?> 0" scale="10 <?php echo $height / 2; ?> 10"></a-box>
-<?php
+if ($numberMiddle > 0) {
+    ?>
+    <a-box static-body mixin="wall" position="-2 2.5 0" scale="10 5 10"></a-box>
+    <?php
 }
 ?>
-<a-box static-body mixin="wall" position="<?php echo -($f / 2 - 0.15); ?> <?php echo $height * 0.75; ?> -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
-<a-box static-body mixin="wall" position="7 7.5 -4.5" scale="0.2 <?php echo $height / 2; ?> 20"></a-box>
+<a-box static-body mixin="wall" position="-10.35 7.5 -4.5" scale="0.2 5 20"></a-box>
+<a-box static-body mixin="wall" position="7 7.5 -4.5" scale="0.2 5 20"></a-box>
 
 <a-box static-body mixin="wall" position="4.294 7.5 5.44" scale="0.2 5 5.611" rotation="0 90 0"></a-box>
 <a-box static-body mixin="wall" position="-6.609 7.5 5.44" scale="0.2 5 7.655" rotation="0 90 0"></a-box>
@@ -388,10 +313,9 @@ if($numberMiddle > 0) {
 <?php
 $parameterPublication = ModelParameter::getParameterPublications();
 if ($parameterPublication->getDisplay() === "TRUE") {
-    echo "<a-plane src=\"#panneau\" scale=\"1.5 1.5 1\" position=\"16.4 2 -8\" rotation=\"0 -90 0\"></a-plane>";
+    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane><?php
 }
 ?>
-
 
 <!-- End interior walls -->
 
@@ -439,11 +363,10 @@ function spot(float $x, float $y, float $z, int $rotation) {
             <a-plane material="side:double" color="#111" scale="0.15 0.2 1"></a-plane>
         </a-entity>
     </a-entity>
-<?php } ?>
-
 <?php
+}
 
-if($spotlight){
+if ($spotlight) {
     spot(0, 4, -7, 0);
     spot(0, 4, 7, 180);
     spot(-10, 4, 0, 90);
@@ -452,23 +375,22 @@ if($spotlight){
     //spot(6, 4, 0, 90);
     //spot(-10, 4, 0, -90);
 }
-
 ?>
 <!-- End spots -->
 
-<?php if($obj3D) { ?>
-<a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
-<a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
-<a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
-<a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
-<a-entity obj-model="obj:#desk_obj;mtl:#desk_mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
-<a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
+<?php if ($obj3D) { ?>
+    <a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
+    <a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
+    <a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
+    <a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
+    <a-entity obj-model="obj:resources/model3D/desk.obj;mtl:resources/model3D/desk.mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
+    <a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
 
-<a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
-<a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>
-<a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
-<a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
-<a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
-<a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
-<a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
-<?php } ?>
+    <a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
+    <a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>
+    <a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
+    <a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
+    <a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
+    <a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
+    <a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
+<?php }
