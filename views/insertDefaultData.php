@@ -39,30 +39,27 @@ switch ($tableName) {
             <h2>Insert in <?php echo $tableName; ?></h2> 
         </div>
     </div>
-
+    <br>
+    <?php
+    if (isset($dViewError) && count($dViewError)>0) {
+        foreach($dViewError as $error) {
+        ?>
+        <div class="alert">- <?php echo $error; ?></div>
+        <?php
+        }
+    }
+    ?>
     <form method="post" >
-
         <?php
         if (isset($reload)) {
-            echo $reload->toStringForm();
-            if (isset($alert) && $alert != null && $alert != "") {
-                ?>
-                <div class="alert"><?php echo $alert ?></div><br><br>
-                <?php
-            }
-            
+            echo $reload->toStringForm();          
         } else {
             echo $data->toStringForm();
-            if (isset($alert) && $alert != null && $alert != "") {
-                ?>
-                <div class="alert"><?php echo $alert ?></div><br><br>
-                <?php
-            }
         }
         ?>
-
-
         <input class="link" type="submit" value="GO">
-<?php echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; ?>
+        <?php 
+        echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; 
+        ?>
     </form>
 </div>       

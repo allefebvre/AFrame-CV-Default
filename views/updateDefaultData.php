@@ -40,18 +40,23 @@ switch ($tableName) {
             <h2>Table : <?php echo $tableName . " ID : " . $id; ?></h2> 
         </div>
     </div>
+    <br>
+    <?php
+    if (isset($dViewError) && count($dViewError)>0) {
+        foreach($dViewError as $error) {
+        ?>
+        <div class="alert">- <?php echo $error; ?></div>
+        <?php
+        }
+    }
+    ?>
     <form method="post" >
-
         <?php
         echo $data->toStringForm();
-        if (isset($alert) && $alert != null && $alert != "") {
-            ?>
-            <div class="alert"><?php echo $alert ?></div><br><br>
-            <?php
-        }
         ?>
-
         <input class="link" type="submit" value="GO">
-<?php echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; ?>
+        <?php 
+        echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; 
+        ?>
     </form>
 </div>       

@@ -85,9 +85,9 @@ class Information {
      */
     function toStringForm() : string {
         $toReturn = "<table>"
-                . "<tr><td>Status :</td><td><input name=\"status\" value=\"$this->status\" type=\"text\" size=\"10\"></td><tr>"
-                . "<tr><td>Name :</td><td><input name=\"name\" value=\"$this->name\" type=\"text\" size=\"100\"></td><tr>"
-                . "<tr><td>First Name :</td><td><input name=\"firstName\" value=\"$this->firstName\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>Status* :</td><td><input name=\"status\" value=\"$this->status\" type=\"text\" size=\"10\"></td><tr>"
+                . "<tr><td>Name* :</td><td><input name=\"name\" value=\"$this->name\" type=\"text\" size=\"100\"></td><tr>"
+                . "<tr><td>First Name* :</td><td><input name=\"firstName\" value=\"$this->firstName\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Photo :</td><td><input name=\"photo\" value=\"$this->photo\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Age :</td><td><input name=\"age\" value=\"$this->age\" type=\"text\" size=\"100\"></td><tr>"
                 . "<tr><td>Address :</td><td><input name=\"address\" value=\"$this->address\" type=\"text\" size=\"100\"></td><tr>"

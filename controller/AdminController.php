@@ -265,8 +265,9 @@ class AdminController {
      * Display a form to update a line
      * @global string $dir
      * @global array $views
+     * @param array $dViewError
      */
-    public function showLine(string $alert = "") {
+    public function showLine(array $dViewError = NULL) {
         global $dir, $views;
         require $dir . $views['updateDefaultData'];
     }
@@ -297,13 +298,14 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
         
-        $validate = Validation::dateValidation($date);
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
 
         if ($validate) {
             ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+            $this->showLine($dViewError);
         }
     }
 
@@ -313,10 +315,16 @@ class AdminController {
     public function updateDiverse() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $diverse = Validation::cleanString($_POST['diverse']);
-
-        ModelDiverse::updateById($id, $diverse);
-
-        $this->showTable();
+        
+        $dViewError = array();
+        $validate = Validation::diverseValidation($diverse, $dViewError);
+        
+        if ($validate) {
+            ModelDiverse::updateById($id, $diverse);
+            $this->showTable();
+        } else {
+            $this->showLine($dViewError);
+        }
     }
 
     /**
@@ -327,8 +335,15 @@ class AdminController {
         $date = Validation::cleanString($_POST['date']);
         $education = Validation::cleanString($_POST['education']);
 
-        ModelEducation::updateById($id, $date, $education);
-        $this->showTable();
+        $dViewError = array();
+        $validate = Validation::educationValidation($date, $education, $dViewError);
+        
+        if ($validate) {
+            ModelEducation::updateById($id, $date, $education);
+            $this->showTable();
+        } else {
+            $this->showLine($dViewError);
+        }
     }
 
     /**
@@ -345,14 +360,14 @@ class AdminController {
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanMail($_POST['mail']);
         
-        $validate = Validation::mailValidation($mail);
+        $dViewError = array();
+        $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
         
         if ($validate) {
             ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
             $this->showTable();
         } else {
-            $reload = new Information($id, $status, $name, $firstName, $photo, $age, $address, $phone, "");
-            $this->showLine("Wrong format for mail : $mail");
+            $this->showLine($dViewError);
         }
     }
 
@@ -380,13 +395,14 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
         
-        $validate = Validation::dateValidation($date);
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
 
         if ($validate) {
             ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+            $this->showLine($dViewError);
         }
     }
 
@@ -414,13 +430,14 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        $validate = Validation::dateValidation($date);
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
         
         if ($validate) {
             ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            $this->showLine("Wrong format for the date : $date, please use this format YYYY-MM-DD");
+            $this->showLine($dViewError);
         }
     }
 
@@ -430,10 +447,17 @@ class AdminController {
     public function updateSkill() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $category = Validation::cleanString($_POST['category']);
-        $details = Validation::cleanString($_POST['details']);
-
-        ModelSkill::updateById($id, $category, $details);
-        $this->showTable();
+        $details = Validation::cleanString($_POST['details']);  
+        
+        $dViewError = array();
+        $validate = Validation::skillValidation($category, $details, $dViewError);
+        
+        if ($validate) {
+            ModelSkill::updateById($id, $category, $details);
+            $this->showTable();
+        } else {
+            $this->showLine($dViewError);
+        }
     }
 
     /**
@@ -442,10 +466,17 @@ class AdminController {
     public function updateWorkExp() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $date = Validation::cleanString($_POST['date']);
-        $workExp = Validation::cleanString($_POST['workExp']);
-
-        ModelWorkExp::updateById($id, $date, $workExp);
-        $this->showTable();
+        $workExp = Validation::cleanString($_POST['workExp']); 
+        
+        $dViewError = array();
+        $validate = Validation::workExpValidation($date, $workExp, $dViewError);
+        
+        if ($validate) {
+            ModelWorkExp::updateById($id, $date, $workExp);
+            $this->showTable();
+        } else {
+            $this->showLine($dViewError);
+        }
     }
 
     /**
@@ -465,10 +496,10 @@ class AdminController {
      * Display form to insert in Database of the selected Table
      * @global string $dir
      * @global array $views
-     * @param string $alert
+     * @param array $dViewError
      * @param $reload
      */
-    public function insertInBase(string $alert = "", $reload = NULL) {
+    public function insertInBase(array $dViewError = NULL, $reload = NULL) {
         global $dir, $views;
 
         require $dir . $views['insertInBase'];
@@ -497,15 +528,15 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            $validate = Validation::dateValidation($date);       
-            if ($validate) {
-                ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->showTable();
-            } else {
-                $reload = new Conference(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
-            }
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
+                
+        if($validate) {
+            ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            $reload = new Conference(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->insertInBase($dViewError, $reload);
         }
     }
 
@@ -514,10 +545,17 @@ class AdminController {
      */
     public function insertInDiverse() {
         $diverse = Validation::cleanString($_POST['diverse']);
-
-        ModelDiverse::insert($diverse);
-
-        $this->showTable();
+   
+        $dViewError = array();
+        $validate = Validation::diverseValidation($diverse, $dViewError);
+        
+        if ($validate) {
+            ModelDiverse::insert($diverse);
+            $this->showTable();
+        } else {
+            $reload = new Diverse(0, $diverse);
+            $this->insertInBase($dViewError, $reload);
+        }
     }
 
     /**
@@ -527,8 +565,16 @@ class AdminController {
         $date = Validation::cleanString($_POST['date']);
         $education = Validation::cleanString($_POST['education']);
 
-        ModelEducation::insert($date, $education);
-        $this->showTable();
+        $dViewError = array();
+        $validate = Validation::educationValidation($date, $education, $dViewError);
+        
+        if ($validate) {
+            ModelEducation::insert($date, $education);
+            $this->showTable();
+        } else {
+            $reload = new Education(0, $date, $education);
+            $this->insertInBase($dViewError, $reload);
+        }
     }
 
     /**
@@ -544,14 +590,15 @@ class AdminController {
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanMail($_POST['mail']);
         
-        $validate = Validation::mailValidation($mail);
+        $dViewError = array();
+        $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
         
         if ($validate) {
             ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
             $this->showTable();
         } else {
             $reload = new Information(0, $status, $name, $firstName, $photo, $age, $address, $phone, "");
-            $this->insertInBase("Wrong format for mail : $mail", $reload);
+            $this->insertInBase($dViewError, $reload);
         }
     }
 
@@ -578,15 +625,15 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            $validate = Validation::dateValidation($date);       
-            if ($validate) {
-                ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->showTable();
-            } else {
-                $reload = new Journal(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
-            }
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
+        
+        if ($validate) {
+            ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            $reload = new Journal(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->insertInBase($dViewError, $reload);
         }
     }
 
@@ -613,15 +660,15 @@ class AdminController {
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
-        if ($reference !== "" && $authors !== "" && $title !== "" && $date !== "") {
-            $validate = Validation::dateValidation($date);      
-            if ($validate) {
-                ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->showTable();
-            } else {
-                $reload = new Other(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-                $this->insertInBase("Wrong format for the date : $date, please use this format YYYY-MM-DD", $reload);
-            }
+        $dViewError = array();
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
+        
+        if ($validate) {
+            ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->showTable();
+        } else {
+            $reload = new Other(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $this->insertInBase($dViewError, $reload);
         }
     }
 
@@ -631,9 +678,17 @@ class AdminController {
     public function insertInSkill() {
         $category = Validation::cleanString($_POST['category']);
         $details = Validation::cleanString($_POST['details']);
-
-        ModelSkill::insert($category, $details);
-        $this->showTable();
+        
+        $dViewError = array();
+        $validate = Validation::skillValidation($category, $details, $dViewError);
+        
+        if ($validate) {
+            ModelSkill::insert($category, $details);
+            $this->showTable();
+        } else {
+            $reload = new Skill(0, $category, $details);
+            $this->insertInBase($dViewError, $reload);
+        }
     }
 
     /**
@@ -642,9 +697,17 @@ class AdminController {
     public function insertInWorkExp() {
         $date = Validation::cleanString($_POST['date']);
         $workExp = Validation::cleanString($_POST['workExp']);
-
-        ModelWorkExp::insert($date, $workExp);
-        $this->showTable();
+        
+        $dViewError = array();
+        $validate = Validation::workExpValidation($date, $workExp, $dViewError);
+        
+        if ($validate) {
+            ModelWorkExp::insert($date, $workExp);
+            $this->showTable();
+        } else {
+            $reload = new WorkExp(0, $date, $workExp);
+            $this->insertInBase($dViewError, $reload);
+        }
     }
 }
 
