@@ -198,7 +198,7 @@ class AdminController {
                     ModelParameter::updateParameter($parameter->getId(), count($param) > 0 ? "TRUE" : "FALSE", NULL, "FALSE");
                     break;
                 case "Publications" :
-                    $param = filter_input(INPUT_POST, 'publication', FILTER_SANITIZE_STRING);
+                    $param = filter_input(INPUT_POST, 'publications', FILTER_SANITIZE_STRING);
                     ModelParameter::updateParameter($parameter->getId(), $param === "yes" ? "TRUE" : "FALSE", NULL, "FALSE");
                     break;
                 default :
