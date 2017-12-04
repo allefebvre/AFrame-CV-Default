@@ -13,15 +13,16 @@ if (!isset($light)) {
 }
 ?>
 
-<!--<a-entity camera="userHeight: 1.6">
-    <a-entity laser-controls></a-entity>
-    <a-entity laser-controls></a-entity>
-</a-entity>-->
 
-<a-entity hand-controls="left" teleport-controls="button: trigger"></a-entity>
-<a-entity hand-controls="right" teleport-controls="button: trigger"></a-entity>
-    
+<a-entity id="cameraRig">
+    <a-entity camera="userHeight: 1.6" look-controls wasd-controls>
 
+    </a-entity>
+
+    <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #ramp, #ramp1;"></a-entity>
+    <a-entity laser-controls="hand: right"></a-entity>
+        
+</a-entity>
 
 <!-- Loading textures -->
 <a-assets>
@@ -39,7 +40,7 @@ if (!isset($light)) {
 <a-entity position="0 -1 0" environment="preset: forest; lightPosition: 0 0 0; lighting: non" scale="1.2 1.2 1.2"></a-entity>
 
 <!-- Floor -->
-<a-box src="#floorTexture" mixin="wall" static-body position="0 -1 0" scale="40 2 30"></a-box>
+<a-box id="floor" src="#floorTexture" mixin="wall" static-body position="0 -1 0" scale="40 2 30"></a-box>
 <a-box static-body position="0 -1 0" scale="250 2 250" material="visible:false"></a-box>
 
 <!-- Roof -->
@@ -150,11 +151,11 @@ fence(2, -16.2, -14.9, -8.29, 5.750);
 
 
 <!-- 1st floor -->
-<a-box static-body src="#wallTexture" mixin="wall" position="0 5 0" scale="20.99 0.4 29.2"></a-box>
+<a-box id="floor1" static-body src="#wallTexture" mixin="wall" position="0 5 0" scale="20.99 0.4 29.2"></a-box>
 
 <!-- Access ramp on the 1st floor -->
-<a-box static-body src="#wallTexture" mixin="wall" position="12.5 5 8"          scale="4 0.4 6"></a-box>
-<a-box static-body src="#wallTexture" mixin="wall" position="12.5 2.292 -0.350" scale="4 0.4 12.171" rotation="-26.699833253096365 0 0"></a-box>
+<a-box id="ramp" static-body src="#wallTexture" mixin="wall" position="12.5 5 8"          scale="4 0.4 6"></a-box>
+<a-box id="ramp1" static-body src="#wallTexture" mixin="wall" position="12.5 2.292 -0.350" scale="4 0.4 12.171" rotation="-26.699833253096365 0 0"></a-box>
 
 <a-box static-body src="#wallTexture" position="12.5 1.2 1.161"     scale="4 3.176 0.602"       material="visible:false"></a-box>
 <a-box static-body src="#wallTexture" position="12.5 0.395 -0.681"  scale="4 1.822 3.084"       material="visible:false"></a-box>
