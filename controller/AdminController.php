@@ -453,8 +453,10 @@ class AdminController {
      * Display form to insert in Database of the selected Table
      * @global string $dir
      * @global array $views
+     * @param string $alert
+     * @param $reload
      */
-    public function insertInBase(string $alert = "", $reaload = NULL) {
+    public function insertInBase(string $alert = "", $reload = NULL) {
         global $dir, $views;
 
         require $dir . $views['insertInBase'];
@@ -527,10 +529,16 @@ class AdminController {
         $age = Validation::cleanString($_POST['age']);
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
-        $mail = Validation::cleanInt((int) $_POST['mail']);
-
-        ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
-        $this->showTable();
+        $mail = Validation::cleanMail($_POST['mail']);
+        $validate = Validation::validationMail($mail);
+        
+        if ($validate) {
+            ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
+            $this->showTable();
+        } else {
+            $reload = new Information(0, $status, $name, $firstName, $photo, $age, $address, $phone, "");
+            $this->insertInBase("Wrong format for mail : $mail", $reload);
+        }
     }
 
     /**

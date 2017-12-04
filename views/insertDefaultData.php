@@ -43,8 +43,8 @@ switch ($tableName) {
     <form method="post" >
 
         <?php
-        if ($reaload != NULL) {
-            echo $reaload->toStringForm();
+        if (isset($reload)) {
+            echo $reload->toStringForm();
             if (isset($alert) && $alert != null && $alert != "") {
                 ?>
                 <div class="alert"><?php echo $alert ?></div><br><br>
