@@ -44,7 +44,7 @@ class Validation {
 
     /**
      * Check that date is valid
-     * (YYYY-MM-DD)
+     * format : YYYY-MM-DD
      * @param string $date
      * @return bool
      */
