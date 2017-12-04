@@ -199,7 +199,7 @@ fence(2, -16.2, -14.9, -8.29, 5.750);
     <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
     <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
 </a-entity>
-<a-entity position="14.25 5 -14.5" rotation="0 90 0">
+<a-entity position="-14.25 5 -14.5" rotation="0 90 0">
     <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
     <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7"></a-box>
 </a-entity>
