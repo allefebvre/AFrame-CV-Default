@@ -31,26 +31,33 @@ class Login {
     }
     
     /**
-     * Update the password in Database
+     * Check if a old password is in Database
      * @param string $oldPassword
-     * @param string $newPassword
      * @return bool
      */
-    public function changePassword(string $oldPassword, string $newPassword) : bool {
+    public function verifyOldPassword(string $oldPassword) :bool {
         $query = "SELECT COUNT(*) FROM Login WHERE Password = :oldPassword;";
         $this->connection->executeQuery($query, array(
             ':oldPassword' => array($oldPassword, PDO::PARAM_STR)
         ));
         $result = $this->connection->getResults();
+        
         if($result[0][0] == 0){
             return FALSE;
+        } else {
+            return TRUE;
         }
+    }
+    
+    /**
+     * Update the password in Database
+     * @param string $newPassword
+     */
+    public function changePassword(string $newPassword) {       
         $query = "UPDATE Login SET Password = :newPassword;";
         $this->connection->executeQuery($query, array(
             ':newPassword' => array($newPassword, PDO::PARAM_STR)
         ));
-        
-        return TRUE;
     }
     
     /**
