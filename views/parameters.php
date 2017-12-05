@@ -71,6 +71,14 @@ function checkSection(string $section = NULL) {
         ?>
         <form method="post">
             <ul class="listParam">
+                <li>
+                    <div class="label1"><label class="label_Plane"><b>Plane</b></label></div>
+                    <label class="label_Contained"><b>Contained</b></label>
+
+                        
+                    <div><label class="label_Scroll"><b>Scroll</b></label></div>
+                </li>
+
                 <?php
                 foreach ($parameters as $parameter) {
                     $str = $parameter->getName();
@@ -181,30 +189,38 @@ function checkSection(string $section = NULL) {
             <h3>Divers :</h3>
             <ul class="listParam">
                 <li>
-                    <input name="obj3D" id="obj3D" type="checkbox" value="obj3D" <?php if ($divers["obj3D"] == "TRUE") {
-                echo "checked";
-            } ?>>
+                    <input name="obj3D" id="obj3D" type="checkbox" value="obj3D" <?php
+                    if ($divers["obj3D"] == "TRUE") {
+                        echo "checked";
+                    }
+                    ?>>
                     <div class="checkButton"></div>
                     <div class="label1"><label for="obj3D">Display object 3D</label></div>
                 </li>
                 <li>
-                    <input name="spotlight" id="spotlight" type="checkbox" value="spotlight" <?php if ($divers["spotlight"] == "TRUE") {
-                echo "checked";
-            } ?>>
+                    <input name="spotlight" id="spotlight" type="checkbox" value="spotlight" <?php
+                    if ($divers["spotlight"] == "TRUE") {
+                        echo "checked";
+                    }
+                    ?>>
                     <div class="checkButton"></div>
                     <div class="label1"><label for="spotlight">Display spotlight</label></div>
                 </li>
                 <li>
-                    <input name="light" id="light" type="checkbox" value="light" <?php if ($divers["light"] == "TRUE") {
-                echo "checked";
-            } ?>>
+                    <input name="light" id="light" type="checkbox" value="light" <?php
+                    if ($divers["light"] == "TRUE") {
+                        echo "checked";
+                    }
+                    ?>>
                     <div class="checkButton"></div>
                     <div class="label1"><label for="light">Display light</label></div>
                 </li>
                 <li>
-                    <input name="door" id="door" type="checkbox" value="door" <?php if ($divers["door"] == "TRUE") {
-                echo "checked";
-            } ?>>
+                    <input name="door" id="door" type="checkbox" value="door" <?php
+                    if ($divers["door"] == "TRUE") {
+                        echo "checked";
+                    }
+                    ?>>
                     <div class="checkButton"></div>
                     <div class="label1"><label for="door">Display door</label></div>
                 </li>
