@@ -15,7 +15,7 @@ if (!isset($light)) {
 
 
 <a-entity id="cameraRig">
-    <a-entity camera="userHeight: 1.6" look-controls wasd-controls>
+    <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150">
 
     </a-entity>
 
