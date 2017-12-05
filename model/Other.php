@@ -167,7 +167,7 @@ class Other{
                         . "<td><input name=\"title\" value=\"$this->title\" type=\"text\" size=\"100\"></td></tr>"
                     . "<tr>"
                         . "<td>Date* (YYYY-MM-DD) :</td>"
-                        . "<td><input name=\"date\" value=\"$this->date\" type=\"text\" value=\"2017-06-01\" \"></td>"
+                        . "<td><input name=\"date\" value=\"$this->date\" type=\"text\"></td>"
                     . "</tr>"
                     . "<tr>"
                         . "<td>Journal :</td>"

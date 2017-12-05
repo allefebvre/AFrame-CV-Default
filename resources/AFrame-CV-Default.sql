@@ -102,10 +102,10 @@ CREATE TABLE `Diverse` (
 --
 
 INSERT INTO `Diverse` (`ID`, `diverse`) VALUES
-(1, 'Activity 1\r\n'),
-(2, 'Activity 2\r\n'),
+(1, 'Activity 1'),
+(2, 'Activity 2'),
 (3, 'Sport'),
-(4, 'Driving Licence\r\n');
+(4, 'Driving Licence');
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE `Education` (
 --
 
 INSERT INTO `Education` (`ID`, `date`, `education`) VALUES
-(1, 'Date', 'Education\r\n');
+(1, 'Date', 'Education');
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ CREATE TABLE `Information` (
 --
 
 INSERT INTO `Information` (`ID`, `status`, `name`, `firstName`, `photo`, `age`, `address`, `phone`, `mail`) VALUES
-(1, 'Status\r\n', 'Name', 'Firstname', 'resources/images/profilPhoto.jpeg\r\n', 'Age', 'Address\r\n', '07 00 00 00 00', 'mail@mail.fr');
+(1, 'Status', 'Name', 'Firstname', 'resources/images/profilPhoto.jpeg', 'Age', 'Address', '07 00 00 00 00', 'mail@mail.fr');
 
 -- --------------------------------------------------------
 
@@ -290,7 +290,7 @@ CREATE TABLE `Skill` (
 --
 
 INSERT INTO `Skill` (`ID`, `category`, `details`) VALUES
-(1, 'Category\r\n', 'Details\r\n');
+(1, 'Category', 'Details');
 
 -- --------------------------------------------------------
 
@@ -319,7 +319,7 @@ CREATE TABLE `WorkExp` (
 --
 
 INSERT INTO `WorkExp` (`ID`, `date`, `workExp`) VALUES
-(1, 'Date\r\n', 'Work Experience\r\n');
+(1, 'Date', 'Work Experience');
 
 --
 -- Indexes for dumped tables

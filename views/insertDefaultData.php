@@ -59,7 +59,7 @@ switch ($tableName) {
         ?>
         
         <div class="requiredFields">(*) Required fields</div>
-        </br>
+        <br>
         <input class="link" type="submit" value="GO">
         <?php 
         echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; 
