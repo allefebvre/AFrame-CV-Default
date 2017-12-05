@@ -186,7 +186,7 @@ class AdminController {
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
         $password_conf = filter_input(INPUT_POST, 'password_conf', FILTER_SANITIZE_STRING);
         if ($password !== $password_conf) {
-            $this->changePassword("Passwords are not the same !");
+            $this->changePassword("New Passwords are not the same !");
         } else {
             $login = new Login();
             if ($login->changePassword($password_old, $password)) {
