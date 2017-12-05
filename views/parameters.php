@@ -217,11 +217,15 @@ function checkSection(string $section = NULL) {
             </div>
         </form>
         <div style="text-align: center">
-            <a id="addData" href="admin.php?action=showData"><button class="link">Add Data</button></a>
-            <br>
-            <a id="logout" href="admin.php?action=logout"><button class="link">Logout</button></a>
-            <br>
-            <a id="changePassword" href="admin.php?action=changePassword"><button class="link">Change password</button></a>
+            <div id="addData">
+                <a href="admin.php?action=showData" class="link">Add Data</a>
+            </div>
+            <div id="logout">
+                <a href="admin.php?action=logout" class="link">Logout</a>
+            </div>
+            <div id="changePassword">
+                <a href="admin.php?action=changePassword" class="link">Change password</a>
+            </div>
         </div>
     </div>
 </aside>

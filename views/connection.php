@@ -1,6 +1,6 @@
 <div class="connection">
     <div class="titleBar">
-        <a href="index.php"><button id="backButton">&#10229; Back</button></a>
+        <a href="index.php" id="backButton">&#10229; Back</a>
         <div class="title">
             <h2>Connection :</h2>
         </div>

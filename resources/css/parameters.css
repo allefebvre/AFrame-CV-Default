@@ -120,6 +120,7 @@
 }
 
 .parameters .link {
+    font-size: 13px;
     color: black;
     text-decoration: none;
     padding : 3px;
@@ -151,8 +152,11 @@
     min-width: 85px;
 }
 
-.parameters #logout button {
-    margin-top : 50px;
+.parameters #logout a {
     color:red;
     font-weight: 900;
+}
+
+.parameters #changePassword {
+    margin-top: 20px;
 }
