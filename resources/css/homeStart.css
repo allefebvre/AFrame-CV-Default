@@ -30,10 +30,15 @@
 }
 
 .homeStart .link {
-    width: 400px;
     background: white;
-    margin: 20px auto;
     padding: 20px;
+    height: 120px;
+}
+
+.homeStart .link2 {
+    width: 300px;
+    margin: 20px auto;
+    height: 120px;
 }
 
 .homeStart .link:hover {
@@ -47,19 +52,19 @@
 .homeStart #PCVersion {
     width : 50%;
     position: absolute;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .homeStart #ViveVersion {
     width : 50%;
     margin-left: 50%;
     position: absolute;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-@media (max-width:1200px) {
+@media (max-width:800px) {
     .homeStart #ViveVersion {
-        margin-top: 250px;
+        margin-top: 300px;
         margin-left: 0px;
         width : 100%;
     }
