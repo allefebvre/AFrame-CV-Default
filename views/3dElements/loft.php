@@ -38,7 +38,6 @@ if (!isset($vive)) {
           border-position
           height-correction
           universal-controls
-          look-controls
           kinematic-body>
 
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
@@ -81,27 +80,27 @@ if (!isset($vive)) {
 <?php if ($light) { ?>
     <!-- Lighting --> 
     <a-entity mixin="link" light-toggle position="18 10 13">
-        <a-light intensity="0.16"  type="point"></a-light>
+        <a-light intensity="0.16" distance="0" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
     <a-entity mixin="link" light-toggle position="-18 10 13">
-        <a-light intensity="0.16"  type="point"></a-light>
+        <a-light intensity="0.16" distance="0" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
     <a-entity mixin="link" light-toggle position="18 10 -13">
-        <a-light intensity="0.16"  type="point"></a-light>
+        <a-light intensity="0.16" distance="0" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
     <a-entity mixin="link" light-toggle position="-18 10 -13">
-        <a-light intensity="0.16" type="point"></a-light>
+        <a-light intensity="0.16" distance="0" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
     <a-entity mixin="link" light-toggle position="0 10 0">
-        <a-light intensity="0.2" type="point"></a-light>
+        <a-light intensity="0.2" distance="0" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
     <!-- End lighting -->
@@ -285,8 +284,8 @@ if ($parameterPublication->getDisplay() === "TRUE") {
 function spot(float $x, float $y, float $z, int $rotation) {
     ?>
     <a-entity mixin="link" light-toggle-spot position="<?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>" rotation="-16 <?php echo $rotation; ?> 0">
-        <a-light light="distance:8;intensity:0.6;type:spot"></a-light>
-        <a-light light="distance:0.5;type:point;intensity:5" position="0 0 -0.05"></a-light>
+        <a-light distance="8" intensity="0.6" type="spot"></a-light>
+        <a-light distance="0.5" intensity="5" type="point" position="0 0 -0.05"></a-light>
         <a-box color="#222" position="0 0 0.2" scale="0.15 0.15 0.3"></a-box>
         <a-cylinder color="#222" rotation="90 0 0" position="0 0 0.025" radius="0.07" height="0.05"></a-cylinder>
         <a-cylinder rotation="16 0 0" radius="0.01" height="0.75" color="#222" position="0 0.387 0.26"></a-cylinder>
