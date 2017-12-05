@@ -24,7 +24,7 @@ if (!isset($vive)) {
     <a-entity position="0 0 0">
         <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
         <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1;"></a-entity>
-        <a-entity laser-controls="hand: right"></a-entity>
+        <a-entity laser-controls="hand: right" raycaster="far: 6; interval: 200; objects: [mixin = link];"></a-entity>
     </a-entity>
 </a-entity>
 
@@ -43,7 +43,7 @@ if (!isset($vive)) {
 
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"
-              raycaster="far:10"
+              raycaster="far:10; objects: [mixin = link];"
               geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
               material="color: black; shader: flat">
         <a-entity vive-controls="hand: left; model:false"></a-entity>
@@ -62,6 +62,7 @@ if (!isset($vive)) {
     <img id="roofTexture" src="resources/textures/roof.jpg" alt="roof"/>
     <img id="woodTexture" src="resources/textures/wood.jpg" alt="wood"/>
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
+    <a-mixin id="link"></a-mixin>
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
 </a-assets>
@@ -79,27 +80,27 @@ if (!isset($vive)) {
 
 <?php if ($light) { ?>
     <!-- Lighting --> 
-    <a-entity light-toggle position="18 10 13">
+    <a-entity mixin="link" light-toggle position="18 10 13">
         <a-light intensity="0.16"  type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
-    <a-entity light-toggle position="-18 10 13">
+    <a-entity mixin="link" light-toggle position="-18 10 13">
         <a-light intensity="0.16"  type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
-    <a-entity light-toggle position="18 10 -13">
+    <a-entity mixin="link" light-toggle position="18 10 -13">
         <a-light intensity="0.16"  type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
-    <a-entity light-toggle position="-18 10 -13">
+    <a-entity mixin="link" light-toggle position="-18 10 -13">
         <a-light intensity="0.16" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
 
-    <a-entity light-toggle position="0 10 0">
+    <a-entity mixin="link" light-toggle position="0 10 0">
         <a-light intensity="0.2" type="point"></a-light>
         <a-sphere radius="0.5" shader="flat"></a-sphere>
     </a-entity>
@@ -283,7 +284,7 @@ if ($parameterPublication->getDisplay() === "TRUE") {
  */
 function spot(float $x, float $y, float $z, int $rotation) {
     ?>
-    <a-entity light-toggle-spot position="<?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>" rotation="-16 <?php echo $rotation; ?> 0">
+    <a-entity mixin="link" light-toggle-spot position="<?php echo $x; ?> <?php echo $y; ?> <?php echo $z; ?>" rotation="-16 <?php echo $rotation; ?> 0">
         <a-light light="distance:8;intensity:0.6;type:spot"></a-light>
         <a-light light="distance:0.5;type:point;intensity:5" position="0 0 -0.05"></a-light>
         <a-box color="#222" position="0 0 0.2" scale="0.15 0.15 0.3"></a-box>
