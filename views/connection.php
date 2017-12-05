@@ -21,7 +21,7 @@
             }
         ?>
 
-        <input type="submit" name="Login">
+        <input type="submit" name="Login" value="Login">
         <input type="hidden" name="action" value="login">
     </form>
 </div>

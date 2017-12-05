@@ -109,6 +109,10 @@ class AdminController {
         }
     }
 
+    /**
+     * Verify that token of connection is correct
+     * @return bool
+     */
     public function verifySession(): bool {
         $token = filter_input(INPUT_COOKIE, 'token', FILTER_SANITIZE_STRING);
         if ($token != "" && $token != null && $token != FALSE) {
@@ -119,11 +123,20 @@ class AdminController {
         }
     }
 
+    /**
+     * Display connection page
+     * @global string $dir
+     * @global array $views
+     * @param string $alert
+     */
     public function connection(string $alert = "") {
         global $dir, $views;
         require_once ($dir . $views['connection']);
     }
 
+    /**
+     * Verify that login and password are correct 
+     */
     public function login() {
         $login = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -135,13 +148,16 @@ class AdminController {
                 setcookie("token", $result, time() + 3600 * 4);
                 $this->displayParametersAnd3DEnvironment();
             } else {
-                $this->connection("wrong login/password");
+                $this->connection("Wrong login/password !");
             }
         } else {
-            $this->connection("please enter login and password");
+            $this->connection("Please enter login and password !");
         }
     }
 
+    /**
+     * Logout the admin
+     */
     public function logout() {
         setcookie("token", "", time() - 1);
         $login = new Login();
@@ -149,17 +165,28 @@ class AdminController {
         $this->connection();
     }
 
-    public function changePassword($alert = "") {
+    /**
+     * Display the change password page
+     * @global string $dir
+     * @global array $views
+     * @param string $alert
+     */
+    public function changePassword(string $alert = "") {
         global $dir, $views;
         require_once ($dir . $views['changePassword']);
     }
 
+    /**
+     * Change password in Database
+     * @global string $dir
+     * @global array $views
+     */
     public function changePassword2() {
         $password_old = filter_input(INPUT_POST, 'password_old', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
         $password_conf = filter_input(INPUT_POST, 'password_conf', FILTER_SANITIZE_STRING);
         if ($password !== $password_conf) {
-            $this->changePassword("passwords are not the same");
+            $this->changePassword("Passwords are not the same !");
         } else {
             $login = new Login();
             if ($login->changePassword($password_old, $password)) {
@@ -167,7 +194,7 @@ class AdminController {
                 $msg = "Password changed";
                 require_once ($dir . $views['info']);
             } else {
-                $this->changePassword("wrong old password");
+                $this->changePassword("Wrong old password !");
             }
         }
     }
