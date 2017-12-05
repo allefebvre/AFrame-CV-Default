@@ -24,7 +24,7 @@ if (!isset($vive)) {
     <a-entity position="0 0 0">
         <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
         <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1;"></a-entity>
-        <a-entity laser-controls="hand: right" raycaster="far: 6; interval: 200; objects: [mixin = link];"></a-entity>
+        <a-entity laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];"></a-entity>
     </a-entity>
 </a-entity>
 
