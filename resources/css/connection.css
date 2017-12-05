@@ -1,5 +1,5 @@
 .connection {
-    background: #ef2d5e;
+    background: #F4ECE5;
     top: 0px;
     right: 0px;
     min-width : 100%;
@@ -7,11 +7,11 @@
     margin : 0px;
     position: absolute;
     font-family: "Roboto";
-    color: #111111;
+    color: #178F96;
 }
 
 .connection .titleBar {
-    background : #10d2a2;
+    background : #178F96;
     margin-top: 10px;
 }
 
@@ -26,6 +26,8 @@
     font-size: 24px;
     padding: 10px 0px 10px 0px;
     margin: 5px auto; 
+    color : #F4ECE5;
+    background: #178F96;
 }
 
 .connection form {
@@ -39,7 +41,7 @@
     border-radius: 0px;
     border: #111111 solid 1px;
     height: 24px;
-    background: #aaf3e1;
+    background: #178F96;
 }
 
 .connection input[type=submit] {
@@ -48,7 +50,7 @@
     border: #111111 solid 1px;
     position:relative;
     display: block;
-    background: #10d2a2;
+    background: #178F96;
 }
 
 .connection input[type=submit]:hover{
@@ -60,7 +62,7 @@
 }
 
 .connection .alert {
-    background-color: #de1c4d;
+    background-color: #c8c8c8;
     padding: 5px;
     text-align: center;
     width: 600px;

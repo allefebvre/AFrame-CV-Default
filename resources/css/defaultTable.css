@@ -1,5 +1,5 @@
 .defaultTable {
-    background: #ef2d5e;
+    background: #F4ECE5;
     top: 0px;
     right: 0px;
     min-width : 100%;
@@ -7,11 +7,11 @@
     margin : 0px;
     position: absolute;
     font-family: "Roboto";
-    color: #111111;
+    color: #178F96;
 }
 
 .defaultTable .titleBar {
-    background : #10d2a2;
+    background : #178F96;
     margin-top: 10px;
 }
 
@@ -26,6 +26,8 @@
     font-size: 24px;
     padding: 10px 0px 10px 0px;
     margin: 5px auto; 
+    color : #F4ECE5;
+    background: #178F96;
 }
 
 .defaultTable form {
@@ -46,11 +48,11 @@
 }
 
 .defaultTable .contentTable {
-    background-color: #de1c4d;
+    background-color: #c8c8c8;
 }
 
 .defaultTable .headTable {
-    background-color: #10d2a2;
+    background-color: #178F96;
 }
 
 .defaultTable .link {
@@ -65,7 +67,7 @@
 
 .defaultTable a .link-div {
     border: #111111 solid 1px;
-    background: #10d2a2;
+    background: #178F96;
     width: 200px;
     height: 24px;
     padding: 2px 0px 0px 0px;
@@ -80,7 +82,7 @@
 }
 
 .defaultTable .button {
-    background-color: #10d2a2;
+    background-color: #178F96;
     border: none;
     text-align: center;
     text-decoration: none;

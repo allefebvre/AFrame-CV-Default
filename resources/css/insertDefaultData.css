@@ -1,5 +1,5 @@
 .insertDefaultData {
-    background: #ef2d5e;
+    background: #F4ECE5;
     top: 0px;
     right: 0px;
     min-width : 100%;
@@ -7,11 +7,11 @@
     margin : 0px;
     position: absolute;
     font-family: "Roboto";
-    color: #111111;
+    color: #178F96;
 }
 
 .insertDefaultData .titleBar {
-    background : #10d2a2;
+    background : #178F96;
     margin-top: 10px;
 }
 
@@ -26,6 +26,8 @@
     font-size: 24px;
     padding: 10px 0px 10px 0px;
     margin: 5px auto; 
+    color : #F4ECE5;
+    background: #178F96;
 }
 
 .insertDefaultData form {
@@ -51,14 +53,14 @@
     border-radius: 0px;
     border: #111111 solid 1px;
     height: 24px;
-    background: #aaf3e1;
+    background: #178F96;
 }
 
 .insertDefaultData textArea {
     width: 320px;
     border-radius: 0px;
     border: #111111 solid 1px;
-    background: #aaf3e1;
+    background: #178F96;
 }
 
 .insertDefaultData .link {
@@ -67,7 +69,7 @@
     text-decoration: none;
     color : #111111;
     border: #111111 solid 1px;
-    background: #10d2a2;
+    background: #178F96;
     height: 48px;
     padding: 2px 0px 0px 0px;
     margin-bottom: 40px;
@@ -82,7 +84,7 @@
 }
 
 .insertDefaultData .alert {
-    background-color: #de1c4d;
+    background-color: #c8c8c8;
     padding: 5px;
     text-align: center;
     width: 600px;
