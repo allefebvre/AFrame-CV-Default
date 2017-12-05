@@ -33,7 +33,7 @@ class FrontController {
                     }
                 }
                 if(!$admin_call){
-                    $ctrl = new AdminController($action);
+                    $ctrl = new AdminController();
                 }
             } else {
                 $ctrl = new VisitorController();

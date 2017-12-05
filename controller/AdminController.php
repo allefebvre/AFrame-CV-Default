@@ -7,7 +7,7 @@ class AdminController {
      * @global string $dir
      * @global array $views
      */
-    public function __construct($action) {
+    public function __construct($action = null) {
         global $dir, $views;
         $dataError = array();
 
