@@ -38,8 +38,8 @@ class Validation {
      * @return bool
      */
     public static function mailValidation (string $mail) :bool {
-        filter_var($mail, FILTER_VALIDATE_EMAIL) == FALSE ? $bool=FALSE : $bool=TRUE;
-        return $bool;
+        filter_var($mail, FILTER_VALIDATE_EMAIL) == FALSE ? $validate=FALSE : $validate=TRUE;
+        return $validate;
     }
 
     /**
@@ -49,8 +49,8 @@ class Validation {
      * @return bool
      */
     public static function dateValidation (string $date) :bool {
-        preg_match("#^(19|20)([0-9]){2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$#", $date) == FALSE ? $bool=FALSE : $bool=TRUE;
-        return $bool;
+        preg_match("#^(19|20)([0-9]){2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$#", $date) == FALSE ? $validate=FALSE : $validate=TRUE;
+        return $validate;
     }  
     
     /**
@@ -63,31 +63,31 @@ class Validation {
      * @return bool
      */
     public static function publicationValidation (string $reference, string $authors, string $title, string $date, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($reference === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Reference !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Reference' !";
         }
         if($authors === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Authors !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Authors' !";
         }
         if($title === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Title !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Title' !";
         }
         if($date === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Date !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Date' !";
         } else {
             $validateDate = Validation::dateValidation($date);
             if(!$validateDate) {
-                $bool = FALSE;     
+                $validate = FALSE;     
                 $dViewError[] = "'$date' : Wrong format for the date, please use this format YYYY-MM-DD !";               
             }
         }
         
-        return $bool;
+        return $validate;
     }
     
     /**
@@ -100,28 +100,28 @@ class Validation {
      * @return bool
      */
     public static function informationValidation (string $status, string $name, string $firstName, string $mail, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($status === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Status !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Status' !";
         }
         if($name === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Name !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Name' !";
         }
         if($firstName === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field First Name !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'First Name' !";
         }
         if($mail !== "") {
             $validateMail = Validation::mailValidation($mail);
             if(!$validateMail) {
-                $bool = FALSE;
+                $validate = FALSE;
                 $dViewError[] = "'$mail' : Wrong format for the mail !";
             }
         }
         
-        return $bool;
+        return $validate;
     }
     
     /**
@@ -132,17 +132,17 @@ class Validation {
      * @return bool
      */
     public static function educationValidation (string $date, string $education, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($date === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Date !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Date' !";
         }
         if($education === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Education !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Education' !";
         }
         
-        return $bool;
+        return $validate;
     }
     
     /**
@@ -153,17 +153,17 @@ class Validation {
      * @return bool
      */
     public static function workExpValidation (string $date, string $workExp, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($date === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Date !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Date' !";
         }
         if($workExp === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Work Experience !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Work Experience' !";
         }
         
-        return $bool;
+        return $validate;
     }
     
     /**
@@ -174,17 +174,17 @@ class Validation {
      * @return bool
      */
     public static function skillValidation (string $category, string $details, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($category === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Category !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Category' !";
         }
         if($details === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Details !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Details' !";
         }
         
-        return $bool;
+        return $validate;
     }
     
     /**
@@ -194,13 +194,55 @@ class Validation {
      * @return bool
      */
     public static function diverseValidation (string $diverse, array &$dViewError) :bool {
-        $bool = TRUE;
+        $validate = TRUE;
         if($diverse === "") {
-            $bool = FALSE;
-            $dViewError[] = "You did not fill the field Diverse !";
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Diverse' !";
         }
         
-        return $bool;
+        return $validate;
+    }
+    
+    public static function changePasswordValidation (string $passwordOld, string $password, string $passwordConf, array &$dViewError) :bool {
+        $validate = TRUE;
+        $login = new Login();
+        if (!$login->verifyOldPassword($passwordOld)) {
+            $validate = FALSE;
+            $dViewError[] = "Wrong old password !";
+        }
+        if($password === "") {
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'New password' !";
+        }
+        if($passwordConf === "") {
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'New password again' !";
+        }
+        if ($password !== $passwordConf) {
+            $validate = FALSE;
+            $dViewError[] = "New Passwords are not the same !";
+        }
+        
+        return $validate;
+    }
+    
+    public static function loginValidation(string $login, string $password, array &$dViewError) :bool {
+        $validate = TRUE;
+        if ($login != null && $login != "" && $password != null && $password != "") {
+            $login2 = new Login();
+            $result = $login2->login("$login", "$password");
+            if ($result != "") {
+                setcookie("token", $result, time() + 3600 * 4);
+            } else {
+                $validate = FALSE;
+                $dViewError[] = "Wrong Login/Password !";
+            }
+        } else {
+            $validate = FALSE;
+            $dViewError[] = "Please enter Login and Password !";
+        }
+        
+        return $validate;
     }
 }
 

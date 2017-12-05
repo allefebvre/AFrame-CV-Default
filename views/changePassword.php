@@ -5,7 +5,16 @@
             <h2>Change password :</h2> 
         </div>
     </div>
-    
+    <br>
+    <?php
+    if (isset($dViewError) && count($dViewError)>0) {
+        foreach($dViewError as $error) {
+        ?>
+        <div class="alert">- <?php echo $error; ?></div>
+        <?php
+        }
+    }
+    ?>
     <form method="post" action="admin.php?action=changePassword2">
         <label for="password_old">Old password :</label><br>
         <input type="password" name="password_old" id="password_old"><br>
@@ -16,13 +25,6 @@
         <label for="password_conf">New password again :</label><br>
         <input type="password" name="password_conf" id="password"><br>
         <br>
-        <?php
-            if(isset($alert) && $alert != null && $alert != ""){
-                ?>
-                    <div class="alert"><?php echo $alert ?></div><br><br>
-                <?php
-            }
-        ?>
         <input type="submit" name="Change password" value="GO">
     </form>
 </div>
