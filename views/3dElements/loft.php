@@ -21,9 +21,11 @@ if (!isset($vive)) {
 <?php if($vive) { ?>
 
 <a-entity id="cameraRig">
-    <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
-    <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #ramp, #ramp1;"></a-entity>
-    <a-entity laser-controls="hand: right"></a-entity>
+    <a-entity position="0 1 0">
+        <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
+        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1;"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+    </a-entity>
 </a-entity>
 
 <?php } else { ?>
@@ -151,7 +153,7 @@ if (!isset($vive)) {
 <a-box static-body src="#wallTexture" mixin="wall"  position="0 2.5 -14.5"              scale="0.25 5 21"           rotation="0 90 0"></a-box>
 <a-box static-body src="#wallTexture" mixin="wall"  position="7.5 7.5 -14.5"            scale="0.25 5 6"            rotation="0 90 0"></a-box>
 <a-box static-body src="#wallTexture" mixin="wall"  position="-9.25 7.5 -14.5"           scale="0.25 5 2.5"          rotation="0 90 0"></a-box>
-<a-box static-body src="#wallTexture" mixin="wall"  position="-1.753 5.065 -15.5"       scale="0.25 13.228 2"       rotation="0 0 90"></a-box>
+<a-box static-body src="#wallTexture" mixin="wall"  position="-1.753 5.065 -15.5"       scale="0.25 13.228 2"       rotation="0 0 90" id="floor2"></a-box>
 <a-box static-body material="visible:false"         position="4.719 7.554 -15.492"      scale="0.25 5 2.022"></a-box>
 <a-box static-body material="visible:false"         position="-8.2 7.554 -15.492"       scale="0.25 5 2.022"></a-box>
 <a-box static-body material="visible:false"         position="-1.775 7.55 -16"          scale="0.25 5 13.51"        rotation="0 90 0"></a-box>

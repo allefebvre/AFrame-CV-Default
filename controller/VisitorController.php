@@ -7,12 +7,23 @@ class VisitorController {
      * @global string $dir
      * @global array $views
      */
-    public function __construct() {
+    public function __construct($action = null) {
         global $dir, $views;
         $dataError = array ();
 
         try{
-            $this->display3DEnvironment();
+            switch ($action){
+                case null :
+                    $this->displayHome();
+                    break;
+                case 'viewPCVersion' :
+                    $this->display3DEnvironment();
+                    break;
+                case 'viewHTCViveVersion' :
+                    $this->display3DEnvironment(TRUE);
+                    break;
+            }
+            
         } 
         catch (PDOException $e) {
             $dataError[] = ["Database error !", $e->getMessage()];
@@ -24,12 +35,17 @@ class VisitorController {
         }
     }
     
+    public function displayHome(){
+        global $dir,$views;
+        require ($dir.$views['homeStart']);
+    }
+    
     /**
      * Display the 3D environment 
      * @global string $dir
      * @global array $views
      */
-    public function display3DEnvironment() {
+    public function display3DEnvironment($vive = FALSE) {
         global $dir,$views;
         require ($dir.$views['home']);
     }
