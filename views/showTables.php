@@ -30,7 +30,7 @@ foreach ($data['tables'] as $table) {
 
 <div  class="panels">
     <div class="titleBar">
-        <a href="admin.php"><button id="backButton">&#10229; Back</button></a>
+        <a href="admin.php" id="backButton">&#10229; Back</a>
         <div class="title">
             <h2>Your different panels </h2> 
         </div>

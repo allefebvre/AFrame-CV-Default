@@ -35,7 +35,7 @@ switch ($tableName) {
 
 <div class="updateDefaultData">
     <div class="titleBar">
-        <a href="admin.php?table=<?php echo $tableName; ?>&action=showTable"><button id="backButton">&#10229; Back</button></a>
+        <a id="backButton" href="admin.php?table=<?php echo $tableName; ?>&action=showTable">&#10229; Back</a>
         <div class="title">
             <h2>Table : <?php echo $tableName . " ID : " . $id; ?></h2> 
         </div>
@@ -55,7 +55,7 @@ switch ($tableName) {
         echo $data->toStringForm();
         ?>
         <div class="requiredFields">(*) Required fields</div>
-        </br>
+        <br>
         <input class="link" type="submit" value="GO">
         <?php 
         echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; 

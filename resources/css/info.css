@@ -19,7 +19,7 @@
     margin: 10px auto;
 }
 
-.info button {
+.info a {
     margin : 5px auto;
     width : 100px;
     border: #111111 solid 1px;
@@ -30,15 +30,10 @@
     text-decoration: none;
 }
 
-.info a {
-    text-decoration: none;
-    color: #111111;
-}
-
-.info button:hover{
+.info a:hover{
     background: #00c1b1;
 }
 
-.info button:active{
+.info a:active{
     background: #00b0a0;
 }

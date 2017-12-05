@@ -53,7 +53,7 @@ function checkSection(string $section = NULL) {
 ?>
 
 
-<script type="text/javascript">
+<script>
     var onActionCheckbox = function (el) {
         el.parentNode.children[3].disabled = !el.checked;
         el.parentNode.children[4].children[0].disabled = !el.checked;

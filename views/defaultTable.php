@@ -36,13 +36,13 @@ switch ($tableName) {
 
 <div class="defaultTable">
     <div class="titleBar">
-        <a href="admin.php?action=showData"><button id="backButton">&#10229; Back</button></a>
+        <a href="admin.php?action=showData" id="backButton">&#10229; Back</a>
         <div class="title">
             <h2>Your <?php echo $tableName; ?></h2>
         </div>
     </div>
     <form method="post">
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table>
             <tr class="headTable">
                 <td></td>
                 <td></td>

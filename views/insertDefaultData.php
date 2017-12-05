@@ -34,7 +34,7 @@ switch ($tableName) {
 
 <div class="insertDefaultData">
     <div class="titleBar">
-        <a href="admin.php?table=<?php echo $tableName; ?>&action=showTable"><button id="backButton">&#10229; Back</button></a>
+        <a id="backButton" href="admin.php?table=<?php echo $tableName; ?>&action=showTable">&#10229; Back</a>
         <div class="title">
             <h2>Insert in <?php echo $tableName; ?></h2> 
         </div>
