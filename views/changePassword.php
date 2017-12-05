@@ -23,6 +23,6 @@
                 <?php
             }
         ?>
-        <input type="submit" name="Change password">
+        <input type="submit" name="Change password" value="GO">
     </form>
 </div>

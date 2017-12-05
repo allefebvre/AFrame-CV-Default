@@ -5,6 +5,7 @@ class Autoload {
     private static $_instance = null;
 
     /** 
+     * Check if the function _autoload was start, and if she can't start
      * @throws RuntimeException
      */
     public static function load() {
@@ -18,6 +19,7 @@ class Autoload {
     }
 
     /**
+     * Stop the _autoload, and diplay if we can't do this
      * @throws RuntimeException
      */
     public static function shutDown() {
@@ -30,6 +32,7 @@ class Autoload {
     }
 
     /**
+     * Allows the loading of all the files
      * @global string $dir
      * @param string $class
      */

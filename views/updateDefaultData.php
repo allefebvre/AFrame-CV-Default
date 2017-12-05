@@ -54,6 +54,8 @@ switch ($tableName) {
         <?php
         echo $data->toStringForm();
         ?>
+        <div class="requiredFields">(*) Required fields</div>
+        </br>
         <input class="link" type="submit" value="GO">
         <?php 
         echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; 
