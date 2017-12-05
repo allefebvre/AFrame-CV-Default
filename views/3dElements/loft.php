@@ -21,9 +21,11 @@ if (!isset($vive)) {
 <?php if($vive) { ?>
 
 <a-entity id="cameraRig">
-    <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
-    <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #ramp, #ramp1;"></a-entity>
-    <a-entity laser-controls="hand: right"></a-entity>
+    <a-entity position="0 1 0">
+        <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
+        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #ramp, #ramp1;"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+    </a-entity>
 </a-entity>
 
 <?php } else { ?>
