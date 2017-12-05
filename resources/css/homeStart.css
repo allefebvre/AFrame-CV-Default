@@ -1,0 +1,70 @@
+.homeStart {
+    background: #ef2d5e;
+    top: 0px;
+    right: 0px;
+    min-width : 100%;
+    min-height : 100%;
+    margin : 0px;
+    position: absolute;
+    font-family: "Roboto";
+    color: #111111;
+}
+
+.homeStart h2 {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px 0px 10px 0px;
+    margin: 5px auto; 
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background : #10d2a2;
+    margin-top: 10px;
+}
+
+.homeStart a {
+    text-decoration: none;
+    color : black;
+    font-size: 48px;
+    text-align: center;
+}
+
+.homeStart .link {
+    width: 400px;
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.homeStart .link:hover {
+    background: #f9f9f9;
+}
+
+.homeStart .link:active {
+    background: #e9e9e9;
+}
+
+.homeStart #PCVersion {
+    width : 50%;
+    position: absolute;
+    margin-top: 100px;
+}
+
+.homeStart #ViveVersion {
+    width : 50%;
+    margin-left: 50%;
+    position: absolute;
+    margin-top: 100px;
+}
+
+@media (max-width:1200px) {
+    .homeStart #ViveVersion {
+        margin-top: 250px;
+        margin-left: 0px;
+        width : 100%;
+    }
+    
+    .homeStart #PCVersion {
+        width : 100%;
+    }
+}
