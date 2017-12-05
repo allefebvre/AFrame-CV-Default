@@ -127,9 +127,9 @@ class AdminController {
      * Display connection page
      * @global string $dir
      * @global array $views
-     * @param string $alert
+     * @param array $dViewError
      */
-    public function connection(string $alert = "") {
+    public function connection(array $dViewError = NULL) {
         global $dir, $views;
         require_once ($dir . $views['connection']);
     }
@@ -138,20 +138,16 @@ class AdminController {
      * Verify that login and password are correct 
      */
     public function login() {
-        $login = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-
-        if ($login != null && $login != "" && $password != null && $password != "") {
-            $login2 = new Login();
-            $result = $login2->Login("$login", "$password");
-            if ($result != "") {
-                setcookie("token", $result, time() + 3600 * 4);
-                $this->displayParametersAnd3DEnvironment();
-            } else {
-                $this->connection("Wrong login/password !");
-            }
+        $login = Validation::cleanString($_POST['pseudo']);
+        $password = Validation::cleanString($_POST['password']);
+        
+        $dViewError = array();
+        $validate = Validation::loginValidation($login, $password, $dViewError);
+        
+        if($validate) {
+            $this->displayParametersAnd3DEnvironment();
         } else {
-            $this->connection("Please enter login and password !");
+            $this->connection($dViewError);
         }
     }
 
@@ -169,9 +165,9 @@ class AdminController {
      * Display the change password page
      * @global string $dir
      * @global array $views
-     * @param string $alert
+     * @param array $dViewError
      */
-    public function changePassword(string $alert = "") {
+    public function changePassword(array $dViewError = NULL) {
         global $dir, $views;
         require_once ($dir . $views['changePassword']);
     }
@@ -182,20 +178,21 @@ class AdminController {
      * @global array $views
      */
     public function changePassword2() {
-        $password_old = filter_input(INPUT_POST, 'password_old', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        $password_conf = filter_input(INPUT_POST, 'password_conf', FILTER_SANITIZE_STRING);
-        if ($password !== $password_conf) {
-            $this->changePassword("New Passwords are not the same !");
-        } else {
+        $password_old = Validation::cleanString($_POST['password_old']);
+        $password = Validation::cleanString($_POST['password']);
+        $password_conf = Validation::cleanString($_POST['password_conf']);
+
+        $dViewError = array();
+        $validate = Validation::changePasswordValidation($password_old, $password, $password_conf, $dViewError);
+        
+        if($validate) {
             $login = new Login();
-            if ($login->changePassword($password_old, $password)) {
-                global $dir, $views;
-                $msg = "Password changed";
-                require_once ($dir . $views['info']);
-            } else {
-                $this->changePassword("Wrong old password !");
-            }
+            $login->changePassword($password);
+            global $dir, $views;
+            $msg = "Password changed";
+            require_once ($dir . $views['info']);
+        } else {
+            $this->changePassword($dViewError);
         }
     }
 
