@@ -152,19 +152,19 @@
 
 .parameters .label_Plane {
     min-width: 85px;
-    margin-left: -25px;
+    margin-left: -2;
     color: #5E5C5C;
 }
 
 .parameters .label_Contained {
     min-width: 85px;
-    margin-left: 14px;
+    margin-left: -4%;
     color: #5E5C5C;
 }
 
 .parameters .label_Scroll {
     min-width: 85px;
-    margin-left: -12px;
+    margin-left: 10%;
     color: #5E5C5C;
 }
 
