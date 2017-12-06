@@ -62,6 +62,13 @@
     margin-top: 50px;
 }
 
+.homeStart #Connection {
+    width : 50%;
+    margin-left: 25%;
+    position: absolute;
+    margin-top: 20%;
+}
+
 @media (max-width:800px) {
     .homeStart #ViveVersion {
         margin-top: 300px;
