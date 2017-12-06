@@ -430,6 +430,10 @@ if ($spotlight) {
         <a-animation attribute="rotation" from="0 150 0" to="360 150 0" dur="70000" repeat="indefinite" easing="linear"></a-animation>
     </a-entity>
     
+    <a-box position="18 7.8 -13.6" scale="0.2 0.2 0.2">
+        <a-animation attribute="position" from="18 7.8 -13.6" to="18 7.2 -13.6" dur="3000" repeat="indefinite" direction="alternate"></a-animation>
+    </a-box>
+    
 <?php
 }
 ?>
