@@ -16,13 +16,12 @@ class Login {
      * @return string
      */
     public function login(string $login, string $password) : string {
-        $query = "SELECT COUNT(*) FROM Login WHERE Login.Login = :login AND Password = :password;";
+        $query = "SELECT COUNT(*) FROM Login WHERE Login.Login = :login;";
         $this->connection->executeQuery($query, array(
-            ':login' => array($login, PDO::PARAM_STR),
-            ':password' => array($password, PDO::PARAM_STR)
+            ':login' => array($login, PDO::PARAM_STR)
         ));
         $results = $this->connection->getResults();
-        if($results[0][0] > 0){
+        if($results[0][0] > 0 && $this->verifyPassword($password)){
             $token = $this->setToken();
             return $token;
         } else {
@@ -31,21 +30,21 @@ class Login {
     }
     
     /**
-     * Check if a old password is in Database
-     * @param string $oldPassword
+     * Check if a password is in Database
+     * @param string $password
      * @return bool
      */
-    public function verifyOldPassword(string $oldPassword) :bool {
-        $query = "SELECT COUNT(*) FROM Login WHERE Password = :oldPassword;";
-        $this->connection->executeQuery($query, array(
-            ':oldPassword' => array($oldPassword, PDO::PARAM_STR)
-        ));
+    public function verifyPassword(string $password) :bool {
+        $query = "SELECT Password FROM Login;";
+        $this->connection->executeQuery($query);
         $result = $this->connection->getResults();
         
-        if($result[0][0] == 0){
-            return FALSE;
-        } else {
+        $passwordDB = $result[0]['Password'];       
+        
+        if(password_verify($password, $passwordDB)){
             return TRUE;
+        } else {
+            return FALSE;
         }
     }
     
@@ -55,8 +54,9 @@ class Login {
      */
     public function changePassword(string $newPassword) {       
         $query = "UPDATE Login SET Password = :newPassword;";
+        $passwordCrypt = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 10]);
         $this->connection->executeQuery($query, array(
-            ':newPassword' => array($newPassword, PDO::PARAM_STR)
+            ':newPassword' => array($passwordCrypt, PDO::PARAM_STR)
         ));
     }
     

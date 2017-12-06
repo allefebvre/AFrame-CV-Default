@@ -206,7 +206,7 @@ class Validation {
     public static function changePasswordValidation (string $passwordOld, string $password, string $passwordConf, array &$dViewError) :bool {
         $validate = TRUE;
         $login = new Login();
-        if (!$login->verifyOldPassword($passwordOld)) {
+        if (!$login->verifyPassword($passwordOld)) {
             $validate = FALSE;
             $dViewError[] = "Wrong old password !";
         }
