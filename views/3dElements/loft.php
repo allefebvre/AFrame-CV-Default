@@ -23,7 +23,7 @@ if (!isset($vive)) {
 <a-entity id="cameraRig">
     <a-entity position="0 0 0">
         <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
-        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1;"></a-entity>
+        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform];"></a-entity>
         <a-entity laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];"></a-entity>
     </a-entity>
 </a-entity>
@@ -61,7 +61,9 @@ if (!isset($vive)) {
     <img id="roofTexture" src="resources/textures/roof.jpg" alt="roof"/>
     <img id="woodTexture" src="resources/textures/wood.jpg" alt="wood"/>
     <a-mixin id="wall" material="roughness:0.7"></a-mixin>
+    <a-mixin id="platform" material="roughness:0.7"></a-mixin>
     <a-mixin id="link"></a-mixin>
+    <a-mixin id="teleport"></a-mixin>
     <div id="assets_canvas"></div>
     <img id="panneau" src="resources/textures/panneau.png"/>
 </a-assets>
@@ -401,7 +403,38 @@ if ($spotlight) {
 }
 ?>
 
-    <a-cylinder mixin="link" open-ext-door position="10 2 -14.5" rotation="90 0 0" 
-                scale="1 0.4 1" color="#b9a8a8" radius="0.1" 
+    <a-cylinder mixin="link" open-ext-door position="10 2 -14.42" rotation="90 0 0" 
+                scale="1 0.2 1" color="#b9a8a8" radius="0.1" 
                 event-set__enter="_event: mouseenter; color: #534949" 
                 event-set__leave="_event: mouseleave; color: #b9a8a8"></a-cylinder>
+    
+    <a-entity id="floor3">
+        <a-box position="14.25 -10.25 -17.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -17.5" to="14.25 -0.25 -17.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -17.5" from="14.25 -0.25 -17.5" begin="down"></a-animation>
+        </a-box>
+        <a-box position="14.25 -10.25 -22.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -22.5" to="14.25 -0.24 -22.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -22.5" from="14.25 -0.24 -22.5" begin="down"></a-animation>
+        </a-box>
+        <a-box position="14.25 -10.25 -27.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -27.5" to="14.25 -0.23 -27.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -27.5" from="14.25 -0.23 -27.5" begin="down"></a-animation>
+        </a-box>
+        <a-box position="14.25 -10.25 -32.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -32.5" to="14.25 -0.22 -32.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -32.5" from="14.25 -0.22 -32.5" begin="down"></a-animation>
+        </a-box>
+        <a-box position="14.25 -10.25 -37.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -37.5" to="14.25 -0.21 -37.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -37.5" from="14.25 -0.21 -37.5" begin="down"></a-animation>
+        </a-box>
+        <a-box position="14.25 -10.25 -42.5" scale="5 0.5 5" color="#888b1d" mixin="platform">
+            <a-animation attribute="position" dur="1000" from="14.25 -10.25 -42.5" to="14.25 -0.20 -42.5" begin="up"></a-animation>
+            <a-animation attribute="position" dur="1000" to="14.25 -10.25 -42.5" from="14.25 -0.20 -42.5" begin="down"></a-animation>
+        </a-box>
+    </a-entity>
+    
+    <a-box static-body position="10.276 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
+    <a-box static-body position="18.346 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
+    <a-box static-body position="14.385 3.637 -46.285" scale="8.584 8.42 2.121" material="visible:false"></a-box>
