@@ -32,7 +32,7 @@ To go to admin zone you have to connect with the identifier:
 * Login : `root`.
 * Password : `root`.
 
-Please after you first connection, **change your password**.
+Please after you first connection **change your password**.
 
 # Features
 * PHP7
