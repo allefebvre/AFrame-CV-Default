@@ -1,0 +1,318 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1984,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 23808,
+      "componentType": 5126,
+      "count": 1984,
+      "max": [
+        0.99043834209442139,
+        0.99043834209442139,
+        0.99513870477676392
+      ],
+      "min": [
+        -0.99043834209442139,
+        -0.99043834209442139,
+        -0.99513870477676392
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2880,
+      "max": [
+        1983
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 47616,
+      "componentType": 5126,
+      "count": 2304,
+      "max": [
+        0.98157000541687012,
+        0.94967001676559448,
+        2.1048600673675537
+      ],
+      "min": [
+        -0.98157000541687012,
+        -0.94967001676559448,
+        -2.494110107421875
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 75264,
+      "componentType": 5126,
+      "count": 2304,
+      "max": [
+        0.99041259288787842,
+        0.99413061141967773,
+        0.83350920677185059
+      ],
+      "min": [
+        -0.99041259288787842,
+        -0.99413061141967773,
+        -0.83350920677185059
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 11520,
+      "componentType": 5125,
+      "count": 3456,
+      "max": [
+        2303
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "Sketchfab (OSG glTF plugin)",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 25344,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 102912,
+      "byteOffset": 25344,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 128256,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsRequired": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
+  "extensionsUsed": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.050000011900000002,
+        0.050000011900000002,
+        0.050000011900000002
+      ],
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            0.018034091868257111,
+            0.0061984796922023846,
+            0.64000006672000087,
+            1
+          ],
+          "glossinessFactor": 0,
+          "specularFactor": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "name": "Material.001",
+      "occlusionFactor": 1
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            0.20783820461159325,
+            0.0051832222371004299,
+            0.15878792044197027,
+            1
+          ],
+          "glossinessFactor": 0,
+          "specularFactor": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "name": "Material.002",
+      "occlusionFactor": 1
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Sphere",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Torus",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        6
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        1.8878199999999998,
+        0,
+        0,
+        0,
+        0,
+        1.8878199999999998,
+        0,
+        0,
+        0,
+        0,
+        1.8878199999999998,
+        0,
+        -3.4382599999999996,
+        0,
+        0,
+        1
+      ],
+      "name": "Sphere"
+    },
+    {
+      "mesh": 0,
+      "name": "Sphere"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "Geode"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        2.3043,
+        1.14269,
+        -0.36154000000000003,
+        0,
+        -1.1708000000000001,
+        2.3136799999999997,
+        -0.14956000000000003,
+        0,
+        -0.068120000000000028,
+        -0.078600000000000017,
+        -0.68261000000000016,
+        0,
+        -3.5922099999999997,
+        0.12786,
+        -0.018770000000000002,
+        1
+      ],
+      "name": "Torus"
+    },
+    {
+      "mesh": 1,
+      "name": "Torus"
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "Geode"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
+

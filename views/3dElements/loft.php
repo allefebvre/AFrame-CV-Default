@@ -399,6 +399,37 @@ if ($spotlight) {
         <a-animation id="animation3" attribute="color" from="blue" to="yellow" dur="2000" begin="start3"></a-animation>
         <a-animation id="animation4" attribute="color" from="yellow" to="red" dur="2000" begin="start4"></a-animation>
     </a-light>
+    
+    <a-entity gltf-model="resources/model3D/gaming_room/scene.gltf" position="7.35 -1.544 -0.691" scale="0.04 0.04 0.04"></a-entity>
+    <a-light position="6.95 4.54 0" rotation="-90 0 0" light="intensity:0.58;distance:15;color:#ffdf73;angle:25;type:spot"></a-light>
+    <a-light position="6.95 1.204 -1.515" light="intensity:0.3;distance:5;type:point">
+        <a-animation attribute="color" from="red" to="blue" dur="500" repeat="indefinite"></a-animation>
+        <a-animation attribute="color" from="blue" to="green" dur="500" begin="500" repeat="indefinite"></a-animation>
+        <a-animation attribute="color" from="green" to="yellow" dur="500" begin="1000" repeat="indefinite"></a-animation>
+        <a-animation attribute="color" from="green" to="red" dur="500" begin="1500" repeat="indefinite"></a-animation>
+    </a-light>
+    
+    <a-entity rotation="0 10 0">
+        <a-entity obj-model="mtl:resources/model3D/planet1/planet.mtl;obj:resources/model3D/planet1/planet.obj" position="0 50 0" scale="0.02 0.02 0.02"></a-entity>
+        <a-animation attribute="rotation" from="0 10 0" to="360 10 0" dur="50000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+    <a-entity rotation="0 50 0">
+        <a-entity gltf-model="resources/model3D/planet2/scene.gltf" position="0 70 0" scale="1 1 1"></a-entity>
+        <a-animation attribute="rotation" from="0 50 0" to="360 50 0" dur="60000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+    <a-entity rotation="0 70 0">
+        <a-entity gltf-model="resources/model3D/planet3/scene.gltf" position="0 60 0" scale="1 1 1"></a-entity>
+        <a-animation attribute="rotation" from="0 70 0" to="360 70 0" dur="55000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+    <a-entity rotation="0 200 0">
+        <a-entity gltf-model="resources/model3D/planet4/scene.gltf" position="0 80 0" scale="2 2 2"></a-entity>
+        <a-animation attribute="rotation" from="0 200 0" to="360 200 0" dur="45000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+    <a-entity rotation="0 150 0">
+        <a-entity gltf-model="resources/model3D/planet5/scene.gltf" position="0 75 0" scale="0.004 0.004 0.004"></a-entity>
+        <a-animation attribute="rotation" from="0 150 0" to="360 150 0" dur="70000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+    
 <?php
 }
 ?>
