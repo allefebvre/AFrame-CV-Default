@@ -346,5 +346,50 @@ if ($spotlight) {
     <a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
     <a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
     <a-entity gltf-model="resources/model3D/BoxAnimated.gltf" animation-mixer position="-18.5 0.5 -13.5"></a-entity>
+    <a-entity gltf-model="resources/model3D/AnimatedMorphSphere.gltf" animation-mixer scale="0.5 0.5 0.5">
+        <a-animation attribute="position"
+               dur="10000"
+               fill="forwards"
+               from="-18 3 -20"
+               to="18 3 -20"
+               direction="alternate"
+               repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity gltf-model="resources/model3D/AnimatedMorphCube.gltf" animation-mixer position="-11.659 0.524 -13.848" scale="0.5 0.5 0.5"></a-entity>
+    <a-entity gltf-model="resources/model3D/AnimatedCube.gltf" animation-mixer position="12.319 0.524 1.175" scale="0.5 0.5 0.5">
+                <a-animation attribute="position"
+               dur="1000"
+               fill="forwards"
+               from="12.319 0.524 1.175"
+               to="12.319 0.724 1.175"
+               direction="alternate"
+               repeat="indefinite"></a-animation>
+    </a-entity>
+    
+    <script>
+        AFRAME.registerComponent("animation1", {
+            init : function(){
+                var a1 = document.getElementById("animation1");
+                var a2 = document.getElementById("animation2");
+                var a3 = document.getElementById("animation3");
+                var a4 = document.getElementById("animation4");
+                var light = this.el;
+
+                a1.addEventListener('animationend', function() { light.emit('start2'); });
+                a2.addEventListener('animationend', function() { light.emit('start3'); });
+                a3.addEventListener('animationend', function() { light.emit('start4'); });
+                a4.addEventListener('animationend', function() { light.emit('start1'); });
+                setTimeout(function(){
+                    light.emit('start1');
+                }, 5000);
+            }
+        });
+    </script>
+    <a-light position="13.809 1.684 4.66" color="red" distance="12" type="point" animation1>
+        <a-animation id="animation1" attribute="color" from="red" to="green" dur="2000" begin="start1"></a-animation>
+        <a-animation id="animation2" attribute="color" from="green" to="blue" dur="2000" begin="start2"></a-animation>
+        <a-animation id="animation3" attribute="color" from="blue" to="yellow" dur="2000" begin="start3"></a-animation>
+        <a-animation id="animation4" attribute="color" from="yellow" to="red" dur="2000" begin="start4"></a-animation>
+    </a-light>
 <?php
 }
