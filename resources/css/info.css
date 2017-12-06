@@ -10,25 +10,6 @@
     color: #178F96;
 }
 
-.info .titleBar {
-    background : #178F96;
-}
-
-.info .title {
-    display: inline-block;
-    text-align: center;
-    width: 90%;
-}
-
-.info h2 {
-    font-weight: bold;
-    font-size: 24px;
-    padding: 10px 0px 10px 0px;
-    margin: 5px auto; 
-    color : #F4ECE5;
-    background: #178F96;
-}
-
 .info .okButton {
     margin : 5px auto;
     width : 100px;

@@ -10,33 +10,13 @@
     color: #178F96;
 }
 
-.defaultTable .titleBar {
-    background : #178F96;
-}
-
-.defaultTable .title {
-    display: inline-block;
-    text-align: center;
-    width: 90%;
-}
-
-.defaultTable h2 {
-    font-weight: bold;
-    font-size: 24px;
-    padding: 10px 0px 10px 0px;
-    margin: 5px auto; 
-    color : #F4ECE5;
-    background: #178F96;
-}
-
 .defaultTable form {
     text-align: center;
 }
 
-.defaultTable Table {
+.defaultTable table {
     border-collapse: separate;
-    border-spacing: 0px 6px;
-    
+    border-spacing: 0px 6px;   
     margin: 15px auto 15px auto;
     width: 10px;
 }
