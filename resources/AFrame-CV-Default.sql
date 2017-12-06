@@ -194,7 +194,7 @@ INSERT INTO `Journal` (`ID`, `reference`, `authors`, `title`, `date`, `journal`,
 
 CREATE TABLE `Login` (
   `Login` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL
+  `Password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -202,7 +202,7 @@ CREATE TABLE `Login` (
 --
 
 INSERT INTO `Login` (`Login`, `Password`) VALUES
-('root', 'root');
+('root', '$2y$10$qGI5ymA1CL5A6IKktQ4c4OhqZasbHJNUDbSF1VbYL1bJnxV/1foBS');
 
 -- --------------------------------------------------------
 

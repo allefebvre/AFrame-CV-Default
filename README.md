@@ -2,12 +2,20 @@
 This app, based on the framework [AFrame](https://aframe.io/) draws in VR a resume within a loft on different 3D panels. In addition, an area is dedicated to researchers, allowing to the show information about publications (conferences, journals and other things).
 AFrame allows to visit this 3D CV with many VR techonologies, such as HTC Vive headset, Windows VR, Cardboard, etc. 
 The panels are filled with texts stored in a Mysql database. 
+In this app there is an administrator space, where you can manage the display of the panels and their contents. 
+
 
 # Images
 <div>
 <img src="resources/images/AFrame-CV-Default-Screenshot1.png" heigth="190" width="32%">
 <img src="resources/images/AFrame-CV-Default-Screenshot2.png" heigth="190" width="32%">
 <img src="resources/images/AFrame-CV-Default-Screenshot3.png" heigth="190" width="32%">
+</div>
+
+<div>
+<img src="resources/images/Admin3.png" heigth="190" width="32%">
+<img src="resources/images/Admin1.png" heigth="190" width="32%">
+<img src="resources/images/Admin2.png" heigth="190" width="32%">
 </div>
 
 # Requirement
@@ -18,6 +26,13 @@ You need to change the credentials stored in the config file (config folder).
 Import the file AFrame-CV-Default.sql, for example with PhpMyAdmin.
 Copy the content of this project on the **Web server**.
 That's it, call the Web app :-)
+
+# Administration
+To go to admin zone you have to connect with the identifier:
+* Login : `root`.
+* Password : `root`.
+
+Please after you first connection **change your password**.
 
 # Features
 * PHP7
