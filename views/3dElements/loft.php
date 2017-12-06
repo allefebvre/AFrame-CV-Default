@@ -169,9 +169,15 @@ fence(2, -16.2, -14.9, -8.29, 5.750);
 ?>
 <a-box src="#wallTexture" mixin="wall" static-body position="19 5 -14.5"  scale="0.25 10 2" rotation="0 90 0"></a-box>
 <a-box src="#wallTexture" mixin="wall" static-body position="-19 5 -14.5" scale="0.25 10 2" rotation="0 90 0"></a-box>
-<a-entity position="14.25 5 -14.5" rotation="0 90 0">
-    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
-    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" ></a-box>
+<a-entity id="ext-door" position="14.25 5 -14.5" rotation="0 90 0" material="opacity:1">
+    <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522">
+        <a-animation attribute="opacity" from="1" to="0" dur="1000" begin="open"></a-animation>
+        <a-animation attribute="opacity" from="0" to="1" dur="1000" begin="close"></a-animation>
+    </a-box>
+    <a-box static-body scale="0.1 10 7.5" material="opacity:0.3;color:#b1d9e7" >
+        <a-animation attribute="opacity" from="0.3" to="0" dur="1000" begin="open"></a-animation>
+        <a-animation attribute="opacity" from="0" to="0.3" dur="1000" begin="close"></a-animation>
+    </a-box>
 </a-entity>
 <a-entity position="-14.25 5 -14.5" rotation="0 90 0">
     <a-box src="#woodTexture" mixin="wall" static-body scale="0.15 10 0.25" color="#995522"></a-box>
@@ -393,3 +399,9 @@ if ($spotlight) {
     </a-light>
 <?php
 }
+?>
+
+    <a-cylinder mixin="link" open-ext-door position="10 2 -14.5" rotation="90 0 0" 
+                scale="1 0.4 1" color="#b9a8a8" radius="0.1" 
+                event-set__enter="_event: mouseenter; color: #534949" 
+                event-set__leave="_event: mouseleave; color: #b9a8a8"></a-cylinder>
