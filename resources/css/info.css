@@ -1,5 +1,5 @@
 .info {
-    background: #ef2d5e;
+    background: #F4ECE5;
     top: 0px;
     right: 0px;
     min-width : 100%;
@@ -7,27 +7,38 @@
     margin : 0px;
     position: absolute;
     font-family: "Roboto";
-    color: #111111;
+    color: #178F96;
+}
+
+.info .titleBar {
+    background : #178F96;
+}
+
+.info .title {
+    display: inline-block;
+    text-align: center;
+    width: 90%;
 }
 
 .info h2 {
     font-weight: bold;
     font-size: 24px;
-    text-align: center;
     padding: 10px 0px 10px 0px;
-    background : #10d2a2;
-    margin: 10px auto;
+    margin: 5px auto; 
+    color : #F4ECE5;
+    background: #178F96;
 }
 
-.info a {
+.info .okButton {
     margin : 5px auto;
     width : 100px;
     border: #111111 solid 1px;
     position:relative;
     display: block;
-    background: #10d2a2;
+    background: #178F96;
     color: #111111;
     text-decoration: none;
+    text-align: center;
 }
 
 .info a:hover{
