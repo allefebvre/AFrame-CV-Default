@@ -75,7 +75,7 @@ function checkSection(string $section = NULL) {
                     <div class="label1"><label class="label_Plane"><b>Plane</b></label></div>
                     <label class="label_Contained"><b>Contained</b></label>
 
-                        
+
                     <div><label class="label_Scroll"><b>Scroll</b></label></div>
                 </li>
 
@@ -232,15 +232,14 @@ function checkSection(string $section = NULL) {
                 <input type="hidden" name="action" value="saveParameters">
             </div>
         </form>
-        <div style="text-align: center">
-            <div id="addData">
-                <a href="admin.php?action=showData" class="link">Add Data</a>
-            </div>
-            <div id="logout">
-                <a href="admin.php?action=logout" class="link">Logout</a>
-            </div>
-            <div id="changePassword">
-                <a href="admin.php?action=changePassword" class="link">Change password</a>
+        </br>
+        <div>
+            <a id="addData" href="admin.php?action=showData" class="link">Add Data</a>
+            <a id="logout" href="admin.php?action=logout" class="link">Logout</a>
+            </br>
+            </br>
+            <div>
+                <a id="changePassword" href="admin.php?action=changePassword" class="link">Change password</a>
             </div>
         </div>
     </div>
