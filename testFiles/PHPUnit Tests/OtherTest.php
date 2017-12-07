@@ -13,7 +13,7 @@ class OtherTest extends TestCase {
     }
     
     public function test() {
-        $id = "var1";
+        $id = 0;
         $reference = "var2";
         $author = "var3";
         $title = "var4";
@@ -31,7 +31,7 @@ class OtherTest extends TestCase {
         $editor = "var16";
         $pdf = "var17";
         $date_display = "var18";
-        $categorie_id = "var19";
+        $categorie_id = 0;
         
         $instance = new Other($id, $reference, $author, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $categorie_id);
         

@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class DiversTest extends TestCase {
+class DiverseTest extends TestCase {
 
     /**
      * @beforeClass
@@ -12,7 +12,7 @@ class DiversTest extends TestCase {
     }
 
     public function test() {
-        $id = "var1";
+        $id = 0;
         $diverse = "var2";
         
         $instance = new Diverse($id, $diverse);

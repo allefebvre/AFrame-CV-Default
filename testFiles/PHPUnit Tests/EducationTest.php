@@ -12,7 +12,7 @@ class EducationTest extends TestCase {
     }
 
     public function test() {
-        $id = "var1";
+        $id = 0;
         $date = "var2";
         $education = "var3";
         

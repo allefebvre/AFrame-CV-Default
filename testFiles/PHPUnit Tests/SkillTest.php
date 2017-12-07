@@ -12,7 +12,7 @@ class SkillTest extends TestCase {
     }
 
     public function test() {
-        $id = "var1";
+        $id = 0;
         $category = "var2";
         $details = "var3";
         
