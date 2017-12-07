@@ -45,7 +45,7 @@ To go to admin zone you have to connect with the identifier:
 
 Please after you first connection **change your password**.
 
-In their database the passwords is encrypted
+In our database the password is encrypted.
 
 # Features
 * PHP7
