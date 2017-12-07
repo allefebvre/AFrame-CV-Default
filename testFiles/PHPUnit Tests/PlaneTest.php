@@ -14,14 +14,15 @@ class PlaneTest extends TestCase {
     public function test() {
         $pathHTML = "var1";
         $targetId = "var2";
-        $posX = "var3";
-        $posY = "var4";
-        $posZ = "var5";
-        $rotation = "var6";
-        $scroll = "var7";
+        $posX = 0.0;
+        $posY = 0.0;
+        $posZ = 0.0;
+        $rotation = 0;
+        $scroll = FALSE;
         $action = "var8";
+        $scale = 0.0;
         
-        $instance = new Plane($pathHTML, $targetId ,$posX, $posY, $posZ, $rotation, $scroll, $action);
+        $instance = new Plane($pathHTML, $targetId ,$posX, $posY, $posZ, $rotation, $scroll, $action, $scale);
         
         $this->assertEquals($pathHTML, $instance->getPathHTML());
         $this->assertEquals($targetId, $instance->getTargetId());
@@ -31,5 +32,6 @@ class PlaneTest extends TestCase {
         $this->assertEquals($rotation, $instance->getRotation());
         $this->assertEquals($scroll, $instance->getScroll());
         $this->assertEquals($action, $instance->getAction());
+        $this->assertEquals($scale, $instance->getScale());
     }
 }

@@ -12,7 +12,7 @@ class InformationTest extends TestCase {
     }
 
     public function test() {
-        $id = "var1";
+        $id = 0;
         $status = "var2";
         $name = "var3";
         $firstName = "var4";
