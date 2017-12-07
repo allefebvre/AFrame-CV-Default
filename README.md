@@ -19,7 +19,18 @@ In this app there is an administrator space, where you can manage the display of
 </div>
 
 # Requirement
-**A web server and a Mysql server.**
+* **A web server and a Mysql server.**
+* **VR compatible browser** : 
+	* Firefox
+	* Chrome
+	* Safari
+
+# Compatible technology
+* HTC Vive
+* Oculus Rift
+* Google Daydream
+* Samsung GearVR
+* Windows Mixed Reality
 
 # Installation
 You need to change the credentials stored in the config file (config folder).
@@ -33,6 +44,7 @@ To go to admin zone you have to connect with the identifier:
 * Password : `root`.
 
 Please after you first connection **change your password**.
+In their database the passwords is encrypted
 
 # Features
 * PHP7
@@ -45,7 +57,7 @@ Please after you first connection **change your password**.
 # Test
 
 ## PHPUnit
-You can find the test cases on the folder `/testFiles/PHPUnit Tests`
+You can find the test cases on the folder `/testFiles/PHPUnit\ Tests`
 
 To execute them on the server: 
 1. Go on project root.
