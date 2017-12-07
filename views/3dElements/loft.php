@@ -22,9 +22,15 @@ if (!isset($vive)) {
 
 <a-entity id="cameraRig">
     <a-entity position="0 0 0">
-        <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150"></a-entity>
-        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform];"></a-entity>
-        <a-entity laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];"></a-entity>
+        <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150">
+            <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
+        </a-entity>
+        <a-entity vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trigger; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform]; curveShootingSpeed:15;">
+            <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
+        </a-entity>
+        <a-entity laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];">
+            <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
+        </a-entity>
     </a-entity>
 </a-entity>
 
@@ -429,6 +435,99 @@ if ($spotlight) {
         <a-entity gltf-model="resources/model3D/planet5/scene.gltf" position="0 75 0" scale="0.004 0.004 0.004"></a-entity>
         <a-animation attribute="rotation" from="0 150 0" to="360 150 0" dur="70000" repeat="indefinite" easing="linear"></a-animation>
     </a-entity>
+    
+    <?php
+    $begin = 0;
+    $posX = -13.6;
+    $colors = array('red', 'blue', 'green', 'yellow', '#FF8800', '#00FFFF');
+    
+    for ($i = 0; $i < 27; $i++) {
+         $begin += 100;
+        $posX += 1;
+    ?>
+    <a-box position="18 7.8 <?php echo $posX; ?>" scale="0.2 0.2 0.2" color="<?php echo $colors[rand(0, count($colors)-1)]; ?>">
+        <a-animation attribute="position" from="18 7.8 <?php echo $posX; ?>" to="18 7.2 <?php echo $posX; ?>" begin="<?php echo $begin; ?>" dur="3000" repeat="indefinite" direction="alternate"></a-animation>
+    </a-box>
+    <?php } ?>
+    
+    <a-box static-body position="6.85 0.505 2.459" rotation="0 -4.469070802020421 0" scale="3.418 1 0.497" material="visible:false"></a-box>
+    <a-box dynamic-body="mass:20" position="8.244 0.25 4.448" rotation="0 -90 0" scale="3.418 0.5 0.497" color="yellow"></a-box>
+    <a-box dynamic-body="mass:20" position="5.21 0.25 4.343" rotation="0 -90 0" scale="3.587 0.5 0.497" color="yellow"></a-box>
+    <a-box dynamic-body="mass:20" position="6.732 0.25 6.4" rotation="0 -180 0" scale="3.538 0.5 0.497" color="yellow"></a-box>
+    
+    <a-box dynamic-body position="8 1 8" rotation="0 0 0" scale="1 2 1" color="green"></a-box>
+    <a-dodecahedron dynamic-body position="9.5 2 9.5" color="#FF926B" radius="1"></a-dodecahedron>
+    
+    <a-box dynamic-body position="6 0.5 8" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body position="6 0.5 9.1" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body position="6 0.5 10.2" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body position="6 1.5 8.5" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body position="6 1.5 9.6" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    
+    
+    <a-sphere dynamic-body position="6.7 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.7 0.5 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.91 0.5 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body position="6.59 0.5 5.2" radius="0.15" color="red"></a-sphere>
     
 <?php
 }
