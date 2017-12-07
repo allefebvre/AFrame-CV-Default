@@ -44,6 +44,7 @@ To go to admin zone you have to connect with the identifier:
 * Password : `root`.
 
 Please after you first connection **change your password**.
+
 In their database the passwords is encrypted
 
 # Features
