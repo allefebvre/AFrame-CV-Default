@@ -62,7 +62,7 @@ You can find the test cases on the folder `/testFiles/PHPUnit\ Tests`
 
 To execute them on the server: 
 1. Go on project root.
-2. Execute  `./resources/phpunit ./testFiles/PHPUnit Tests/`
+2. Execute  `./resources/phpunit ./testFiles/PHPUnit\ Tests/`
 
 Every tests in the folder `PHPUnit Tests` test on class of the folder `model`
 
