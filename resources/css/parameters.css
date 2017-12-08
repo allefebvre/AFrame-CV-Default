@@ -2,7 +2,7 @@
     float: right;
     display: block;
     vertical-align: top;
-    width: 80%;
+    width: calc(100% - 360px);
     height: 100%;
     position: absolute;
     top: 0px;
@@ -15,7 +15,7 @@
 }
 
 .parameters {
-    width: 20%;
+    width: 360px;
     background: #F4ECE5;
     height: 100%;
     display: block;
@@ -39,7 +39,7 @@
 }
 
 @media (max-width:800px) {
-    #aframe {
+    .aframe {
         display : none;
     }
     
@@ -50,6 +50,7 @@
 
 .parameters > div {
     padding-bottom : 20px;
+    min-width: 350px;
 } 
 
 .parameters h1 {
