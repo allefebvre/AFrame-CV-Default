@@ -38,6 +38,16 @@
     border-right: #178F96 solid 2px;
 }
 
+@media (max-width:800px) {
+    #aframe {
+        display : none;
+    }
+    
+    .parameters {
+        width: 100%;
+    }
+}
+
 .parameters > div {
     padding-bottom : 20px;
 } 
