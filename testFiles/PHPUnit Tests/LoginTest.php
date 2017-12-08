@@ -26,7 +26,7 @@ class LoginTest extends TestCase {
     }
     
     public function testLogin() {
-
+        $this->login->changePassword("root");
         $this->assertEquals("", $this->login->login("root", "12"));
         $this->assertEquals("", $this->login->login("", ""));
         $toTest = $this->login->login("root", "root");
@@ -48,23 +48,21 @@ class LoginTest extends TestCase {
         $this->connection->executeQuery("SELECT Password FROM Login;");
         $newPassword = $this->connection->getResults();
         $this->assertNotEquals($oldPassword, $newPassword);
+        $this->login->changePassword("root");
         
     }
 
-    public function verifyTokenTest() {
-        
+    public function testVerifyToken() {
+        $toTest = $this->login->login("root", "root");
+        $this->assertTrue($this->login->verifyToken($toTest));
     }
 
-    public function setTokenTest() {
-        
+    public function testDeleteToken() {
+        $this->connection->executeQuery("SELECT * FROM Token");
+        $oldNbRows = $this->connection->getNbResults();
+        $this->login->deleteToken();
+        $this->connection->executeQuery("SELECT * FROM Token");
+        $newNbRows = $this->connection->getNbResults();
+        $this->assertNotEquals($oldNbRows, $newNbRows);
     }
-
-    public function generateTokenTest() {
-        
-    }
-
-    public function deleteToken() {
-        
-    }
-
 }
