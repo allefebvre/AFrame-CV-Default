@@ -1,9 +1,4 @@
 <?php
-
-/**
- * A MODIFIER
- * 
- */
 use PHPUnit\Framework\TestCase;
 
 class ByDateGatewayTest extends TestCase {
