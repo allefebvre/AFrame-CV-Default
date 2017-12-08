@@ -21,10 +21,9 @@ class DiverseGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Diverse WHERE diverse = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Diverse");
+        $connection->executeQuery("SELECT COUNT(*) FROM Diverse;");
         $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `Diverse` (diverse)"
-                . " VALUES ('__TEST__PHP__UNIT__');");
+        $connection->executeQuery("INSERT INTO `Diverse` (diverse) VALUES ('__TEST__PHP__UNIT__');");
 
         $gw = new DiverseGateway(new Connection($base, $login, $password));
         $result = $gw->getAllDiverse();

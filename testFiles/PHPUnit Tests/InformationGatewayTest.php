@@ -21,7 +21,7 @@ class InformationGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Information WHERE statut = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Information");
+        $connection->executeQuery("SELECT COUNT(*) FROM Information;");
         $nbrResult = $connection->getResults()[0];
         $connection->executeQuery("INSERT INTO `Information` (status, name, firstname, photo, age, address, phone, mail)"
                 . " VALUES ('__TEST__PHP__UNIT__', 'a', 'b', 'c', 'd', 'e', 'f', 'g');");

@@ -29,11 +29,11 @@ class ByDateGatewayTest extends TestCase {
             
         }
 
-        $connection->executeQuery("SELECT COUNT(*) FROM Other");
+        $connection->executeQuery("SELECT COUNT(*) FROM Other;");
         $nbrResultOther = $connection->getResults()[0];
-        $connection->executeQuery("SELECT COUNT(*) FROM Conference");
+        $connection->executeQuery("SELECT COUNT(*) FROM Conference;");
         $nbrResultConference = $connection->getResults()[0];
-        $connection->executeQuery("SELECT COUNT(*) FROM Journal");
+        $connection->executeQuery("SELECT COUNT(*) FROM Journal;");
         $nbrResultJournal = $connection->getResults()[0];
 
         $connection->executeQuery("INSERT INTO `Other` (reference, authors,"

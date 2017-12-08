@@ -21,7 +21,7 @@ class OtherGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Autre WHERE reference = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Other");
+        $connection->executeQuery("SELECT COUNT(*) FROM Other;");
         $nbrResult = $connection->getResults()[0];
         $connection->executeQuery("INSERT INTO `Other` (reference, authors,"
                 . " title, date, journal, volume, number, pages, note, abstract,"

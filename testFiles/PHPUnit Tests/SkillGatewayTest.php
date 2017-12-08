@@ -21,10 +21,9 @@ class CompetenceGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Skill WHERE category = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Skill");
+        $connection->executeQuery("SELECT COUNT(*) FROM Skill;");
         $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `Skill` (category, details)"
-                . " VALUES ('__TEST__PHP__UNIT__', 'details');");
+        $connection->executeQuery("INSERT INTO `Skill` (category, details) VALUES ('__TEST__PHP__UNIT__', 'details');");
 
         $gw = new SkillGateway(new Connection($base, $login, $password));
         $result = $gw->getAllSkills();
