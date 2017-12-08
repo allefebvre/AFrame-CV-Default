@@ -23,7 +23,7 @@
     top: 0px;
     left: 0px;
     margin: 0px;
-    padding:0px;
+    padding: 0px;
     box-sizing: border-box;
     overflow-y: auto;
     -moz-user-select: none;
@@ -37,6 +37,10 @@
     
     border-right: #178F96 solid 2px;
 }
+
+.parameters > div {
+    padding-bottom : 20px;
+} 
 
 .parameters h1 {
     font-weight: 900;
@@ -186,6 +190,5 @@
 }
 
 .parameters #changePassword {
-    margin-left: 35%;
-    
+    margin-left: 33%;
 }
