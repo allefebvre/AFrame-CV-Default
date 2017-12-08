@@ -21,10 +21,9 @@ class WorkExpGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from WorkExp WHERE workExp = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM WorkExp");
+        $connection->executeQuery("SELECT COUNT(*) FROM WorkExp;");
         $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `WorkExp` (date, workExp)"
-                . " VALUES ('2000-01-01', '__TEST__PHP__UNIT__');");
+        $connection->executeQuery("INSERT INTO `WorkExp` (date, workExp) VALUES ('2000-01-01', '__TEST__PHP__UNIT__');");
 
         $gw = new WorkExpGateway(new Connection($base, $login, $password));
         $result = $gw->getAllWorkExps();

@@ -10,7 +10,7 @@ require $dir . $views['displayPlane'];
 </div>
 
 
-<a-scene physics inspector="url:resources/libraryJS/aframe-inspector.min.js" button-stats="p">
+<a-scene id="a-scene" physics inspector="url:resources/libraryJS/aframe-inspector.min.js" button-stats="p">
 
     <?php
     require $dir . $views['loft'];

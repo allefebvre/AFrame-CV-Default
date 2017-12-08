@@ -35,12 +35,12 @@ class ConnectionTest extends TestCase {
      * @depends testAddTable
      */
     public function testAddRow(){
-        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (5, 10)");
-        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (10, 15)");
-        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (-10, 11)");
+        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (5, 10);");
+        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (10, 15);");
+        self::$connection->executeQuery("INSERT INTO `testPHPUnit` (`test1`, `test2`) VALUES (-10, 11);");
         $this->assertEquals(self::$connection->errorCode(), 0);
         
-        self::$connection->executeQuery("SELECT * FROM `testPHPUnit`");
+        self::$connection->executeQuery("SELECT * FROM `testPHPUnit`;");
         
         $result = self::$connection->getNbResults();
         $this->assertEquals(3, $result);

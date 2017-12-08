@@ -54,8 +54,14 @@ class ParameterGateway {
      * @return int
      */
     public function getNbMiddlePlaneDisplay() :int {
-        $query = "SELECT * FROM Parameter WHERE display=\"TRUE\" AND (name=\"Middle1\" OR name=\"Middle2\" OR name=\"Middle3\" OR name=\"Middle4\");";
-        $this->connection->executeQuery($query);
+        $query = "SELECT * FROM Parameter WHERE display=:display AND (name=:middle1 OR name=:middle2 OR name=:middle3 OR name=:middle4);";
+        $this->connection->executeQuery($query, array(
+            ':display' => array('TRUE', PDO::PARAM_STR),
+            ':middle1' => array('Middle1', PDO::PARAM_STR),
+            ':middle2' => array('Middle2', PDO::PARAM_STR),
+            ':middle3' => array('Middle3', PDO::PARAM_STR),
+            ':middle4' => array('Middle4', PDO::PARAM_STR)
+        ));
         
         return $this->connection->getNbResults();
     }

@@ -21,10 +21,9 @@ class EducationGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Education WHERE education = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Education");
+        $connection->executeQuery("SELECT COUNT(*) FROM Education;");
         $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `Education` (date, education)"
-                . " VALUES ('2000-01-01' ,'__TEST__PHP__UNIT__');");
+        $connection->executeQuery("INSERT INTO `Education` (date, education) VALUES ('2000-01-01' ,'__TEST__PHP__UNIT__');");
 
         $gw = new EducationGateway(new Connection($base, $login, $password));
         $result = $gw->getAllEducation();

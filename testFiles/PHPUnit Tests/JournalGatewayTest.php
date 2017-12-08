@@ -21,7 +21,7 @@ class JournalGatewayTest extends TestCase {
             $connection->executeQuery("DELETE from Journal WHERE reference = '__TEST__PHP__UNIT__';");
         } catch (Exception $ex) { }
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Journal");
+        $connection->executeQuery("SELECT COUNT(*) FROM Journal;");
         $nbrResult = $connection->getResults()[0];
         $connection->executeQuery("INSERT INTO `Journal` (reference, authors,"
                 . " title, date, journal, volume, number, pages, note, abstract,"
