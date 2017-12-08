@@ -59,11 +59,11 @@ AFRAME.registerComponent("spawn-sphere", {
                 
                 setTimeout(function(){
                     sphere.setAttribute('opacity', "0.5");
-                }, 8000);
+                }, 4000);
                 
                 setTimeout(function(){
                     scene.removeChild(sphere)
-                }, 10000);
+                }, 5000);
             }
         });
     }
