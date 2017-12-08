@@ -3,88 +3,105 @@ use PHPUnit\Framework\TestCase;
 
 class ByDateGatewayTest extends TestCase {
 
+    static private $connection;
+    static private $byDateGW;
+    static private $otherGW;
+    static private $journalGW;
+    static private $conferenceGW;
+    
     /**
      * @beforeClass
      */
     public static function setUpBeforeClass() {
         require_once 'model/Connection.php';
         require_once 'model/ByDateGateway.php';
-    }
-
-    public function test() {
+        require_once 'model/OtherGateway.php';
+        require_once 'model/JournalGateway.php';
+        require_once 'model/ConferenceGateway.php';
         require 'config/config.php';
-
-        $connection = new Connection($base, $login, $password);
-
-        try {
-            $connection->executeQuery("DELETE from Other WHERE reference = '__TEST__PHP__UNIT__';");
-            $connection->executeQuery("DELETE from Conference WHERE reference = '__TEST__PHP__UNIT__';");
-            $connection->executeQuery("DELETE from Journal WHERE reference = '__TEST__PHP__UNIT__';");
-        } catch (Exception $ex) {
-            
-        }
-
-        $connection->executeQuery("SELECT COUNT(*) FROM Other;");
-        $nbrResultOther = $connection->getResults()[0];
-        $connection->executeQuery("SELECT COUNT(*) FROM Conference;");
-        $nbrResultConference = $connection->getResults()[0];
-        $connection->executeQuery("SELECT COUNT(*) FROM Journal;");
-        $nbrResultJournal = $connection->getResults()[0];
-
-        $connection->executeQuery("INSERT INTO `Other` (reference, authors,"
-                . " title, date, journal, volume, number, pages, note, abstract,"
-                . " keywords, series, localite, publisher, editor, pdf,"
-                . " date_display, category_id) VALUES ('__TEST__PHP__UNIT__',"
-                . " 'auteur', 'titre', '2000-01-01', 'journal', 'volume', '1',"
-                . " '50', 'note', 'abstract', 'keywords', 'series', 'localite',"
-                . " 'publisher', 'editor', 'pdf', 'date_display', '5');");
-        
-        $connection->executeQuery("INSERT INTO `Conference` (reference, authors,"
-                . " title, date, journal, volume, number, pages, note, abstract,"
-                . " keywords, series, localite, publisher, editor, pdf,"
-                . " date_display, category_id) VALUES ('__TEST__PHP__UNIT__',"
-                . " 'auteur', 'titre', '2000-01-02', 'journal', 'volume', '1',"
-                . " '50', 'note', 'abstract', 'keywords', 'series', 'localite',"
-                . " 'publisher', 'editor', 'pdf', 'date_display', '5');");
-                
-        $connection->executeQuery("INSERT INTO `Journal` (reference, authors,"
-                . " title, date, journal, volume, number, pages, note, abstract,"
-                . " keywords, series, localite, publisher, editor, pdf,"
-                . " date_display, category_id) VALUES ('__TEST__PHP__UNIT__',"
-                . " 'auteur', 'titre', '2000-01-03', 'journal', 'volume', '1',"
-                . " '50', 'note', 'abstract', 'keywords', 'series', 'localite',"
-                . " 'publisher', 'editor', 'pdf', 'date_display', '5');");
-
-        $gw = new ByDateGateway(new Connection($base, $login, $password));
-        $result = $gw->getAllByDates();
-
-        $connection->executeQuery("DELETE from Other WHERE reference = '__TEST__PHP__UNIT__';");
-        $connection->executeQuery("DELETE from Conference WHERE reference = '__TEST__PHP__UNIT__';");
-        $connection->executeQuery("DELETE from Journal WHERE reference = '__TEST__PHP__UNIT__';");
-
-        $this->assertEquals(38, count($result[0]));
-
-        $nbr = $nbrResultOther[0] + $nbrResultConference[0] + $nbrResultJournal[0] + 2;
-
-        $this->assertTrue(isset($result[$nbr]["ID"]));
-        $this->assertTrue(isset($result[$nbr]["reference"]));
-        $this->assertTrue(isset($result[$nbr]["authors"]));
-        $this->assertTrue(isset($result[$nbr]["title"]));
-        $this->assertTrue(isset($result[$nbr]["date"]));
-        $this->assertTrue(isset($result[$nbr]["journal"]));
-        $this->assertTrue(isset($result[$nbr]["volume"]));
-        $this->assertTrue(isset($result[$nbr]["number"]));
-        $this->assertTrue(isset($result[$nbr]["pages"]));
-        $this->assertTrue(isset($result[$nbr]["note"]));
-        $this->assertTrue(isset($result[$nbr]["abstract"]));
-        $this->assertTrue(isset($result[$nbr]["keywords"]));
-        $this->assertTrue(isset($result[$nbr]["series"]));
-        $this->assertTrue(isset($result[$nbr]["localite"]));
-        $this->assertTrue(isset($result[$nbr]["publisher"]));
-        $this->assertTrue(isset($result[$nbr]["editor"]));
-        $this->assertTrue(isset($result[$nbr]["pdf"]));
-        $this->assertTrue(isset($result[$nbr]["date_display"]));
-        $this->assertTrue(isset($result[$nbr]["category_id"]));
+        self::$connection = new Connection($base, $login, $password);
+        self::$byDateGW = new ByDateGateway(self::$connection);
+        self::$otherGW = new OtherGateway(self::$connection);
+        self::$journalGW = new JournalGateway(self::$connection);
+        self::$conferenceGW = new ConferenceGateway(self::$connection);
+    }
+    
+    /**
+     * @afterClass
+     */
+    public static function tearDownAfterClass() {
+        self::$connection->executeQuery("DELETE FROM Other WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date AND journal=:journal AND volume=:volume AND number=:number AND pages=:pages AND note=:note AND abstract=:abstract AND keywords=:keywords AND series=:series AND localite=:localite AND publisher=:publisher AND editor=:editor AND pdf=:pdf AND date_display=:date_display AND category_id=:category_id;", array(
+            ':reference' => array('ReferenceTest', PDO::PARAM_STR),
+            ':authors' => array('AuthorsTest', PDO::PARAM_STR),
+            ':title' => array('TitleTest', PDO::PARAM_STR),
+            ':date' => array('DateTest', PDO::PARAM_STR),
+            ':journal' => array('JournalTest', PDO::PARAM_STR),
+            ':volume' => array('VolumeTest', PDO::PARAM_STR),
+            ':number' => array('NumberTest', PDO::PARAM_STR),
+            ':pages' => array('PagesTest', PDO::PARAM_STR),
+            ':note' => array('NoteTest', PDO::PARAM_STR),
+            ':abstract' => array('AbstractTest', PDO::PARAM_STR),
+            ':keywords' => array('KeywordsTest', PDO::PARAM_STR),
+            ':series' => array('SeriesTest', PDO::PARAM_STR),
+            ':localite' => array('LocaliteTest', PDO::PARAM_STR),
+            ':publisher' => array('PublisherTest', PDO::PARAM_STR),
+            ':editor' => array('EditorTest', PDO::PARAM_STR),
+            ':pdf' => array('PdfTest', PDO::PARAM_STR),
+            ':date_display' => array('DateDisplayTest', PDO::PARAM_STR),
+            ':category_id' => array(0, PDO::PARAM_INT)
+        ));
+        self::$connection->executeQuery("DELETE FROM Conference WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date AND journal=:journal AND volume=:volume AND number=:number AND pages=:pages AND note=:note AND abstract=:abstract AND keywords=:keywords AND series=:series AND localite=:localite AND publisher=:publisher AND editor=:editor AND pdf=:pdf AND date_display=:date_display AND category_id=:category_id;", array(
+            ':reference' => array('ReferenceTest', PDO::PARAM_STR),
+            ':authors' => array('AuthorsTest', PDO::PARAM_STR),
+            ':title' => array('TitleTest', PDO::PARAM_STR),
+            ':date' => array('DateTest', PDO::PARAM_STR),
+            ':journal' => array('JournalTest', PDO::PARAM_STR),
+            ':volume' => array('VolumeTest', PDO::PARAM_STR),
+            ':number' => array('NumberTest', PDO::PARAM_STR),
+            ':pages' => array('PagesTest', PDO::PARAM_STR),
+            ':note' => array('NoteTest', PDO::PARAM_STR),
+            ':abstract' => array('AbstractTest', PDO::PARAM_STR),
+            ':keywords' => array('KeywordsTest', PDO::PARAM_STR),
+            ':series' => array('SeriesTest', PDO::PARAM_STR),
+            ':localite' => array('LocaliteTest', PDO::PARAM_STR),
+            ':publisher' => array('PublisherTest', PDO::PARAM_STR),
+            ':editor' => array('EditorTest', PDO::PARAM_STR),
+            ':pdf' => array('PdfTest', PDO::PARAM_STR),
+            ':date_display' => array('DateDisplayTest', PDO::PARAM_STR),
+            ':category_id' => array(0, PDO::PARAM_INT)
+        ));
+        self::$connection->executeQuery("DELETE FROM Journal WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date AND journal=:journal AND volume=:volume AND number=:number AND pages=:pages AND note=:note AND abstract=:abstract AND keywords=:keywords AND series=:series AND localite=:localite AND publisher=:publisher AND editor=:editor AND pdf=:pdf AND date_display=:date_display AND category_id=:category_id;", array(
+            ':reference' => array('ReferenceTest', PDO::PARAM_STR),
+            ':authors' => array('AuthorsTest', PDO::PARAM_STR),
+            ':title' => array('TitleTest', PDO::PARAM_STR),
+            ':date' => array('DateTest', PDO::PARAM_STR),
+            ':journal' => array('JournalTest', PDO::PARAM_STR),
+            ':volume' => array('VolumeTest', PDO::PARAM_STR),
+            ':number' => array('NumberTest', PDO::PARAM_STR),
+            ':pages' => array('PagesTest', PDO::PARAM_STR),
+            ':note' => array('NoteTest', PDO::PARAM_STR),
+            ':abstract' => array('AbstractTest', PDO::PARAM_STR),
+            ':keywords' => array('KeywordsTest', PDO::PARAM_STR),
+            ':series' => array('SeriesTest', PDO::PARAM_STR),
+            ':localite' => array('LocaliteTest', PDO::PARAM_STR),
+            ':publisher' => array('PublisherTest', PDO::PARAM_STR),
+            ':editor' => array('EditorTest', PDO::PARAM_STR),
+            ':pdf' => array('PdfTest', PDO::PARAM_STR),
+            ':date_display' => array('DateDisplayTest', PDO::PARAM_STR),
+            ':category_id' => array(0, PDO::PARAM_INT)
+        ));
     }
 
+    public function testGetAllByDates() {     
+        $results = self::$byDateGW->getAllByDates();
+        $oldSize = count($results);
+        
+        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '_Date_Test_', '_Journal_Test_', '_Volume_Test_', '_Number_Test_', '_Pages_Test_', '_Note_Test_', '_Abstract_Test_', '_Keywords_Test_', '_Series_Test_', '_Localite_Test_', '_Publisher_Test_', '_Editor_Test_', '_Pdf_Test_', '_Date_Display_Test_', 0);
+        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '_Date_Test_', '_Journal_Test_', '_Volume_Test_', '_Number_Test_', '_Pages_Test_', '_Note_Test_', '_Abstract_Test_', '_Keywords_Test_', '_Series_Test_', '_Localite_Test_', '_Publisher_Test_', '_Editor_Test_', '_Pdf_Test_', '_Date_Display_Test_', 0);
+        self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '_Date_Test_', '_Journal_Test_', '_Volume_Test_', '_Number_Test_', '_Pages_Test_', '_Note_Test_', '_Abstract_Test_', '_Keywords_Test_', '_Series_Test_', '_Localite_Test_', '_Publisher_Test_', '_Editor_Test_', '_Pdf_Test_', '_Date_Display_Test_', 0);
+
+        $results = self::$byDateGW->getAllByDates();
+        
+        $this->assertEquals(count($results), $oldSize+3);
+    }
 }

@@ -4,37 +4,38 @@ use PHPUnit\Framework\TestCase;
 
 class WorkExpGatewayTest extends TestCase {
 
+    static private $connection;
+    static private $workExpGW;
+    
     /**
      * @beforeClass
      */
     public static function setUpBeforeClass() {
         require_once 'model/Connection.php';
         require_once 'model/WorkExpGateway.php';
+        require 'config/config.php';
+        self::$connection = new Connection($base, $login, $password);
+        self::$workExpGW = new WorkExpGateway(self::$connection);
+    }
+    
+    /**
+     * @afterClass
+     */
+    public static function tearDownAfterClass() {
+        self::$connection->executeQuery("DELETE FROM WorkExp WHERE date=:date AND workExp=:workExp;", array(
+            ':date' => array('_Date_Test_', PDO::PARAM_STR),
+            ':workExp' => array('_WorkExp_Test_', PDO::PARAM_STR)
+        ));
     }
 
-    public function test() {
-        require 'config/config.php';
+    public function testGetAllWorkExps() {     
+        $results = self::$workExpGW->getAllWorkExps();
+        $oldSize = count($results);
+        
+        self::$workExpGW->insert('_Date_Test_', '_WorkExp_Test_');
 
-        $connection = new Connection($base, $login, $password);
-
-        try {
-            $connection->executeQuery("DELETE from WorkExp WHERE workExp = '__TEST__PHP__UNIT__';");
-        } catch (Exception $ex) { }
+        $results = self::$workExpGW->getAllWorkExps();
         
-        $connection->executeQuery("SELECT COUNT(*) FROM WorkExp;");
-        $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `WorkExp` (date, workExp) VALUES ('2000-01-01', '__TEST__PHP__UNIT__');");
-
-        $gw = new WorkExpGateway(new Connection($base, $login, $password));
-        $result = $gw->getAllWorkExps();
-        $connection->executeQuery("DELETE from WorkExp WHERE workExp = '__TEST__PHP__UNIT__';");
-        
-        $this->assertEquals(6, count($result[0]));
-        
-        $nbr = $nbrResult[0];
-        
-        $this->assertTrue(isset($result[$nbr]["ID"]));
-        $this->assertTrue(isset($result[$nbr]["date"]));
-        $this->assertTrue(isset($result[$nbr]["workExp"]));
+        $this->assertEquals(count($results), $oldSize+1);
     }
 }
