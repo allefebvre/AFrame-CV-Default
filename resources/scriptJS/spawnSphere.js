@@ -56,6 +56,14 @@ AFRAME.registerComponent("spawn-sphere", {
                         sphere.body.applyImpulse(new CANNON.Vec3(-impulse.x, -impulse.y, -impulse.z), new CANNON.Vec3().copy(sphere.getAttribute('position')));
                     }, 50);
                 });
+                
+                setTimeout(function(){
+                    sphere.setAttribute('opacity', "0.5");
+                }, 8000);
+                
+                setTimeout(function(){
+                    scene.removeChild(sphere)
+                }, 10000);
             }
         });
     }
