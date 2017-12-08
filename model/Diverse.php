@@ -24,7 +24,8 @@ class Diverse {
      * @return string
      */
     function toString(): string {
-        $toReturn = "<td>$this->id</td><td>$this->diverse</td>";
+        $toReturn = "<td>$this->id</td>"
+                . "<td>$this->diverse</td>";
         return $toReturn;
     }
     

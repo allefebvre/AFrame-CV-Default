@@ -13,14 +13,14 @@ class InformationTest extends TestCase {
 
     public function test() {
         $id = 0;
-        $status = "var2";
-        $name = "var3";
-        $firstName = "var4";
-        $photo = "var5";
-        $age = "var6";
-        $address = "var7";
-        $phone = "var8";
-        $mail = "var9";
+        $status = "status";
+        $name = "name";
+        $firstName = "firstName";
+        $photo = "photo";
+        $age = "age";
+        $address = "address";
+        $phone = "phone";
+        $mail = "mail";
 
         $instance = new information($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
         
@@ -33,5 +33,54 @@ class InformationTest extends TestCase {
         $this->assertEquals($address, $instance->getAddress());
         $this->assertEquals($phone, $instance->getPhone());
         $this->assertEquals($mail, $instance->getMail());
+        
+        $expectedToString = "<td>$id</td>"
+                . "<td>$status</td>"
+                . "<td>$name</td>"
+                . "<td>$firstName</td>"
+                . "<td>$photo</td>"
+                . "<td>$age</td>"
+                . "<td>$address</td>"
+                . "<td>$phone</td>"
+                . "<td>$mail</td>";
+        
+        $this->assertEquals($expectedToString, $instance->toString());
+        
+        $expectedForm = "<table>"
+                . "<tr>"
+                    . "<td>Status* :</td>"
+                    . "<td><input name=\"status\" value=\"$status\" type=\"text\" size=\"10\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Name* :</td>"
+                    . "<td><input name=\"name\" value=\"$name\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>First Name* :</td>"
+                    . "<td><input name=\"firstName\" value=\"$firstName\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Photo :</td>"
+                    . "<td><input name=\"photo\" value=\"$photo\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Age :</td>"
+                    . "<td><input name=\"age\" value=\"$age\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Address :</td>"
+                    . "<td><input name=\"address\" value=\"$address\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Phone :</td>"
+                    . "<td><input name=\"phone\" value=\"$phone\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "<tr>"
+                    . "<td>Mail :</td>"
+                    . "<td><input name=\"mail\" value=\"$mail\" type=\"text\" size=\"100\"></td>"
+                . "</tr>"
+                . "</table>";
+        
+        $this->assertEquals($expectedForm, $instance->toStringForm());
     }
 }

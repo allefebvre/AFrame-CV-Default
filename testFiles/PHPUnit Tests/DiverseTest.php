@@ -19,5 +19,19 @@ class DiverseTest extends TestCase {
         
         $this->assertEquals($id, $instance->getId());
         $this->assertEquals($diverse, $instance->getDiverse());
+        
+        $expectedToString = "<td>$id</td>"
+                . "<td>$diverse</td>";
+        
+        $this->assertEquals($expectedToString, $instance->toString());
+        
+        $expectedForm = "<table>"
+                        . "<tr>"
+                            . "<td>Diverse* :</td>"
+                            . "<td><input name=\"diverse\" value=\"$diverse\" type=\"text\" size=\"10\"></td>"
+                        . "</tr>"
+                . "</table>";
+        
+        $this->assertEquals($expectedForm, $instance->toStringForm());
     }
 }

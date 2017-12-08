@@ -14,9 +14,9 @@ class ParameterTest extends TestCase {
     public function test() {
         $id = 0;
         $name = "name";
-        $display = "TRUE";
-        $section = NULL;
-        $scroll = "FALSE";
+        $display = "display";
+        $section = "section";
+        $scroll = "scroll";
         
         $instance = new Parameter($id, $name, $display, $section, $scroll);
         

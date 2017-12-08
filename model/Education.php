@@ -30,7 +30,9 @@ class Education{
      * @return string
      */
     function toString(): string {
-        $toReturn = "<td>$this->id</td><td>$this->date</td><td>$this->education</td>";
+        $toReturn = "<td>$this->id</td>"
+                . "<td>$this->date</td>"
+                . "<td>$this->education</td>";
         return $toReturn;
     }
     

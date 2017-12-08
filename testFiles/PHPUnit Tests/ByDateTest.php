@@ -14,23 +14,23 @@ class ByDateTest extends TestCase {
     
     public function test() {
         $id = 0;
-        $reference = "var2";
-        $authors = "var3";
-        $title = "var4";
-        $date = "var5";
-        $journal = "var6";
-        $volume = "var7";
-        $number = "var8";
-        $pages = "var9";
-        $note = "var10";
-        $abstract = "var11";
-        $keywords = "var12";
-        $series = "var13";
-        $localite = "var14";
-        $publisher = "var15";
-        $editor = "var16";
-        $pdf = "var17";
-        $date_display = "var18";
+        $reference = "reference";
+        $authors = "authors";
+        $title = "title";
+        $date = "date";
+        $journal = "journal";
+        $volume = "volume";
+        $number = "number";
+        $pages = "pages";
+        $note = "note";
+        $abstract = "abstract";
+        $keywords = "keywords";
+        $series = "series";
+        $localite = "localite";
+        $publisher = "publisher";
+        $editor = "editor";
+        $pdf = "pdf";
+        $date_display = "date_display";
         $categorie_id = 0;
         
         $instance = new ByDate($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $categorie_id);

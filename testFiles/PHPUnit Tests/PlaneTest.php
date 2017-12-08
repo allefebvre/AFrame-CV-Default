@@ -12,14 +12,14 @@ class PlaneTest extends TestCase {
     }
 
     public function test() {
-        $pathHTML = "var1";
-        $targetId = "var2";
+        $pathHTML = "pathHTML";
+        $targetId = "targetId";
         $posX = 0.0;
         $posY = 0.0;
         $posZ = 0.0;
         $rotation = 0;
         $scroll = FALSE;
-        $action = "var8";
+        $action = "action";
         $scale = 0.0;
         
         $instance = new Plane($pathHTML, $targetId ,$posX, $posY, $posZ, $rotation, $scroll, $action, $scale);
