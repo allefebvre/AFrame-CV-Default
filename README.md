@@ -2,6 +2,7 @@
 This app, based on the framework [AFrame](https://aframe.io/) draws in VR a resume within a loft on different 3D panels. In addition, an area is dedicated to researchers, allowing to the show information about publications (conferences, journals and other things).
 AFrame allows to visit this 3D CV with many VR techonologies, such as HTC Vive headset, Windows VR, Cardboard, etc. 
 The panels are filled with texts stored in a Mysql database. 
+This app was developed with MVC model.
 In this app there is an administrator space, where you can manage the display of the panels and their contents. 
 
 
