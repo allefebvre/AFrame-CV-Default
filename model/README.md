@@ -10,7 +10,7 @@ They are called by their model class and therefore sends them the result.
 
 # Models
 Models class used to send at the Gateway that he need a particular request.
-After the request he recover the result and he return the rusult
+After the request he recover the result and he return the result
 
 # Normal 
-Normal class used to create a objetc and for the display in html language.
+Normal class used to create a object and for the display in html language.
