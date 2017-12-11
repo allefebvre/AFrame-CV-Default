@@ -34,7 +34,7 @@ class ModelSkill {
 
         $skillGW = new SkillGateway(new Connection($base, $login, $password));
         $row = $skillGW->getOneSkill($id);
-        $data = new Skill ($row[0]['ID'], $row[0]['category'], $row[0]['details']);
+        $data = new Skill ($row['ID'], $row['category'], $row['details']);
         
         return $data;
     }

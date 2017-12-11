@@ -60,11 +60,11 @@ class EducationGatewayTest extends TestCase {
             ':education' => array($education, PDO::PARAM_STR)
         ));
         
-        $results = self::$educationGW->getOneEducation($id);
+        $result = self::$educationGW->getOneEducation($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals($education, $results[0]['education']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals($education, $result['education']);
     }
     
     public function testUpdateById() {
@@ -73,10 +73,10 @@ class EducationGatewayTest extends TestCase {
         $education = "_Test_Education_";
         self::$educationGW->updateById($id, $date, $education);
         
-        $results = self::$educationGW->getOneEducation($id);
+        $result = self::$educationGW->getOneEducation($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals($education, $results[0]['education']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals($education, $result['education']);
     }
 }

@@ -55,10 +55,10 @@ class DiverseGatewayTest extends TestCase {
             ':diverse' => array($diverse, PDO::PARAM_STR)
         ));
         
-        $results = self::$diverseGW->getOneDiverse($id);
+        $result = self::$diverseGW->getOneDiverse($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($diverse, $results[0]['diverse']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($diverse, $result['diverse']);
     }
     
     public function testUpdateById() {
@@ -66,9 +66,9 @@ class DiverseGatewayTest extends TestCase {
         $diverse = "_Test_Diverse_";
         self::$diverseGW->updateById($id, $diverse);
         
-        $results = self::$diverseGW->getOneDiverse($id);
+        $result = self::$diverseGW->getOneDiverse($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($diverse, $results[0]['diverse']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($diverse, $result['diverse']);
     }
 }

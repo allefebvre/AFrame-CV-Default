@@ -41,7 +41,7 @@ class JournalGatewayTest extends TestCase {
         $results = self::$journalGW->getAllJournals();
         $oldSize = count($results);
         
-        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', "", "", "", "", "", "", "", "", "", "", "", "", "");
+        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
         $results = self::$journalGW->getAllJournals();
         
@@ -84,27 +84,27 @@ class JournalGatewayTest extends TestCase {
             ':date' => array($date, PDO::PARAM_STR)
         ));
         
-        $results = self::$journalGW->getOneJournal($id);
+        $result = self::$journalGW->getOneJournal($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($reference, $results[0]['reference']);
-        $this->assertEquals($authors, $results[0]['authors']);
-        $this->assertEquals($title, $results[0]['title']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals(NULL, $results[0]['journal']);
-        $this->assertEquals(NULL, $results[0]['volume']);
-        $this->assertEquals(NULL, $results[0]['number']);
-        $this->assertEquals(NULL, $results[0]['pages']);
-        $this->assertEquals(NULL, $results[0]['note']);
-        $this->assertEquals(NULL, $results[0]['abstract']);
-        $this->assertEquals(NULL, $results[0]['keywords']);
-        $this->assertEquals(NULL, $results[0]['series']);
-        $this->assertEquals(NULL, $results[0]['localite']);
-        $this->assertEquals(NULL, $results[0]['publisher']);
-        $this->assertEquals(NULL, $results[0]['editor']);
-        $this->assertEquals(NULL, $results[0]['pdf']);
-        $this->assertEquals(NULL, $results[0]['date_display']);
-        $this->assertEquals(NULL, $results[0]['category_id']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($reference, $result['reference']);
+        $this->assertEquals($authors, $result['authors']);
+        $this->assertEquals($title, $result['title']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals(NULL, $result['journal']);
+        $this->assertEquals(NULL, $result['volume']);
+        $this->assertEquals(NULL, $result['number']);
+        $this->assertEquals(NULL, $result['pages']);
+        $this->assertEquals(NULL, $result['note']);
+        $this->assertEquals(NULL, $result['abstract']);
+        $this->assertEquals(NULL, $result['keywords']);
+        $this->assertEquals(NULL, $result['series']);
+        $this->assertEquals(NULL, $result['localite']);
+        $this->assertEquals(NULL, $result['publisher']);
+        $this->assertEquals(NULL, $result['editor']);
+        $this->assertEquals(NULL, $result['pdf']);
+        $this->assertEquals(NULL, $result['date_display']);
+        $this->assertEquals(NULL, $result['category_id']);
     }
     
     public function testUpdateById() {
@@ -113,28 +113,28 @@ class JournalGatewayTest extends TestCase {
         $authors = '_Test_Authors_';
         $title = '_Test_Title_';
         $date = '1111-11-11';
-        self::$journalGW->updateById($id, $reference, $authors, $title, $date, "", "", "", "", "", "", "", "", "", "", "", "", "");
+        self::$journalGW->updateById($id, $reference, $authors, $title, $date);
         
-        $results = self::$journalGW->getOneJournal($id);
+        $result = self::$journalGW->getOneJournal($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($reference, $results[0]['reference']);
-        $this->assertEquals($authors, $results[0]['authors']);
-        $this->assertEquals($title, $results[0]['title']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals(NULL, $results[0]['journal']);
-        $this->assertEquals(NULL, $results[0]['volume']);
-        $this->assertEquals(NULL, $results[0]['number']);
-        $this->assertEquals(NULL, $results[0]['pages']);
-        $this->assertEquals(NULL, $results[0]['note']);
-        $this->assertEquals(NULL, $results[0]['abstract']);
-        $this->assertEquals(NULL, $results[0]['keywords']);
-        $this->assertEquals(NULL, $results[0]['series']);
-        $this->assertEquals(NULL, $results[0]['localite']);
-        $this->assertEquals(NULL, $results[0]['publisher']);
-        $this->assertEquals(NULL, $results[0]['editor']);
-        $this->assertEquals(NULL, $results[0]['pdf']);
-        $this->assertEquals(NULL, $results[0]['date_display']);
-        $this->assertEquals(NULL, $results[0]['category_id']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($reference, $result['reference']);
+        $this->assertEquals($authors, $result['authors']);
+        $this->assertEquals($title, $result['title']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals(NULL, $result['journal']);
+        $this->assertEquals(NULL, $result['volume']);
+        $this->assertEquals(NULL, $result['number']);
+        $this->assertEquals(NULL, $result['pages']);
+        $this->assertEquals(NULL, $result['note']);
+        $this->assertEquals(NULL, $result['abstract']);
+        $this->assertEquals(NULL, $result['keywords']);
+        $this->assertEquals(NULL, $result['series']);
+        $this->assertEquals(NULL, $result['localite']);
+        $this->assertEquals(NULL, $result['publisher']);
+        $this->assertEquals(NULL, $result['editor']);
+        $this->assertEquals(NULL, $result['pdf']);
+        $this->assertEquals(NULL, $result['date_display']);
+        $this->assertEquals(NULL, $result['category_id']);
     }
 }

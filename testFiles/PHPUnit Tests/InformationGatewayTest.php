@@ -75,17 +75,17 @@ class InformationGatewayTest extends TestCase {
             ':firstname' => array($firstname, PDO::PARAM_STR)
         ));
         
-        $results = self::$informationGW->getOneInformation($id);
+        $result = self::$informationGW->getOneInformation($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($status, $results[0]['status']);
-        $this->assertEquals($name, $results[0]['name']);
-        $this->assertEquals($firstname, $results[0]['firstName']);
-        $this->assertEquals(NULL, $results[0]['photo']);
-        $this->assertEquals(NULL, $results[0]['age']);
-        $this->assertEquals(NULL, $results[0]['address']);
-        $this->assertEquals(NULL, $results[0]['phone']);
-        $this->assertEquals(NULL, $results[0]['mail']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($status, $result['status']);
+        $this->assertEquals($name, $result['name']);
+        $this->assertEquals($firstname, $result['firstName']);
+        $this->assertEquals(NULL, $result['photo']);
+        $this->assertEquals(NULL, $result['age']);
+        $this->assertEquals(NULL, $result['address']);
+        $this->assertEquals(NULL, $result['phone']);
+        $this->assertEquals(NULL, $result['mail']);
     }
     
     public function testUpdateById() {
@@ -100,16 +100,16 @@ class InformationGatewayTest extends TestCase {
         $mail = "_Test_Mail_";
         self::$informationGW->updateById($id, $status, $name, $firstname, $photo, $age, $address, $phone, $mail);
         
-        $results = self::$informationGW->getOneInformation($id);
+        $result = self::$informationGW->getOneInformation($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($status, $results[0]['status']);
-        $this->assertEquals($name, $results[0]['name']);
-        $this->assertEquals($firstname, $results[0]['firstName']);
-        $this->assertEquals($photo, $results[0]['photo']);
-        $this->assertEquals($age, $results[0]['age']);
-        $this->assertEquals($address, $results[0]['address']);
-        $this->assertEquals($phone, $results[0]['phone']);
-        $this->assertEquals($mail, $results[0]['mail']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($status, $result['status']);
+        $this->assertEquals($name, $result['name']);
+        $this->assertEquals($firstname, $result['firstName']);
+        $this->assertEquals($photo, $result['photo']);
+        $this->assertEquals($age, $result['age']);
+        $this->assertEquals($address, $result['address']);
+        $this->assertEquals($phone, $result['phone']);
+        $this->assertEquals($mail, $result['mail']);
     }
 }

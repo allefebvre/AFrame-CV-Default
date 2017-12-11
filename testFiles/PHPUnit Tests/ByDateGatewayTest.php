@@ -54,9 +54,9 @@ class ByDateGatewayTest extends TestCase {
         $results = self::$byDateGW->getAllByDates();
         $oldSize = count($results);
         
-        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', "", "", "", "", "", "", "", "", "", "", "", "", "");
-        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', "", "", "", "", "", "", "", "", "", "", "", "", "");
-        self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', "", "", "", "", "", "", "", "", "", "", "", "", "");
+        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
         $results = self::$byDateGW->getAllByDates();
         

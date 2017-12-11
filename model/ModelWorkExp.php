@@ -34,7 +34,7 @@ class ModelWorkExp {
 
         $workExpGW = new WorkExpGateway(new Connection($base, $login, $password));
         $row = $workExpGW->getOneWorkExp($id);
-        $data = new WorkExp ($row[0]['ID'], $row[0]['date'], $row[0]['workExp']);
+        $data = new WorkExp ($row['ID'], $row['date'], $row['workExp']);
         
         return $data;
     }

@@ -60,11 +60,11 @@ class WorkExpGatewayTest extends TestCase {
             ':workExp' => array($workExp, PDO::PARAM_STR)
         ));
         
-        $results = self::$workExpGW->getOneWorkExp($id);
+        $result = self::$workExpGW->getOneWorkExp($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals($workExp, $results[0]['workExp']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals($workExp, $result['workExp']);
     }
     
     public function testUpdateById() {
@@ -73,10 +73,10 @@ class WorkExpGatewayTest extends TestCase {
         $workExp = "_Test_workExp_";
         self::$workExpGW->updateById($id, $date, $workExp);
         
-        $results = self::$workExpGW->getOneWorkExp($id);
+        $result = self::$workExpGW->getOneWorkExp($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($date, $results[0]['date']);
-        $this->assertEquals($workExp, $results[0]['workExp']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($date, $result['date']);
+        $this->assertEquals($workExp, $result['workExp']);
     }
 }
