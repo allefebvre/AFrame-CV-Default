@@ -5,8 +5,6 @@ AFRAME.registerComponent('move-controls', {
     },
 
     init: function () {
-        console.log("init move-controls");
-
         var el = this.el;
         
         var target = document.getElementById(this.data.target);
@@ -28,7 +26,7 @@ AFRAME.registerComponent('move-controls', {
                     + Math.sin(rot.z / 180 * Math.PI) * axis1 / 10;
 
             el.movecontrols.movZ = -Math.cos(rot.y / 180 * Math.PI) * axis2 / 10 * Math.cos(rot.x / 180 * Math.PI)
-                    - Math.sin(rot.y / 180 * Math.PI * axis1 / 10) * Math.cos(rot.z / 180 * Math.PI);
+                    - Math.sin(rot.y / 180 * Math.PI) * axis1 / 10 * Math.cos(rot.z / 180 * Math.PI);
 
         });
 
@@ -57,7 +55,6 @@ AFRAME.registerComponent('move-controls', {
         
         target.addEventListener('teleported', function(event){
             posY = event.detail.newPosition.y;
-            console.log("================== TP ==================");
         });
 
     },
