@@ -22,7 +22,7 @@ class DiverseGateway {
      * @param int $id
      * @return array
      */
-    public function getOnDiverse(int $id) :array {
+    public function getOneDiverse(int $id) :array {
         $query='SELECT * FROM Diverse WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT)

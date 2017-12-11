@@ -22,7 +22,7 @@ class InformationGatewayTest extends TestCase {
      * @afterClass
      */
     public static function tearDownAfterClass() {
-        self::$connection->executeQuery("DELETE FROM Information WHERE status=:status AND name=:name AND firstname=:firstname AND photo=:photo AND age=:age AND address=:address AND phone=:phone AND mail=:mail", array(
+        self::$connection->executeQuery("DELETE FROM Information WHERE status=:status AND name=:name AND firstName=:firstname AND photo=:photo AND age=:age AND address=:address AND phone=:phone AND mail=:mail;", array(
             ':status' => array('_Status_Test_', PDO::PARAM_STR),
             ':name' => array('_Name_Test_', PDO::PARAM_STR),
             ':firstname' => array('_Firstname_Test_', PDO::PARAM_STR),
@@ -31,6 +31,12 @@ class InformationGatewayTest extends TestCase {
             ':address' => array('_Address_Test_', PDO::PARAM_STR),
             ':phone' => array('_Phone_Test_', PDO::PARAM_STR),
             ':mail' => array('_Mail_Test_', PDO::PARAM_STR)
+        ));
+        self::$connection->executeQuery("DELETE FROM Information WHERE id=:id AND status=:status AND name=:name AND firstName=:firstname;", array(
+            ':id' => array(100, PDO::PARAM_INT),
+            ':status' => array('_Test_Status_', PDO::PARAM_STR),
+            ':name' => array('_Test_Name_', PDO::PARAM_STR),
+            ':firstname' => array('_Test_Firstname_', PDO::PARAM_STR)
         ));
     }
 
@@ -43,5 +49,67 @@ class InformationGatewayTest extends TestCase {
         $results = self::$informationGW->getAllInformation();
         
         $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['status']));
+            $this->assertTrue(isset($result['name']));
+            $this->assertTrue(isset($result['firstName']));
+            $this->assertTrue(isset($result['photo']) || $result['photo'] == NULL);
+            $this->assertTrue(isset($result['age']) || $result['age'] == NULL);
+            $this->assertTrue(isset($result['address']) || $result['address'] == NULL);
+            $this->assertTrue(isset($result['phone']) || $result['phone'] == NULL);
+            $this->assertTrue(isset($result['mail'])  || $result['mail'] == NULL);
+        }
+    }
+    
+    public function testGetOneInformation() {
+        $id = 100;
+        $status = "_Status_Test_";
+        $name = "_Name_Test_";
+        $firstname = "_Firstname_Test_";
+        self::$connection->executeQuery("INSERT INTO `Information` (id, status, name, firstName) VALUES (:id, :status, :name, :firstname);", array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':status' => array($status, PDO::PARAM_STR),
+            ':name' => array($name, PDO::PARAM_STR),
+            ':firstname' => array($firstname, PDO::PARAM_STR)
+        ));
+        
+        $results = self::$informationGW->getOneInformation($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($status, $results[0]['status']);
+        $this->assertEquals($name, $results[0]['name']);
+        $this->assertEquals($firstname, $results[0]['firstName']);
+        $this->assertEquals(NULL, $results[0]['photo']);
+        $this->assertEquals(NULL, $results[0]['age']);
+        $this->assertEquals(NULL, $results[0]['address']);
+        $this->assertEquals(NULL, $results[0]['phone']);
+        $this->assertEquals(NULL, $results[0]['mail']);
+    }
+    
+    public function testUpdateById() {
+        $id = 100;
+        $status = "_Test_Status_";
+        $name = "_Test_Name_";
+        $firstname = "_Test_Firstname_";
+        $photo = "_Test_Photo_";
+        $age = "_Test_Age_";
+        $address = "_Test_Address_";
+        $phone = "_Test_Phone_";
+        $mail = "_Test_Mail_";
+        self::$informationGW->updateById($id, $status, $name, $firstname, $photo, $age, $address, $phone, $mail);
+        
+        $results = self::$informationGW->getOneInformation($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($status, $results[0]['status']);
+        $this->assertEquals($name, $results[0]['name']);
+        $this->assertEquals($firstname, $results[0]['firstName']);
+        $this->assertEquals($photo, $results[0]['photo']);
+        $this->assertEquals($age, $results[0]['age']);
+        $this->assertEquals($address, $results[0]['address']);
+        $this->assertEquals($phone, $results[0]['phone']);
+        $this->assertEquals($mail, $results[0]['mail']);
     }
 }

@@ -29,7 +29,7 @@ class ParameterGatewayTest extends TestCase {
             ':id' => array(150, PDO::PARAM_INT)
         ));
         self::$connection->executeQuery("DELETE FROM Parameter WHERE name=:name;", array(
-            ':name' => array('Test1', PDO::PARAM_STR)
+            ':name' => array('_Test1_', PDO::PARAM_STR)
         ));
     }
     
@@ -39,15 +39,23 @@ class ParameterGatewayTest extends TestCase {
         
         self::$connection->executeQuery("INSERT INTO `Parameter` (name, display, section, scroll) "
                 . "VALUES (:name, :display, :section, :scroll);", array(
-                ':name' => array('Test1', PDO::PARAM_STR),
-                ':display' => array('FALSE', PDO::PARAM_STR),
-                ':section' => array(NULL, PDO::PARAM_NULL),
-                ':scroll' => array('FALSE', PDO::PARAM_STR)    
+                ':name' => array('_Test1_', PDO::PARAM_STR),
+                ':display' => array('_FALSE_Test_', PDO::PARAM_STR),
+                ':section' => array('_Section_Test_', PDO::PARAM_NULL),
+                ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
         $results = self::$parameterGW->getAllParameter();
         
         $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['name']));
+            $this->assertTrue(isset($result['display']));
+            $this->assertTrue(isset($result['section']) || $result['section'] == NULL);
+            $this->assertTrue(isset($result['scroll']));
+        }
     }
     
     public function testGetParameterPublications() {
@@ -56,16 +64,20 @@ class ParameterGatewayTest extends TestCase {
                 . "VALUES (:id, :name, :display, :section, :scroll);", array(
                 ':id' => array($id, PDO::PARAM_INT),   
                 ':name' => array('Publications', PDO::PARAM_STR),
-                ':display' => array('FALSE', PDO::PARAM_STR),
-                ':section' => array(NULL, PDO::PARAM_NULL),
-                ':scroll' => array('FALSE', PDO::PARAM_STR)    
+                ':display' => array('_FALSE_Test_', PDO::PARAM_STR),
+                ':section' => array('_Section_Test_', PDO::PARAM_NULL),
+                ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
         $results = self::$parameterGW->getParameterPublications();
         
         $this->assertTrue(count($results) > 0);
         foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
             $this->assertEquals("Publications", $result['name']);
+            $this->assertTrue(isset($result['display']));
+            $this->assertTrue(isset($result['section']) || $result['section'] == NULL);
+            $this->assertTrue(isset($result['scroll']));
         }
     }
     
@@ -78,8 +90,8 @@ class ParameterGatewayTest extends TestCase {
                 ':id' => array($id, PDO::PARAM_INT),
                 ':name' => array('Middle1', PDO::PARAM_STR),
                 ':display' => array('TRUE', PDO::PARAM_STR),
-                ':section' => array(NULL, PDO::PARAM_NULL),
-                ':scroll' => array('FALSE', PDO::PARAM_STR)    
+                ':section' => array('_Section_Test_', PDO::PARAM_NULL),
+                ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
         $newSize = self::$parameterGW->getNbMiddlePlaneDisplay();
@@ -88,9 +100,9 @@ class ParameterGatewayTest extends TestCase {
     }
     
     public function testUpdateParameter() {
-        $display = "DisplayTest";
-        $section = "SectionTest";
-        $scroll = "ScrollTest";
+        $display = "_Display_Test_";
+        $section = "_Section_Test_";
+        $scroll = "_Scroll_Test_";
         self::$parameterGW->updateParameter(100, $display, $section, $scroll);
         
         $results = self::$parameterGW->getAllParameter();

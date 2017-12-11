@@ -22,25 +22,18 @@ class OtherGatewayTest extends TestCase {
      * @afterClass
      */
     public static function tearDownAfterClass() {
-        self::$connection->executeQuery("DELETE FROM Other WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date AND journal=:journal AND volume=:volume AND number=:number AND pages=:pages AND note=:note AND abstract=:abstract AND keywords=:keywords AND series=:series AND localite=:localite AND publisher=:publisher AND editor=:editor AND pdf=:pdf AND date_display=:date_display AND category_id=:category_id;", array(
+        self::$connection->executeQuery("DELETE FROM Other WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
             ':reference' => array('_Reference_Test_', PDO::PARAM_STR),
             ':authors' => array('_Authors_Test_', PDO::PARAM_STR),
             ':title' => array('_Title_Test_', PDO::PARAM_STR),
-            ':date' => array('_Date_Test_', PDO::PARAM_STR),
-            ':journal' => array('_Journal_Test_', PDO::PARAM_STR),
-            ':volume' => array('_Volume_Test_', PDO::PARAM_STR),
-            ':number' => array('_Number_Test_', PDO::PARAM_STR),
-            ':pages' => array('_Pages_Test_', PDO::PARAM_STR),
-            ':note' => array('_Note_Test_', PDO::PARAM_STR),
-            ':abstract' => array('_Abstract_Test_', PDO::PARAM_STR),
-            ':keywords' => array('_Keywords_Test_', PDO::PARAM_STR),
-            ':series' => array('_Series_Test_', PDO::PARAM_STR),
-            ':localite' => array('_Localite_Test_', PDO::PARAM_STR),
-            ':publisher' => array('_Publisher_Test_', PDO::PARAM_STR),
-            ':editor' => array('_Editor_Test_', PDO::PARAM_STR),
-            ':pdf' => array('_Pdf_Test_', PDO::PARAM_STR),
-            ':date_display' => array('_Date_Display_Test_', PDO::PARAM_STR),
-            ':category_id' => array(0, PDO::PARAM_INT)
+            ':date' => array('0000-00-00', PDO::PARAM_STR)
+        ));
+        self::$connection->executeQuery("DELETE FROM Other WHERE id=:id AND reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
+            ':id' => array(100, PDO::PARAM_INT),
+            ':reference' => array('_Test_Reference_', PDO::PARAM_STR),
+            ':authors' => array('_Test_Authors_', PDO::PARAM_STR),
+            ':title' => array('_Test_Title_', PDO::PARAM_STR),
+            ':date' => array('1111-11-11', PDO::PARAM_STR)
         ));
     }
 
@@ -48,10 +41,100 @@ class OtherGatewayTest extends TestCase {
         $results = self::$otherGW->getAllOthers();
         $oldSize = count($results);
         
-        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '_Date_Test_', '_Journal_Test_', '_Volume_Test_', '_Number_Test_', '_Pages_Test_', '_Note_Test_', '_Abstract_Test_', '_Keywords_Test_', '_Series_Test_', '_Localite_Test_', '_Publisher_Test_', '_Editor_Test_', '_Pdf_Test_', '_Date_Display_Test_', 0);
+        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', "", "", "", "", "", "", "", "", "", "", "", "", "");
 
         $results = self::$otherGW->getAllOthers();
         
         $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['reference']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
+            $this->assertTrue(isset($result['date']));
+            $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
+            $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
+            $this->assertTrue(isset($result['number']) || $result['number'] == NULL);
+            $this->assertTrue(isset($result['pages']) || $result['pages'] == NULL);
+            $this->assertTrue(isset($result['note']) || $result['note'] == NULL);
+            $this->assertTrue(isset($result['abstract']) || $result['abstract'] == NULL);
+            $this->assertTrue(isset($result['keywords']) || $result['keywords'] == NULL);
+            $this->assertTrue(isset($result['series']) || $result['series'] == NULL);
+            $this->assertTrue(isset($result['localite']) || $result['localite'] == NULL);
+            $this->assertTrue(isset($result['publisher']) || $result['publisher'] == NULL);
+            $this->assertTrue(isset($result['editor']) || $result['editor'] == NULL);
+            $this->assertTrue(isset($result['pdf']) || $result['pdf'] == NULL);
+            $this->assertTrue(isset($result['date_display']) || $result['date_display'] == NULL);
+            $this->assertTrue(isset($result['category_id']) || $result['category_id'] == NULL);
+        }
+    }
+
+    public function testGetOneOther() {
+        $id = 100;
+        $reference = '_Reference_Test_';
+        $authors = '_Authors_Test_';
+        $title = '_Title_Test_';
+        $date = '0000-00-00';
+        self::$connection->executeQuery("INSERT INTO `Other` (id, reference, authors, title, date) VALUES (:id, :reference, :authors, :title, :date);", array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':reference' => array($reference, PDO::PARAM_STR),
+            ':authors' => array($authors, PDO::PARAM_STR),
+            ':title' => array($title, PDO::PARAM_STR),
+            ':date' => array($date, PDO::PARAM_STR)
+        ));
+        
+        $results = self::$otherGW->getOneOther($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($reference, $results[0]['reference']);
+        $this->assertEquals($authors, $results[0]['authors']);
+        $this->assertEquals($title, $results[0]['title']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals(NULL, $results[0]['journal']);
+        $this->assertEquals(NULL, $results[0]['volume']);
+        $this->assertEquals(NULL, $results[0]['number']);
+        $this->assertEquals(NULL, $results[0]['pages']);
+        $this->assertEquals(NULL, $results[0]['note']);
+        $this->assertEquals(NULL, $results[0]['abstract']);
+        $this->assertEquals(NULL, $results[0]['keywords']);
+        $this->assertEquals(NULL, $results[0]['series']);
+        $this->assertEquals(NULL, $results[0]['localite']);
+        $this->assertEquals(NULL, $results[0]['publisher']);
+        $this->assertEquals(NULL, $results[0]['editor']);
+        $this->assertEquals(NULL, $results[0]['pdf']);
+        $this->assertEquals(NULL, $results[0]['date_display']);
+        $this->assertEquals(NULL, $results[0]['category_id']);
+    }
+    
+    public function testUpdateById() {
+        $id = 100;
+        $reference = '_Test_Reference_';
+        $authors = '_Test_Authors_';
+        $title = '_Test_Title_';
+        $date = '1111-11-11';
+        self::$otherGW->updateById($id, $reference, $authors, $title, $date, "", "", "", "", "", "", "", "", "", "", "", "", "");
+        
+        $results = self::$otherGW->getOneOther($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($reference, $results[0]['reference']);
+        $this->assertEquals($authors, $results[0]['authors']);
+        $this->assertEquals($title, $results[0]['title']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals(NULL, $results[0]['journal']);
+        $this->assertEquals(NULL, $results[0]['volume']);
+        $this->assertEquals(NULL, $results[0]['number']);
+        $this->assertEquals(NULL, $results[0]['pages']);
+        $this->assertEquals(NULL, $results[0]['note']);
+        $this->assertEquals(NULL, $results[0]['abstract']);
+        $this->assertEquals(NULL, $results[0]['keywords']);
+        $this->assertEquals(NULL, $results[0]['series']);
+        $this->assertEquals(NULL, $results[0]['localite']);
+        $this->assertEquals(NULL, $results[0]['publisher']);
+        $this->assertEquals(NULL, $results[0]['editor']);
+        $this->assertEquals(NULL, $results[0]['pdf']);
+        $this->assertEquals(NULL, $results[0]['date_display']);
+        $this->assertEquals(NULL, $results[0]['category_id']);
     }
 }

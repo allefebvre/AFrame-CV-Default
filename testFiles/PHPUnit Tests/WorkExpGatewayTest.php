@@ -26,6 +26,11 @@ class WorkExpGatewayTest extends TestCase {
             ':date' => array('_Date_Test_', PDO::PARAM_STR),
             ':workExp' => array('_WorkExp_Test_', PDO::PARAM_STR)
         ));
+        self::$connection->executeQuery("DELETE FROM WorkExp WHERE id=:id AND date=:date AND workExp=:workExp;", array(
+            ':id' => array(100, PDO::PARAM_INT),
+            ':date' => array('_Test_Date_', PDO::PARAM_STR),
+            ':workExp' => array('_Test_WorkExp_', PDO::PARAM_STR)
+        ));
     }
 
     public function testGetAllWorkExps() {     
@@ -37,5 +42,41 @@ class WorkExpGatewayTest extends TestCase {
         $results = self::$workExpGW->getAllWorkExps();
         
         $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['date']));
+            $this->assertTrue(isset($result['workExp']));
+        }
+    }
+    
+    public function testGetOneWorkExp() {
+        $id = 100;
+        $date = "_Date_Test_";
+        $workExp = "_WorkExp_Test_";
+        self::$connection->executeQuery("INSERT INTO `WorkExp` (id, date, workExp) VALUES (:id, :date, :workExp);", array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':date' => array($date, PDO::PARAM_STR),
+            ':workExp' => array($workExp, PDO::PARAM_STR)
+        ));
+        
+        $results = self::$workExpGW->getOneWorkExp($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals($workExp, $results[0]['workExp']);
+    }
+    
+    public function testUpdateById() {
+        $id = 100;
+        $date = "_Test_Date_";
+        $workExp = "_Test_workExp_";
+        self::$workExpGW->updateById($id, $date, $workExp);
+        
+        $results = self::$workExpGW->getOneWorkExp($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals($workExp, $results[0]['workExp']);
     }
 }

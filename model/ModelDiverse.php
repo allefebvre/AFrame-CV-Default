@@ -33,7 +33,7 @@ class ModelDiverse {
  	global $base, $login, $password;
 
         $diverseGW = new DiverseGateway(new Connection($base, $login, $password));
-        $row = $diverseGW->getOnDiverse($id);
+        $row = $diverseGW->getOneDiverse($id);
         $data = new Diverse ($row[0]['ID'], $row[0]['diverse']);
         
         return $data;

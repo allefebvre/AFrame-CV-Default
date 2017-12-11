@@ -26,6 +26,11 @@ class EducationGatewayTest extends TestCase {
             ':date' => array('_Date_Test_', PDO::PARAM_STR),
             ':education' => array('_Education_Test_', PDO::PARAM_STR)
         ));
+        self::$connection->executeQuery("DELETE FROM Education WHERE id=:id AND date=:date AND education=:education;", array(
+            ':id' => array(100, PDO::PARAM_INT),
+            ':date' => array('_Test_Date_', PDO::PARAM_STR),
+            ':education' => array('_Test_Education_', PDO::PARAM_STR)
+        ));
     }
 
     public function testGetAllEducation() {     
@@ -37,5 +42,41 @@ class EducationGatewayTest extends TestCase {
         $results = self::$educationGW->getAllEducation();
         
         $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['date']));
+            $this->assertTrue(isset($result['education']));
+        }
+    }
+    
+    public function testGetOneEducation() {
+        $id = 100;
+        $date = "_Date_Test_";
+        $education = "_Education_Test_";
+        self::$connection->executeQuery("INSERT INTO `Education` (id, date, education) VALUES (:id, :date, :education);", array(
+            ':id' => array($id, PDO::PARAM_INT),
+            ':date' => array($date, PDO::PARAM_STR),
+            ':education' => array($education, PDO::PARAM_STR)
+        ));
+        
+        $results = self::$educationGW->getOneEducation($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals($education, $results[0]['education']);
+    }
+    
+    public function testUpdateById() {
+        $id = 100;
+        $date = "_Test_Date_";
+        $education = "_Test_Education_";
+        self::$educationGW->updateById($id, $date, $education);
+        
+        $results = self::$educationGW->getOneEducation($id);
+        
+        $this->assertEquals($id, $results[0]['ID']);
+        $this->assertEquals($date, $results[0]['date']);
+        $this->assertEquals($education, $results[0]['education']);
     }
 }

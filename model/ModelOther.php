@@ -65,7 +65,7 @@ class ModelOther {
      * @param string $date_display
      * @param int $category_id
      */
-    public static function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+    public static function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id = NULL){
         global $base, $login, $password;
 
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
@@ -96,7 +96,7 @@ class ModelOther {
      * @param string $date_display
      * @param int $category_id
      */
-    public static function insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id){
+    public static function insert(string $reference, string $authors, string $title, string $date, string $journal, string $volume, string $number, string $pages, string $note, string $abstract, string $keywords, string $series, string $localite, string $publisher, string $editor, string $pdf, string $date_display, int $category_id = NULL){
         global $base, $login, $password;
 
         $otherGW = new OtherGateway(new Connection($base, $login, $password));
