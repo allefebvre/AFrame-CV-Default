@@ -12,6 +12,7 @@ if (!isset($light)) {
     $light = TRUE;
 }
 
+require_once $dir . $views['controlsCamera'];
 
 ?>
 
