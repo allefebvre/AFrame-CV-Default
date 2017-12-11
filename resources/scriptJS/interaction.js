@@ -2,14 +2,14 @@ AFRAME.registerComponent("interaction", {
     init: function () {
         var el = this.el;
 
-        el.addEventListener('trackpaddown', function () {
+        el.addEventListener('triggerdown', function () {
             for (i = 0; i < 4; i++) {
                 el.children[i].setAttribute('visible', 'true');
                 el.children[i].emit("up");
             }
         });
 
-        el.addEventListener('trackpadup', function () {
+        el.addEventListener('triggerup', function () {
             for (i = 0; i < 4; i++) {
                 el.children[i].emit("down");
             }
