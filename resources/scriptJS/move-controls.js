@@ -8,8 +8,6 @@ AFRAME.registerComponent('move-controls', {
         var el = this.el;
         
         var target = document.getElementById(this.data.target);
-        
-        var posY = 0;
 
         el.movecontrols = {movX: 0, movY: 0, movZ: 0};
         el.movecontrols.enabled = false;
@@ -46,17 +44,8 @@ AFRAME.registerComponent('move-controls', {
                 setTimeout(function () {
                     texts.children[1].setAttribute("visible", "false");
                 }, 1000);
-                
-
-                var pos = target.getAttribute('position');
-                target.setAttribute('position', {x: pos.x , y: posY, z: pos.z});
             }
         });
-        
-        target.addEventListener('teleported', function(event){
-            posY = event.detail.newPosition.y;
-        });
-
     },
 
     tick: function (time, timeDelta) {
