@@ -1,7 +1,7 @@
 <?php
 
 class Login {
-
+    //TEST
     private $connection;
 
     public function __construct($connection = null) {
