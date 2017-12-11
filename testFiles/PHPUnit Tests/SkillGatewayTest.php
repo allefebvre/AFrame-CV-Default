@@ -60,11 +60,11 @@ class SkillGatewayTest extends TestCase {
             ':details' => array($details, PDO::PARAM_STR)
         ));
         
-        $results = self::$skillGW->getOneSkill($id);
+        $result = self::$skillGW->getOneSkill($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($category, $results[0]['category']);
-        $this->assertEquals($details, $results[0]['details']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($category, $result['category']);
+        $this->assertEquals($details, $result['details']);
     }
     
     public function testUpdateById() {
@@ -73,10 +73,10 @@ class SkillGatewayTest extends TestCase {
         $details = "_Test_Details_";
         self::$skillGW->updateById($id, $category, $details);
         
-        $results = self::$skillGW->getOneSkill($id);
+        $result = self::$skillGW->getOneSkill($id);
         
-        $this->assertEquals($id, $results[0]['ID']);
-        $this->assertEquals($category, $results[0]['category']);
-        $this->assertEquals($details, $results[0]['details']);
+        $this->assertEquals($id, $result['ID']);
+        $this->assertEquals($category, $result['category']);
+        $this->assertEquals($details, $result['details']);
     }
 }

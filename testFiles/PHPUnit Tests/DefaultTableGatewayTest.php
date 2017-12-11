@@ -28,13 +28,19 @@ class DefaultTableGatewayTest extends TestCase {
         }
     
     public function testDeleteDefaultLine(){
-        self::$connection->executeQuery("INSERT INTO `Diverse`(`diverse`) VALUES ('test');");
-        self::$connection->executeQuery("SELECT id FROM Diverse WHERE diverse='test';");
+        self::$connection->executeQuery("INSERT INTO `Diverse`(`diverse`) VALUES (:diverse);", array(
+            ':diverse' => array('_Diverse_Test_', PDO::PARAM_STR)
+        ));
+        self::$connection->executeQuery("SELECT id FROM Diverse WHERE diverse=:diverse;", array(
+            ':diverse' => array('_Diverse_Test_', PDO::PARAM_STR)
+        ));
         $result = self::$connection->getResults();
         $id = (int)$result[0][0];
         
         self::$defaultTableGW->deleteDefaultLine("Diverse", $id);
-        self::$connection->executeQuery("SELECT * FROM Diverse WHERE id=$id;");
+        self::$connection->executeQuery("SELECT * FROM Diverse WHERE id=:id;", array(
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
         $nbRows = self::$connection->getNbResults();
         $this->assertEquals(0, $nbRows);
     }
