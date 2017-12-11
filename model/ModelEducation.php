@@ -35,7 +35,7 @@ class ModelEducation {
 
         $educationGW = new EducationGateway(new Connection($base, $login, $password));
         $row = $educationGW->getOneEducation($id);
-        $data = new Education($row[0]['ID'], $row[0]['date'], $row[0]['education']);
+        $data = new Education($row['ID'], $row['date'], $row['education']);
 
         return $data;
     }

@@ -29,7 +29,7 @@ class EducationGateway {
             ':id' => array($id, PDO::PARAM_INT)
         ));
         
-        return $this->connection->getResults();
+        return $this->connection->getResults()[0];
     }
     
     /**
