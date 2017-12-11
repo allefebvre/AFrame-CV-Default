@@ -2,39 +2,40 @@
 
 use PHPUnit\Framework\TestCase;
 
-class CompetenceGatewayTest extends TestCase {
+class SkillGatewayTest extends TestCase {
 
+    static private $connection;
+    static private $skillGW;
+    
     /**
      * @beforeClass
      */
     public static function setUpBeforeClass() {
         require_once 'model/Connection.php';
         require_once 'model/SkillGateway.php';
+        require 'config/config.php';
+        self::$connection = new Connection($base, $login, $password);
+        self::$skillGW = new SkillGateway(self::$connection);
+    }
+    
+    /**
+     * @afterClass
+     */
+    public static function tearDownAfterClass() {
+        self::$connection->executeQuery("DELETE FROM Skill WHERE category=:category AND details=:details;", array(
+            ':category' => array('_Category_Test_', PDO::PARAM_STR),
+            ':details' => array('_Details_Test_', PDO::PARAM_STR)
+        ));
     }
 
-    public function test() {
-        require 'config/config.php';
+    public function testGetAllSkills() {     
+        $results = self::$skillGW->getAllSkills();
+        $oldSize = count($results);
+        
+        self::$skillGW->insert('_Category_Test_', '_Details_Test_');
 
-        $connection = new Connection($base, $login, $password);
-
-        try {
-            $connection->executeQuery("DELETE from Skill WHERE category = '__TEST__PHP__UNIT__';");
-        } catch (Exception $ex) { }
+        $results = self::$skillGW->getAllSkills();
         
-        $connection->executeQuery("SELECT COUNT(*) FROM Skill;");
-        $nbrResult = $connection->getResults()[0];
-        $connection->executeQuery("INSERT INTO `Skill` (category, details) VALUES ('__TEST__PHP__UNIT__', 'details');");
-
-        $gw = new SkillGateway(new Connection($base, $login, $password));
-        $result = $gw->getAllSkills();
-        $connection->executeQuery("DELETE from Skill WHERE category = '__TEST__PHP__UNIT__';");
-        
-        $this->assertEquals(6, count($result[0]));
-        
-        $nbr = $nbrResult[0];
-        
-        $this->assertTrue(isset($result[$nbr]["ID"]));
-        $this->assertTrue(isset($result[$nbr]["category"]));
-        $this->assertTrue(isset($result[$nbr]["details"]));
+        $this->assertEquals(count($results), $oldSize+1);
     }
 }
