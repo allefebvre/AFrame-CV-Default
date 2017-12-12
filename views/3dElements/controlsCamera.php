@@ -13,7 +13,7 @@ if($vive) { ?>
             <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
         </a-entity>
         <!-- LEFT CONTROL -->
-        <a-entity left-controls vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trackpad; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform]; curveShootingSpeed:15;">
+        <a-entity id="left-control" left-controls vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trackpad; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform]; curveShootingSpeed:15;">
             <a-cylinder static-body visible="false" radius="0.07" height="0.4" rotation="90 0 0" color="#555555"></a-cylinder>
             <a-cylinder static-body visible="false" radius="0.07" height="0.4" rotation="90 0 0" color="#555555">
                 <a-animation attribute="position" dur="100" from="0 0 0" to="0 0 -0.4" begin="up" easing="linear"></a-animation>
@@ -36,13 +36,13 @@ if($vive) { ?>
                         <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0" text="anchor:center; align:center" value="Trackpad" color="black"></a-text>
                     </a-box>
                     <a-box mixin="link" position="0 0.1 0.3" scale="0.9 1 0.2" event-set__enter="_event: mouseenter; color: #AAFFBB" event-set__leave="_event: mouseleave; color: #FFFFFF">
-                        <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0" text="anchor:center; align:center" value="..." color="black"></a-text>
+                        <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0" text="anchor:center; align:center" value="Run" color="black"></a-text>
                     </a-box>
                 </a-box>
             </a-entity>
         </a-entity>
         <!-- RIGHT CONTROL -->
-        <a-entity right-controls laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];" cursor="downEvents: trackpaddown; upEvents: trackpadup">
+        <a-entity id="right-control" right-controls laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];" cursor="downEvents: trackpaddown; upEvents: trackpadup">
             <a-cylinder static-body visible="false" radius="0.07" height="0.4" rotation="90 0 0" color="#555555"></a-cylinder>
             <a-cylinder static-body visible="false" radius="0.07" height="0.4" rotation="90 0 0" color="#555555">
                 <a-animation attribute="position" dur="100" from="0 0 0" to="0 0 -0.4" begin="up" easing="linear"></a-animation>

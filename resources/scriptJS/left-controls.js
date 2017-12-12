@@ -145,6 +145,41 @@ AFRAME.registerComponent('left-controls', {
                 scene.removeChild(sphere)
             }, 5000);
         });
+        
+
+        el.movecontrols2 = {
+            leftcontrol: document.getElementById("left-control"),
+            rightcontrol: document.getElementById("right-control"),
+            delta_list: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            deltaY_old:0,
+            speed: 0
+        }
+        
+        movecontrols2 = function(){
+            var posL = el.movecontrols2.leftcontrol.getAttribute('position');
+            var posR = el.movecontrols2.rightcontrol.getAttribute('position');
+            var deltaY = Math.abs(posL.y - posR.y);
+            var delta = Math.abs(deltaY - el.movecontrols2.deltaY_old);
+            console.log(delta);
+            if(delta > 0){ // A changer
+                el.movecontrols2.delta_list[0] = delta;
+            } else {
+                el.movecontrols2.delta_list[0] = 0;
+            }
+            
+            el.movecontrols2.deltaY_old = deltaY;
+            var speed = 0;
+            for (var i = 49, max = 0; i > max; i--) {
+                el.movecontrols2.delta_list[i+1] = el.movecontrols2.delta_list[i];
+            }
+            for (var i = 0, max = 50; i < max; i++) {
+                speed += el.movecontrols2.delta_list[i];
+            }
+            el.movecontrols2.speed = speed;
+            setTimeout(movecontrols2, 500);
+        };
+        
+        movecontrols2();
     },
 
     tick: function (time, timeDelta) {
@@ -158,6 +193,24 @@ AFRAME.registerComponent('left-controls', {
                 x: pos.x + this.el.movecontrols.movX * timeDelta * speed,
                 y: pos.y + this.el.movecontrols.movY * timeDelta * speed,
                 z: pos.z + this.el.movecontrols.movZ * timeDelta * speed
+            });
+        }
+        
+        /// Movecontrols2
+        if(this.el.menu.select == 3) {
+            var target = document.getElementById(this.data.targetMove);
+            var pos = target.getAttribute("position");
+            var speed = this.data.speedMoveTrackpad / 5;
+            var rot = this.el.getAttribute("rotation");
+            var move = this.el.movecontrols2.speed;
+            var movX = -Math.sin(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
+            var movY = Math.sin(rot.x / 180 * Math.PI) * speed * move / 10;
+            var movZ = -Math.cos(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
+            
+            target.setAttribute('position', {
+                x: pos.x + movX,
+                y: pos.y + movY,
+                z: pos.z + movZ
             });
         }
     }
