@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Get the path of the file HTML and the target id of the div to display
  * @param string $section
@@ -106,15 +107,15 @@ if($parameterPublication->getDisplay() === "TRUE") {
     $data['miscellaneous'] = ModelPublication::getAllMiscellaneous();
     $data['byDates'] = ModelPublication::getAllPublication();
 
-    // Add publication panel
-    $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, FALSE, "go-pdf");
-    $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, FALSE, "go-pdf");
-    $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
+    // Add publication panel 
+    $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, FALSE, "go-pdf-journals");
+    $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, FALSE, "go-pdf-conferences");
+    $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89 , 7.6, 1, -90, FALSE, "go-pdf-others");
     $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");  
-    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
-    $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
-    
+    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", -1.656, 7.6, -3, -90, FALSE, "go-pdf-others");
+    $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", -1.548, 7.6, -3, 90, FALSE, "go-pdf-others");
 }
+
 // Place the panels
 $managementPlane->placeHTML($data);
 ?>

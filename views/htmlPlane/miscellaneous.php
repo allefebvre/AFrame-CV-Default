@@ -1,4 +1,4 @@
-<div id="targetmiscellaneous" class="publication">
+<div id="targetMiscellaneous" class="publication">
     <div>
         <h1>miscellaneous</h1><div>
         <?php

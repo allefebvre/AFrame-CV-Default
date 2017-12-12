@@ -525,3 +525,4 @@ if ($spotlight) {
     <a-box static-body position="10.276 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
     <a-box static-body position="18.346 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
     <a-box static-body position="14.385 3.637 -46.285" scale="8.584 8.42 2.121" material="visible:false"></a-box>
+    <a-box mixin="wall" src="#wallTexture" static-body="sphereRadius:NaN" position="-1.6 7.6 -3" scale="0.1 5 8"></a-box>
