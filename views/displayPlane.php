@@ -123,16 +123,21 @@ foreach($parameters as $parameter) {
 $parameterPublication = ModelParameter::getParameterPublications();
 if($parameterPublication->getDisplay() === "TRUE") {
     // Data for publication
-    $data['conferences'] = ModelConference::getAllConferences();
-    $data['journals'] = ModelJournal::getAllJournals();
-    $data['others'] = ModelOther::getAllOthers();
-    $data['byDates'] = ModelByDate::getAllByDates();
+    $data['conferences'] = ModelPublication::getAllConferences();
+    $data['journals'] = ModelPublication::getAllJournals();
+    $data['documentation'] = ModelPublication::getAllDocumentation();
+    $data['thesis'] = ModelPublication::getAllThesis();
+    $data['miscellaneous'] = ModelPublication::getAllMiscellaneous();
+    $data['byDates'] = ModelPublication::getAllPublication();
 
     // Add publication panel
-    $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, FALSE, "go-pdf-conferences");
-    $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, FALSE, "go-pdf-journals");
-    $managementPlane->addPlane("views/htmlPlane/others.php", "targetOthers", 6.89, 7.6, 1, -90, FALSE, "go-pdf-others");
-    $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");    
+    $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, FALSE, "go-pdf");
+    $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, FALSE, "go-pdf");
+    $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
+    $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");  
+    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
+    $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", 6.89, 7.6, 1, -90, FALSE, "go-pdf");
+    
 }
 */
 

@@ -21,7 +21,7 @@ switch ($tableName) {
 
     /* --- Publications : --- */
     case "Conference":
-        $data = new Conference(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
         break;
     case "Journal":
         $data = new Journal(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);

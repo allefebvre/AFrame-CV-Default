@@ -23,7 +23,7 @@ switch ($tableName) {
     
     /* --- Publications --- */
     case "Conference":
-        $data['dataTable'] = ModelConference::getAllConferences();
+        $data['dataTable'] = ModelPublication::getAllPublication();
         break; 
     case "Journal":
         $data['dataTable'] = ModelJournal::getAllJournals();

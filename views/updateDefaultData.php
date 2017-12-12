@@ -22,7 +22,7 @@ switch ($tableName) {
     
     /* --- Publications : --- */
     case "Conference":
-        $data = ModelConference::getOneConference($id);
+        $data = ModelPublication::getOnePublication($id);
         break;  
     case "Journal":
         $data = ModelJournal::getOneJournal($id);

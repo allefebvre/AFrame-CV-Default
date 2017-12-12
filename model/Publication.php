@@ -1,6 +1,6 @@
 <?php
 
-class Conference {
+class Publication {
 
     private $id;
     private $reference;
@@ -149,7 +149,7 @@ class Conference {
     }
 
     /**
-     * Get HTML to build a form of a Conference
+     * Get HTML to build a form of a Publication
      * @return string
      */
     function toStringForm(): string {
