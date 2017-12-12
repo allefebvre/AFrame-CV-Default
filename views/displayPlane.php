@@ -29,15 +29,37 @@ function getSectionToDisplay(string $section = NULL) :array{
     }
 }
 
+
 // Data for the headings
-$data['myInformation'] = ModelInformation::getAllInformation();
-$data['myEducation'] = ModelEducation::getAllEducation();
-$data['myWorkExp'] = ModelWorkExp::getAllWorkExp();
-$data['mySkills'] = ModelSkill::getAllSkills();
-$data['diverse'] = ModelDiverse::getAllDiverse();
+$data['menus'] = ModelMenu::getAllActiveMenus();
+$data['rubriques'] = array();
+foreach($data['menus'] as $menu) {
+    $data['rubriques'][] = ModelRubrique::getRubriqueByMenuId($menu->getId());
+}
 
 $managementPlane = new ManagementPlane();
-$nbRows = 3;
+
+for ($index=0 ; $index<count($data['rubriques']) ; $index++) {
+    $rubrique = $data['rubriques'][$index];
+    switch($index) {
+        case 0: //Front
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -19.3, 3.5, 0, 90, TRUE, "", 1.6);
+            break;
+        case 1: //Left1
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), 5, 2.5, 14.35, 180, TRUE, "");
+            break;
+        case 2: //Left2
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -5, 2.5, 14.35, 180, TRUE, "");
+            break;
+        case 3: //Right1
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), 5, 2.5, -14.35, 0, TRUE, "");
+            break;
+        case 4: //Right2
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -5, 2.5, -14.35, 0, TRUE, "");
+            break;
+    }
+}
+
 
 $parameters = ModelParameter::getAllParameter();
 
@@ -55,7 +77,7 @@ foreach($parameters as $parameter) {
     $sectionDisplay = getSectionToDisplay($parameter->getSection());
     $scroll = filter_var($parameter->getScroll(), FILTER_VALIDATE_BOOLEAN);
     switch($parameter->getName()) {
-        case "Front" :
+        /*case "Front" :
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -19.3, 3.5, 0, 90, $scroll, "", 1.6);
             break;
         case "Left1" : 
@@ -81,7 +103,7 @@ foreach($parameters as $parameter) {
             break;
         case "Middle4" :    
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -7.1, 2.5, 0, -90, $scroll, "");
-            break;
+            break;*/
         case "obj3D" :
             $obj3D = TRUE;
             break;
@@ -96,6 +118,7 @@ foreach($parameters as $parameter) {
             break;
     }     
 }
+
 
 $parameterPublication = ModelParameter::getParameterPublications();
 if($parameterPublication->getDisplay() === "TRUE") {
