@@ -326,7 +326,7 @@ class AdminController {
         $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
 
         if ($validate) {
-            ModelConference::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            ModelPublication::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
             $this->showLine($dViewError);
@@ -556,10 +556,10 @@ class AdminController {
         $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
                 
         if($validate) {
-            ModelConference::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            ModelPublication::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
-            $reload = new Conference(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+            $reload = new Publication(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->insertInBase($dViewError, $reload);
         }
     }

@@ -33,7 +33,7 @@ class ConferenceTest extends TestCase {
         $date_display = "date_display";
         $categorie_id = 0;
         
-        $instance = new Conference($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $categorie_id);
+        $instance = new Publication($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $categorie_id);
         
         $this->assertEquals($id, $instance->getId());
         $this->assertEquals($reference, $instance->getReference());

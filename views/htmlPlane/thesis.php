@@ -1,8 +1,8 @@
-<div id="targetOthers" class="publication">
+<div id="targetThesis" class="publication">
     <div>
         <h1>Others</h1><div>
         <?php
-        foreach ($data['others'] as $o) {
+        foreach ($data['thesis'] as $o) {
             $reference = $o->getReference();
             $authors = $o->getAuthors();
             $title = $o->getTitle();

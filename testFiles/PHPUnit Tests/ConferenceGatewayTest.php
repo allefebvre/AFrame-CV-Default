@@ -15,7 +15,7 @@ class ConferenceGatewayTest extends TestCase {
         require_once 'model/ConferenceGateway.php';
         require 'config/config.php';
         self::$connection = new Connection($base, $login, $password);
-        self::$conferenceGW = new ConferenceGateway(self::$connection);
+        self::$conferenceGW = new PublicationGateway(self::$connection);
     }
     
     /**
@@ -38,12 +38,12 @@ class ConferenceGatewayTest extends TestCase {
     }
 
     public function testGetAllConferences() {     
-        $results = self::$conferenceGW->getAllConferences();
+        $results = self::$conferenceGW->getAllPublication();
         $oldSize = count($results);
         
         self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$conferenceGW->getAllConferences();
+        $results = self::$conferenceGW->getAllPublication();
         
         $this->assertEquals(count($results), $oldSize+1);
         
@@ -84,7 +84,7 @@ class ConferenceGatewayTest extends TestCase {
             ':date' => array($date, PDO::PARAM_STR)
         ));
         
-        $result = self::$conferenceGW->getOneConference($id);
+        $result = self::$conferenceGW->getOnePublication($id);
         
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);
@@ -115,7 +115,7 @@ class ConferenceGatewayTest extends TestCase {
         $date = '1111-11-11';
         self::$conferenceGW->updateById($id, $reference, $authors, $title, $date);
         
-        $result = self::$conferenceGW->getOneConference($id);
+        $result = self::$conferenceGW->getOnePublication($id);
         
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);

@@ -23,7 +23,7 @@ class ByDateGatewayTest extends TestCase {
         self::$byDateGW = new ByDateGateway(self::$connection);
         self::$otherGW = new OtherGateway(self::$connection);
         self::$journalGW = new JournalGateway(self::$connection);
-        self::$conferenceGW = new ConferenceGateway(self::$connection);
+        self::$conferenceGW = new PublicationGateway(self::$connection);
     }
     
     /**
