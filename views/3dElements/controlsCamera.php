@@ -11,10 +11,6 @@ if($vive) { ?>
         <!-- CAMERA -->
         <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150">
             <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
-            <a-entity id="texts">
-                <a-text position="0 0 -1" value="Trackpad enabled" text="anchor:center; align:center" visible="false" color="green" scale="0.5 0.5 1"></a-text>
-                <a-text position="0 0 -1" value="Trackpad disabled" text="anchor:center; align:center" visible="false" color="red" scale="0.5 0.5 1"></a-text>
-            </a-entity>
         </a-entity>
         <!-- LEFT CONTROL -->
         <a-entity left-controls vive-controls="hand: left" teleport-controls="cameraRig: #cameraRig; button: trackpad; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform]; curveShootingSpeed:15;">
@@ -31,6 +27,19 @@ if($vive) { ?>
                 <a-animation attribute="position" dur="300" from="0 0 0" to="0 0 -1.2" begin="up" easing="linear"></a-animation>
                 <a-animation attribute="position" dur="300" to="0 0 0" from="0 0 -1.2" begin="down" easing="linear"></a-animation>
             </a-cylinder>
+            <a-entity id="menu-left">
+                <a-box visible="false" color="#22EEFF" position="0 0.05 -0.1" rotation="30 0 0" scale="0.2 0.005 0.2" opacity="0.25">
+                    <a-box mixin="link" position="0 0.1 -0.3" scale="0.9 1 0.2" event-set__enter="_event: mouseenter; color: #AAFFBB" event-set__leave="_event: mouseleave; color: #FFFFFF">
+                        <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0"text="anchor:center; align:center" value="Teleport" color="red"></a-text>
+                    </a-box>
+                    <a-box mixin="link" position="0 0.1 0" scale="0.9 1 0.2" event-set__enter="_event: mouseenter; color: #AAFFBB" event-set__leave="_event: mouseleave; color: #FFFFFF">
+                        <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0" text="anchor:center; align:center" value="Trackpad" color="black"></a-text>
+                    </a-box>
+                    <a-box mixin="link" position="0 0.1 0.3" scale="0.9 1 0.2" event-set__enter="_event: mouseenter; color: #AAFFBB" event-set__leave="_event: mouseleave; color: #FFFFFF">
+                        <a-text rotation="-90 0 0" scale="1 3.3 1" position="0 0.6 0" text="anchor:center; align:center" value="..." color="black"></a-text>
+                    </a-box>
+                </a-box>
+            </a-entity>
         </a-entity>
         <!-- RIGHT CONTROL -->
         <a-entity right-controls laser-controls="hand: right" raycaster="far: 10; interval: 200; objects: [mixin = link];" cursor="downEvents: trackpaddown; upEvents: trackpadup">

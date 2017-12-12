@@ -23,7 +23,7 @@ AFRAME.registerComponent('left-controls', {
 
     init: function () {
         var el = this.el;
-
+        
         /// Trackpad move
         el.movecontrols = {movX: 0, movY: 0, movZ: 0};
         el.movecontrols.enabled = false;
@@ -41,21 +41,42 @@ AFRAME.registerComponent('left-controls', {
             el.movecontrols.movZ = -Math.cos(rot.y / 180 * Math.PI) * axis2 / 10 * Math.cos(rot.x / 180 * Math.PI)
                     - Math.sin(rot.y / 180 * Math.PI) * axis1 / 10 * Math.cos(rot.z / 180 * Math.PI);
         });
-        /// Toggle trackpad move
+        
+        
+        /// Menu
+        el.menu = { visible:false, select: 1}
+        var menu = document.getElementById("menu-left");
         el.addEventListener('gripdown', function (event) {
-            el.movecontrols.enabled = !el.movecontrols.enabled;
-            if (el.movecontrols.enabled) {
-                texts.children[1].setAttribute("visible", "false");
-                texts.children[0].setAttribute("visible", "true");
-                setTimeout(function () {
-                    texts.children[0].setAttribute("visible", "false");
-                }, 1000);
+            el.menu.visible = !el.menu.visible;
+            if (el.menu.visible) {
+                menu.children[0].setAttribute('visible', 'true');
             } else {
-                texts.children[0].setAttribute("visible", "false");
-                texts.children[1].setAttribute("visible", "true");
-                setTimeout(function () {
-                    texts.children[1].setAttribute("visible", "false");
-                }, 1000);
+                menu.children[0].setAttribute('visible', 'false');
+            }
+        });
+        
+        menu.children[0].children[0].addEventListener('click', function(){
+            if (el.menu.visible) {
+                el.menu.select = 1;
+                menu.children[0].children[0].children[0].setAttribute("color", "red");
+                menu.children[0].children[1].children[0].setAttribute("color", "black");
+                menu.children[0].children[2].children[0].setAttribute("color", "black");
+            }
+        });
+        menu.children[0].children[1].addEventListener('click', function(){
+            if (el.menu.visible) {
+                el.menu.select = 2;
+                menu.children[0].children[0].children[0].setAttribute("color", "black");
+                menu.children[0].children[1].children[0].setAttribute("color", "red");
+                menu.children[0].children[2].children[0].setAttribute("color", "black");
+            }
+        });
+        menu.children[0].children[2].addEventListener('click', function(){
+            if (el.menu.visible) {
+                el.menu.select = 3;
+                menu.children[0].children[0].children[0].setAttribute("color", "black");
+                menu.children[0].children[1].children[0].setAttribute("color", "black");
+                menu.children[0].children[2].children[0].setAttribute("color", "red");
             }
         });
 
@@ -128,7 +149,7 @@ AFRAME.registerComponent('left-controls', {
 
     tick: function (time, timeDelta) {
         /// Trackpad move
-        if (this.el.movecontrols.enabled) {
+        if (this.el.menu.select == 2) {
             var target = document.getElementById(this.data.targetMove);
             var pos = target.getAttribute("position");
             var speed = this.data.speedMoveTrackpad / 300;
