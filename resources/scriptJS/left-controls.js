@@ -150,10 +150,10 @@ AFRAME.registerComponent('left-controls', {
         el.movecontrols2 = {
             leftcontrol: document.getElementById("left-control"),
             rightcontrol: document.getElementById("right-control"),
-            delta_list: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            delta_list: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             deltaY_old:0,
             speed: 0
-        }
+        };
         
         movecontrols2 = function(){
             var posL = el.movecontrols2.leftcontrol.getAttribute('position');
@@ -166,17 +166,17 @@ AFRAME.registerComponent('left-controls', {
             } else {
                 el.movecontrols2.delta_list[0] = 0;
             }
-            
             el.movecontrols2.deltaY_old = deltaY;
-            var speed = 0;
-            for (var i = 49, max = 0; i > max; i--) {
+            
+            for (var i = 24; i >= 0; i--) {
                 el.movecontrols2.delta_list[i+1] = el.movecontrols2.delta_list[i];
             }
-            for (var i = 0, max = 50; i < max; i++) {
+            var speed = 0;
+            for (var i = 0, max = 25; i < max; i++) {
                 speed += el.movecontrols2.delta_list[i];
             }
-            el.movecontrols2.speed = speed;
-            setTimeout(movecontrols2, 500);
+            el.movecontrols2.speed = speed / 25;
+            setTimeout(movecontrols2, 50);
         };
         
         movecontrols2();
