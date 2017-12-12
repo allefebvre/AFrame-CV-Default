@@ -42,34 +42,33 @@ require_once $dir . $views['controlsCamera'];
 <!-- Roof -->
 <a-box src="#roofTexture" mixin="wall" static-body position="0 10.5 0" scale="40 1 30"></a-box>
 
-<?php if ($light) { ?>
-    <!-- Lighting --> 
-    <a-entity mixin="link" light-toggle position="18 10 13">
-        <a-light intensity="0.16" distance="0" type="point"></a-light>
-        <a-sphere radius="0.5" shader="flat"></a-sphere>
-    </a-entity>
+<!-- Lighting --> 
+<a-entity mixin="link" light-toggle position="18 10 13">
+    <a-light intensity="0.16" distance="0" type="point"></a-light>
+    <a-sphere radius="0.5" shader="flat"></a-sphere>
+</a-entity>
 
-    <a-entity mixin="link" light-toggle position="-18 10 13">
-        <a-light intensity="0.16" distance="0" type="point"></a-light>
-        <a-sphere radius="0.5" shader="flat"></a-sphere>
-    </a-entity>
+<a-entity mixin="link" light-toggle position="-18 10 13">
+    <a-light intensity="0.16" distance="0" type="point"></a-light>
+    <a-sphere radius="0.5" shader="flat"></a-sphere>
+</a-entity>
 
-    <a-entity mixin="link" light-toggle position="18 10 -13">
-        <a-light intensity="0.16" distance="0" type="point"></a-light>
-        <a-sphere radius="0.5" shader="flat"></a-sphere>
-    </a-entity>
+<a-entity mixin="link" light-toggle position="18 10 -13">
+    <a-light intensity="0.16" distance="0" type="point"></a-light>
+    <a-sphere radius="0.5" shader="flat"></a-sphere>
+</a-entity>
 
-    <a-entity mixin="link" light-toggle position="-18 10 -13">
-        <a-light intensity="0.16" distance="0" type="point"></a-light>
-        <a-sphere radius="0.5" shader="flat"></a-sphere>
-    </a-entity>
+<a-entity mixin="link" light-toggle position="-18 10 -13">
+    <a-light intensity="0.16" distance="0" type="point"></a-light>
+    <a-sphere radius="0.5" shader="flat"></a-sphere>
+</a-entity>
 
-    <a-entity mixin="link" light-toggle position="0 10 0">
-        <a-light intensity="0.2" distance="0" type="point"></a-light>
-        <a-sphere radius="0.5" shader="flat"></a-sphere>
-    </a-entity>
-    <!-- End lighting -->
-<?php } ?>
+<a-entity mixin="link" light-toggle position="0 10 0">
+    <a-light intensity="0.2" distance="0" type="point"></a-light>
+    <a-sphere radius="0.5" shader="flat"></a-sphere>
+</a-entity>
+<!-- End lighting -->
+
 
 <!-- 1st wall -->
 <a-box src="#wallTexture" mixin="wall" static-body position="-19.5 5 0" scale="0.25 10 11" ></a-box>
@@ -215,14 +214,9 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 
 
 <!-- Interior walls -->
-<?php
-$numberMiddle = ModelParameter::getNbMiddlePlaneDisplay();
-if ($numberMiddle > 0) {
-    ?>
-    <a-box static-body mixin="wall" position="-2 2.5 0" scale="10 5 10"></a-box>
-    <?php
-}
-?>
+<!--
+<a-box static-body mixin="wall" position="-2 2.5 0" scale="10 5 10"></a-box>
+-->
 <a-box static-body mixin="wall" position="-10.35 7.5 -4.5" scale="0.2 5 20"></a-box>
 <a-box static-body mixin="wall" position="7 7.5 -4.5" scale="0.2 5 20"></a-box>
 
@@ -233,12 +227,8 @@ if ($numberMiddle > 0) {
 
 <a-box mixin="wall" src="#wallTexture" static-body position="16.5 5 -8" scale="0.1 10.3 1.7"></a-box>
 
-<?php
-$parameterPublication = ModelParameter::getParameterPublications();
-if ($parameterPublication->getDisplay() === "TRUE") {
-    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane><?php
-}
-?>
+<a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane>
+
 
 <!-- End interior walls -->
 
@@ -289,7 +279,6 @@ function spot(float $x, float $y, float $z, int $rotation) {
     <?php
 }
 
-if ($spotlight) {
     spot(0, 4, -7, 0);
     spot(0, 4, 7, 180);
     spot(-10, 4, 0, 90);
@@ -297,45 +286,44 @@ if ($spotlight) {
     //spot(-2, 4, -8, 180);
     //spot(6, 4, 0, 90);
     //spot(-10, 4, 0, -90);
-}
+
 ?>
 <!-- End spots -->
 
-<?php if ($obj3D) { ?>
-    <a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
-    <a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
-    <a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
-    <a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
-    <a-entity obj-model="obj:resources/model3D/desk.obj;mtl:resources/model3D/desk.mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
-    <a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
+<a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
+<a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
+<a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
+<a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
+<a-entity obj-model="obj:resources/model3D/desk.obj;mtl:resources/model3D/desk.mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
+<a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
 
-    <a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
-    <a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>
-    <a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
-    <a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
-    <a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
-    <a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
-    <a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
-    <a-entity gltf-model="resources/model3D/BoxAnimated.gltf" animation-mixer position="-18.5 0.5 -13.5"></a-entity>
-    <a-entity gltf-model="resources/model3D/AnimatedMorphSphere.gltf" animation-mixer scale="0.5 0.5 0.5">
-        <a-animation attribute="position"
-               dur="10000"
-               fill="forwards"
-               from="-18 3 -20"
-               to="18 3 -20"
-               direction="alternate"
-               repeat="indefinite"></a-animation>
-    </a-entity>
-    <a-entity gltf-model="resources/model3D/AnimatedMorphCube.gltf" animation-mixer position="-11.659 0.524 -13.848" scale="0.5 0.5 0.5"></a-entity>
-    <a-entity gltf-model="resources/model3D/AnimatedCube.gltf" animation-mixer position="12.319 0.524 1.175" scale="0.5 0.5 0.5">
-                <a-animation attribute="position"
-               dur="1000"
-               fill="forwards"
-               from="12.319 0.524 1.175"
-               to="12.319 0.724 1.175"
-               direction="alternate"
-               repeat="indefinite"></a-animation>
-    </a-entity>
+<a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
+<!--<a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>-->
+<a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
+<a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
+<a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
+<a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
+<a-entity obj-model="mtl:resources/model3D/Pendule.mtl;obj:resources/model3D/Pendule.obj" position="16.436 3.62 -8" scale="0.02 0.02 0.02" rotation="0 -90 0"></a-entity>
+<a-entity gltf-model="resources/model3D/BoxAnimated.gltf" animation-mixer position="-18.5 0.5 -13.5"></a-entity>
+<a-entity gltf-model="resources/model3D/AnimatedMorphSphere.gltf" animation-mixer scale="0.5 0.5 0.5">
+    <a-animation attribute="position"
+           dur="10000"
+           fill="forwards"
+           from="-18 3 -20"
+           to="18 3 -20"
+           direction="alternate"
+           repeat="indefinite"></a-animation>
+</a-entity>
+<a-entity gltf-model="resources/model3D/AnimatedMorphCube.gltf" animation-mixer position="-11.659 0.524 -13.848" scale="0.5 0.5 0.5"></a-entity>
+<a-entity gltf-model="resources/model3D/AnimatedCube.gltf" animation-mixer position="12.319 0.524 1.175" scale="0.5 0.5 0.5">
+            <a-animation attribute="position"
+           dur="1000"
+           fill="forwards"
+           from="12.319 0.524 1.175"
+           to="12.319 0.724 1.175"
+           direction="alternate"
+           repeat="indefinite"></a-animation>
+</a-entity>
     
     <script>
         AFRAME.registerComponent("animation1", {
@@ -486,9 +474,6 @@ if ($spotlight) {
     <a-sphere dynamic-body position="6.59 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
     <a-sphere dynamic-body position="6.59 0.5 5.2" radius="0.15" color="red"></a-sphere>
     
-<?php
-}
-?>
 
     <a-cylinder mixin="link" open-ext-door position="10 2 -14.42" rotation="90 0 0" 
                 scale="1 0.2 1" color="#b9a8a8" radius="0.1" 

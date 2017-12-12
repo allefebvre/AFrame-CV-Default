@@ -11,11 +11,7 @@ class FrontController {
 	require ($dir.$views['head']);
         $dataError = array();
 
-        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInConference',
-            'insertInDiverse','insertInEducation','insertInInformation','insertInJournal','insertInOther', 
-            'insertInSkill', 'insertInWorkExp' ,'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 
-            'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
-            'login', 'logout', 'changePassword', 'changePassword2');        
+        
         
         $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');
 
@@ -25,30 +21,18 @@ class FrontController {
                 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
             }
             
-            $admin_call = FALSE;
-            $visitor_call = FALSE;
+            $visitor_call = FALSE;           
             
-            if($admin){
-                foreach($listAdminAction as $adminAction){
-                    if($action === $adminAction){
-                        $ctrl = new AdminController($action);
-                        $admin_call = TRUE;
-                    }
-                }
-                if(!$admin_call){
-                    $ctrl = new AdminController();
-                }
-            } else {
-                foreach ($listVisitorAction as $visitorAction) {
-                    if ($action === $visitorAction) {
-                        $ctrl = new VisitorController($action);
-                        $visitor_call = TRUE;
-                    }
-                }
-                if (!$visitor_call) {
-                    $ctrl = new VisitorController();
+            foreach ($listVisitorAction as $visitorAction) {
+                if ($action === $visitorAction) {
+                    $ctrl = new VisitorController($action);
+                    $visitor_call = TRUE;
                 }
             }
+            if (!$visitor_call) {
+                $ctrl = new VisitorController();
+            }
+            
         } catch (Exception $e) {
             $dataError[] = ['Unexpected error !', $e->getMessage()];
             require($dir.$views['error']);
