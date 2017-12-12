@@ -1,20 +1,6 @@
 <?php
 
 /**
- * Check if a plane need scroll
- * @param array $data
- * @param int $nbRows
- * @return bool
- */
-function checkScroll(array $data, int $nbRows) : bool {
-    if(count($data) >= $nbRows) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
-/**
  * Get the path of the file HTML and the target id of the div to display
  * @param string $section
  * @return array
@@ -42,15 +28,37 @@ function getSectionToDisplay(string $section = NULL) :array{
     }
 }
 
+
 // Data for the headings
-$data['myInformation'] = ModelInformation::getAllInformation();
-$data['myEducation'] = ModelEducation::getAllEducation();
-$data['myWorkExp'] = ModelWorkExp::getAllWorkExp();
-$data['mySkills'] = ModelSkill::getAllSkills();
-$data['diverse'] = ModelDiverse::getAllDiverse();
+$data['menus'] = ModelMenu::getAllActiveMenus();
+$data['rubriques'] = array();
+foreach($data['menus'] as $menu) {
+    $data['rubriques'][] = ModelRubrique::getRubriqueByMenuId($menu->getId());
+}
 
 $managementPlane = new ManagementPlane();
-$nbRows = 3;
+
+for ($index=0 ; $index<count($data['rubriques']) ; $index++) {
+    $rubrique = $data['rubriques'][$index];
+    switch($index) {
+        case 0: //Front
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -19.3, 3.5, 0, 90, TRUE, "", 1.6);
+            break;
+        case 1: //Left1
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), 5, 2.5, 14.35, 180, TRUE, "");
+            break;
+        case 2: //Left2
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -5, 2.5, 14.35, 180, TRUE, "");
+            break;
+        case 3: //Right1
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), 5, 2.5, -14.35, 0, TRUE, "");
+            break;
+        case 4: //Right2
+            $managementPlane->addPlane("views/htmlPlane/rubriquePlane.php", "rubrique".$rubrique->getId(), -5, 2.5, -14.35, 0, TRUE, "");
+            break;
+    }
+}
+
 
 $parameters = ModelParameter::getAllParameter();
 
@@ -68,7 +76,7 @@ foreach($parameters as $parameter) {
     $sectionDisplay = getSectionToDisplay($parameter->getSection());
     $scroll = filter_var($parameter->getScroll(), FILTER_VALIDATE_BOOLEAN);
     switch($parameter->getName()) {
-        case "Front" :
+        /*case "Front" :
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -19.3, 3.5, 0, 90, $scroll, "", 1.6);
             break;
         case "Left1" : 
@@ -94,7 +102,7 @@ foreach($parameters as $parameter) {
             break;
         case "Middle4" :    
             $managementPlane->addPlane($sectionDisplay[0], $sectionDisplay[1], -7.1, 2.5, 0, -90, $scroll, "");
-            break;
+            break;*/
         case "obj3D" :
             $obj3D = TRUE;
             break;
@@ -110,6 +118,8 @@ foreach($parameters as $parameter) {
     }     
 }
 
+
+/*
 $parameterPublication = ModelParameter::getParameterPublications();
 if($parameterPublication->getDisplay() === "TRUE") {
     // Data for publication
@@ -124,12 +134,7 @@ if($parameterPublication->getDisplay() === "TRUE") {
     $managementPlane->addPlane("views/htmlPlane/others.php", "targetOthers", 6.89, 7.6, 1, -90, FALSE, "go-pdf-others");
     $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");    
 }
-
-//Middle room
-//$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
-//$managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", -2, 2.5, -5.2, 180, $scroll, "");
-//$managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -2, 2.5, 5.2, 0, $scroll, "");
-//$managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", -7.1, 2.5, 0, -90, $scroll, "");
+*/
 
 // Place the panels
 $managementPlane->placeHTML($data);
