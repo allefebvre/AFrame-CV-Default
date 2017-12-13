@@ -131,11 +131,11 @@ class AdminController {
     public function login() {
         $login = Validation::cleanString($_POST['pseudo']);
         $password = Validation::cleanString($_POST['password']);
-        
+
         $dViewError = array();
         $validate = Validation::loginValidation($login, $password, $dViewError);
-        
-        if($validate) {
+
+        if ($validate) {
             $this->displayParametersAnd3DEnvironment();
         } else {
             $this->connection($dViewError);
@@ -175,8 +175,8 @@ class AdminController {
 
         $dViewError = array();
         $validate = Validation::changePasswordValidation($password_old, $password, $password_conf, $dViewError);
-        
-        if($validate) {
+
+        if ($validate) {
             $login = new Login();
             $login->changePassword($password);
             global $dir, $views;
@@ -342,7 +342,7 @@ class AdminController {
         $pdf = Validation::cleanString($_POST['pdf']);
         $date_display = Validation::cleanString($_POST['date_display']);
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
-        
+
         $dViewError = array();
         $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
 
@@ -360,10 +360,10 @@ class AdminController {
     public function updateDiverse() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $diverse = Validation::cleanString($_POST['diverse']);
-        
+
         $dViewError = array();
         $validate = Validation::diverseValidation($diverse, $dViewError);
-        
+
         if ($validate) {
             ModelDiverse::updateById($id, $diverse);
             $this->showTable();
@@ -382,7 +382,7 @@ class AdminController {
 
         $dViewError = array();
         $validate = Validation::educationValidation($date, $education, $dViewError);
-        
+
         if ($validate) {
             ModelEducation::updateById($id, $date, $education);
             $this->showTable();
@@ -404,10 +404,10 @@ class AdminController {
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanMail($_POST['mail']);
-        
+
         $dViewError = array();
         $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
-        
+
         if ($validate) {
             ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
             $this->showTable();
@@ -422,11 +422,11 @@ class AdminController {
     public function updateSkill() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $category = Validation::cleanString($_POST['category']);
-        $details = Validation::cleanString($_POST['details']);  
-        
+        $details = Validation::cleanString($_POST['details']);
+
         $dViewError = array();
         $validate = Validation::skillValidation($category, $details, $dViewError);
-        
+
         if ($validate) {
             ModelSkill::updateById($id, $category, $details);
             $this->showTable();
@@ -441,11 +441,11 @@ class AdminController {
     public function updateWorkExp() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $date = Validation::cleanString($_POST['date']);
-        $workExp = Validation::cleanString($_POST['workExp']); 
-        
+        $workExp = Validation::cleanString($_POST['workExp']);
+
         $dViewError = array();
         $validate = Validation::workExpValidation($date, $workExp, $dViewError);
-        
+
         if ($validate) {
             ModelWorkExp::updateById($id, $date, $workExp);
             $this->showTable();
@@ -460,6 +460,16 @@ class AdminController {
     public function deleteDefaultLine() {
         $table = Validation::cleanString($_REQUEST['table']);
         $id = Validation::cleanInt($_REQUEST['id']);
+
+        switch ($table) {
+            case "Conferences":
+            case "Journals":
+            case "Documentations":
+            case "Thesis":
+            case "Miscellaneous":
+                $table = "Publication";
+                break;
+        }
 
         ModelDefaultTable::deleteDefaultLine($table, $id);
         $this->showTable();
@@ -505,8 +515,8 @@ class AdminController {
 
         $dViewError = array();
         $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
-                
-        if($validate) {
+
+        if ($validate) {
             ModelPublication::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->showTable();
         } else {
@@ -520,10 +530,10 @@ class AdminController {
      */
     public function insertInDiverse() {
         $diverse = Validation::cleanString($_POST['diverse']);
-   
+
         $dViewError = array();
         $validate = Validation::diverseValidation($diverse, $dViewError);
-        
+
         if ($validate) {
             ModelDiverse::insert($diverse);
             $this->showTable();
@@ -542,7 +552,7 @@ class AdminController {
 
         $dViewError = array();
         $validate = Validation::educationValidation($date, $education, $dViewError);
-        
+
         if ($validate) {
             ModelEducation::insert($date, $education);
             $this->showTable();
@@ -564,10 +574,10 @@ class AdminController {
         $address = Validation::cleanString($_POST['address']);
         $phone = Validation::cleanString($_POST['phone']);
         $mail = Validation::cleanMail($_POST['mail']);
-        
+
         $dViewError = array();
         $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
-        
+
         if ($validate) {
             ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
             $this->showTable();
@@ -583,10 +593,10 @@ class AdminController {
     public function insertInSkill() {
         $category = Validation::cleanString($_POST['category']);
         $details = Validation::cleanString($_POST['details']);
-        
+
         $dViewError = array();
         $validate = Validation::skillValidation($category, $details, $dViewError);
-        
+
         if ($validate) {
             ModelSkill::insert($category, $details);
             $this->showTable();
@@ -602,10 +612,10 @@ class AdminController {
     public function insertInWorkExp() {
         $date = Validation::cleanString($_POST['date']);
         $workExp = Validation::cleanString($_POST['workExp']);
-        
+
         $dViewError = array();
         $validate = Validation::workExpValidation($date, $workExp, $dViewError);
-        
+
         if ($validate) {
             ModelWorkExp::insert($date, $workExp);
             $this->showTable();
@@ -614,6 +624,7 @@ class AdminController {
             $this->insertInBase($dViewError, $reload);
         }
     }
+
 }
 
 ?>

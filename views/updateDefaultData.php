@@ -1,3 +1,20 @@
+<?php
+$tableName = $_REQUEST['table'];
+$id = $_REQUEST['id'];
+
+switch ($tableName) {
+    /* --- Publications : --- */
+    case "Conferences":
+    case "Journals": 
+    case "Documentations": 
+    case "Thesis": 
+    case "Miscellaneous":
+        $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";
+        break;  
+}
+?>
+
 <div class="updateDefaultData">
     <div class="titleBar">
         <a id="backButton" href="admin.php?table=<?php echo $tableName; ?>&action=showTable">&#10229; Back</a>
@@ -23,7 +40,7 @@
         <br>
         <input class="link" type="submit" value="GO">
         <?php 
-        echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; 
+        echo "<input type=\"hidden\" name=\"action\" value=\"update$tableMain\">"; 
         ?>
     </form>
 </div>       

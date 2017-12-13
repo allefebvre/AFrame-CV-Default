@@ -34,7 +34,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllJournals() : array {
-        $query='SELECT * FROM Publication WHERE categorie_id=1 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=1 ORDER BY ID;;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -45,7 +45,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllConference() : array {
-        $query='SELECT * FROM Publication WHERE categorie_id=2 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=2 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -56,7 +56,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllDocumentation() : array {
-        $query='SELECT * FROM Publication WHERE categorie_id=3 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=3 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -67,7 +67,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllThesis() : array {
-        $query='SELECT * FROM Publication WHERE categorie_id=4 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=4 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -78,7 +78,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllMiscellaneous() : array {
-        $query='SELECT * FROM Publication WHERE categorie_id=5 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=5 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();

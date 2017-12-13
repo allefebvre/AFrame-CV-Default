@@ -5,23 +5,45 @@ switch ($tableName) {
     /* --- Sections : --- */
     case "Information":
         $data = new Information(0, "", "", "", "", "", "", "", "");
+        $tableMain = $tableName;
         break;
     case "Education":
         $data = new Education(0, "", "");
+        $tableMain = $tableName;
         break;
     case "WorkExp":
         $data = new WorkExp(0, "", "");
+        $tableMain = $tableName;
         break;
     case "Skill":
         $data = new Skill(0, "", "");
+        $tableMain = $tableName;
         break;
     case "Diverse":
+        $tableMain = $tableName;
         $data = new Diverse(0, "");
         break;
 
     /* --- Publications : --- */
-    case "Publication":
+    case "Conferences":
         $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $tableMain = "Publication";
+        break;
+    case "Journals":
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $tableMain = "Publication";
+        break;
+    case "Documentations":
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $tableMain = "Publication";
+        break;
+    case "Thesis":
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $tableMain = "Publication";
+        break;
+    case "Miscellaneous":
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $tableMain = "Publication";
         break;
 }
 ?>
@@ -56,7 +78,7 @@ switch ($tableName) {
         <br>
         <input class="link" type="submit" value="GO">
         <?php 
-        echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableName\">"; 
+        echo "<input type=\"hidden\" name=\"action\" value=\"insertIn$tableMain\">"; 
         ?>
     </form>
 </div>       

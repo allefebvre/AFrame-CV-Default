@@ -1,7 +1,7 @@
 <?php
 $tableName = $_GET['table'];
 
-$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
+$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableMain);
 
 switch ($tableName) {
     /* --- Sections --- */
@@ -22,9 +22,26 @@ switch ($tableName) {
         break;
     
     /* --- Publications --- */
-    case "Publication":
-        $data['dataTable'] = ModelPublication::getAllPublication();
+    case "Conferences":
+        $data['dataTable'] = ModelPublication::getAllConferences();
+        $tableMain = "Publication";
         break;  
+    case "Journals":
+        $data['dataTable'] = ModelPublication::getAllJournals();
+        $tableMain = "Publication";
+        break;  
+    case "Documentations":
+        $data['dataTable'] = ModelPublication::getAllDocumentation();
+        $tableMain = "Publication";
+        break;  
+    case "Thesis":
+        $data['dataTable'] = ModelPublication::getAllThesis();
+        $tableMain = "Publication";
+        break;  
+    case "Miscellaneous":
+        $data['dataTable'] = ModelPublication::getAllMiscellaneous();
+        $tableMain = "Publication";
+        break; 
 }
 ?>
 
