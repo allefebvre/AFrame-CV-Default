@@ -4,13 +4,16 @@
 /**
  * Get a Resume to display
  * @param string $sectionTitle
- * @return Resume
+ * @return Resume or NULL
  */
-function getResumeToDisplay(string $sectionTitle) :Resume {
+function getResumeToDisplay(string $sectionTitle) {
     $section = ModelSection::getSectionByTitle($sectionTitle);
-    $resume = ModelResume::getResumeBySectionId($section->getId());
-    
-    return $resume;
+    if(ModelResume::countResumeBySectionId($section->getId()) > 0) {
+        $resume = ModelResume::getResumeBySectionId($section->getId());
+        return $resume;
+    } else {
+        return NULL;
+    }
 }
 
 
@@ -33,37 +36,43 @@ foreach($parameters as $parameter) {
     }
     if($parameter->getSection() != NULL) {
         $resume = getResumeToDisplay($parameter->getSection());
-        $data['resumes'][] = $resume;   
+        if($resume != NULL) {
+            $data['resumes'][] = $resume; 
+            $id = $resume->getId();
+        } else {
+            $data['resumes'][] = array($parameter->getSection()); 
+            $id = "Error";
+        }
     }
     $scroll = filter_var($parameter->getScroll(), FILTER_VALIDATE_BOOLEAN);
     
     switch($parameter->getName()) {
         case "Front" :  
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -19.3, 3.5, 0, 90, $scroll, "", 1.6);
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -19.3, 3.5, 0, 90, $scroll, "", 1.6);
             break;
         case "Left1" : 
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), 5, 2.5, 14.35, 180, $scroll, "");    
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, 5, 2.5, 14.35, 180, $scroll, "");    
             break;
         case "Left2" :
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -5, 2.5, 14.35, 180, $scroll, ""); 
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -5, 2.5, 14.35, 180, $scroll, ""); 
             break;
         case "Right1" :
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), 5, 2.5, -14.35, 0, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, 5, 2.5, -14.35, 0, $scroll, "");
             break;
         case "Right2" :
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -5, 2.5, -14.35, 0, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -5, 2.5, -14.35, 0, $scroll, "");
             break;
         case "Middle1" :
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), 3.2, 2.5, 0, 90, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, 3.2, 2.5, 0, 90, $scroll, "");
             break;
         case "Middle2" :
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -2, 2.5, -5.2, 180, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -2, 2.5, -5.2, 180, $scroll, "");
             break;
         case "Middle3" :    
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -2, 2.5, 5.2, 0, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -2, 2.5, 5.2, 0, $scroll, "");
             break;
         case "Middle4" :    
-            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$resume->getId(), -7.1, 2.5, 0, -90, $scroll, "");
+            $managementPlane->addPlane("views/htmlPlane/resumePlane.php", "resume".$id, -7.1, 2.5, 0, -90, $scroll, "");
             break;
         case "obj3D" :
             $obj3D = TRUE;

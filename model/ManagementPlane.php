@@ -22,13 +22,29 @@ class ManagementPlane {
     }
 
     /**
+     * Get content to display in a Plane
+     * @param Resume|string $data
+     * @return string
+     */
+    private function getContentPlane($data) :string {
+        if(is_array($data)) {
+            $section = $data[0];
+            $content = "<h3>Error !</h3>\n<p>No row in resume Table for `$section` Section</p>";
+        } else {
+            $content = $data->getContent();
+        }
+        
+        return $content;
+    }
+    
+    /**
      * Place a plane
      * @param array $data
      */
     public function placeHTML(array $data) {
         for ($index=0 ; $index<count($this->listPLane) ; $index++) {
             if(isset($data['resumes'][$index])) {
-                $content = $data['resumes'][$index]->getContent();
+                $content = $this->getContentPlane($data['resumes'][$index]);
                 $targetId = $this->listPLane[$index]->getTargetId();
             }
             echo "<div class=\"hide\">";

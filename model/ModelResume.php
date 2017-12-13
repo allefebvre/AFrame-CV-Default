@@ -21,6 +21,22 @@ class ModelResume {
         return $data;
     }
     
+    /**
+     * Count Resume by sectionId in Database 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $sectionId
+     * @return int
+     */
+    public static function countResumeBySectionId(int $sectionId) :int {
+        global $base, $login, $password;
+
+        $resumeGW = new ResumeGateway(new Connection($base, $login, $password));
+        $count = $resumeGW->countResumeBySectionId($sectionId);
+               
+        return $count;
+    }
     
 }
 
