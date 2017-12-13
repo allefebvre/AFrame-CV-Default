@@ -195,10 +195,10 @@ INSERT INTO `categorie` (`ID`, `name_fr`, `name_en`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `publication`
+-- Structure de la table `Publication`
 --
 
-CREATE TABLE IF NOT EXISTS `publication` (
+CREATE TABLE IF NOT EXISTS `Publication` (
   `ID` int(11) NOT NULL auto_increment,
   `reference` text NOT NULL,
   `auteurs` text NOT NULL,
@@ -222,10 +222,10 @@ CREATE TABLE IF NOT EXISTS `publication` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=95 ;
 
 --
--- Contenu de la table `publication`
+-- Contenu de la table `Publication`
 --
 
-INSERT INTO `publication` (`ID`, `reference`, `auteurs`, `titre`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `categorie_id`) VALUES
+INSERT INTO `Publication` (`ID`, `reference`, `auteurs`, `titre`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `categorie_id`) VALUES
 (1, 'SR08a', 'S. Salva and A. Rollet', 'Testabilité des services web', '2008-06-01', 'Revue Ingénierie des Systèmes d''Information RSTI série ISI, numéro spécial Objets, composants et modèles dans l ingénierie des SI', '13', '3', '35--58', 'Usually, Web service compositions are tested by assuming\nthat these ones are executed inside an open environment where all\nthe messages exchanged between the services participating to the\ncomposition are observable. Nevertheless, when services are\ndeployed in partially open environments e.g., Clouds, this\nassumption cannot be sustained. This paper proposes a method to\ncheck whether a service composition is conform to its\nspecification according to the ioco test relation, by considering\nthat the internal messages exchanged between the services are\nhidden but that we can invoke each service directly (or an exact\ncopy). Specifications are modelled with Symbolic Transition\nSystems (STS) that we specialize in Web services with some\nannotations and functions. Our approach consists in decomposing an\nexisting test case set according to the operation interleaving\nthat we formalize with a factor denoted the dependency degree.\nThen, while executing the new test case set, we recover fragments\nof traces (observable reactions) that are reassembled. With the\nfinal traces, we are able to check whether the implemented\ncomposition is ioco-conform to its specification. We illustrate\nour approach with an example derived from the application of\nElectronic Health Record externalization for both patients and\npractitioners, currently in development by the Orange Business Service company.', '', 'composition; partially open environment; ioco test relation; conformance testing; trace reconstruction', '', '', 'Hermes, Lavoisier', '', '', '2008', 1),
 (2, 'SF04', 'S. Salva and H. Fouchal', 'Testability Analysis for Timed Systems', '2004-05-01', 'International Journal of Computers and Their Applications (IJCTA)', '', '', '', '', '', '', '', '', '', '', '', '', 1),
 (3, 'BFPS01', 'S. Bloch and H. Fouchal and E. Petitjean and  S. Salva', 'Some Issues on Testing Real-Time Systems', '2001-12-01', 'International Journal in Computer Information Science (IJCIS)', '2', '4', '', '', '', '', '', '', 'ACIS', '', '', '', 1),
