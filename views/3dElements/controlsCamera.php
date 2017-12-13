@@ -72,7 +72,8 @@ if($vive) { ?>
           border-position
           height-correction
           universal-controls
-          kinematic-body>
+          kinematic-body
+          spawn-sphere>
 
     <a-entity cursor="fuse: false; fuseTimeout: 500; downEvents: triggerdown; upEvents: triggerup"
               position="0 0 -1"

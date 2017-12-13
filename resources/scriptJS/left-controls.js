@@ -27,7 +27,6 @@ AFRAME.registerComponent('left-controls', {
         /// Trackpad move
         el.movecontrols = {movX: 0, movY: 0, movZ: 0};
         el.movecontrols.enabled = false;
-        var texts = document.getElementById("texts");
         el.addEventListener('axismove', function (event) {
             var axis1 = event.detail.axis[0];
             var axis2 = event.detail.axis[1];
