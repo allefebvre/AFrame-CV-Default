@@ -7,11 +7,23 @@
     margin : 0px;
     position: absolute;
     font-family: "Roboto";
-    color: #178F96;
+    overflow-y: auto;
+    color: #178F96;    
+    overflow : scroll;
+    height: 100%;
+    width: 100%;
+}
+
+.defaultTable .titleBarDefaultTable {
+    background : #178F96;
+    position: fixed; 
+    width: 99.1%;
 }
 
 .defaultTable form {
     text-align: center;
+    margin-top: 5%;
+    
 }
 
 .defaultTable table {

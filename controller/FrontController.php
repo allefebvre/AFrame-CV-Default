@@ -11,10 +11,10 @@ class FrontController {
 	require ($dir.$views['head']);
         $dataError = array();
 
-        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInConference',
-            'insertInDiverse','insertInEducation','insertInInformation','insertInJournal','insertInOther', 
-            'insertInSkill', 'insertInWorkExp' ,'updateConference', 'updateDiverse', 'updateEducation', 'updateInformation', 
-            'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
+        $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInPublication',
+            'insertInDiverse','insertInEducation','insertInInformation','insertInSkill', 'insertInWorkExp' ,
+            'updatePublication', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateSkill', 
+            'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
             'login', 'logout', 'changePassword', 'changePassword2');        
         
         $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');

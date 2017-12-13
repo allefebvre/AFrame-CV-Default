@@ -32,8 +32,8 @@ class AdminController {
                     case "showLine" :
                         $this->showLine();
                         break;
-                    case "updateConference" :
-                        $this->updateConference();
+                    case "updatePublication" :
+                        $this->updatePublication();
                         break;
                     case "updateDiverse" :
                         $this->updateDiverse();
@@ -43,12 +43,6 @@ class AdminController {
                         break;
                     case "updateInformation" :
                         $this->updateInformation();
-                        break;
-                    case "updateJournal" :
-                        $this->updateJournal();
-                        break;
-                    case "updateOther" :
-                        $this->updateOther();
                         break;
                     case "updateSkill" :
                         $this->updateSkill();
@@ -62,8 +56,8 @@ class AdminController {
                     case "insertInBase" :
                         $this->insertInBase();
                         break;
-                    case "insertInConference" :
-                        $this->insertInConference();
+                    case "insertInPublication" :
+                        $this->insertInPublication();
                         break;
                     case "insertInDiverse" :
                         $this->insertInDiverse();
@@ -73,12 +67,6 @@ class AdminController {
                         break;
                     case "insertInInformation" :
                         $this->insertInInformation();
-                        break;
-                    case "insertInJournal" :
-                        $this->insertInJournal();
-                        break;
-                    case "insertInOther" :
-                        $this->insertInOther();
                         break;
                     case "insertInSkill" :
                         $this->insertInSkill();
@@ -301,7 +289,7 @@ class AdminController {
     /**
      * Get data and update Conference Table
      */
-    public function updateConference() {
+    public function updatePublication() {
         $id = Validation::cleanInt($_REQUEST['id']);
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
@@ -396,76 +384,6 @@ class AdminController {
     }
 
     /**
-     * Get data and update Journal Table
-     */
-    public function updateJournal() {
-        $id = Validation::cleanInt($_REQUEST['id']);
-        $reference = Validation::cleanString($_POST['reference']);
-        $authors = Validation::cleanString($_POST['authors']);
-        $title = Validation::cleanString($_POST['title']);
-        $date = Validation::cleanString($_POST['date']);
-        $journal = Validation::cleanString($_POST['journal']);
-        $volume = Validation::cleanString($_POST['volume']);
-        $number = Validation::cleanString($_POST['number']);
-        $pages = Validation::cleanString($_POST['pages']);
-        $note = Validation::cleanString($_POST['note']);
-        $abstract = Validation::cleanString($_POST['abstract']);
-        $keywords = Validation::cleanString($_POST['keywords']);
-        $series = Validation::cleanString($_POST['series']);
-        $localite = Validation::cleanString($_POST['localite']);
-        $publisher = Validation::cleanString($_POST['publisher']);
-        $editor = Validation::cleanString($_POST['editor']);
-        $pdf = Validation::cleanString($_POST['pdf']);
-        $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
-        
-        $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
-
-        if ($validate) {
-            ModelJournal::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
-        } else {
-            $this->showLine($dViewError);
-        }
-    }
-
-    /**
-     * Get data and update Other Table
-     */
-    public function updateOther() {
-        $id = Validation::cleanInt($_REQUEST['id']);
-        $reference = Validation::cleanString($_POST['reference']);
-        $authors = Validation::cleanString($_POST['authors']);
-        $title = Validation::cleanString($_POST['title']);
-        $date = Validation::cleanString($_POST['date']);
-        $journal = Validation::cleanString($_POST['journal']);
-        $volume = Validation::cleanString($_POST['volume']);
-        $number = Validation::cleanString($_POST['number']);
-        $pages = Validation::cleanString($_POST['pages']);
-        $note = Validation::cleanString($_POST['note']);
-        $abstract = Validation::cleanString($_POST['abstract']);
-        $keywords = Validation::cleanString($_POST['keywords']);
-        $series = Validation::cleanString($_POST['series']);
-        $localite = Validation::cleanString($_POST['localite']);
-        $publisher = Validation::cleanString($_POST['publisher']);
-        $editor = Validation::cleanString($_POST['editor']);
-        $pdf = Validation::cleanString($_POST['pdf']);
-        $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
-
-        $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
-        
-        if ($validate) {
-            ModelOther::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
-        } else {
-            $this->showLine($dViewError);
-        }
-    }
-
-    /**
      * Get data and update Skill Table
      */
     public function updateSkill() {
@@ -532,7 +450,7 @@ class AdminController {
     /**
      * Get data and insert in Conference Table
      */
-    public function insertInConference() {
+    public function insertInPublication() {
         $reference = Validation::cleanString($_POST['reference']);
         $authors = Validation::cleanString($_POST['authors']);
         $title = Validation::cleanString($_POST['title']);
@@ -622,76 +540,6 @@ class AdminController {
             $this->showTable();
         } else {
             $reload = new Information(0, $status, $name, $firstName, $photo, $age, $address, $phone, "");
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
-    /**
-     * Get data and insert in Journal Table 
-     */
-    public function insertInJournal() {
-        $reference = Validation::cleanString($_POST['reference']);
-        $authors = Validation::cleanString($_POST['authors']);
-        $title = Validation::cleanString($_POST['title']);
-        $date = Validation::cleanString($_POST['date']);
-        $journal = Validation::cleanString($_POST['journal']);
-        $volume = Validation::cleanString($_POST['volume']);
-        $number = Validation::cleanString($_POST['number']);
-        $pages = Validation::cleanString($_POST['pages']);
-        $note = Validation::cleanString($_POST['note']);
-        $abstract = Validation::cleanString($_POST['abstract']);
-        $keywords = Validation::cleanString($_POST['keywords']);
-        $series = Validation::cleanString($_POST['series']);
-        $localite = Validation::cleanString($_POST['localite']);
-        $publisher = Validation::cleanString($_POST['publisher']);
-        $editor = Validation::cleanString($_POST['editor']);
-        $pdf = Validation::cleanString($_POST['pdf']);
-        $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
-
-        $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
-        
-        if ($validate) {
-            ModelJournal::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
-        } else {
-            $reload = new Journal(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
-    /**
-     * Get data and insert in Other Table 
-     */
-    public function insertInOther() {
-        $reference = Validation::cleanString($_POST['reference']);
-        $authors = Validation::cleanString($_POST['authors']);
-        $title = Validation::cleanString($_POST['title']);
-        $date = Validation::cleanString($_POST['date']);
-        $journal = Validation::cleanString($_POST['journal']);
-        $volume = Validation::cleanString($_POST['volume']);
-        $number = Validation::cleanString($_POST['number']);
-        $pages = Validation::cleanString($_POST['pages']);
-        $note = Validation::cleanString($_POST['note']);
-        $abstract = Validation::cleanString($_POST['abstract']);
-        $keywords = Validation::cleanString($_POST['keywords']);
-        $series = Validation::cleanString($_POST['series']);
-        $localite = Validation::cleanString($_POST['localite']);
-        $publisher = Validation::cleanString($_POST['publisher']);
-        $editor = Validation::cleanString($_POST['editor']);
-        $pdf = Validation::cleanString($_POST['pdf']);
-        $date_display = Validation::cleanString($_POST['date_display']);
-        $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
-
-        $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
-        
-        if ($validate) {
-            ModelOther::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
-            $this->showTable();
-        } else {
-            $reload = new Other(0, $reference, $authors, $title, "", $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
             $this->insertInBase($dViewError, $reload);
         }
     }

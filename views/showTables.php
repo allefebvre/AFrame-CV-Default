@@ -2,7 +2,7 @@
 $data['tables'] = ModelTables::getAllTables();
 
 $data['sectionsTables'] = array();
-$data['publicationsTables'] = array();
+$data['publication'] = array();
 
 foreach ($data['tables'] as $table) {
     $tableName = $table[0];
@@ -18,10 +18,8 @@ foreach ($data['tables'] as $table) {
                 break;
 
             /* --- Publications : --- */
-            case "Conference": 
-            case "Journal":
-            case "Other":
-                $data['publicationsTables'][] = $tableName;
+            case "Publication": 
+                $data['publication'][] = $tableName;
                 break;   
         }
     }
@@ -55,7 +53,7 @@ foreach ($data['tables'] as $table) {
                 <h3>Publications :</h3>
                 <ul>
                 <?php
-                foreach ($data['publicationsTables'] as $tableName) {
+                foreach ($data['publication'] as $tableName) {
                     echo "<li>"
                             . "<a href=\"admin.php?table=$tableName&action=showTable\">"
                                 . "<div>$tableName</div>"

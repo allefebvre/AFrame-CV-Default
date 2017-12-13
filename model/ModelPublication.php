@@ -22,6 +22,20 @@ class ModelPublication {
         return $data;
     }
     
+    public static function getAllPublicationByDate() :array {
+ 	global $base, $login, $password;
+
+        $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
+        $results = $publicationGW->getAllPublication(); 
+        $data =  array();
+        foreach ($results as $row){
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+        }
+        
+        return $data;
+    }
+    
+    
     /**
      * Get all Journals in Database
      * @global string $base
@@ -136,7 +150,7 @@ class ModelPublication {
 
         $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
         $row = $conferenceGW->getOnePublication($id);
-        $data = new Publication ($row['ID'], $row['reference'], $row['auteur'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+        $data = new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
        
         return $data;
     }

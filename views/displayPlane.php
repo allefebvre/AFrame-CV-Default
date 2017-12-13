@@ -89,7 +89,7 @@ if($parameterPublication->getDisplay() === "TRUE") {
     $data['documentation'] = ModelPublication::getAllDocumentation();
     $data['thesis'] = ModelPublication::getAllThesis();
     $data['miscellaneous'] = ModelPublication::getAllMiscellaneous();
-    $data['byDates'] = ModelPublication::getAllPublication();
+    $data['byDates'] = ModelPublication::getAllPublicationByDate();
 
     // Add publication panel 
     $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, TRUE, "go-pdf-journals");
