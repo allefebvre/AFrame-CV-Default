@@ -26,69 +26,6 @@ USE `AFrame-CV-Default`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ByDate`
---
-
-CREATE TABLE `ByDate` (
-  `ID` int(11) NOT NULL DEFAULT '0',
-  `reference` text CHARACTER SET latin1 NOT NULL,
-  `authors` text CHARACTER SET latin1 NOT NULL,
-  `title` text CHARACTER SET latin1 NOT NULL,
-  `date` date NOT NULL,
-  `journal` text CHARACTER SET latin1,
-  `volume` text CHARACTER SET latin1,
-  `number` text CHARACTER SET latin1,
-  `pages` text CHARACTER SET latin1,
-  `note` text CHARACTER SET latin1,
-  `abstract` text CHARACTER SET latin1,
-  `keywords` text CHARACTER SET latin1,
-  `series` text CHARACTER SET latin1,
-  `localite` text CHARACTER SET latin1,
-  `publisher` text CHARACTER SET latin1,
-  `editor` text CHARACTER SET latin1,
-  `pdf` text CHARACTER SET latin1,
-  `date_display` text CHARACTER SET latin1,
-  `category_id` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Conference`
---
-
-CREATE TABLE `Conference` (
-  `ID` int(11) NOT NULL,
-  `reference` text NOT NULL,
-  `authors` text NOT NULL,
-  `title` text NOT NULL,
-  `date` date NOT NULL,
-  `journal` text,
-  `volume` text,
-  `number` text,
-  `pages` text,
-  `note` text,
-  `abstract` text,
-  `keywords` text,
-  `series` text,
-  `localite` text,
-  `publisher` text,
-  `editor` text,
-  `pdf` text,
-  `date_display` text,
-  `category_id` int(5) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Conference`
---
-
-INSERT INTO `Conference` (`ID`, `reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`) VALUES
-(1, 'A17', 'Author', 'Title', '2017-01-01', 'Conference Title', 'volume', 'number', 'pages', 'note', 'abstract', 'key words', 'series', 'localite', 'publisher', 'edithor', 'pdf', 'date_display', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `section`
 --
 
@@ -134,42 +71,6 @@ INSERT INTO `resume` (`ID`, `date_creation`, `date_modification`, `content`, `se
 (5, '2017-12-13', '2017-12-13', '<h1>Miscellaneous</h1>\n<p>Activity 1</p>\n<p>Activity 2</p>\n<p>Sport</p>\n<p>Driving Licence</p>', 5);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `Journal`
---
-
-CREATE TABLE `Journal` (
-  `ID` int(11) NOT NULL,
-  `reference` text NOT NULL,
-  `authors` text NOT NULL,
-  `title` text NOT NULL,
-  `date` date NOT NULL,
-  `journal` text,
-  `volume` text,
-  `number` text,
-  `pages` text,
-  `note` text,
-  `abstract` text,
-  `keywords` text,
-  `series` text,
-  `localite` text,
-  `publisher` text,
-  `editor` text,
-  `pdf` text,
-  `date_display` text,
-  `category_id` int(5) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Journal`
---
-
-INSERT INTO `Journal` (`ID`, `reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`) VALUES
-(1, 'A17', 'Author', 'Title', '2017-01-01', 'Journal Title', 'volume', 'number', 'pages', 'note', 'abstract', 'key words', 'series', 'localite', 'publisher', 'edithor', 'pdf', 'date_display', 0);
-
--- --------------------------------------------------------
-
 --
 -- Structure de la table `categorie`
 --
@@ -329,41 +230,6 @@ INSERT INTO `Login` (`Login`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Other`
---
-
-CREATE TABLE `Other` (
-  `ID` int(11) NOT NULL,
-  `reference` text NOT NULL,
-  `authors` text NOT NULL,
-  `title` text NOT NULL,
-  `date` date NOT NULL,
-  `journal` text,
-  `volume` text,
-  `number` text,
-  `pages` text,
-  `note` text,
-  `abstract` text,
-  `keywords` text,
-  `series` text,
-  `localite` text,
-  `publisher` text,
-  `editor` text,
-  `pdf` text,
-  `date_display` text,
-  `category_id` int(5) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `Other`
---
-
-INSERT INTO `Other` (`ID`, `reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`) VALUES
-(1, 'A17', 'Author', 'Title', '2017-01-01', 'Other Title', 'volume', 'number', 'pages', 'note', 'abstract', 'key words', 'series', 'localite', 'publisher', 'edithor', 'pdf', 'date_display', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Parameter`
 --
 
@@ -412,12 +278,6 @@ CREATE TABLE `Token` (
 --
 
 --
--- Indexes for table `Conference`
---
-ALTER TABLE `Conference`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `section`
 --
 ALTER TABLE `section`
@@ -430,22 +290,10 @@ ALTER TABLE `resume`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `Journal`
---
-ALTER TABLE `Journal`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `Login`
 --
 ALTER TABLE `Login`
   ADD PRIMARY KEY (`Login`);
-
---
--- Indexes for table `Other`
---
-ALTER TABLE `Other`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `Parameter`
@@ -465,11 +313,6 @@ ALTER TABLE `Token`
 --
 
 --
--- AUTO_INCREMENT for table `Conference`
---
-ALTER TABLE `Conference`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
@@ -479,16 +322,6 @@ ALTER TABLE `section`
 --
 ALTER TABLE `resume`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `Journal`
---
-ALTER TABLE `Journal`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `Other`
---
-ALTER TABLE `Other`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `Parameter`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;

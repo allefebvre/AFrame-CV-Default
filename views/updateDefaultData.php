@@ -6,23 +6,45 @@ switch ($tableName) {
     /* --- Sections : --- */
     case "Information":
         $data = ModelInformation::getOneInformation($id);
+        $tableMain = $tableName;
         break;
     case "Education":
         $data = ModelEducation::getOneEducation($id);
+        $tableMain = $tableName;
         break;
     case "WorkExp":
         $data = ModelWorkExp::getOneWorkExp($id);
+        $tableMain = $tableName;
         break;
     case "Skill":
         $data = ModelSkill::getOneSkill($id);
+        $tableMain = $tableName;
         break;
     case "Diverse":
         $data = ModelDiverse::getOneDiverse($id);
+        $tableMain = $tableName;
         break;
     
     /* --- Publications : --- */
-    case "Publication":
+    case "Conferences":
         $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";
+        break;
+    case "Journals":
+        $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";        
+        break;  
+    case "Documentations":
+        $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";
+        break;  
+    case "Thesis":
+        $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";
+        break;  
+    case "Miscellaneous":
+        $data = ModelPublication::getOnePublication($id);
+        $tableMain = "Publication";
         break;  
 }
 ?>
@@ -52,7 +74,7 @@ switch ($tableName) {
         <br>
         <input class="link" type="submit" value="GO">
         <?php 
-        echo "<input type=\"hidden\" name=\"action\" value=\"update$tableName\">"; 
+        echo "<input type=\"hidden\" name=\"action\" value=\"update$tableMain\">"; 
         ?>
     </form>
 </div>       
