@@ -42,6 +42,13 @@ AFRAME.registerComponent('run-move', {
         };
         movecontrols2();
         
+        
+        ///
+        el.ramps = [];
+        var ramps = el.ramps;
+        ramps[0] = { x1: 10.5, y1: 0 , z1: -5.35, x2: 14.5, y2: 5.2, z2: 5, dir:2};
+        
+        ///
     },
 
     tick: function (time, timeDelta) {
@@ -54,8 +61,23 @@ AFRAME.registerComponent('run-move', {
             var rot = camera.getAttribute("rotation");
             var move = this.el.movecontrols2.speed;
             var movX = -Math.sin(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
-            var movY = 0; //Math.sin(rot.x / 180 * Math.PI) * speed * move / 10;
             var movZ = -Math.cos(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
+            
+            var ramp = this.el.ramps[0];
+            var movY = 0;
+            if(pos.x > ramp.x1 && pos.x < ramp.x2 && pos.z > ramp.z1 && pos.z < ramp.z2){
+                if(pos.z > ramp.z1 - 1 && pos.z < ramp.z2 + 1){
+                    if(ramp.dir == 2){
+                        var deltaY = Math.abs(ramp.y2 - ramp.y1);
+                        var deltaZ = Math.abs(ramp.z2 - ramp.z1);
+                        var incline = deltaY / deltaZ;
+                        movY = incline * movZ;
+                    }
+                }
+            }
+            
+        
+        
 
             target.setAttribute('position', {
                 x: pos.x + movX,
