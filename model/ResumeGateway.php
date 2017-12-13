@@ -1,6 +1,6 @@
 <?php
 
-class RubriqueGateway {
+class ResumeGateway {
     
     private $connection;
     
@@ -9,13 +9,14 @@ class RubriqueGateway {
     }
     
     /**
-     * Get a Rubrique by menu_id in Database
+     * Get a Resume by sectionId in Database
+     * @param int $sectionId
      * @return array
      */
-    public function getRubriqueByMenuId(int $menu_id) :array {
-        $query='SELECT * FROM rubrique WHERE menu_id=:menu_id;';
+    public function getResumeBySectionId(int $sectionId) :array {
+        $query='SELECT * FROM resume WHERE section_id=:sectionId;';
         $this->connection->executeQuery($query, array(
-            ':menu_id' => array($menu_id, PDO::PARAM_INT)
+            ':sectionId' => array($sectionId, PDO::PARAM_INT)
         ));
         
         return $this->connection->getResults()[0];

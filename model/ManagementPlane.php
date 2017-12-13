@@ -27,8 +27,8 @@ class ManagementPlane {
      */
     public function placeHTML(array $data) {
         for ($index=0 ; $index<count($this->listPLane) ; $index++) {
-            if(isset($data['rubriques'][$index])) {
-                $content_en = $data['rubriques'][$index]->getContent_en();
+            if(isset($data['resumes'][$index])) {
+                $content = $data['resumes'][$index]->getContent();
                 $targetId = $this->listPLane[$index]->getTargetId();
             }
             echo "<div class=\"hide\">";

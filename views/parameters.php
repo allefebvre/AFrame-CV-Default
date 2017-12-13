@@ -2,53 +2,25 @@
 
 /**
  * Check if a parameter have already a section
- * @param string $section
+ * @param string $sectionTitle
+ * @return string
  */
-function checkSection(string $section = NULL) {
-    switch ($section) {
-        case NULL:
-            echo "<option>Informations
-                      <option>Education
-                      <option>Work Experience
-                      <option>Skills
-                      <option>Diverse";
-            break;
-        case "Informations" :
-            echo "<option selected>Informations
-                      <option>Education
-                      <option>Work Experience
-                      <option>Skills
-                      <option>Diverse";
-            break;
-        case "Education" :
-            echo "<option>Informations
-                      <option selected>Education
-                      <option>Work Experience
-                      <option>Skills
-                      <option>Diverse";
-            break;
-        case "Work Experience" :
-            echo "<option>Informations
-                      <option>Education
-                      <option selected>Work Experience
-                      <option>Skills
-                      <option>Diverse";
-            break;
-        case "Skills" :
-            echo "<option>Informations
-                      <option>Education
-                      <option>Work Experience
-                      <option selected>Skills
-                      <option>Diverse";
-            break;
-        case "Diverse" :
-            echo "<option>Informations
-                      <option>Education
-                      <option>Work Experience
-                      <option>Skills
-                      <option selected>Diverse";
-            break;
+function checkSection(string $sectionTitle = NULL) :string {
+    $sections = ModelSection::getAllSections();
+    $titles = array();
+    foreach($sections as $section) {
+        $titles[] = $section->getTitle();
     }
+    $toReturn = "";
+    foreach($titles as $title) {
+        if ($sectionTitle === $title) {
+            $toReturn .= "<option selected>$title";
+        } else {
+            $toReturn .= "<option>$title";
+        }
+    }
+    
+    return $toReturn;
 }
 ?>
 
@@ -105,7 +77,7 @@ function checkSection(string $section = NULL) {
                                     <div class="checkButton"></div>
                                     <div class="label1"><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                                     <select name="section<?php echo $name; ?>">
-                                        <?php checkSection($section); ?>
+                                        <?php echo checkSection($section); ?>
                                     </select>
                                     <?php
                                     if ($scroll === "TRUE") {
@@ -135,7 +107,7 @@ function checkSection(string $section = NULL) {
                                     <div class="checkButton"></div>
                                     <div class="label1"><label for="<?php echo $name; ?>"><?php echo $name; ?></label></div>
                                     <select name="section<?php echo $name; ?>" disabled>
-                                        <?php checkSection($section); ?>
+                                        <?php echo checkSection($section); ?>
                                     </select>
                                     <div>
                                         <input name="scroll[]" id="scroll<?php echo $name; ?>" type="checkbox" value="<?php echo $id; ?>" disabled>
