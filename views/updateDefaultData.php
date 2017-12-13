@@ -21,15 +21,9 @@ switch ($tableName) {
         break;
     
     /* --- Publications : --- */
-    case "Conference":
+    case "Publication":
         $data = ModelPublication::getOnePublication($id);
         break;  
-    case "Journal":
-        $data = ModelJournal::getOneJournal($id);
-        break;
-    case "Other":
-        $data = ModelOther::getOneConference($id);
-        break;   
 }
 ?>
 

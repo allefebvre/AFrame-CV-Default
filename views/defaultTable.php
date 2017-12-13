@@ -22,25 +22,20 @@ switch ($tableName) {
         break;
     
     /* --- Publications --- */
-    case "Conference":
+    case "Publication":
         $data['dataTable'] = ModelPublication::getAllPublication();
-        break; 
-    case "Journal":
-        $data['dataTable'] = ModelJournal::getAllJournals();
-        break;
-    case "Other":
-        $data['dataTable'] = ModelOther::getAllOthers();
         break;  
 }
 ?>
 
 <div class="defaultTable">
-    <div class="titleBar">
+    <div class="titleBarDefaultTable">
         <a href="admin.php?action=showData" id="backButton">&#10229; Back</a>
         <div class="title">
             <h2>Your <?php echo $tableName; ?></h2>
         </div>
     </div>
+    
     <form method="post">
         <table>
             <tr class="headTable">

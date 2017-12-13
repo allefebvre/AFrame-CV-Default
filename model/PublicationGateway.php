@@ -12,7 +12,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllPublication() :array {
-        $query='SELECT * FROM publication ORDER BY date DESC;';
+        $query='SELECT * FROM Publication ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -23,7 +23,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllJournals() : array {
-        $query='SELECT * FROM publication WHERE categorie_id=1 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=1 ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -34,7 +34,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllConference() : array {
-        $query='SELECT * FROM publication WHERE categorie_id=2 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=2 ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -45,7 +45,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllDocumentation() : array {
-        $query='SELECT * FROM publication WHERE categorie_id=3 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=3 ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -56,7 +56,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllThesis() : array {
-        $query='SELECT * FROM publication WHERE categorie_id=4 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=4 ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -67,7 +67,7 @@ class PublicationGateway {
      * @return array
      */
     public function getAllMiscellaneous() : array {
-        $query='SELECT * FROM publication WHERE categorie_id=5 ORDER BY date DESC;';
+        $query='SELECT * FROM Publication WHERE categorie_id=5 ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
         return $this->connection->getResults();
@@ -110,7 +110,7 @@ class PublicationGateway {
      * @param int $category_id
      */
     public function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal = NULL, string $volume = NULL, string $number = NULL, string $pages = NULL, string $note = NULL, string $abstract = NULL, string $keywords = NULL, string $series = NULL, string $localite = NULL, string $publisher = NULL, string $editor = NULL, string $pdf = NULL, string $date_display = NULL, int $category_id = NULL){
-        $query = 'UPDATE Publication SET reference=:reference, authors=:authors, title=:title, date=:date, journal=:journal, volume=:volume, number=:number, pages=:pages, note=:note, abstract=:abstract, keywords=:keywords, series=:series, localite=:localite, publisher=:publisher, editor=:editor, pdf=:pdf, date_display=:date_display, category_id=:category_id  WHERE ID=:id;';
+        $query = 'UPDATE Publication SET reference=:reference, auteurs=:authors, titre=:title, date=:date, journal=:journal, volume=:volume, number=:number, pages=:pages, note=:note, abstract=:abstract, keywords=:keywords, series=:series, localite=:localite, publisher=:publisher, editor=:editor, pdf=:pdf, date_display=:date_display, categorie_id=:category_id  WHERE ID=:id;';
         $this->connection->executeQuery($query, array(
             ':id' => array($id, PDO::PARAM_INT),
             ':reference' => array($reference, PDO::PARAM_STR),
@@ -156,7 +156,7 @@ class PublicationGateway {
      * @param int $category_id
      */
     public function insert(string $reference, string $authors, string $title, string $date, string $journal = NULL, string $volume = NULL, string $number = NULL, string $pages = NULL, string $note = NULL, string $abstract = NULL, string $keywords = NULL, string $series = NULL, string $localite = NULL, string $publisher = NULL, string $editor = NULL, string $pdf = NULL, string $date_display = NULL, int $category_id = NULL){
-        $query = 'INSERT INTO Publication (`reference`, `authors`, `title`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `category_id`)  VALUES (:reference, :authors, :title, :date, :journal, :volume, :number, :pages, :note, :abstract, :keywords, :series, :localite, :publisher, :editor, :pdf, :date_display, :category_id);';
+        $query = 'INSERT INTO Publication (`reference`, `auteurs`, `titre`, `date`, `journal`, `volume`, `number`, `pages`, `note`, `abstract`, `keywords`, `series`, `localite`, `publisher`, `editor`, `pdf`, `date_display`, `categorie_id`)  VALUES (:reference, :authors, :title, :date, :journal, :volume, :number, :pages, :note, :abstract, :keywords, :series, :localite, :publisher, :editor, :pdf, :date_display, :category_id);';
         $this->connection->executeQuery($query, array(
             ':reference' => array($reference, PDO::PARAM_STR),
             ':authors' => array($authors, PDO::PARAM_STR),

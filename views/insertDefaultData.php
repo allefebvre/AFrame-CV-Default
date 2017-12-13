@@ -20,14 +20,8 @@ switch ($tableName) {
         break;
 
     /* --- Publications : --- */
-    case "Conference":
+    case "Publication":
         $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        break;
-    case "Journal":
-        $data = new Journal(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        break;
-    case "Other":
-        $data = new Other(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
         break;
 }
 ?>
