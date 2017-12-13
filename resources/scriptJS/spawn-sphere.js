@@ -28,8 +28,8 @@ AFRAME.registerComponent('spawn-sphere', {
         var key = this.data.key;
         var canSpawn = true;
         var dataevent = this.data.event;
-        document.addEventListener(dataevent, function (event) {
-            
+        
+        spawnSphere = function (event) {
             if (dataevent !== "keydown" || event.key === key) {
                 if (canSpawn === true) {
                     canSpawn = false;
@@ -73,6 +73,13 @@ AFRAME.registerComponent('spawn-sphere', {
                     }, 5000);
                 }
             }
-        });
+        }
+        if(dataevent === "keydown"){
+            document.addEventListener(dataevent, spawnSphere);
+        }
+        else {
+            el.addEventListener(dataevent, spawnSphere);
+        }
+            
     }
 })

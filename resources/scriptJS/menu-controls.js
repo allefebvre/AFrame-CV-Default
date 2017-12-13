@@ -43,6 +43,7 @@ AFRAME.registerComponent('menu-controls', {
         text[0].setAttribute("value", this.data.value1);
         text[1].setAttribute("value", this.data.value2);
         text[2].setAttribute("value", this.data.value3);
+        text[0].setAttribute("color", "red");
         
         
         el.menu = { visible:false, select: 1}

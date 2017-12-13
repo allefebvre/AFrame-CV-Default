@@ -22,7 +22,7 @@ AFRAME.registerComponent('run-move', {
             if (posL != null && posR != null) {
                 var deltaY = Math.abs(posL.y - posR.y);
                 var delta = Math.abs(deltaY - el.movecontrols2.deltaY_old);
-                if (delta > 0) { // A changer
+                if (delta > 0.05) { // A changer
                     el.movecontrols2.delta_list[0] = delta;
                 } else {
                     el.movecontrols2.delta_list[0] = 0;
@@ -49,11 +49,12 @@ AFRAME.registerComponent('run-move', {
         if (menuSelect == -1 || this.el.menu.select == menuSelect) {
             var target = document.getElementById(this.data.target);
             var pos = target.getAttribute("position");
-            var speed = this.data.speed / 5;
-            var rot = this.el.getAttribute("rotation");
+            var speed = this.data.speed / 2;
+            var camera = document.getElementById("camera");
+            var rot = camera.getAttribute("rotation");
             var move = this.el.movecontrols2.speed;
             var movX = -Math.sin(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
-            var movY = Math.sin(rot.x / 180 * Math.PI) * speed * move / 10;
+            var movY = 0; //Math.sin(rot.x / 180 * Math.PI) * speed * move / 10;
             var movZ = -Math.cos(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
 
             target.setAttribute('position', {

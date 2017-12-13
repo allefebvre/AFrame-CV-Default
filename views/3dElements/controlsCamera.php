@@ -9,13 +9,13 @@ if ($vive) {
     <a-entity id="cameraRig">
         <a-entity position="0 0 0" control-height>
             <!-- CAMERA -->
-            <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150">
+            <a-entity camera="userHeight: 1.6" look-controls wasd-controls="fly: true; acceleration: 150" id="camera">
                 <a-box static-body material="visible:false" scale="0.2 0.2 0.2"></a-box>
             </a-entity>
             <!-- LEFT CONTROL -->
             <a-entity id="left-control"
                       menu-controls="value1: Teleport; value2: Trackpad; value3: Run"
-                      spawn-sphere="distance: 0.4"
+                      spawn-sphere="distance: 0.4; event:menudown"
                       trackpad-move="menuSelect: 2"
                       run-move="menuSelect: 3"
                       vive-controls="hand: left"
@@ -24,8 +24,8 @@ if ($vive) {
             </a-entity>
             <!-- RIGHT CONTROL -->
             <a-entity id="right-control"
-                      spawn-sphere="distance: 0.4"
-                      right-controls laser-controls="hand: right"
+                      spawn-sphere="distance: 0.4; event:menudown"
+                      laser-controls="hand: right"
                       raycaster="far: 10; interval: 200; objects: [mixin = link];"
                       cursor="downEvents: trackpaddown; upEvents: trackpadup"
                       interaction-cylinder>

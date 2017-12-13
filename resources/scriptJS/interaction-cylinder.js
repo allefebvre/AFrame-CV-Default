@@ -46,19 +46,19 @@ AFRAME.registerComponent('interaction-cylinder', {
         el.addEventListener('triggerdown', function () {
             clearTimeout(down_TimeOut);
             for (i = 0; i < 4; i++) {
-                el.children[i].setAttribute('visible', 'true');
-                el.children[i].emit("up");
+                cylinder[i].setAttribute('visible', 'true');
+                cylinder[i].emit("up");
             }
         });
 
         el.addEventListener('triggerup', function () {
             for (i = 0; i < 4; i++) {
-                el.children[i].emit("down");
+                cylinder[i].emit("down");
             }
             down_TimeOut = setTimeout(function () {
                 for (i = 0; i < 4; i++) {
-                    el.children[i].setAttribute('visible', 'false');
-                    el.children[i].setAttribute('position', '0 0 0');
+                    cylinder[i].setAttribute('visible', 'false');
+                    cylinder[i].setAttribute('position', '0 0 0');
                 }
             }, 300);
         });
