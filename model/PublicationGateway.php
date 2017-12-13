@@ -12,6 +12,17 @@ class PublicationGateway {
      * @return array
      */
     public function getAllPublication() :array {
+        $query='SELECT * FROM Publication ORDER BY ID;';
+        $this->connection->executeQuery($query);
+        
+        return $this->connection->getResults();
+    }
+    
+    /**
+     * Get all Publication in Database by date
+     * @return array
+     */
+    public function getAllPublicationByDate() :array {
         $query='SELECT * FROM Publication ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
