@@ -32,5 +32,19 @@ class SectionGateway {
         
         return $this->connection->getResults()[0];
     }
+    
+    /**
+     * Get a Section by id in Database
+     * @param int $id
+     * @return array
+     */
+    public function getSectionById(int $id) :array {
+        $query='SELECT * FROM section WHERE id=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+        
+        return $this->connection->getResults()[0];
+    }
 }
 

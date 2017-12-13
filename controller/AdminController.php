@@ -86,6 +86,9 @@ class AdminController {
                     case "changePassword2" :
                         $this->changePassword2();
                         break;
+                    case "showResume" :
+                        $this->showResume();
+                        break;
                 }
             }
         } catch (PDOException $e) {
@@ -272,6 +275,23 @@ class AdminController {
         global $dir, $views;
         require $dir . $views['defaultTable'];
     }
+    
+    /**
+     * Display resume of selected Section
+     * @global string $dir
+     * @global array $views
+     */
+    public function showResume() {
+        global $dir, $views;
+        $sectionId = $_GET['sectionId'];
+        $section = ModelSection::getSectionById($sectionId);
+        $sectionTitle = $section->getTitle();
+        $resume = ModelResume::getResumeBySectionId($sectionId);
+        
+        $data['tableHead'] = ModelDefaultTable::getAllDefaultTable('resume');
+        
+        require $dir . $views['resumeTable'];
+    }
 
     /**
      * Display a form to update a line
@@ -281,6 +301,19 @@ class AdminController {
      */
     public function showLine(array $dViewError = NULL) {
         global $dir, $views;
+        $tableName = $_REQUEST['table'];
+        $id = $_REQUEST['id'];
+        switch ($tableName) {
+            /* --- Sections : --- */
+            case "Resume" :
+                $data = ModelResume::getResumeById($id);
+                break;
+
+            /* --- Publications : --- */
+            case "Publication":
+                $data = ModelPublication::getOnePublication($id);
+                break;  
+        }
         require $dir . $views['updateDefaultData'];
     }
 

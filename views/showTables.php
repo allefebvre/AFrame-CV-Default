@@ -39,12 +39,15 @@ foreach ($data['tables'] as $table) {
                 <h3>Sections :</h3>
                 <ul>
                 <?php
-                foreach ($data['sectionsTables'] as $tableName) {
+                $data['sections'] = ModelSection::getAllSections();
+                foreach($data['sections'] as $section) {
+                    $title = $section->getTitle();
+                    $id = $section->getId();
                     echo "<li>"
-                            . "<a href=\"admin.php?table=$tableName&action=showTable\">"
-                                . "<div>$tableName</div>"
+                            . "<a href=\"admin.php?sectionId=$id&action=showResume\">"
+                                . "<div>$title</div>"
                             . "</a>"
-                        . "</li>";
+                        . "</li>";                      
                 }
                 ?>
                 </ul> 

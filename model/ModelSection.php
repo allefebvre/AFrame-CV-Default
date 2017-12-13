@@ -39,5 +39,23 @@ class ModelSection {
 
         return $data;
     }
+    
+    /**
+     * Get a Section by id in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @return Section
+     */
+    public static function getSectionById(int $id) :Section {
+        global $base, $login, $password;
+        
+        $sectionGW = new SectionGateway(new Connection($base, $login, $password));
+        $row = $sectionGW->getSectionById($id);
+        $data = new Section($row['ID'], $row['title']);
+
+        return $data;
+    }
 }
 

@@ -15,7 +15,7 @@ class FrontController {
             'insertInDiverse','insertInEducation','insertInInformation','insertInSkill', 'insertInWorkExp' ,
             'updatePublication', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateSkill', 
             'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
-            'login', 'logout', 'changePassword', 'changePassword2');        
+            'login', 'logout', 'changePassword', 'changePassword2', 'showResume');        
         
         $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');
 

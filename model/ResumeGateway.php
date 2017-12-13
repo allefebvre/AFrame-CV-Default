@@ -35,5 +35,19 @@ class ResumeGateway {
         
         return $this->connection->getResults()[0][0];
     }
+    
+    /**
+     * Get a Resume by id in Database
+     * @param int $id
+     * @return array
+     */
+    public function getResumeById(int $id) :array {
+        $query='SELECT * FROM resume WHERE ID=:id;';
+        $this->connection->executeQuery($query, array(
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+        
+        return $this->connection->getResults()[0];
+    }
 }
 

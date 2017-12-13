@@ -36,6 +36,32 @@ class Resume{
     function getSectionId() :int {
         return $this->sectionId;
     }
+    
+    /**
+     * Get HTML to display a Resume
+     * @return string
+     */
+    function toString(): string {
+        $toReturn = "<td>$this->dateCreation</td>" 
+                . "<td>$this->dateModification</td>"
+                . "<td>$this->id</td>"
+                . "<td>$this->content</td>";
+        return $toReturn;
+    }
+    
+    /**
+     * Get HTML to build a form of a Resume
+     * @return string
+     */
+    function toStringForm(): string {
+        $toReturn = "<table>"
+                        . "<tr>"
+                            . "<td>Content* :</td>"
+                            . "<td><textarea name=\"content\" rows=\"5\" cols=\"100\">".$this->content."</textarea></td>"
+                        . "</tr>"
+                . "</table>";
+        return $toReturn;
+    }
 }
 ?>
 

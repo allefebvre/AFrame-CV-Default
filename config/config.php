@@ -22,6 +22,7 @@
     $views['displayPlane'] = "views/displayPlane.php";
     $views['showTables'] = "views/showTables.php";
     $views['defaultTable'] = "views/defaultTable.php";
+    $views['resumeTable'] = "views/resumeTable.php";
     $views['updateDefaultData'] = "views/updateDefaultData.php";
     $views['connection'] = "views/connection.php";
     $views['insertInBase'] = "views/insertDefaultData.php";

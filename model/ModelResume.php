@@ -38,5 +38,23 @@ class ModelResume {
         return $count;
     }
     
+    /**
+     * Get a Resume by id in Database 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @return Resume
+     */
+    public static function getResumeById(int $id) :Resume {
+        global $base, $login, $password;
+
+        $resumeGW = new ResumeGateway(new Connection($base, $login, $password));
+        $row = $resumeGW->getResumeById($id);
+        
+        $data = new Resume($row['ID'], $row['date_creation'], $row['date_modification'], $row['content'], $row['section_id']);
+        
+        return $data;
+    }
 }
 

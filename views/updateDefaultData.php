@@ -1,32 +1,3 @@
-<?php
-$tableName = $_REQUEST['table'];
-$id = $_REQUEST['id'];
-
-switch ($tableName) {
-    /* --- Sections : --- */
-    case "Information":
-        $data = ModelInformation::getOneInformation($id);
-        break;
-    case "Education":
-        $data = ModelEducation::getOneEducation($id);
-        break;
-    case "WorkExp":
-        $data = ModelWorkExp::getOneWorkExp($id);
-        break;
-    case "Skill":
-        $data = ModelSkill::getOneSkill($id);
-        break;
-    case "Diverse":
-        $data = ModelDiverse::getOneDiverse($id);
-        break;
-    
-    /* --- Publications : --- */
-    case "Publication":
-        $data = ModelPublication::getOnePublication($id);
-        break;  
-}
-?>
-
 <div class="updateDefaultData">
     <div class="titleBar">
         <a id="backButton" href="admin.php?table=<?php echo $tableName; ?>&action=showTable">&#10229; Back</a>
