@@ -17,6 +17,7 @@ if ($vive) {
                       menu-controls="value1: Teleport; value2: Trackpad; value3: Run"
                       spawn-sphere="distance: 0.4; event:menudown"
                       trackpad-move="menuSelect: 2"
+                      walls-run-move
                       run-move="menuSelect: 3"
                       vive-controls="hand: left"
                       teleport-controls="cameraRig: #cameraRig; button: trackpad; collisionEntities: #floor, #floor1, #floor2, #ramp, #ramp1, [mixin = platform]; curveShootingSpeed:15;"
