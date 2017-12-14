@@ -530,3 +530,4 @@ if ($spotlight) {
     <a-sphere dynamic-body position="-2 1 2" radius="0.5" interaction-object></a-sphere>
     <a-box dynamic-body position="2 1 -2" scale="0.5 2 0.5" interaction-object></a-box>
     <a-box dynamic-body position="-2 1 -2" scale="1 0.5 1" interaction-object></a-box>
+    <a-box position="3 2 3" scale="0.5 0.5 0.5" interaction-object color="#FFFF00"></a-box>

@@ -23,7 +23,7 @@ AFRAME.registerComponent('spawn-sphere', {
     init: function () {
         var el = this.el;
         var scene = document.getElementById(this.data.idScene);
-        var power = this.data.power;
+        var power = this.data.power * -1;
         var distanceStart = this.data.distance;
         var key = this.data.key;
         var canSpawn = true;
@@ -58,10 +58,9 @@ AFRAME.registerComponent('spawn-sphere', {
                     };
 
                     sphere.addEventListener("body-loaded", function () {
-                        sphere.body.applyImpulse(new CANNON.Vec3(impulse.x, impulse.y, impulse.z), new CANNON.Vec3().copy(sphere.getAttribute('position')));
-                        setTimeout(function () {
-                            sphere.body.applyImpulse(new CANNON.Vec3(-impulse.x, -impulse.y, -impulse.z), new CANNON.Vec3().copy(sphere.getAttribute('position')));
-                        }, 50);
+                        setTimeout(function(){
+                            sphere.body.applyImpulse(new CANNON.Vec3(impulse.x, impulse.y, impulse.z), new CANNON.Vec3().copy({x:0, y:0, z:0}));
+                        }, 1);
                     });
 
                     setTimeout(function () {
