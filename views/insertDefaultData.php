@@ -14,7 +14,7 @@ switch ($tableName) {
     case "Documentations":
     case "Thesis":
     case "Miscellaneous":
-        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
+        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 5);
         $tableMain = "Publication";
         break;
 }

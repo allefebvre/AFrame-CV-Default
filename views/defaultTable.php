@@ -2,6 +2,7 @@
 $tableName = $_GET['table'];
 
 $data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
+$tableMain = $tableName;
 
 switch ($tableName) {
     /* --- Sections --- */
@@ -31,6 +32,7 @@ switch ($tableName) {
         $tableMain = "Publication";
         break; 
 }
+$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableMain);
 ?>
 
 <div class="defaultTable">
