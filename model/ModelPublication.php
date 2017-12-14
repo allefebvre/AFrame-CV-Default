@@ -13,7 +13,7 @@ class ModelPublication {
  	global $base, $login, $password;
 
         $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $publicationGW->getAllPublication(); 
+        $results = $publicationGW->getAllPublications(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
@@ -26,7 +26,7 @@ class ModelPublication {
  	global $base, $login, $password;
 
         $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $publicationGW->getAllPublication(); 
+        $results = $publicationGW->getAllPublications(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
@@ -67,7 +67,7 @@ class ModelPublication {
  	global $base, $login, $password;
 
         $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $publicationGW->getAllConference(); 
+        $results = $publicationGW->getAllConferences(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
@@ -88,7 +88,7 @@ class ModelPublication {
  	global $base, $login, $password;
 
         $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $publicationGW->getAllDocumentation(); 
+        $results = $publicationGW->getAllDocumentations(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);

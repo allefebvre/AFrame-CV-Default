@@ -80,6 +80,18 @@ class PublicationGatewayTest extends TestCase {
         }
     }
     
+    public function testGetAllConferences(){
+        
+    }
+    
+    public function testGetAllThesis(){
+        
+    }
+    
+    public function testGetAllMiscellaneous(){
+        
+    }
+    
     public function testGetOnePublication() {
         $id = 100;
         $reference = '_Reference_Test_';
@@ -146,5 +158,9 @@ class PublicationGatewayTest extends TestCase {
         $this->assertEquals(NULL, $result['pdf']);
         $this->assertEquals(NULL, $result['date_display']);
         $this->assertEquals(NULL, $result['category_id']);
+    }
+    
+    public function testInsert(){
+        
     }
 }

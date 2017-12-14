@@ -11,7 +11,7 @@ class PublicationGateway {
      * Get all Publication in Database
      * @return array
      */
-    public function getAllPublication() :array {
+    public function getAllPublications() :array {
         $query='SELECT * FROM Publication ORDER BY ID;';
         $this->connection->executeQuery($query);
         
@@ -22,7 +22,7 @@ class PublicationGateway {
      * Get all Publication in Database by date
      * @return array
      */
-    public function getAllPublicationByDate() :array {
+    public function getAllPublicationsByDate() :array {
         $query='SELECT * FROM Publication ORDER BY date DESC;';
         $this->connection->executeQuery($query);
         
@@ -44,7 +44,7 @@ class PublicationGateway {
      * Get all Conferences in Database
      * @return array
      */
-    public function getAllConference() : array {
+    public function getAllConferences() : array {
         $query='SELECT * FROM Publication WHERE categorie_id=2 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
@@ -55,7 +55,7 @@ class PublicationGateway {
      * Get all Documentation in Database
      * @return array
      */
-    public function getAllDocumentation() : array {
+    public function getAllDocumentations() : array {
         $query='SELECT * FROM Publication WHERE categorie_id=3 ORDER BY ID;';
         $this->connection->executeQuery($query);
         
