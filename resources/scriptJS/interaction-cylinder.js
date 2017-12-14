@@ -57,7 +57,7 @@ AFRAME.registerComponent('interaction-cylinder', {
             }
             down_TimeOut = setTimeout(function () {
                 for (i = 0; i < 4; i++) {
-                    cylinder[i].setAttribute("static-body", null);
+                    cylinder[i].removeAttribute("static-body");
                     cylinder[i].setAttribute('visible', 'false');
                     cylinder[i].setAttribute('position', '0 0 0');
                 }

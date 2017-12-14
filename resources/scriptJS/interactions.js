@@ -50,6 +50,7 @@ AFRAME.registerComponent('interaction-controller', {
                             } else {
                                 el.takeObjectDynamic = false;
                             }
+                            break;
                         }
                     }
                 }

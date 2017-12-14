@@ -15,7 +15,7 @@ if ($vive) {
             <!-- LEFT CONTROL -->
             <a-entity id="left-control"
                       menu-controls="value1: Teleport; value2: Trackpad; value3: Run"
-                      spawn-sphere="distance: 0.4; event:menudown"
+                      spawn-sphere="distance: 0.2; event:menudown"
                       trackpad-move="menuSelect: 2"
                       walls-run-move
                       run-move="menuSelect: 3"
@@ -25,7 +25,7 @@ if ($vive) {
             </a-entity>
             <!-- RIGHT CONTROL -->
             <a-entity id="right-control"
-                      spawn-sphere="distance: 0.4; event:menudown"
+                      spawn-sphere="distance: 0.2; event:menudown"
                       laser-controls="hand: right"
                       raycaster="far: 10; interval: 200; objects: [mixin = link];"
                       cursor="downEvents: trackpaddown; upEvents: trackpadup"
