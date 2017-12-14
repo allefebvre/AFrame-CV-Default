@@ -1,22 +1,12 @@
 <?php
 $data['tables'] = ModelTables::getAllTables();
 
-$data['sectionsTables'] = array();
 $data['sectionPublication'] = array();
 
 foreach ($data['tables'] as $table) {
     $tableName = $table[0];
     if ($tableName !== "ByDate" && $tableName !== "Parameter" && $tableName !== "Login" && $tableName !== "Token") {
         switch ($tableName) {
-            /* --- Sections : --- */
-            case "Information":
-            case "Education":
-            case "WorkExp":
-            case "Skill":
-            case "Diverse":
-                $data['sectionsTables'][] = $tableName;
-                break;
-
             /* --- Publications : --- */
             case "Publication": 
                 $data['sectionPublication'][] = "Conferences";
