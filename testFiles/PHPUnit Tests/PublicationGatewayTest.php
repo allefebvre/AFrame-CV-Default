@@ -2,33 +2,33 @@
 
 use PHPUnit\Framework\TestCase;
 
-class JournalGatewayTest extends TestCase {
+class PublicationGatewayTest extends TestCase {
 
     static private $connection;
-    static private $journalGW;
+    static private $publicationGW;
     
     /**
      * @beforeClass
      */
     public static function setUpBeforeClass() {
         require_once 'model/Connection.php';
-        require_once 'model/JournalGateway.php';
+        require_once 'model/PublicationGateway.php';
         require 'config/config.php';
         self::$connection = new Connection($base, $login, $password);
-        self::$journalGW = new JournalGateway(self::$connection);
+        self::$publicationGW = new PublicationGateway(self::$connection);
     }
 
     /**
      * @afterClass
      */
     public static function tearDownAfterClass() {
-        self::$connection->executeQuery("DELETE FROM Journal WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
             ':reference' => array('_Reference_Test_', PDO::PARAM_STR),
             ':authors' => array('_Authors_Test_', PDO::PARAM_STR),
             ':title' => array('_Title_Test_', PDO::PARAM_STR),
             ':date' => array('0000-00-00', PDO::PARAM_STR)
         ));
-        self::$connection->executeQuery("DELETE FROM Journal WHERE id=:id AND reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE id=:id AND reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
             ':id' => array(100, PDO::PARAM_INT),
             ':reference' => array('_Test_Reference_', PDO::PARAM_STR),
             ':authors' => array('_Test_Authors_', PDO::PARAM_STR),
@@ -36,14 +36,24 @@ class JournalGatewayTest extends TestCase {
             ':date' => array('1111-11-11', PDO::PARAM_STR)
         ));
     }
+    
+    public function testGetAllPublication(){
+        
+    }
+    
+    public function testGetAllPublicationByDate(){
+        
+    }
+    
+    
 
     public function testGetAllJournals() {     
-        $results = self::$journalGW->getAllJournals();
+        $results = self::$publicationGW->getAllJournals();
         $oldSize = count($results);
         
-        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        self::$publicationGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$journalGW->getAllJournals();
+        $results = self::$publicationGW->getAllJournals();
         
         $this->assertEquals(count($results), $oldSize+1);
         
@@ -70,7 +80,7 @@ class JournalGatewayTest extends TestCase {
         }
     }
     
-    public function testGetOneJournal() {
+    public function testGetOnePublication() {
         $id = 100;
         $reference = '_Reference_Test_';
         $authors = '_Authors_Test_';
@@ -84,7 +94,7 @@ class JournalGatewayTest extends TestCase {
             ':date' => array($date, PDO::PARAM_STR)
         ));
         
-        $result = self::$journalGW->getOneJournal($id);
+        $result = self::$publicationGW->getOneJournal($id);
         
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);
@@ -113,9 +123,9 @@ class JournalGatewayTest extends TestCase {
         $authors = '_Test_Authors_';
         $title = '_Test_Title_';
         $date = '1111-11-11';
-        self::$journalGW->updateById($id, $reference, $authors, $title, $date);
+        self::$publicationGW->updateById($id, $reference, $authors, $title, $date);
         
-        $result = self::$journalGW->getOneJournal($id);
+        $result = self::$publicationGW->getOneJournal($id);
         
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);

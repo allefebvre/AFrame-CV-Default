@@ -2,14 +2,14 @@
 
 use PHPUnit\Framework\TestCase;
 
-class ConferenceTest extends TestCase {
+class PublicationTest extends TestCase {
     
     /**
      * @beforeClass
      */
     public static function setUpBeforeClass()
     {
-        require_once 'model/Conference.php';
+        require_once 'model/Publication.php';
     }
     
     public function test() {
@@ -27,7 +27,7 @@ class ConferenceTest extends TestCase {
         $keywords = "keywords";
         $series = "series";
         $localite = "localite";
-        $publisher = "publisuer";
+        $publisher = "publisher";
         $editor = "editor";
         $pdf = "pdf";
         $date_display = "date_display";
