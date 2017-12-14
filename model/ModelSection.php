@@ -57,5 +57,34 @@ class ModelSection {
 
         return $data;
     }
+    
+    /**
+     * Update a Section by id in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @param string $title
+     */
+    public static function updateById(int $id, string $title) {
+        global $base, $login, $password;
+        
+        $sectionGW = new SectionGateway(new Connection($base, $login, $password));
+        $sectionGW->updateById($id, $title);
+    }
+    
+    /**
+     * Insert a Section in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $title
+     */
+    public static function insert(string $title) {
+        global $base, $login, $password;
+
+        $sectionGW = new SectionGateway(new Connection($base, $login, $password));
+        $sectionGW->insert($title);
+    }
 }
 

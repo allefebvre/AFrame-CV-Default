@@ -42,9 +42,9 @@ class Resume{
      * @return string
      */
     function toString(): string {
-        $toReturn = "<td>$this->dateCreation</td>" 
+        $toReturn = "<td>$this->id</td>" 
+                . "<td>$this->dateCreation</td>"
                 . "<td>$this->dateModification</td>"
-                . "<td>$this->id</td>"
                 . "<td>$this->content</td>";
         return $toReturn;
     }
@@ -58,6 +58,10 @@ class Resume{
                         . "<tr>"
                             . "<td>Content* :</td>"
                             . "<td><textarea name=\"content\" rows=\"5\" cols=\"100\">".$this->content."</textarea></td>"
+                        . "</tr>"
+                        . "<tr>"
+                            . "<td></td>"
+                            . "<td><input type=\"hidden\" name=\"sectionId\" value=\"".$this->sectionId."\"></td>"
                         . "</tr>"
                 . "</table>";
         return $toReturn;

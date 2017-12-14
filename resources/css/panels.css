@@ -47,3 +47,7 @@
 .panels a:active div {
     background: #00b0a0;
 }
+
+#section {
+    margin-bottom: 20px;
+}

@@ -56,5 +56,35 @@ class ModelResume {
         
         return $data;
     }
+    
+    /**
+     * Update a Resume by id in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param int $id
+     * @param string $content
+     */
+    public static function updateById(int $id, string $content) {
+        global $base, $login, $password;
+        
+        $resumeGW = new ResumeGateway(new Connection($base, $login, $password));
+        $resumeGW->updateById($id, $content);
+    }
+    
+    /**
+     * Insert a Resume in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $content
+     * @param int $sectionId
+     */
+    public static function insert(string $content, int $sectionId) {
+        global $base, $login, $password;
+
+        $resumeGW = new ResumeGateway(new Connection($base, $login, $password));
+        $resumeGW->insert($content, $sectionId);
+    }
 }
 

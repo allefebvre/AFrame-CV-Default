@@ -3,44 +3,16 @@ $tableName = $_REQUEST['table'];
 
 switch ($tableName) {
     /* --- Sections : --- */
-    case "Information":
-        $data = new Information(0, "", "", "", "", "", "", "", "");
-        $tableMain = $tableName;
-        break;
-    case "Education":
-        $data = new Education(0, "", "");
-        $tableMain = $tableName;
-        break;
-    case "WorkExp":
-        $data = new WorkExp(0, "", "");
-        $tableMain = $tableName;
-        break;
-    case "Skill":
-        $data = new Skill(0, "", "");
-        $tableMain = $tableName;
-        break;
-    case "Diverse":
-        $tableMain = $tableName;
-        $data = new Diverse(0, "");
+    case "section":
+        $data = new Section(0, "");
+        $tableMain = "Section";
         break;
 
     /* --- Publications : --- */
     case "Conferences":
-        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        $tableMain = "Publication";
-        break;
     case "Journals":
-        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        $tableMain = "Publication";
-        break;
     case "Documentations":
-        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        $tableMain = "Publication";
-        break;
     case "Thesis":
-        $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
-        $tableMain = "Publication";
-        break;
     case "Miscellaneous":
         $data = new Publication(0, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0);
         $tableMain = "Publication";

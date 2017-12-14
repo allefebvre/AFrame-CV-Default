@@ -12,10 +12,8 @@ class FrontController {
         $dataError = array();
 
         $listAdminAction = array('saveParameters', 'showData', 'showTable', 'showLine', 'insertInPublication',
-            'insertInDiverse','insertInEducation','insertInInformation','insertInSkill', 'insertInWorkExp' ,
-            'updatePublication', 'updateDiverse', 'updateEducation', 'updateInformation', 'updateSkill', 
-            'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
-            'login', 'logout', 'changePassword', 'changePassword2', 'showResume');        
+            'insertInSection', 'updatePublication', 'updateSection', 'deleteDefaultLine', 'insertInBase', 
+            'login', 'logout', 'changePassword', 'changePassword2', 'showResume', 'editResume', 'updateResume', 'insertResume', 'insertInResume');        
         
         $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');
 

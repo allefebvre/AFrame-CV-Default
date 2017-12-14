@@ -18,5 +18,29 @@ class Section {
     function getTitle() {
         return $this->title;
     }
+    
+    /**
+     * Get HTML to display a Section
+     * @return string
+     */
+    function toString(): string {
+        $toReturn = "<td>$this->id</td>" 
+                . "<td>$this->title</td>";
+        return $toReturn;
+    }
+    
+    /**
+     * Get HTML to build a form of a Section
+     * @return string
+     */
+    function toStringForm(): string {
+        $toReturn = "<table>"
+                        . "<tr>"
+                            . "<td>Title* :</td>"
+                            . "<td><input name=\"title\" value=\"$this->title\" type=\"text\" size=\"100\"></td>"
+                        . "</tr>"
+                . "</table>";
+        return $toReturn;
+    }
 }
 

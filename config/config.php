@@ -24,8 +24,11 @@
     $views['defaultTable'] = "views/defaultTable.php";
     $views['resumeTable'] = "views/resumeTable.php";
     $views['updateDefaultData'] = "views/updateDefaultData.php";
+    $views['updateResume'] = "views/updateResume.php";
+    $views['insertResume'] = "views/insertResume.php";
     $views['connection'] = "views/connection.php";
     $views['insertInBase'] = "views/insertDefaultData.php";
     $views['changePassword'] = "views/changePassword.php";
     $views['info'] = "views/info.php";
+    
 ?>

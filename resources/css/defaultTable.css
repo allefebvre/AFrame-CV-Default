@@ -23,7 +23,6 @@
 .defaultTable form {
     text-align: center;
     margin-top: 4%;
-    
 }
 
 .defaultTable table {
@@ -81,4 +80,16 @@
     cursor: pointer;
     border: #111111 solid 1px;
     padding: 2px;
+}
+
+.defaultTable .alert {
+    background-color: #c8c8c8;
+    padding: 5px;
+    text-align: center;
+    width: 600px;
+    margin: 10px auto 0px auto;
+    display: block;
+    position: relative;
+    color:black;
+    font-size: 24px;
 }

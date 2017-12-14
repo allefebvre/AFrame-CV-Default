@@ -44,6 +44,11 @@ foreach ($data['tables'] as $table) {
                 <h3>Sections :</h3>
                 <ul>
                 <?php
+                echo "<li id=\"section\">"
+                        . "<a href=\"admin.php?table=section&action=showTable\">"
+                            . "<div>Section</div>"
+                        . "</a>"
+                    . "</li>";
                 $data['sections'] = ModelSection::getAllSections();
                 foreach($data['sections'] as $section) {
                     $title = $section->getTitle();

@@ -91,113 +91,32 @@ class Validation {
     }
     
     /**
-     * Check that fields of a Information's form are valid
-     * @param string $status
-     * @param string $name
-     * @param string $firstName
-     * @param string $mail
+     * Check that field of a Section's form is valid
+     * @param string $title
      * @param array $dViewError
      * @return bool
      */
-    public static function informationValidation (string $status, string $name, string $firstName, string $mail, array &$dViewError) :bool {
+    public static function sectionValidation (string $title, array &$dViewError) :bool {
         $validate = TRUE;
-        if($status === "") {
+        if($title === "") {
             $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Status' !";
-        }
-        if($name === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Name' !";
-        }
-        if($firstName === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'First Name' !";
-        }
-        if($mail !== "") {
-            $validateMail = Validation::mailValidation($mail);
-            if(!$validateMail) {
-                $validate = FALSE;
-                $dViewError[] = "'$mail' : Wrong format for the mail !";
-            }
+            $dViewError[] = "You did not fill the field 'Title' !";
         }
         
         return $validate;
     }
     
     /**
-     * Check that fields of a Education's form are valid
-     * @param string $date
-     * @param string $education
+     * Check that field of a Resume's form is valid
+     * @param string $content
      * @param array $dViewError
      * @return bool
      */
-    public static function educationValidation (string $date, string $education, array &$dViewError) :bool {
+    public static function resumeValidation (string $content, array &$dViewError) :bool {
         $validate = TRUE;
-        if($date === "") {
+        if($content === "") {
             $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Date' !";
-        }
-        if($education === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Education' !";
-        }
-        
-        return $validate;
-    }
-    
-    /**
-     * Check that fields of a WorkExp's form are valid
-     * @param string $date
-     * @param string $workExp
-     * @param array $dViewError
-     * @return bool
-     */
-    public static function workExpValidation (string $date, string $workExp, array &$dViewError) :bool {
-        $validate = TRUE;
-        if($date === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Date' !";
-        }
-        if($workExp === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Work Experience' !";
-        }
-        
-        return $validate;
-    }
-    
-    /**
-     * Check that fields of a Skill's form are valid
-     * @param string $category
-     * @param string $details
-     * @param array $dViewError
-     * @return bool
-     */
-    public static function skillValidation (string $category, string $details, array &$dViewError) :bool {
-        $validate = TRUE;
-        if($category === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Category' !";
-        }
-        if($details === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Details' !";
-        }
-        
-        return $validate;
-    }
-    
-    /**
-     * Check that fields of a Diverse's form are valid
-     * @param string $diverse
-     * @param array $dViewError
-     * @return bool
-     */
-    public static function diverseValidation (string $diverse, array &$dViewError) :bool {
-        $validate = TRUE;
-        if($diverse === "") {
-            $validate = FALSE;
-            $dViewError[] = "You did not fill the field 'Diverse' !";
+            $dViewError[] = "You did not fill the field 'Content' !";
         }
         
         return $validate;

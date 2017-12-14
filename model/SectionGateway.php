@@ -46,5 +46,29 @@ class SectionGateway {
         
         return $this->connection->getResults()[0];
     }
+    
+    /**
+     * Update a Section by id in Database
+     * @param int $id
+     * @param string $title
+     */
+    public function updateById(int $id, string $title) {
+        $query='UPDATE section SET title=:title WHERE id=:id;';
+        $this->connection->executeQuery($query, array(
+            ':title' => array($title, PDO::PARAM_STR),
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+    }
+    
+    /**
+     * Insert a Section in Database
+     * @param string $title
+     */
+    public function insert(string $title){
+        $query = 'INSERT INTO section (`title`)  VALUES (:title);';
+        $this->connection->executeQuery($query, array(
+            ':title' => array($title, PDO::PARAM_STR)
+        ));
+    }
 }
 

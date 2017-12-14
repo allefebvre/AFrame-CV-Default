@@ -1,24 +1,12 @@
 <?php
 $tableName = $_GET['table'];
 
-$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableMain);
+$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
 
 switch ($tableName) {
     /* --- Sections --- */
-    case "Information":
-        $data['dataTable'] = ModelInformation::getAllInformation();
-        break;
-    case "Education":
-        $data['dataTable'] = ModelEducation::getAllEducation();
-        break;
-    case "WorkExp":
-        $data['dataTable'] = ModelWorkExp::getAllWorkExp();
-        break;
-    case "Skill":
-        $data['dataTable'] = ModelSkill::getAllSkills();
-        break;
-    case "Diverse":
-        $data['dataTable'] = ModelDiverse::getAllDiverse();
+    case "section":
+        $data['dataTable'] = ModelSection::getAllSections();
         break;
     
     /* --- Publications --- */

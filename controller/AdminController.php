@@ -35,20 +35,8 @@ class AdminController {
                     case "updatePublication" :
                         $this->updatePublication();
                         break;
-                    case "updateDiverse" :
-                        $this->updateDiverse();
-                        break;
-                    case "updateEducation" :
-                        $this->updateEducation();
-                        break;
-                    case "updateInformation" :
-                        $this->updateInformation();
-                        break;
-                    case "updateSkill" :
-                        $this->updateSkill();
-                        break;
-                    case "updateWorkExp" :
-                        $this->updateWorkExp();
+                    case "updateSection" :
+                        $this->updateSection();
                         break;
                     case "deleteDefaultLine" :
                         $this->deleteDefaultLine();
@@ -59,20 +47,8 @@ class AdminController {
                     case "insertInPublication" :
                         $this->insertInPublication();
                         break;
-                    case "insertInDiverse" :
-                        $this->insertInDiverse();
-                        break;
-                    case "insertInEducation" :
-                        $this->insertInEducation();
-                        break;
-                    case "insertInInformation" :
-                        $this->insertInInformation();
-                        break;
-                    case "insertInSkill" :
-                        $this->insertInSkill();
-                        break;
-                    case "insertInWorkExp" :
-                        $this->insertInWorkExp();
+                    case "insertInSection" :
+                        $this->insertInSection();
                         break;
                     case "login" :
                         $this->login();
@@ -88,6 +64,18 @@ class AdminController {
                         break;
                     case "showResume" :
                         $this->showResume();
+                        break;
+                    case "editResume" :
+                        $this->editResume();
+                        break;
+                    case "updateResume" :
+                        $this->updateResume();
+                        break;
+                    case "insertResume" : 
+                        $this->insertResume();
+                        break;
+                    case "insertInResume" :
+                        $this->insertInResume();
                         break;
                 }
             }
@@ -280,14 +268,20 @@ class AdminController {
      * Display resume of selected Section
      * @global string $dir
      * @global array $views
+     * @param string $sectionId
+     * @param array $dViewError
      */
-    public function showResume() {
+    public function showResume(string $sectionId = NULL, array $dViewError = NULL) {
         global $dir, $views;
-        $sectionId = $_GET['sectionId'];
+        if(isset($_REQUEST['sectionId'])) {
+            $sectionId = $_REQUEST['sectionId'];
+        }
         $section = ModelSection::getSectionById($sectionId);
         $sectionTitle = $section->getTitle();
-        $resume = ModelResume::getResumeBySectionId($sectionId);
-        
+        $count = ModelResume::countResumeBySectionId($sectionId);
+        if ($count > 0) {
+            $resume = ModelResume::getResumeBySectionId($sectionId);
+        }
         $data['tableHead'] = ModelDefaultTable::getAllDefaultTable('resume');
         
         require $dir . $views['resumeTable'];
@@ -301,22 +295,22 @@ class AdminController {
      */
     public function showLine(array $dViewError = NULL) {
         global $dir, $views;
-        $tableName = $_REQUEST['table'];
-        $id = $_REQUEST['id'];
-        switch ($tableName) {
-            /* --- Sections : --- */
-            case "Resume" :
-                $data = ModelResume::getResumeById($id);
-                break;
-
-            /* --- Publications : --- */
-            case "Publication":
-                $data = ModelPublication::getOnePublication($id);
-                break;  
-        }
         require $dir . $views['updateDefaultData'];
     }
 
+    /**
+     * Display a form to edit a row of Resume
+     * @global string $dir
+     * @global array $views
+     * @param array $dViewError
+     */
+    public function editResume(array $dViewError = NULL) {
+        global $dir, $views;
+        $id = $_REQUEST['id'];
+        $data = ModelResume::getResumeById($id);
+        require $dir . $views['updateResume'];
+    }
+    
     /* --- Update --- */
 
     /**
@@ -355,102 +349,39 @@ class AdminController {
     }
 
     /**
-     * Get data and update Diverse Table
+     * Get data and update Section Table
      */
-    public function updateDiverse() {
+    public function updateSection() {
         $id = Validation::cleanInt($_REQUEST['id']);
-        $diverse = Validation::cleanString($_POST['diverse']);
+        $title = Validation::cleanString($_POST['title']);
 
         $dViewError = array();
-        $validate = Validation::diverseValidation($diverse, $dViewError);
+        $validate = Validation::sectionValidation($title, $dViewError);
 
         if ($validate) {
-            ModelDiverse::updateById($id, $diverse);
+            ModelSection::updateById($id, $title);
             $this->showTable();
         } else {
             $this->showLine($dViewError);
         }
     }
-
+    
     /**
-     * Get data and update Education Table
+     * Get data and update Section Table
      */
-    public function updateEducation() {
+    public function updateResume() {
         $id = Validation::cleanInt($_REQUEST['id']);
-        $date = Validation::cleanString($_POST['date']);
-        $education = Validation::cleanString($_POST['education']);
+        $content = $_POST['content'];
 
         $dViewError = array();
-        $validate = Validation::educationValidation($date, $education, $dViewError);
+        $validate = Validation::resumeValidation($content, $dViewError);
 
         if ($validate) {
-            ModelEducation::updateById($id, $date, $education);
-            $this->showTable();
+            ModelResume::updateById($id, $content);
+            $resume = ModelResume::getResumeById($id);
+            $this->showResume($resume->getSectionId());
         } else {
-            $this->showLine($dViewError);
-        }
-    }
-
-    /**
-     * Get data and update Information Table
-     */
-    public function updateInformation() {
-        $id = Validation::cleanInt($_REQUEST['id']);
-        $status = Validation::cleanString($_POST['status']);
-        $name = Validation::cleanString($_POST['name']);
-        $firstName = Validation::cleanString($_POST['firstName']);
-        $photo = Validation::cleanString($_POST['photo']);
-        $age = Validation::cleanString($_POST['age']);
-        $address = Validation::cleanString($_POST['address']);
-        $phone = Validation::cleanString($_POST['phone']);
-        $mail = Validation::cleanMail($_POST['mail']);
-
-        $dViewError = array();
-        $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
-
-        if ($validate) {
-            ModelInformation::updateById($id, $status, $name, $firstName, $photo, $age, $address, $phone, $mail);
-            $this->showTable();
-        } else {
-            $this->showLine($dViewError);
-        }
-    }
-
-    /**
-     * Get data and update Skill Table
-     */
-    public function updateSkill() {
-        $id = Validation::cleanInt($_REQUEST['id']);
-        $category = Validation::cleanString($_POST['category']);
-        $details = Validation::cleanString($_POST['details']);
-
-        $dViewError = array();
-        $validate = Validation::skillValidation($category, $details, $dViewError);
-
-        if ($validate) {
-            ModelSkill::updateById($id, $category, $details);
-            $this->showTable();
-        } else {
-            $this->showLine($dViewError);
-        }
-    }
-
-    /**
-     * Get data and update Work Experience Table
-     */
-    public function updateWorkExp() {
-        $id = Validation::cleanInt($_REQUEST['id']);
-        $date = Validation::cleanString($_POST['date']);
-        $workExp = Validation::cleanString($_POST['workExp']);
-
-        $dViewError = array();
-        $validate = Validation::workExpValidation($date, $workExp, $dViewError);
-
-        if ($validate) {
-            ModelWorkExp::updateById($id, $date, $workExp);
-            $this->showTable();
-        } else {
-            $this->showLine($dViewError);
+            $this->editResume($dViewError);
         }
     }
 
@@ -477,6 +408,45 @@ class AdminController {
 
     /* --- Insert --- */
 
+    /**
+     * Display form to insert in Database a Resume
+     * @global string $dir
+     * @global array $views
+     * @param array $dViewError
+     * @param $reload
+     */
+    public function insertResume(array $dViewError = NULL, $reload = NULL) {
+        global $dir, $views;
+        $id = $_REQUEST['id'];
+        $count = ModelResume::countResumeBySectionId($id);
+        if($count === 0) {
+            $section = ModelSection::getSectionById($id);
+            $data = new Resume(0, "", "", "", $id);
+            require $dir . $views['insertResume'];
+        } else {
+            $this->showResume($id, array("You have already a row !"));
+        }
+    }
+    
+    /**
+     * Get data and insert in Resume Table
+     */
+    public function insertInResume() {
+        $sectionId = $_POST['sectionId'];
+        $content = $_POST['content'];
+
+        $dViewError = array();
+        $validate = Validation::resumeValidation($content, $dViewError);
+        
+        if ($validate) {
+            ModelResume::insert($content, $sectionId);
+            $this->showResume($sectionId);
+        } else {
+            $reload = new Resume(0, "", "", $content, $sectionId);
+            $this->insertResume($dViewError, $reload);
+        }
+    }
+    
     /**
      * Display form to insert in Database of the selected Table
      * @global string $dir
@@ -526,105 +496,22 @@ class AdminController {
     }
 
     /**
-     * Get data and insert in Diverse Table
+     * Get data and insert in Section Table 
      */
-    public function insertInDiverse() {
-        $diverse = Validation::cleanString($_POST['diverse']);
+    public function insertInSection() {
+        $title = Validation::cleanString($_POST['title']);
 
         $dViewError = array();
-        $validate = Validation::diverseValidation($diverse, $dViewError);
+        $validate = Validation::sectionValidation($title, $dViewError);
 
         if ($validate) {
-            ModelDiverse::insert($diverse);
+            ModelSection::insert($title);
             $this->showTable();
         } else {
-            $reload = new Diverse(0, $diverse);
+            $reload = new Section(0, $title);
             $this->insertInBase($dViewError, $reload);
         }
     }
-
-    /**
-     * Get data and insert in Education Table 
-     */
-    public function insertInEducation() {
-        $date = Validation::cleanString($_POST['date']);
-        $education = Validation::cleanString($_POST['education']);
-
-        $dViewError = array();
-        $validate = Validation::educationValidation($date, $education, $dViewError);
-
-        if ($validate) {
-            ModelEducation::insert($date, $education);
-            $this->showTable();
-        } else {
-            $reload = new Education(0, $date, $education);
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
-    /**
-     * Get data and insert in Information Table 
-     */
-    public function insertInInformation() {
-        $status = Validation::cleanString($_POST['status']);
-        $name = Validation::cleanString($_POST['name']);
-        $firstName = Validation::cleanString($_POST['firstName']);
-        $photo = Validation::cleanString($_POST['photo']);
-        $age = Validation::cleanString($_POST['age']);
-        $address = Validation::cleanString($_POST['address']);
-        $phone = Validation::cleanString($_POST['phone']);
-        $mail = Validation::cleanMail($_POST['mail']);
-
-        $dViewError = array();
-        $validate = Validation::informationValidation($status, $name, $firstName, $mail, $dViewError);
-
-        if ($validate) {
-            ModelInformation::insert($status, $name, $firstName, $photo, $age, $address, $phone, $mail);
-            $this->showTable();
-        } else {
-            $reload = new Information(0, $status, $name, $firstName, $photo, $age, $address, $phone, "");
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
-    /**
-     * Get data and insert in Skill Table 
-     */
-    public function insertInSkill() {
-        $category = Validation::cleanString($_POST['category']);
-        $details = Validation::cleanString($_POST['details']);
-
-        $dViewError = array();
-        $validate = Validation::skillValidation($category, $details, $dViewError);
-
-        if ($validate) {
-            ModelSkill::insert($category, $details);
-            $this->showTable();
-        } else {
-            $reload = new Skill(0, $category, $details);
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
-    /**
-     * Get data and insert in Work Experience Table 
-     */
-    public function insertInWorkExp() {
-        $date = Validation::cleanString($_POST['date']);
-        $workExp = Validation::cleanString($_POST['workExp']);
-
-        $dViewError = array();
-        $validate = Validation::workExpValidation($date, $workExp, $dViewError);
-
-        if ($validate) {
-            ModelWorkExp::insert($date, $workExp);
-            $this->showTable();
-        } else {
-            $reload = new WorkExp(0, $date, $workExp);
-            $this->insertInBase($dViewError, $reload);
-        }
-    }
-
 }
 
 ?>

@@ -49,5 +49,36 @@ class ResumeGateway {
         
         return $this->connection->getResults()[0];
     }
+    
+    /**
+     * Update a Resume by id in Database
+     * @param int $id
+     * @param string $content
+     */
+    public function updateById(int $id, string $content) {
+        $today = date("Y-m-d");
+        $query='UPDATE resume SET date_modification=:dateModification, content=:content WHERE id=:id;';
+        $this->connection->executeQuery($query, array(
+            ':dateModification' => array($today, PDO::PARAM_STR),
+            ':content' => array($content, PDO::PARAM_STR),
+            ':id' => array($id, PDO::PARAM_INT)
+        ));
+    }
+    
+    /**
+     * Insert a Resume in Database
+     * @param string $content
+     * @param int $sectionId 
+     */
+    public function insert(string $content, int $sectionId) {
+        $today = date("Y-m-d");
+        $query = 'INSERT INTO resume (`date_creation`, `date_modification`, `content`, `section_id`)  VALUES (:dateCreation, :dateModification, :content, :sectionId);';
+        $this->connection->executeQuery($query, array(
+            ':dateCreation' => array($today, PDO::PARAM_STR),
+            ':dateModification' => array($today, PDO::PARAM_STR),
+            ':content' => array($content, PDO::PARAM_STR),
+            ':sectionId' => array($sectionId, PDO::PARAM_INT)
+        ));
+    }
 }
 

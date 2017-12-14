@@ -3,6 +3,12 @@ $tableName = $_REQUEST['table'];
 $id = $_REQUEST['id'];
 
 switch ($tableName) {
+    /* --- Sections : --- */
+    case "section":
+        $data = ModelSection::getSectionById($id);
+        $tableMain = "Section";
+        break;
+    
     /* --- Publications : --- */
     case "Conferences":
     case "Journals": 
