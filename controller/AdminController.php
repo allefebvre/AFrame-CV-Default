@@ -31,25 +31,28 @@ class AdminController {
                         break;
                     case "showLine" :
                         $this->showLine();
-                        break;
-                    case "updatePublication" :
-                        $this->updatePublication();
-                        break;
-                    case "updateSection" :
-                        $this->updateSection();
-                        break;
+                        break;                                      
                     case "deleteDefaultLine" :
                         $this->deleteDefaultLine();
                         break;
                     case "insertInBase" :
                         $this->insertInBase();
                         break;
+                    /* --- Publication's Actions : --- */
                     case "insertInPublication" :
                         $this->insertInPublication();
                         break;
+                    case "updatePublication" :
+                        $this->updatePublication();
+                        break; 
+                    /* --- Section's Actions : --- */
                     case "insertInSection" :
                         $this->insertInSection();
                         break;
+                    case "updateSection" :
+                        $this->updateSection();
+                        break;
+                    /* --- Account's Actions : --- */
                     case "login" :
                         $this->login();
                         break;
@@ -62,6 +65,7 @@ class AdminController {
                     case "changePassword2" :
                         $this->changePassword2();
                         break;
+                    /* --- Resume's Actions : --- */
                     case "showResume" :
                         $this->showResume();
                         break;
