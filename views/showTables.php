@@ -24,7 +24,6 @@ foreach ($data['tables'] as $table) {
                 $data['sectionPublication'][] = "Documentations";
                 $data['sectionPublication'][] = "Thesis";
                 $data['sectionPublication'][] = "Miscellaneous";
-                
                 break;   
         }
     }

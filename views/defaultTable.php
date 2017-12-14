@@ -1,7 +1,5 @@
 <?php
 $tableName = $_GET['table'];
-
-$data['theTable'] = ModelDefaultTable::getAllDefaultTable($tableName);
 $tableMain = $tableName;
 
 switch ($tableName) {
