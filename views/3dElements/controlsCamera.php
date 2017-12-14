@@ -29,7 +29,8 @@ if ($vive) {
                       laser-controls="hand: right"
                       raycaster="far: 10; interval: 200; objects: [mixin = link];"
                       cursor="downEvents: trackpaddown; upEvents: trackpadup"
-                      interaction-cylinder>
+                      interaction-cylinder
+                      interaction-controller>
             </a-entity>
         </a-entity>
     </a-entity>

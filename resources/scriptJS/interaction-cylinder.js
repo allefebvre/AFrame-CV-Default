@@ -29,7 +29,6 @@ AFRAME.registerComponent('interaction-cylinder', {
         var cylinder = [];
         for (var i = 0; i < 4; i++) {
             cylinder[i] = document.createElement("a-cylinder");
-            cylinder[i].setAttribute("static-body", "");
             cylinder[i].setAttribute("visible", "false");
             cylinder[i].setAttribute("radius", "0.07");
             cylinder[i].setAttribute("height", "0.4");
@@ -46,6 +45,7 @@ AFRAME.registerComponent('interaction-cylinder', {
         el.addEventListener('triggerdown', function () {
             clearTimeout(down_TimeOut);
             for (i = 0; i < 4; i++) {
+                cylinder[i].setAttribute("static-body", "");
                 cylinder[i].setAttribute('visible', 'true');
                 cylinder[i].emit("up");
             }
@@ -57,6 +57,7 @@ AFRAME.registerComponent('interaction-cylinder', {
             }
             down_TimeOut = setTimeout(function () {
                 for (i = 0; i < 4; i++) {
+                    cylinder[i].setAttribute("static-body", null);
                     cylinder[i].setAttribute('visible', 'false');
                     cylinder[i].setAttribute('position', '0 0 0');
                 }
