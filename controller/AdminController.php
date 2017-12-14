@@ -401,9 +401,16 @@ class AdminController {
                 $table = "Publication";
                 break;
         }
-
-        ModelDefaultTable::deleteDefaultLine($table, $id);
-        $this->showTable();
+        
+        if($table == "resume") {
+            $sectionId = ModelResume::getResumeById($id)->getSectionId();
+            ModelDefaultTable::deleteDefaultLine($table, $id);
+            $this->showResume($sectionId);
+        }
+        else {
+            ModelDefaultTable::deleteDefaultLine($table, $id);
+            $this->showTable();
+        }
     }
 
     /* --- Insert --- */

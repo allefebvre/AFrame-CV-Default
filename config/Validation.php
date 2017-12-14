@@ -122,6 +122,14 @@ class Validation {
         return $validate;
     }
     
+    /**
+     * Check that fields of a change password's form are valid
+     * @param string $passwordOld
+     * @param string $password
+     * @param string $passwordConf
+     * @param array $dViewError
+     * @return bool
+     */
     public static function changePasswordValidation (string $passwordOld, string $password, string $passwordConf, array &$dViewError) :bool {
         $validate = TRUE;
         $login = new Login();
@@ -145,6 +153,13 @@ class Validation {
         return $validate;
     }
     
+    /**
+     * Check that fields of a clogin's form are valid
+     * @param string $login
+     * @param string $password
+     * @param array $dViewError
+     * @return bool
+     */
     public static function loginValidation(string $login, string $password, array &$dViewError) :bool {
         $validate = TRUE;
         if ($login != null && $login != "" && $password != null && $password != "") {

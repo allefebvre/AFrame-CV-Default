@@ -12,22 +12,24 @@
     $views['foot'] = "views/foot.html";
     $views['error'] = "views/error.php";
     $views['home'] = "views/home.php";
-    $views['homeStart'] = "views/homeStart.html";
-    $views['homeAdmin'] = "views/homeAdmin.php";
-    $views['parameters'] = "views/parameters.php";
+    $views['homeStart'] = "views/homeStart.html";   
     $views['loft'] = "views/3dElements/loft.php";
     $views['controlsCamera'] = "views/3dElements/controlsCamera.php";
     $views['door'] = "views/3dElements/doors.html";
     $views['publication'] = "views/3dElements/publication.html";
     $views['displayPlane'] = "views/displayPlane.php";
+    
+    //Views admin interface
+    $views['connection'] = "views/connection.php";
+    $views['homeAdmin'] = "views/homeAdmin.php";
+    $views['parameters'] = "views/parameters.php";   
     $views['showTables'] = "views/showTables.php";
-    $views['defaultTable'] = "views/defaultTable.php";
-    $views['resumeTable'] = "views/resumeTable.php";
+    $views['defaultTable'] = "views/defaultTable.php";   
     $views['updateDefaultData'] = "views/updateDefaultData.php";
+    $views['insertInBase'] = "views/insertDefaultData.php";
+    $views['resumeTable'] = "views/resumeTable.php";
     $views['updateResume'] = "views/updateResume.php";
     $views['insertResume'] = "views/insertResume.php";
-    $views['connection'] = "views/connection.php";
-    $views['insertInBase'] = "views/insertDefaultData.php";
     $views['changePassword'] = "views/changePassword.php";
     $views['info'] = "views/info.php";
     

@@ -32,7 +32,7 @@
                         . "</a>"
                         . "</td>"
                         . "<td>"
-                        . "<a href=\"admin.php?action=deleteDefaultLine\">"
+                        . "<a href=\"admin.php?action=deleteDefaultLine&table=resume&id=$resumeId\">"
                             . "<div class=\"button\">Delete</div>"
                         . "</a>"
                     . "</td>";
