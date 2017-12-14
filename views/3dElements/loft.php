@@ -302,10 +302,10 @@ if ($spotlight) {
 <!-- End spots -->
 
 <?php if ($obj3D) { ?>
-    <a-box dynamic-body position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
-    <a-box dynamic-body position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
-    <a-box dynamic-body position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
-    <a-sphere dynamic-body position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
+    <a-box dynamic-body interaction-object position="15 0.5 10" rotation="0 30 0" color="#FF3333"></a-box>
+    <a-box dynamic-body interaction-object position="14.5 1.5 10.5" rotation="0 10 0" color="#33FF33"></a-box>
+    <a-box dynamic-body interaction-object position="14 0.5 11" rotation="0 -20 0" color="#3333FF"></a-box>
+    <a-sphere dynamic-body interaction-object position="8 6 13" color="#FFFF33" radius="0.5"></a-sphere>
     <a-entity obj-model="obj:resources/model3D/desk.obj;mtl:resources/model3D/desk.mtl" position="-6.646 5.158 13.17" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-entity>
     <a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
 
@@ -408,83 +408,83 @@ if ($spotlight) {
     <?php } ?>
     
     <a-box static-body position="6.85 0.505 2.459" rotation="0 -4.469070802020421 0" scale="3.418 1 0.497" material="visible:false"></a-box>
-    <a-box dynamic-body="mass:20" position="8.244 0.25 4.448" rotation="0 -90 0" scale="3.418 0.5 0.497" color="yellow"></a-box>
-    <a-box dynamic-body="mass:20" position="5.21 0.25 4.343" rotation="0 -90 0" scale="3.587 0.5 0.497" color="yellow"></a-box>
-    <a-box dynamic-body="mass:20" position="6.732 0.25 6.4" rotation="0 -180 0" scale="3.538 0.5 0.497" color="yellow"></a-box>
+    <a-box dynamic-body="mass:20" interaction-object position="8.244 0.25 4.448" rotation="0 -90 0" scale="3.418 0.5 0.497" color="yellow"></a-box>
+    <a-box dynamic-body="mass:20" interaction-object position="5.21 0.25 4.343" rotation="0 -90 0" scale="3.587 0.5 0.497" color="yellow"></a-box>
+    <a-box dynamic-body="mass:20" interaction-object position="6.732 0.25 6.4" rotation="0 -180 0" scale="3.538 0.5 0.497" color="yellow"></a-box>
     
-    <a-box dynamic-body position="8 1 8" rotation="0 0 0" scale="1 2 1" color="green"></a-box>
-    <a-dodecahedron dynamic-body position="9.5 2 9.5" color="#FF926B" radius="1"></a-dodecahedron>
+    <a-box dynamic-body interaction-object position="8 1 8" rotation="0 0 0" scale="1 2 1" color="green"></a-box>
+    <a-dodecahedron dynamic-body interaction-object position="9.5 2 9.5" color="#FF926B" radius="1"></a-dodecahedron>
     
-    <a-box dynamic-body position="6 0.5 8" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
-    <a-box dynamic-body position="6 0.5 9.1" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
-    <a-box dynamic-body position="6 0.5 10.2" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
-    <a-box dynamic-body position="6 1.5 8.5" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
-    <a-box dynamic-body position="6 1.5 9.6" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body interaction-object position="6 0.5 8" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body interaction-object position="6 0.5 9.1" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body interaction-object position="6 0.5 10.2" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body interaction-object position="6 1.5 8.5" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
+    <a-box dynamic-body interaction-object position="6 1.5 9.6" rotation="0 0 0" scale="1 1 1" color="blue"></a-box>
     
     
-    <a-sphere dynamic-body position="6.7 0.1 4.0" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 4.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 4.4" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 5.0" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 5.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 4.1" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 4.3" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 4.7" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 4.9" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 5.1" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.3 5.3" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 4.2" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 4.4" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.7 0.5 5.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 4.0" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 4.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 4.4" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 5.0" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 5.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 4.1" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 4.3" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 4.7" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 4.9" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 5.1" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.3 5.3" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 4.2" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 4.4" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.91 0.5 5.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 4.0" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 4.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 4.4" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 5.0" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 5.2" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 4.1" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 4.3" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 4.7" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 4.9" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 5.1" radius="0.15" color="blue"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.3 5.3" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 4.2" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 4.4" radius="0.15" color="red"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 4.8" radius="0.15" color="green"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
-    <a-sphere dynamic-body position="6.59 0.5 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.7 0.5 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.91 0.5 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 4.0" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 4.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 4.4" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 5.0" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 5.2" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.1 5.4" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 4.1" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 4.3" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 4.5" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 4.7" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 4.9" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 5.1" radius="0.15" color="blue"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.3 5.3" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 4.2" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 4.4" radius="0.15" color="red"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 4.6" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 4.8" radius="0.15" color="green"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 5.0" radius="0.15" color="yellow"></a-sphere>
+    <a-sphere dynamic-body interaction-object position="6.59 0.5 5.2" radius="0.15" color="red"></a-sphere>
     
 <?php
 }
