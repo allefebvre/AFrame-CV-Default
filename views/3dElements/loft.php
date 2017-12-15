@@ -527,7 +527,6 @@ if ($spotlight) {
     <a-box static-body position="14.385 3.637 -46.285" scale="8.584 8.42 2.121" material="visible:false"></a-box>
     
     <a-box dynamic-body position="2 1 2" scale="0.5 0.5 0.5" interaction-object></a-box>
-    <a-sphere dynamic-body position="-2 1 4" interaction-object></a-sphere>
     <a-sphere dynamic-body position="-2 1 2" radius="0.5" interaction-object></a-sphere>
     <a-box dynamic-body position="2 1 -2" scale="0.5 2 0.5" interaction-object></a-box>
     <a-box dynamic-body position="-2 1 -2" scale="1 0.5 1" interaction-object></a-box>
