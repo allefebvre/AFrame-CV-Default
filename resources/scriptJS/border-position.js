@@ -10,7 +10,7 @@
  */
 AFRAME.registerComponent('border-position', {
     schema: {
-        width: { type: "number", default: 50},
+        width: { type: "number", default: 50}
     },
     
     init: function () {

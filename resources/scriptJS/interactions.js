@@ -46,6 +46,13 @@ AFRAME.registerComponent('interaction-controller', {
             for (var i = 0; i < interactionObjects.length; i++) {
                 var posObject = interactionObjects[i].getAttribute("position");
                 var scaleObject = interactionObjects[i].getAttribute("scale");
+                if(interactionObjects[i].nodeName === "A-SPHERE"){
+                    var radius = interactionObjects[i].getAttribute("radius");
+                    if(radius == null || radius == undefined){
+                        radius = 1;
+                    }
+                    scaleObject = {x: scaleObject.x * radius * 2, y: scaleObject.y * radius * 2, z: scaleObject.z * radius * 2};
+                }
                 if (pos.x < posObject.x + scaleObject.x / 2 && pos.x > posObject.x - scaleObject.x / 2) {
                     if (pos.y < posObject.y + scaleObject.y / 2 && pos.y > posObject.y - scaleObject.y / 2) {
                         if (pos.z < posObject.z + scaleObject.z / 2 && pos.z > posObject.z - scaleObject.z / 2) {
