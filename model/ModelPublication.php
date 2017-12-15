@@ -16,7 +16,7 @@ class ModelPublication {
         $results = $publicationGW->getAllPublications(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -29,7 +29,7 @@ class ModelPublication {
         $results = $publicationGW->getAllPublications(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -50,7 +50,7 @@ class ModelPublication {
         $results = $publicationGW->getAllJournals(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -70,7 +70,7 @@ class ModelPublication {
         $results = $publicationGW->getAllConferences(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
        
         }
         
@@ -91,7 +91,7 @@ class ModelPublication {
         $results = $publicationGW->getAllDocumentations(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -111,7 +111,7 @@ class ModelPublication {
         $results = $publicationGW->getAllThesis(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -131,7 +131,7 @@ class ModelPublication {
         $results = $conferenceGW->getAllMiscellaneous(); 
         $data =  array();
         foreach ($results as $row){
-            $data[]=new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+            $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
         }
         
         return $data;
@@ -150,7 +150,7 @@ class ModelPublication {
 
         $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
         $row = $conferenceGW->getOnePublication($id);
-        $data = new Publication ($row['ID'], $row['reference'], $row['auteurs'], $row['titre'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
+        $data = new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
        
         return $data;
     }
@@ -215,7 +215,7 @@ class ModelPublication {
         global $base, $login, $password;
 
         $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
-        $conferenceGW->insert( $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+        $conferenceGW->insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
 }
 ?>  

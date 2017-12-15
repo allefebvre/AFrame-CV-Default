@@ -22,26 +22,26 @@ class PublicationGatewayTest extends TestCase {
      * @afterClass
      */
     public static function tearDownAfterClass() {
-        self::$connection->executeQuery("DELETE FROM Publication WHERE reference=:reference AND auteurs=:authors AND titre=:title AND date=:date;", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
             ':reference' => array('_Reference_Test_', PDO::PARAM_STR),
             ':authors' => array('_Authors_Test_', PDO::PARAM_STR),
             ':title' => array('_Title_Test_', PDO::PARAM_STR),
             ':date' => array('0000-00-00', PDO::PARAM_STR)
         ));
-        self::$connection->executeQuery("DELETE FROM Publication WHERE id=:id AND reference=:reference AND auteurs=:authors AND titre=:title AND date=:date;", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE ID=:id AND reference=:reference AND authors=:authors AND title=:title AND date=:date;", array(
             ':id' => array(100, PDO::PARAM_INT),
             ':reference' => array('_Test_Reference_', PDO::PARAM_STR),
             ':authors' => array('_Test_Authors_', PDO::PARAM_STR),
             ':title' => array('_Test_Title_', PDO::PARAM_STR),
             ':date' => array('1111-11-11', PDO::PARAM_STR)
         ));
-        self::$connection->executeQuery("DELETE FROM Publication WHERE id=:id AND reference=:reference AND auteurs=:authors AND titre=:title", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE ID=:id AND reference=:reference AND authors=:authors AND title=:title", array(
             ':id' => array(100, PDO::PARAM_INT),
             ':reference' => array('_Test_Reference_Insert', PDO::PARAM_STR),
             ':authors' => array('_Test_Authors_Insert', PDO::PARAM_STR),
             ':title' => array('_Test_Title_Insert', PDO::PARAM_STR)
         ));
-        self::$connection->executeQuery("DELETE FROM Publication WHERE id=:id AND reference=:reference AND auteurs=:authors AND titre=:title", array(
+        self::$connection->executeQuery("DELETE FROM Publication WHERE ID=:id AND reference=:reference AND authors=:authors AND title=:title", array(
             ':id' => array(100, PDO::PARAM_INT),
             ':reference' => array('_Test_Reference_Update', PDO::PARAM_STR),
             ':authors' => array('_Test_Authors_Update', PDO::PARAM_STR),
@@ -63,8 +63,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -96,8 +96,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -129,8 +129,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -162,8 +162,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -195,8 +195,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -228,8 +228,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -261,8 +261,8 @@ class PublicationGatewayTest extends TestCase {
         foreach ($results as $result) {
             $this->assertTrue(isset($result['ID']));
             $this->assertTrue(isset($result['reference']));
-            $this->assertTrue(isset($result['auteurs']));
-            $this->assertTrue(isset($result['titre']));
+            $this->assertTrue(isset($result['authors']));
+            $this->assertTrue(isset($result['title']));
             $this->assertTrue(isset($result['date']));
             $this->assertTrue(isset($result['journal']) || $result['journal'] == NULL);
             $this->assertTrue(isset($result['volume']) || $result['volume'] == NULL);
@@ -288,7 +288,7 @@ class PublicationGatewayTest extends TestCase {
         $title = '_Title_Test_';    
         $date = '0000-00-00';
         $categorie_id = 2;
-        self::$connection->executeQuery("INSERT INTO `Publication` (id, reference, auteurs, titre, date, categorie_id) VALUES (:id, :reference, :authors, :title, :date, :categorie_id);", array(
+        self::$connection->executeQuery("INSERT INTO `Publication` (ID, reference, authors, title, date, categorie_id) VALUES (:id, :reference, :authors, :title, :date, :categorie_id);", array(
             ':id' => array($id, PDO::PARAM_INT),
             ':reference' => array($reference, PDO::PARAM_STR),
             ':authors' => array($authors, PDO::PARAM_STR),
@@ -301,8 +301,8 @@ class PublicationGatewayTest extends TestCase {
 
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);
-        $this->assertEquals($authors, $result['auteurs']);
-        $this->assertEquals($title, $result['titre']);
+        $this->assertEquals($authors, $result['authors']);
+        $this->assertEquals($title, $result['title']);
         $this->assertEquals($date, $result['date']);
         $this->assertEquals(NULL, $result['journal']);
         $this->assertEquals(NULL, $result['volume']);
@@ -327,7 +327,7 @@ class PublicationGatewayTest extends TestCase {
         $title = '_Title_Test_';    
         $date = '0000-00-00';
         $categorie_id = 2;
-          self::$connection->executeQuery("INSERT INTO `Publication` (id, reference, auteurs, titre, date, categorie_id) VALUES (:id, :reference, :authors, :title, :date, :categorie_id);", array(
+          self::$connection->executeQuery("INSERT INTO `Publication` (ID, reference, authors, title, date, categorie_id) VALUES (:id, :reference, :authors, :title, :date, :categorie_id);", array(
             ':id' => array($id, PDO::PARAM_INT),
             ':reference' => array($reference, PDO::PARAM_STR),
             ':authors' => array($authors, PDO::PARAM_STR),
@@ -341,8 +341,8 @@ class PublicationGatewayTest extends TestCase {
 
         $this->assertEquals($id, $result['ID']);
         $this->assertEquals($reference, $result['reference']);
-        $this->assertEquals($authors, $result['auteurs']);
-        $this->assertEquals($title, $result['titre']);
+        $this->assertEquals($authors, $result['authors']);
+        $this->assertEquals($title, $result['title']);
         $this->assertEquals($date, $result['date']);
         $this->assertEquals(NULL, $result['journal']);
         $this->assertEquals(NULL, $result['volume']);
