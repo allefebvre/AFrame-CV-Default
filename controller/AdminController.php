@@ -243,7 +243,6 @@ class AdminController {
      * @global array $views
      */
     public function saveParameters() {
-        global $dir, $views;
         $this->updateParametersDatabase();
         $this->displayParametersAnd3DEnvironment();
     }

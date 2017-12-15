@@ -29,6 +29,8 @@ $spotlight = FALSE;
 $light = FALSE;
 $door = FALSE;
 
+$errorIndex = 0;
+
 // Add plane of headings
 foreach($parameters as $parameter) {      
     if($parameter->getDisplay() === "FALSE" || $parameter->getName() === "Publications") {
@@ -41,7 +43,8 @@ foreach($parameters as $parameter) {
             $id = $resume->getId();
         } else {
             $data['resumes'][] = array($parameter->getSection()); 
-            $id = "Error";
+            $id = "Error".$errorIndex;
+            $errorIndex++;
         }
     }
     $scroll = filter_var($parameter->getScroll(), FILTER_VALIDATE_BOOLEAN);

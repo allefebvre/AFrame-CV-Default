@@ -23,7 +23,7 @@ class ManagementPlane {
 
     /**
      * Get content to display in a Plane
-     * @param Resume|string $data
+     * @param Resume|array $data
      * @return string
      */
     private function getContentPlane($data) :string {
@@ -33,7 +33,6 @@ class ManagementPlane {
         } else {
             $content = $data->getContent();
         }
-        
         return $content;
     }
     
