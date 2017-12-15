@@ -1,6 +1,6 @@
 <div id="targetMiscellaneous" class="publication">
     <div>
-        <h1>miscellaneous</h1><div>
+        <h1>Miscellaneous</h1><div>
         <?php
         foreach ($data['miscellaneous'] as $o) {
             $reference = $o->getReference();

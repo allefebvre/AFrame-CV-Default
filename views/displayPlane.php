@@ -106,10 +106,10 @@ if($parameterPublication->getDisplay() === "TRUE") {
     // Add publication panel 
     $managementPlane->addPlane("views/htmlPlane/journals.php", "targetJournals", -10.24, 7.6, -9, 90, TRUE, "go-pdf-journals");
     $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, TRUE, "go-pdf-conferences");
-    $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89 , 7.6, 1, -90, TRUE, "go-pdf-others");
+    $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89 , 7.6, 1, -90, TRUE, "go-pdf-miscellaneous");
     $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");  
-    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", -1.656, 7.6, -3, -90, TRUE, "go-pdf-others");
-    $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", -1.548, 7.6, -3, 90, TRUE, "go-pdf-others");
+    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", -1.656, 7.6, -3, -90, TRUE, "go-pdf-documentation");
+    $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", -1.548, 7.6, -3, 90, TRUE, "go-pdf-thesis");
 }
 
 // Place the panels

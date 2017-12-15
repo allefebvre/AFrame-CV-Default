@@ -44,12 +44,40 @@ AFRAME.registerComponent('go-pdf-journals', {
  * Open the PDF others folder in another tab
  * @type type
  */
-AFRAME.registerComponent('go-pdf-others', {
+AFRAME.registerComponent('go-pdf-miscellaneous', {
     init: function () {
         var el = this.el;
 
         el.addEventListener('click', function () {
-            window.open('resources/PDF/Others', 'others','','');
+            window.open('resources/PDF/Miscellaneous', 'miscellaneous','','');
+        });
+    }
+});
+
+/**
+ * Open the PDF others folder in another tab
+ * @type type
+ */
+AFRAME.registerComponent('go-pdf-documentation', {
+    init: function () {
+        var el = this.el;
+
+        el.addEventListener('click', function () {
+            window.open('resources/PDF/Documentation', 'Documentation','','');
+        });
+    }
+});
+
+/**
+ * Open the PDF others folder in another tab
+ * @type type
+ */
+AFRAME.registerComponent('go-pdf-thesis', {
+    init: function () {
+        var el = this.el;
+
+        el.addEventListener('click', function () {
+            window.open('resources/PDF/Thesis', 'thesis','','');
         });
     }
 });
