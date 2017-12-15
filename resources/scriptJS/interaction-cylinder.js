@@ -1,7 +1,25 @@
+/**
+ * Create cylinder (static-body) in your controller when button down
+ * 
+ * Schema : 
+ * 
+ * Name                 | Type      | Description                               | Default
+ * ================================================================================================
+ * eventdown            | string    | Create cylinder                           | triggerdown
+ * eventup              | string    | Remove cylinder                           | triggerup
+ * 
+ */
 AFRAME.registerComponent('interaction-cylinder', {
+    schema: {
+        eventdown : {type : "string", default: "triggerdown"},
+        eventup : {type : "string", default: "triggerup"}
+    },
+    
     init: function () {
         var el = this.el;
         var down_TimeOut;
+        var eventdown = this.data.eventdown;
+        var eventup = this.data.eventup;
 
         var up = [];
         var down = [];
@@ -42,7 +60,7 @@ AFRAME.registerComponent('interaction-cylinder', {
         }
 
 
-        el.addEventListener('triggerdown', function () {
+        el.addEventListener(eventdown, function () {
             clearTimeout(down_TimeOut);
             for (i = 0; i < 4; i++) {
                 cylinder[i].setAttribute("static-body", "");
@@ -51,7 +69,7 @@ AFRAME.registerComponent('interaction-cylinder', {
             }
         });
 
-        el.addEventListener('triggerup', function () {
+        el.addEventListener(eventup, function () {
             for (i = 0; i < 4; i++) {
                 cylinder[i].emit("down");
             }

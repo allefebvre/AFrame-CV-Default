@@ -1,13 +1,15 @@
 /**
- * Function that will correct the player's position :
- *  el : element to correct
- *  it : number of times the correction will be performed (with 100 ms interval)
- *  correction : new height
- * @type type
+ * Component for this project
  */
 AFRAME.registerComponent('height-correction', {
-
     init: function () {
+        
+        /**
+         * Function that will correct the player's position :
+         *  el : element to correct
+         *  it : number of times the correction will be performed (with 100 ms interval)
+         *  correction : new height
+         */
         positioning = function (el, it, correction) {
             if (el.getAttribute("position").y < correction) //we verify if the correction is necessary
                 var oldY = el.getAttribute("position").y;
@@ -18,7 +20,6 @@ AFRAME.registerComponent('height-correction', {
         };
 
         setInterval(function (el) {
-
             if (el.getAttribute("position").y < 1.6) { // if we are above the floor
                 positioning(el, 2, 1.6);
             } else {

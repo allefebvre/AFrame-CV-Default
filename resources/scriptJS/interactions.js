@@ -22,12 +22,18 @@ AFRAME.interaction = {
     interactionObjects: []
 };
 
+/**
+ * This object can be take by interaction-controller
+ */
 AFRAME.registerComponent('interaction-object', {
     init: function () {
         AFRAME.interaction.interactionObjects.push(this.el);
     }
 });
 
+/**
+ * Can take the object with attribute : interaction-object
+ */
 AFRAME.registerComponent('interaction-controller', {
     init: function () {
         var interactionObjects = AFRAME.interaction.interactionObjects;

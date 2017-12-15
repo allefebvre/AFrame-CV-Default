@@ -1,8 +1,23 @@
+/*
+ * Add menu in your controller.
+ * The selected menu can read on el.menu.select.
+ * 
+ * Schema : 
+ * 
+ * Name                 | Type      | Description                               | Default
+ * ================================================================================================
+ * value1               | string    | Text display in the 1st button            | value1
+ * value2               | string    | Text display in the 2nd button            | value2
+ * value3               | string    | Text display in the 3rd button            | value3
+ * eventToggle          | string    | Event to toggle menu                      | gripdown
+ * 
+ */
 AFRAME.registerComponent('menu-controls', {
     schema: {
         value1: { type : 'string', default: 'value1'},
         value2: { type : 'string', default: 'value2'},
-        value3: { type : 'string', default: 'value3'}
+        value3: { type : 'string', default: 'value3'},
+        eventToggle : {type : 'string', default: 'gripdown'}
     },
     
     init: function(){
@@ -46,9 +61,9 @@ AFRAME.registerComponent('menu-controls', {
         text[0].setAttribute("color", "red");
         
         
-        el.menu = { visible:false, select: 1}
+        el.menu = { visible:false, select: 1};
         var menu = entity;
-        this.el.addEventListener('gripdown', function () {
+        this.el.addEventListener(this.data.eventToggle, function () {
             el.menu.visible = !el.menu.visible;
             if (el.menu.visible) {
                 menu.children[0].setAttribute('visible', 'true');

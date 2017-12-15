@@ -1,12 +1,29 @@
+/**
+ * Trackpad controller to move
+ * 
+ * Schema : 
+ * 
+ * Name                 | Type      | Description                               | Default
+ * ================================================================================================
+ * targetMove           | string    | Element to move                           | cameraRig
+ * speedMoveTrackpad    | number    | Speed                                     | 10
+ * menuSelect           | number    | the number of option in menu to activate  | -1
+ * 
+ */
 AFRAME.registerComponent('trackpad-move', {
     schema: {
         targetMove: {type: 'string', default: 'cameraRig'},
-        speedMoveTrackpad: {type: 'number', default: '10'},
-        menuSelect: {type: 'number', default: '-1'}
+        speedMoveTrackpad: {type: 'number', default: 10},
+        menuSelect: {type: 'number', default: -1}
     },
 
     init: function () {
         var el = this.el;
+        this.el.targetMove = document.getElementById(this.data.targetMove);
+        if (this.el.targetMove == null) {
+            console.error("ERROR [trackpad-move] : target is null");
+            return;
+        }
         
         el.movecontrols = {movX: 0, movY: 0, movZ: 0};
         el.movecontrols.enabled = false;
@@ -27,9 +44,9 @@ AFRAME.registerComponent('trackpad-move', {
     
     tick: function (time, timeDelta) {
         var menuSelect = this.data.menuSelect;
-        if (menuSelect == -1 || this.el.menu.select == menuSelect) {
+        if (menuSelect == -1 || this.el.menu == undefined || this.el.menu.select == menuSelect) {
             var target = document.getElementById(this.data.targetMove);
-            var pos = target.getAttribute("position");
+            var pos = this.el.targetMove;
             var speed = this.data.speedMoveTrackpad / 300;
 
             target.setAttribute("position", {

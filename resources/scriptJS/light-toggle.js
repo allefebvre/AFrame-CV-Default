@@ -1,6 +1,5 @@
 /**
  * Turn off / Turn on the spots
- * @type type
  */
 AFRAME.registerComponent('light-toggle-spot', {
     init: function(){
@@ -22,7 +21,6 @@ AFRAME.registerComponent('light-toggle-spot', {
 
 /**
  * Turn off / Turn on the lights
- * @type type
  */
 AFRAME.registerComponent('light-toggle', {
     init: function(){

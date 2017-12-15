@@ -40,7 +40,6 @@ if ($vive) {
 
 
     <a-entity camera="userHeight: 1.6"
-              persistence-position
               position="-10 0 0"
               rotation="10 90 0"
               jump-ability

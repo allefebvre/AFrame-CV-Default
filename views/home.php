@@ -10,14 +10,14 @@ require $dir . $views['displayPlane'];
 </div>
 
 
-<a-scene id="a-scene" physics inspector="url:resources/libraryJS/aframe-inspector.min.js" button-stats="p">
+<a-scene id="a-scene" physics inspector="url:resources/libraryJS/aframe-inspector.min.js" button-stats="key: p">
 
     <?php
     require $dir . $views['loft'];
-    if(!isset($door)){
+    if (!isset($door)) {
         $door = TRUE;
     }
-    if($door){
+    if ($door) {
         require $dir . $views['door'];
     }
     require $dir . $views['publication'];

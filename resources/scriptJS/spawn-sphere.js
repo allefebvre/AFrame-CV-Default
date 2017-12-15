@@ -11,10 +11,24 @@ var getAbsolutePosition = function (element) {
     return getPos(element);
 };
 
+/**
+ * Spawn sphere with impulse when event
+ * 
+ * Schema : 
+ * 
+ * Name                 | Type      | Description                               | Default
+ * ================================================================================================
+ * power                | number    | Power of impulse                          | 50
+ * distance             | number    | Distance of start spheres with controller | 1
+ * event                | string    | Event when spanw sphere                   | keydown
+ * key                  | string    | Key for spawn sphere (if event = keydown) | n
+ * idScene              | string    | id of a-scene                             | a-scene
+ * 
+ */
 AFRAME.registerComponent('spawn-sphere', {
     schema: {
-        power: {type: 'number', default: '50'},
-        distance: {type: 'number', default: '1'},
+        power: {type: 'number', default: 50},
+        distance: {type: 'number', default: 1},
         event: {type: 'string', default: 'keydown'},
         key: {type: 'string', default: 'n'},
         idScene: {type: 'string', default: 'a-scene'}
@@ -28,6 +42,11 @@ AFRAME.registerComponent('spawn-sphere', {
         var key = this.data.key;
         var canSpawn = true;
         var dataevent = this.data.event;
+        
+        if (scene == null) {
+            console.error("ERROR [spawn-sphere] : scene is null");
+            return;
+        }
         
         spawnSphere = function (event) {
             if (dataevent !== "keydown" || event.key === key) {
@@ -68,11 +87,11 @@ AFRAME.registerComponent('spawn-sphere', {
                     }, 4000);
 
                     setTimeout(function () {
-                        scene.removeChild(sphere)
+                        scene.removeChild(sphere);
                     }, 5000);
                 }
             }
-        }
+        };
         if(dataevent === "keydown"){
             document.addEventListener(dataevent, spawnSphere);
         }
@@ -81,4 +100,4 @@ AFRAME.registerComponent('spawn-sphere', {
         }
             
     }
-})
+});
