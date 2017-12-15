@@ -23,7 +23,7 @@ class SectionGatewayTest extends TestCase {
      */
     public static function tearDownAfterClass() {
         self::$connection->executeQuery("DELETE FROM section WHERE title=:title;", array(
-            ':title' => array('_Title_Test_', PDO::PARAM_STR)
+            ':title' => array('_Title_Test2_', PDO::PARAM_STR)
         ));
         self::$connection->executeQuery("DELETE FROM section WHERE ID=:id AND title=:title;", array(
             ':id' => array(100, PDO::PARAM_INT),
@@ -35,7 +35,7 @@ class SectionGatewayTest extends TestCase {
         $results = self::$sectionGW->getAllSections();
         $oldSize = count($results);
         
-        self::$sectionGW->insert('_Title_Test_');
+        self::$sectionGW->insert('_Title_Test2_');
 
         $results = self::$sectionGW->getAllSections();
         
