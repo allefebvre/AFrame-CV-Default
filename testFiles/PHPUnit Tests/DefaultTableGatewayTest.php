@@ -19,26 +19,26 @@ class DefaultTableGatewayTest extends TestCase {
     }
     
     public function testGetAllDefaultTables(){
-        $result = self::$defaultTableGW->getAllDefaultTables("Diverse"); 
+        $result = self::$defaultTableGW->getAllDefaultTables("section"); 
         $id = $result[0][0];
-        $diverse = $result[1][0];
+        $title = $result[1][0];
         
         $this->assertEquals("ID", $id);        
-        $this->assertEquals("diverse", $diverse);
+        $this->assertEquals("title", $title);
         }
     
     public function testDeleteDefaultLine(){
-        self::$connection->executeQuery("INSERT INTO `Diverse`(`diverse`) VALUES (:diverse);", array(
-            ':diverse' => array('_Diverse_Test_', PDO::PARAM_STR)
+        self::$connection->executeQuery("INSERT INTO `section` (`title`) VALUES (:title);", array(
+            ':title' => array('_Title_Test_', PDO::PARAM_STR)
         ));
-        self::$connection->executeQuery("SELECT id FROM Diverse WHERE diverse=:diverse;", array(
-            ':diverse' => array('_Diverse_Test_', PDO::PARAM_STR)
+        self::$connection->executeQuery("SELECT ID FROM section WHERE title=:title;", array(
+            ':title' => array('_Title_Test_', PDO::PARAM_STR)
         ));
         $result = self::$connection->getResults();
         $id = (int)$result[0][0];
         
-        self::$defaultTableGW->deleteDefaultLine("Diverse", $id);
-        self::$connection->executeQuery("SELECT * FROM Diverse WHERE id=:id;", array(
+        self::$defaultTableGW->deleteDefaultLine("section", $id);
+        self::$connection->executeQuery("SELECT * FROM section WHERE ID=:id;", array(
             ':id' => array($id, PDO::PARAM_INT)
         ));
         $nbRows = self::$connection->getNbResults();

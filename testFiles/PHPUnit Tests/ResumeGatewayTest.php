@@ -23,15 +23,15 @@ class ResumeGatewayTest extends TestCase {
      */
     public static function tearDownAfterClass() {
         self::$connection->executeQuery("DELETE FROM resume WHERE date_creation=:dateCreation AND date_modification=:dateModification AND content=:content AND section_id=:sectionId;", array(
-            ':date_creation' => array(date("Y-m-d"), PDO::PARAM_STR),
-            ':date_modification' => array(date("Y-m-d"), PDO::PARAM_STR),
+            ':dateCreation' => array(date("Y-m-d"), PDO::PARAM_STR),
+            ':dateModification' => array(date("Y-m-d"), PDO::PARAM_STR),
             ':content' => array('_Content_Test_', PDO::PARAM_STR),
             ':sectionId' => array(0, PDO::PARAM_INT)
         ));
         self::$connection->executeQuery("DELETE FROM resume WHERE ID=:id AND date_creation=:dateCreation AND date_modification=:dateModification AND content=:content AND section_id=:sectionId;", array(
-            ':id' => array(0, PDO::PARAM_INT),
-            ':date_creation' => array('0000-00-00', PDO::PARAM_STR),
-            ':date_modification' => array(date("Y-m-d"), PDO::PARAM_STR),
+            ':id' => array(100, PDO::PARAM_INT),
+            ':dateCreation' => array('0000-00-00', PDO::PARAM_STR),
+            ':dateModification' => array(date("Y-m-d"), PDO::PARAM_STR),
             ':content' => array('_Test_Content_', PDO::PARAM_STR),
             ':sectionId' => array(0, PDO::PARAM_INT)
         ));
@@ -43,7 +43,7 @@ class ResumeGatewayTest extends TestCase {
         $content = "_Content_Test_";
         $sectionId = 0;
         
-        self::$resumeGW->insert($dateCreation, $dateModification, $content, $sectionId);
+        self::$resumeGW->insert($content, $sectionId);
         
         $result = self::$resumeGW->getResumeBySectionId($sectionId);
         
@@ -61,7 +61,7 @@ class ResumeGatewayTest extends TestCase {
         
         $oldSize = self::$resumeGW->countResumeBySectionId($sectionId);
         
-        self::$resumeGW->insert($dateCreation, $dateModification, $content, $sectionId);
+        self::$resumeGW->insert($content, $sectionId);
         
         $newSize = self::$resumeGW->countResumeBySectionId($sectionId);
         
