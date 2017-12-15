@@ -45,10 +45,9 @@ AFRAME.registerComponent('trackpad-move', {
     tick: function (time, timeDelta) {
         var menuSelect = this.data.menuSelect;
         if (menuSelect == -1 || this.el.menu == undefined || this.el.menu.select == menuSelect) {
-            var target = document.getElementById(this.data.targetMove);
-            var pos = this.el.targetMove;
+            var target = this.el.targetMove;
+            var pos = target.getAttribute("position");
             var speed = this.data.speedMoveTrackpad / 300;
-
             target.setAttribute("position", {
                 x: pos.x + this.el.movecontrols.movX * timeDelta * speed,
                 y: pos.y + this.el.movecontrols.movY * timeDelta * speed,
