@@ -73,34 +73,36 @@ AFRAME.registerComponent('run-move', {
          }
          });*/
         //-----------------------------------------------------------------------
-
+        
+        var menuSelect = this.data.menuSelect;
         movecontrols2 = function () {
-            var posL = el.movecontrols2.leftcontrol.getAttribute('position');
-            var posR = el.movecontrols2.rightcontrol.getAttribute('position');
-            if (posL != null && posR != null) {
-                var deltaY = Math.abs(posL.y - posR.y);
-                var delta = Math.abs(deltaY - el.movecontrols2.deltaY_old);
-                if (delta > 0.05) { // A changer
-                    el.movecontrols2.delta_list[0] = delta;
-                } else {
-                    el.movecontrols2.delta_list[0] = 0;
-                }
-                el.movecontrols2.deltaY_old = deltaY;
+            if (menuSelect == -1 || el.menu == undefined || el.menu.select == menuSelect/* || true*/) {
+                var posL = el.movecontrols2.leftcontrol.getAttribute('position');
+                var posR = el.movecontrols2.rightcontrol.getAttribute('position');
+                if (posL != null && posR != null) {
+                    var deltaY = Math.abs(posL.y - posR.y);
+                    var delta = Math.abs(deltaY - el.movecontrols2.deltaY_old);
+                    if (delta > 0.05) { // A changer
+                        el.movecontrols2.delta_list[0] = delta;
+                    } else {
+                        el.movecontrols2.delta_list[0] = 0;
+                    }
+                    el.movecontrols2.deltaY_old = deltaY;
 
-                for (var i = 9; i >= 0; i--) { ///=== -1
-                    el.movecontrols2.delta_list[i + 1] = el.movecontrols2.delta_list[i];
+                    for (var i = 9; i >= 0; i--) { ///=== -1
+                        el.movecontrols2.delta_list[i + 1] = el.movecontrols2.delta_list[i];
+                    }
+                    var speed = 0;
+                    for (var i = 0, max = 10; i < max; i++) { ///===
+                        speed += el.movecontrols2.delta_list[i];
+                    }
+                    //---------------------------------------- Test in computer
+                    /*if (test)
+                     el.movecontrols2.speed = 1;
+                     else*/
+                    //----------------------------------------
+                    el.movecontrols2.speed = speed / 10;///===
                 }
-                var speed = 0;
-                for (var i = 0, max = 10; i < max; i++) { ///===
-                    speed += el.movecontrols2.delta_list[i];
-                }
-                //---------------------------------------- Test in computer
-                /*if (test)
-                 el.movecontrols2.speed = 1;
-                 else*/
-                //----------------------------------------
-                el.movecontrols2.speed = speed / 10;///===
-
             }
             setTimeout(movecontrols2, 50);
         };
@@ -124,7 +126,7 @@ AFRAME.registerComponent('run-move', {
                 var camera = this.el.movecontrols2.camera;
                 var rot = camera.getAttribute("rotation");
                 var move = this.el.movecontrols2.speed;
-                if(move == 0){
+                if (move == 0) {
                     return;
                 }
                 var movX = -Math.sin(rot.y / 180 * Math.PI) * speed * move / 10 * Math.cos(rot.x / 180 * Math.PI);
