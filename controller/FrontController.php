@@ -17,7 +17,7 @@ class FrontController {
             'updateJournal', 'updateOther', 'updateSkill', 'updateWorkExp', 'deleteDefaultLine', 'insertInBase', 
             'login', 'logout', 'changePassword', 'changePassword2');        
         
-        $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');
+        $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion', 'viewMobileVersion');
 
         try {
             $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
