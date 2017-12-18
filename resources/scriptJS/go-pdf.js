@@ -41,7 +41,7 @@ AFRAME.registerComponent('go-pdf-journals', {
 });
 
 /**
- * Open the PDF others folder in another tab
+ * Open the PDF Miscellaneous folder in another tab
  * @type type
  */
 AFRAME.registerComponent('go-pdf-miscellaneous', {
@@ -55,7 +55,7 @@ AFRAME.registerComponent('go-pdf-miscellaneous', {
 });
 
 /**
- * Open the PDF others folder in another tab
+ * Open the PDF Documentation folder in another tab
  * @type type
  */
 AFRAME.registerComponent('go-pdf-documentation', {
@@ -69,7 +69,7 @@ AFRAME.registerComponent('go-pdf-documentation', {
 });
 
 /**
- * Open the PDF others folder in another tab
+ * Open the PDF Thesis folder in another tab
  * @type type
  */
 AFRAME.registerComponent('go-pdf-thesis', {

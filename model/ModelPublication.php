@@ -22,11 +22,18 @@ class ModelPublication {
         return $data;
     }
     
+    /**
+     * Get all publication order by date
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @return array
+     */
     public static function getAllPublicationByDate() :array {
  	global $base, $login, $password;
 
         $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $publicationGW->getAllPublications(); 
+        $results = $publicationGW->getAllPublicationsByDate(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);

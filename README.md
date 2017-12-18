@@ -22,7 +22,7 @@ In this app there is an administrator space, where you can manage the display of
 # Requirement
 * **A web server and a Mysql server.**
 * **VR compatible browser** : 
-	* Firefox (best choices ;))
+	* Firefox (best choice ;))
 	* Chrome
 	* Safari
 
