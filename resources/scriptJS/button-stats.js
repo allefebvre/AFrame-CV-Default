@@ -14,7 +14,7 @@ AFRAME.registerComponent('button-stats', {
     },
 
     init: function () {
-        var key = this.data;
+        var key = this.data.key;
         var el = this.el;
         document.addEventListener('keydown', function (event) {
             if (event.key === key) {
