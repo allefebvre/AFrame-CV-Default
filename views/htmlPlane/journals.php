@@ -3,6 +3,11 @@
         <h1>Journals</h1>
         <div>
         <?php
+        if(count($data['documentations']) === 0 && count($data['byDates']) === 0 && count($data['conferences']) === 0 && count($data['thesis']) === 0 && count($data['miscellaneous']) === 0 && count($data['journals']) === 0) {
+            echo "<p>No rows in Database !</p>";
+            echo "<p>Publications zone unused !</p>";
+            echo "<p>You can disable this zone or add data in admin interface !</p>";
+        }
         foreach ($data['journals'] as $j) {
             $reference = $j->getReference();
             $authors = $j->getAuthors();

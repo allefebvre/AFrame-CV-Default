@@ -98,7 +98,7 @@ if($parameterPublication->getDisplay() === "TRUE") {
     // Data for publication
     $data['conferences'] = ModelPublication::getAllConferences();
     $data['journals'] = ModelPublication::getAllJournals();
-    $data['documentation'] = ModelPublication::getAllDocumentation();
+    $data['documentations'] = ModelPublication::getAllDocumentation();
     $data['thesis'] = ModelPublication::getAllThesis();
     $data['miscellaneous'] = ModelPublication::getAllMiscellaneous();
     $data['byDates'] = ModelPublication::getAllPublicationByDate();
@@ -108,7 +108,7 @@ if($parameterPublication->getDisplay() === "TRUE") {
     $managementPlane->addPlane("views/htmlPlane/conferences.php", "targetConferences", -10.24, 7.6, 1, 90, TRUE, "go-pdf-conferences");
     $managementPlane->addPlane("views/htmlPlane/miscellaneous.php", "targetMiscellaneous", 6.89 , 7.6, 1, -90, TRUE, "go-pdf-miscellaneous");
     $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");  
-    $managementPlane->addPlane("views/htmlPlane/documentation.php", "targetDocumentation", -1.656, 7.6, -3, -90, TRUE, "go-pdf-documentation");
+    $managementPlane->addPlane("views/htmlPlane/documentations.php", "targetDocumentation", -1.656, 7.6, -3, -90, TRUE, "go-pdf-documentation");
     $managementPlane->addPlane("views/htmlPlane/thesis.php", "targetThesis", -1.548, 7.6, -3, 90, TRUE, "go-pdf-thesis");
 }
 

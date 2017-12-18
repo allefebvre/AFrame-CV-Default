@@ -1,22 +1,28 @@
 <div id="targetThesis" class="publication">
     <div>
-        <h1>Thesis</h1><div>
+        <h1>Thesis</h1>
+        <div>
         <?php
-        foreach ($data['thesis'] as $o) {
-            $reference = $o->getReference();
-            $authors = $o->getAuthors();
-            $title = $o->getTitle();
-            $date = $o->getDate();
-            $journal = $o->getJournal();
-            $volume = $o->getVolume();
-            $number = $o->getNumber();
-            $pages = $o->getPages();
-            $note = $o->getNote();
-            $abstract = $o->getAbstract();
-            $keywords =  $o->getKeywords();
-            $localite = $o->getLocalite();
-            $publisher = $o->getPublisher();
-            $editor = $o->getEditor();		
+        if(count($data['documentations']) === 0 && count($data['byDates']) === 0 && count($data['conferences']) === 0 && count($data['thesis']) === 0 && count($data['miscellaneous']) === 0 && count($data['journals']) === 0) {
+            echo "<p>No rows in Database !</p>";
+            echo "<p>Publications zone unused !</p>";
+            echo "<p>You can disable this zone or add data in admin interface !</p>";
+        }
+        foreach ($data['thesis'] as $t) {
+            $reference = $t->getReference();
+            $authors = $t->getAuthors();
+            $title = $t->getTitle();
+            $date = $t->getDate();
+            $journal = $t->getJournal();
+            $volume = $t->getVolume();
+            $number = $t->getNumber();
+            $pages = $t->getPages();
+            $note = $t->getNote();
+            $abstract = $t->getAbstract();
+            $keywords =  $t->getKeywords();
+            $localite = $t->getLocalite();
+            $publisher = $t->getPublisher();
+            $editor = $t->getEditor();		
 
             
             echo "<span class=\"publi-ref\">[$reference]</span>";

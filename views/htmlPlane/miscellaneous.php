@@ -1,22 +1,28 @@
 <div id="targetMiscellaneous" class="publication">
     <div>
-        <h1>Miscellaneous</h1><div>
+        <h1>Miscellaneous</h1>
+        <div>
         <?php
-        foreach ($data['miscellaneous'] as $o) {
-            $reference = $o->getReference();
-            $authors = $o->getAuthors();
-            $title = $o->getTitle();
-            $date = $o->getDate();
-            $journal = $o->getJournal();
-            $volume = $o->getVolume();
-            $number = $o->getNumber();
-            $pages = $o->getPages();
-            $note = $o->getNote();
-            $abstract = $o->getAbstract();
-            $keywords =  $o->getKeywords();
-            $localite = $o->getLocalite();
-            $publisher = $o->getPublisher();
-            $editor = $o->getEditor();		
+        if(count($data['documentations']) === 0 && count($data['byDates']) === 0 && count($data['conferences']) === 0 && count($data['thesis']) === 0 && count($data['miscellaneous']) === 0  && count($data['journals']) === 0) {
+            echo "<p>No rows in Database !</p>";
+            echo "<p>Publications zone unused !</p>";
+            echo "<p>You can disable this zone or add data in admin interface !</p>";
+        }
+        foreach ($data['miscellaneous'] as $m) {
+            $reference = $m->getReference();
+            $authors = $m->getAuthors();
+            $title = $m->getTitle();
+            $date = $m->getDate();
+            $journal = $m->getJournal();
+            $volume = $m->getVolume();
+            $number = $m->getNumber();
+            $pages = $m->getPages();
+            $note = $m->getNote();
+            $abstract = $m->getAbstract();
+            $keywords =  $m->getKeywords();
+            $localite = $m->getLocalite();
+            $publisher = $m->getPublisher();
+            $editor = $m->getEditor();		
 
             
             echo "<span class=\"publi-ref\">[$reference]</span>";
