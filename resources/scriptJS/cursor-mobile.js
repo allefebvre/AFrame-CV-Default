@@ -12,17 +12,17 @@ AFRAME.registerComponent('cursor-mobile', {
             var displayFusing = function (prog) {
                 circle.setAttribute("geometry", "thetaStart:90; thetaLength:" + prog + "; radiusInner: 0.03; radiusOuter: 0.06");
                 if (prog < 360 && fusing) {
-                    timeout = setTimeout(displayFusing, 50, prog + 36);
+                    timeout = setTimeout(displayFusing, 70, prog + 45);
                 } else {
                     timeout = setTimeout(function(){
                         circle.setAttribute("geometry", "thetaStart:90; thetaLength:0; radiusInner: 0.03; radiusOuter: 0.06");
-                    }, 500)
+                    }, 600)
                 }
             }
 
             el.addEventListener('fusing', function () {
                 fusing = true;
-                displayFusing(36);
+                displayFusing(45);
             });
 
             el.addEventListener('mouseleave', function () {
