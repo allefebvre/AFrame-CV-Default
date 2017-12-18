@@ -50,10 +50,10 @@ class ParameterGateway {
     }
     
     /**
-     * Get number of plane to display which are in the middle loft in Database
+     * Count number of plane to display which are in the middle loft in Database
      * @return int
      */
-    public function getNbMiddlePlaneDisplay() :int {
+    public function countMiddlePlaneDisplay() :int {
         $query = "SELECT * FROM Parameter WHERE display=:display AND (name=:middle1 OR name=:middle2 OR name=:middle3 OR name=:middle4);";
         $this->connection->executeQuery($query, array(
             ':display' => array('TRUE', PDO::PARAM_STR),
@@ -64,6 +64,34 @@ class ParameterGateway {
         ));
         
         return $this->connection->getNbResults();
+    }
+    
+    /**
+     * Count Parameter by section in Database
+     * @param string $section
+     * @return int
+     */
+    public function countParameterBySection(string $section) :int {
+        $query='SELECT COUNT(*) FROM Parameter WHERE section=:section;';
+        $this->connection->executeQuery($query, array(
+            ':section' => array($section, PDO::PARAM_STR)
+        ));
+        
+        return $this->connection->getResults()[0][0];
+    }
+    
+    /**
+     * Get all Parameters by section in Database
+     * @param string $section
+     * @return array
+     */
+    public function getAllParametersBySection(string $section) :array {
+        $query = 'SELECT * FROM Parameter WHERE section=:section;';
+        $this->connection->executeQuery($query, array(
+            ':section' => array($section, PDO::PARAM_STR)
+        ));
+        
+        return $this->connection->getResults();
     }
 }
 ?>

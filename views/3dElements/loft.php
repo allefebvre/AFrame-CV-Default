@@ -216,7 +216,7 @@ fence(8, 10.75, 14.2, 10.919, 5.750, TRUE);
 
 <!-- Interior walls -->
 <?php
-$numberMiddle = ModelParameter::getNbMiddlePlaneDisplay();
+$numberMiddle = ModelParameter::countMiddlePlaneDisplay();
 if ($numberMiddle > 0) {
     ?>
     <a-box static-body mixin="wall" position="-2 2.5 0" scale="10 5 10"></a-box>

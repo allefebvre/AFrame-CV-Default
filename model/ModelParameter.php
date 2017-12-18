@@ -56,19 +56,57 @@ class ModelParameter {
     }
     
     /**
-     * Get number of plane to display which are in the middle loft in Database
+     * Count number of plane to display which are in the middle loft in Database
      * @global string $base
      * @global string $login
      * @global string $password
      * @return int
      */
-    public static function getNbMiddlePlaneDisplay() :int {
+    public static function countMiddlePlaneDisplay() :int {
  	global $base, $login, $password;
 
         $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
-        $number = $parameterGW->getNbMiddlePlaneDisplay();
+        $number = $parameterGW->countMiddlePlaneDisplay();
         
         return $number;
+    }
+    
+    /**
+     * Count Parameter by section in Database 
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $section
+     * @return int
+     */
+    public static function countParameterBySection(string $section) :int {
+        global $base, $login, $password;
+
+        $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
+        $count = $parameterGW->countParameterBySection($section);
+               
+        return $count;
+    }
+    
+    /**
+     * Get all Parameters by section in Database
+     * @global string $base
+     * @global string $login
+     * @global string $password
+     * @param string $section
+     * @return array
+     */
+    public static function getAllParametersBySection(string $section) :array {
+ 	global $base, $login, $password;
+
+        $parameterGW = new ParameterGateway(new Connection($base, $login, $password));
+        $results = $parameterGW->getAllParametersBySection($section); 
+        $data = array();
+        foreach ($results as $row){
+            $data[] = new Parameter ($row['ID'], $row['name'], $row['display'], $row['section'], $row['scroll']);
+        }
+        
+        return $data;
     }
 }
 ?>  

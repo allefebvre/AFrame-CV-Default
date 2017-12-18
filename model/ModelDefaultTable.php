@@ -29,7 +29,18 @@ class ModelDefaultTable {
     public static function deleteDefaultLine(string $tableName, int $id) {
         global $base, $login, $password;
 
+        if($tableName === "section") {
+            $sectionTitle = ModelSection::getSectionById($id)->getTitle();
+            $count = ModelParameter::countParameterBySection($sectionTitle);
+            if($count > 0) {
+                $parameters = ModelParameter::getAllParametersBySection($sectionTitle);
+                foreach($parameters as $parameter) {
+                    ModelParameter::updateParameter($parameter->getId(), "FALSE", NULL, "FALSE");
+                }
+            }       
+        }
+        
         $defaultTablesGW = new DefaultTableGateway(new Connection($base, $login, $password));
-        $defaultTablesGW->deleteDefaultLine($tableName, $id);       
+        $defaultTablesGW->deleteDefaultLine($tableName, $id);        
     }
 }
