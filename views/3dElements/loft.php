@@ -236,7 +236,10 @@ if ($numberMiddle > 0) {
 <?php
 $parameterPublication = ModelParameter::getParameterPublications();
 if ($parameterPublication->getDisplay() === "TRUE") {
-    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane><?php
+    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane>
+    <a-box mixin="wall" src="#wallTexture" static-body="sphereRadius:NaN" position="-1.6 7.6 -3" scale="0.1 5 8"></a-box>
+    <a-entity position="-2 9.5 -14.25" text="align:center;value:Click on panel to access at PDF file !;font:kelsonsans" scale="10 8 1"></a-entity>
+<?php
 }
 ?>
 
@@ -525,4 +528,4 @@ if ($spotlight) {
     <a-box static-body position="10.276 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
     <a-box static-body position="18.346 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
     <a-box static-body position="14.385 3.637 -46.285" scale="8.584 8.42 2.121" material="visible:false"></a-box>
-    <a-box mixin="wall" src="#wallTexture" static-body="sphereRadius:NaN" position="-1.6 7.6 -3" scale="0.1 5 8"></a-box>
+    

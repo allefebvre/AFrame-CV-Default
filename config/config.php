@@ -16,7 +16,6 @@
     $views['loft'] = "views/3dElements/loft.php";
     $views['controlsCamera'] = "views/3dElements/controlsCamera.php";
     $views['door'] = "views/3dElements/doors.html";
-    $views['publication'] = "views/3dElements/publication.html";
     $views['displayPlane'] = "views/displayPlane.php";
     
     //Views admin interface
