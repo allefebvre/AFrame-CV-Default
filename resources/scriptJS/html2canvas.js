@@ -45,9 +45,9 @@ AFRAME.registerComponent('html2canvas', {
         }
         
         setTimeout(function(){
-            if(document.nbrHTML2Canvas < 30){
+            if(document.nbrHTML2Canvas < 20){
                 document.nbrHTML2Canvas ++;
-                console.log("html2canvas number " + document.nbrHTML2Canvas + " /30");
+                console.log("html2canvas number " + document.nbrHTML2Canvas + " /20");
 
                 if (assets_canvas == null) {
                     console.error("ERROR [html2canvas] : assets_canvas is null, please insert in <a-assets> :  <div id=\"assets_canvas\"></div> ");

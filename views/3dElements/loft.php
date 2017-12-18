@@ -530,11 +530,13 @@ if(!$mobile) {
     <a-box static-body position="18.346 3.637 -30.029" scale="2.245 8.42 30.039" material="visible:false"></a-box>
     <a-box static-body position="14.385 3.637 -46.285" scale="8.584 8.42 2.121" material="visible:false"></a-box>
     
+    <?php if($vive){ ?>
     <a-box dynamic-body position="2 1 2" scale="0.5 0.5 0.5" interaction-object></a-box>
     <a-sphere dynamic-body position="-2 1 2" radius="0.5" interaction-object></a-sphere>
     <a-box dynamic-body position="2 1 -2" scale="0.5 2 0.5" interaction-object></a-box>
     <a-box dynamic-body position="-2 1 -2" scale="1 0.5 1" interaction-object></a-box>
     <a-box position="3 2 3" scale="0.5 0.5 0.5" interaction-object color="#FFFF00"></a-box>
+    <?php } ?>
     
 <?php }else { ?>
     <a-light light="intensity:0.25;type:ambient"></a-light>
