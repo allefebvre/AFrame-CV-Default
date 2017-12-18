@@ -40,41 +40,20 @@ AFRAME.registerComponent('html2canvas', {
         var canvas_old;
         var count = 0;
         
-        if(document.listIdHTML2Canvas == undefined){
-            document.listIdHTML2Canvas = [];
+        if(document.nbrHTML2Canvas == undefined){
+            document.nbrHTML2Canvas = 0;
         }
         
-        if(document.listIdHTML2Canvas.indexOf(target_id) == -1){
-            document.listIdHTML2Canvas.push(target_id);
-            
-            if (assets_canvas == null) {
-                console.error("ERROR [html2canvas] : assets_canvas is null, please insert in <a-assets> :  <div id=\"assets_canvas\"></div> ");
-                return;
-            }
+        setTimeout(function(){
+            if(document.nbrHTML2Canvas < 30){
+                document.nbrHTML2Canvas ++;
+                console.log("html2canvas number " + document.nbrHTML2Canvas + " /30");
 
-            var target = document.getElementById(target_id);
-            if (target == null) {
-                console.error("ERROR [html2canvas] : target is null");
-                return;
-            }
-            html2canvas(target, {
-                onrendered: function (canvas) {
-                    canvas.id = target_id + "_canvas";
-                    assets_canvas.appendChild(canvas);
-                    var image = document.createElement("img");
-                    image.src = canvas.toDataURL();
-                    image.id = canvas.id + "_img";
-                    assets_canvas.appendChild(image);
-                    el.setAttribute("src", "#" + image.id);
-                    el.updateComponents();
-                    canvas_old = canvas;
-                },
-                height: height,
-                width: width,
-                background: "#111111"
-            });
+                if (assets_canvas == null) {
+                    console.error("ERROR [html2canvas] : assets_canvas is null, please insert in <a-assets> :  <div id=\"assets_canvas\"></div> ");
+                    return;
+                }
 
-            el.updateCanvas = function () {
                 var target = document.getElementById(target_id);
                 if (target == null) {
                     console.error("ERROR [html2canvas] : target is null");
@@ -82,12 +61,8 @@ AFRAME.registerComponent('html2canvas', {
                 }
                 html2canvas(target, {
                     onrendered: function (canvas) {
-                        canvas.id = target_id + "_canvas" + count;
-                        if(canvas_old != null){
-                            assets_canvas.replaceChild(canvas, canvas_old);
-                        } else {
-                            assets_canvas.appendChild(canvas);
-                        }
+                        canvas.id = target_id + "_canvas";
+                        assets_canvas.appendChild(canvas);
                         var image = document.createElement("img");
                         image.src = canvas.toDataURL();
                         image.id = canvas.id + "_img";
@@ -95,13 +70,43 @@ AFRAME.registerComponent('html2canvas', {
                         el.setAttribute("src", "#" + image.id);
                         el.updateComponents();
                         canvas_old = canvas;
-                        count++;
                     },
                     height: height,
                     width: width,
                     background: "#111111"
                 });
-            };
-        }
+
+                el.updateCanvas = function () {
+                    var target = document.getElementById(target_id);
+                    if (target == null) {
+                        console.error("ERROR [html2canvas] : target is null");
+                        return;
+                    }
+                    html2canvas(target, {
+                        onrendered: function (canvas) {
+                            canvas.id = target_id + "_canvas" + count;
+                            if(canvas_old != null){
+                                assets_canvas.replaceChild(canvas, canvas_old);
+                            } else {
+                                assets_canvas.appendChild(canvas);
+                            }
+                            var image = document.createElement("img");
+                            image.src = canvas.toDataURL();
+                            image.id = canvas.id + "_img";
+                            assets_canvas.appendChild(image);
+                            el.setAttribute("src", "#" + image.id);
+                            el.updateComponents();
+                            canvas_old = canvas;
+                            count++;
+                        },
+                        height: height,
+                        width: width,
+                        background: "#111111"
+                    });
+                };
+            } else {
+                console.warn("max number of html2canvas reached !");
+            }
+        }, 1000);
     }
 });

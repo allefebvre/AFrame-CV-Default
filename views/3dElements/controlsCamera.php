@@ -16,7 +16,7 @@ if ($mobile) {
         <a-entity cursor="fuse: true; fuseTimeout: 1000"
                   cursor-mobile
                   position="0 0 -1"
-                  raycaster="far:20; objects: [mixin = link];"
+                  raycaster="far:10; objects: [mixin = link];"
                   geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                   material="color: black; shader: flat">
         </a-entity>

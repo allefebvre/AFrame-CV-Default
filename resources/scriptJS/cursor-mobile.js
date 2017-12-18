@@ -11,7 +11,6 @@ AFRAME.registerComponent('cursor-mobile', {
         var setEvent = function () {
             var displayFusing = function (prog) {
                 circle.setAttribute("geometry", "thetaStart:90; thetaLength:" + prog + "; radiusInner: 0.03; radiusOuter: 0.06");
-                console.log(prog);
                 if (prog < 360 && fusing) {
                     timeout = setTimeout(displayFusing, 50, prog + 36);
                 } else {
