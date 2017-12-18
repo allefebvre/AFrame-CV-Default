@@ -1,3 +1,7 @@
+/**
+ * Animation when click in mobile (fuse = 1000)
+ * 
+ */
 AFRAME.registerComponent('cursor-mobile', {
     init: function () {
         var el = this.el;
@@ -30,7 +34,7 @@ AFRAME.registerComponent('cursor-mobile', {
                 clearTimeout(timeout);
                 circle.setAttribute("geometry", "thetaStart:90; thetaLength:0; radiusInner: 0.03; radiusOuter: 0.06");
             });
-        }
+        };
         setTimeout(setEvent, 3000);
     }
 });
