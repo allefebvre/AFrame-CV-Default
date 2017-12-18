@@ -29,7 +29,7 @@ class ManagementPlane {
     private function getContentPlane($data) :string {
         if(is_array($data)) {
             $section = $data[0];
-            $content = "<h3>Error !</h3>\n<p>No row in resume Table for `$section` Section</p>";
+            $content = "<h3>$section</h3>\n<p>Error ! No row in resume Table for `$section` Section</p>";
         } else {
             $content = $data->getContent();
         }
