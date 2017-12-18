@@ -538,10 +538,16 @@ if(!$mobile) {
     
 <?php }else { ?>
     <a-light light="intensity:0.25;type:ambient"></a-light>
+    
     <a-box mixin="link" position="-10 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-5 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="0 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="5 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    
+    <a-box mixin="link" position="-10 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-10 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-15 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-15 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
     <a-box mixin="link" position="-5 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-5 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
@@ -570,10 +576,12 @@ if(!$mobile) {
     <a-box mixin="link" position="6.416 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-0.611 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
     <a-box mixin="link" position="-8.328 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-0.498 5.215 0.809" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-0.498 5.215 0.809" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-4.789 5.215 -9.153" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-4.789 5.215 -9.153" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
     
+    <a-box mixin="link" position="-1.5 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="-6 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="-1.5 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="-6 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="3 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="3 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
     
 <?php } ?>
