@@ -25,6 +25,7 @@ In this app there is an administrator space, where you can manage the display of
 	* Firefox (best choice ;))
 	* Chrome
 	* Safari
+* You would need HTML5 knowledge to edit the panels in the admin space
 
 # Compatible technology
 * HTC Vive
@@ -72,9 +73,9 @@ Every tests in the folder `PHPUnit Tests` test on class of the folder `model`
 
 * Some tests are lade to test connections and requests on database.
 	* `ConnectionTest.php`
-	* `ByDateGatewayTest.php`
+	* `PublicationGatewayTest.php`
 * Else are here to test the  constructors and the return of getters.
-	* `JournalTest.php`
+	* `PublicationTest.php`
 * And the other are lade to test the different methods present in the classes. 
 	* `ManagementPlaneTest.php`
 
