@@ -317,8 +317,8 @@ if ($spotlight && !$mobile) {
     <a-box static-body position="-6.828 5.751 13.69" scale="2.947 1.308 1.375" material="visible:false"></a-box>
 
     <a-entity obj-model="mtl:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.mtl;obj:resources/model3D/HP_Laptop_High_Poly/Laptop_High-Polay_HP_BI_2_obj.obj" position="-6.646 6.378 13.648" rotation="0 180 0" scale="0.2 0.2 0.2"></a-entity>
-    <a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -4.598" scale="0.029 0.029 0.029"></a-entity>
-    <a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -4.598" scale="0.035 0.035 0.035"></a-entity>
+    <a-entity static-body obj-model="obj:resources/model3D/table.obj" position="-1.44 5.57 -8.598" scale="0.029 0.029 0.029"></a-entity>
+    <a-entity obj-model="mtl:resources/model3D/pen/pen_parker.mtl;obj:resources/model3D/pen/pen_parker.obj" position="-0.849 6.591 -8.598" scale="0.035 0.035 0.035"></a-entity>
     <a-entity obj-model="obj:resources/model3D/Pen.obj" position="-7.609 6.369 13.648" rotation="0 180 0" scale="0.0005 0.0005 0.0005"></a-entity>
     <a-entity obj-model="obj:resources/model3D/Canape.obj" position="-16.61 -0.01 5.639" scale="2 2 2"></a-entity>
     <a-entity static-body obj-model="mtl:resources/model3D/house plant.mtl;obj:resources/model3D/house plant.obj" position="-18.513 -0.01 7.619" scale="0.002 0.002 0.002"></a-entity>
@@ -544,49 +544,51 @@ if(!$mobile) {
 <?php } else { ?>
     <a-light light="intensity:0.25;type:ambient"></a-light>
     
-    <a-box mixin="link" position="-10 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="-5 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="0 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="5 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-10 0 0"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-5 0 0"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="0 0 0"    scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="5 0 0"    scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="-10 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-10 0 8"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-10 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="-15 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-15 0 8"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-15 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="-5 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="-5 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="5 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="5 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="-5 0 12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-5 0 8"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-5 0 -8"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="5 0 8"    scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="5 0 -8"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-5 0 12"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-5 0 -12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="5 0 12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="5 0 -12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="5 0 12"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="5 0 -12"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="12 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="12 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="12 0 12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="12 0 8"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="12 0 -8"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="12 0 12"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="12 0 -12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="17 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="17 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="17 0 12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="17 0 8"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="17 0 -8"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="17 0 12"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="17 0 -12" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="17 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="17 0 0"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
     <a-box mixin="link" position="12.506 1.64 -2.183" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="12.506 4.987 4.205" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="12.506 5.319 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="12.506 5.319 7.89"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="6.416 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    <a-box mixin="link" position="-0.611 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-8.328 5.215 7.89" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="6.416 5.215 7.89"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-0.611 5.215 7.89"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-8.328 5.215 7.89"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     
-    <a-box mixin="link" position="-1.5 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-6 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-1.5 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="-6 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="3 5.2 -9.2" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
-    <a-box mixin="link" position="3 5.2 0.8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue" material="" geometry=""></a-box>
+    <a-box mixin="link" position="-6 5.2 0.8"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-6 5.2 -9.2"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="3 5.2 -9.2"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="3 5.2 0.8"    scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-1.5 5.2 3.5" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="1.5 5.2 -3"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    <a-box mixin="link" position="-4.5 5.2 -3"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+    
     
 <?php } ?>
