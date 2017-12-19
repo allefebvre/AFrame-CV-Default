@@ -1,5 +1,11 @@
 <!-- Door -->
 <!-- 1st Door -->
+<?php
+if(!isset($mobile)) {
+    $mobile = FALSE;
+}
+
+?>
 <a-box id="door1" static-body position="0.418 7.1 5.44" scale="0.2 3.8 2.15" rotation="0 90.01166961505233 0" color="#b9a8a8">
     <!-- Animations Portes 1 -->
     <a-animation attribute="position" from="0.418 7.1 5.44" to="0.418 7.1 5.64" begin="come"></a-animation>

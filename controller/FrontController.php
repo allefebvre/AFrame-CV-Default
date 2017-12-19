@@ -17,7 +17,7 @@ class FrontController {
             'login', 'logout', 'changePassword', 'changePassword2', 
             'showResume', 'insertResume', 'insertInResume', 'editResume', 'updateResume');        
         
-        $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion');
+        $listVisitorAction = array('viewPCVersion', 'viewHTCViveVersion', 'viewMobileVersion');
 
         try {
             $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);

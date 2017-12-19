@@ -49,19 +49,6 @@
     background: #00b0a0;
 }
 
-.homeStart #PCVersion {
-    width : 50%;
-    position: absolute;
-    margin-top: 50px;
-}
-
-.homeStart #ViveVersion {
-    width : 50%;
-    margin-left: 50%;
-    position: absolute;
-    margin-top: 50px;
-}
-
 .homeStart #Connection {
     font-size: 16px;
     position:absolute;
@@ -77,9 +64,35 @@
     color: #444444;
 }
 
-@media (max-width:800px) {
+.homeStart #PCVersion {
+    width : 33%;
+    position: absolute;
+    margin-top: 50px;
+}
+
+.homeStart #PhoneVersion {
+    width : 33%;
+    margin-left: 33%;
+    position: absolute;
+    margin-top: 50px;
+}
+
+.homeStart #ViveVersion {
+    width : 33%;
+    margin-left: 66%;
+    position: absolute;
+    margin-top: 50px;
+}
+
+@media (max-width:1000px) {
     .homeStart #ViveVersion {
-        margin-top: 300px;
+        margin-top: 450px;
+        margin-left: 0px;
+        width : 100%;
+    }
+    
+    .homeStart #PhoneVersion {
+        margin-top: 250px;
         margin-left: 0px;
         width : 100%;
     }

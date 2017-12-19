@@ -22,6 +22,8 @@ class VisitorController {
                 case 'viewHTCViveVersion' :
                     $this->display3DEnvironment(TRUE);
                     break;
+                case 'viewMobileVersion' :
+                    $this->display3DEnvironment(FALSE, TRUE);
             }
             
         } 
@@ -45,7 +47,7 @@ class VisitorController {
      * @global string $dir
      * @global array $views
      */
-    public function display3DEnvironment($vive = FALSE) {
+    public function display3DEnvironment($vive = FALSE, $mobile = FALSE) {
         global $dir,$views;
         require ($dir.$views['home']);
     }

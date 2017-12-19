@@ -1,3 +1,14 @@
+/**
+ * Control the height of the camera with keyboard
+ * 
+ * Schema : 
+ * 
+ * Name                 | Type      | Description                               | Default
+ * ================================================================================================
+ * up                   | string    | key to go up                              | +
+ * down                 | string    | key to go down                            | -
+ * 
+ */
 AFRAME.registerComponent("control-height", {
     schema: {
         up: {type: 'string', default: '+'},
