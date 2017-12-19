@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 -- Database: `AFrame-CV-Default`
 --
 
-CREATE DATABASE IF NOT EXISTS `AFrame-CV-Default` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `AFrame-CV-Default`;
+CREATE DATABASE IF NOT EXISTS `AFrame-CV-Default-2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `AFrame-CV-Default-2`;
 
 -- --------------------------------------------------------
 
