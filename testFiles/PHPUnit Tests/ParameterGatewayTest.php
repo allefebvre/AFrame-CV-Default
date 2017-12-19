@@ -81,9 +81,9 @@ class ParameterGatewayTest extends TestCase {
         }
     }
     
-    public function testGetNbMiddlePlaneDisplay() {
+    public function testCountMiddlePlaneDisplay() {
         $id = 150;
-        $oldSize = self::$parameterGW->getNbMiddlePlaneDisplay();
+        $oldSize = self::$parameterGW->countMiddlePlaneDisplay();
 
         self::$connection->executeQuery("INSERT INTO `Parameter` (id, name, display, section, scroll) "
                 . "VALUES (:id, :name, :display, :section, :scroll);", array(
@@ -94,7 +94,7 @@ class ParameterGatewayTest extends TestCase {
                 ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
-        $newSize = self::$parameterGW->getNbMiddlePlaneDisplay();
+        $newSize = self::$parameterGW->countMiddlePlaneDisplay();
 
         $this->assertEquals($newSize, $oldSize+1);
     }
