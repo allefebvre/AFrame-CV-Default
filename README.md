@@ -33,8 +33,8 @@ In this app there is an administrator space, where you can manage the display of
 * Samsung GearVR
 * Windows Mixed Reality
 
-#HTC Vive Controller
-<img src="resources/images/Schema Controllers.png" heigth="190" width="100%">
+# HTC Vive Controllers
+<img src="resources/images/SchemaControllers.png" heigth="190" width="100%">
 
 # Installation
 You need to change the credentials stored in the config file (config folder).
