@@ -3,7 +3,7 @@
     $dir = __DIR__.'/../';
     
     //DB
-    $base = "mysql:host=localhost;dbname=AFrame-CV-Default-2";
+    $base = "mysql:host=localhost;dbname=AFrame-CV-Default";
     $login = "root";
     $password = "root";
 
