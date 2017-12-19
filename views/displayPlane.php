@@ -1,19 +1,4 @@
 <?php
-
-/**
- * Check if a plane need scroll
- * @param array $data
- * @param int $nbRows
- * @return bool
- */
-function checkScroll(array $data, int $nbRows) : bool {
-    if(count($data) >= $nbRows) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
 /**
  * Get the path of the file HTML and the target id of the div to display
  * @param string $section
@@ -124,12 +109,6 @@ if($parameterPublication->getDisplay() === "TRUE") {
     $managementPlane->addPlane("views/htmlPlane/others.php", "targetOthers", 6.89, 7.6, 1, -90, FALSE, "go-pdf-others");
     $managementPlane->addPlane("views/htmlPlane/byDates.php", "targetDates", 6.89, 7.6, -9, -90, TRUE, "go-pdf");    
 }
-
-//Middle room
-//$managementPlane->addPlane("views/htmlPlane/infoSection.php", "targetInformation", 3.2, 2.5, 0, 90, FALSE, "");
-//$managementPlane->addPlane("views/htmlPlane/educationSection.php", "targetEducation", -2, 2.5, -5.2, 180, $scroll, "");
-//$managementPlane->addPlane("views/htmlPlane/workExpSection.php", "targetWorkPro", -2, 2.5, 5.2, 0, $scroll, "");
-//$managementPlane->addPlane("views/htmlPlane/skillSection.php", "targetSkill", -7.1, 2.5, 0, -90, $scroll, "");
 
 // Place the panels
 $managementPlane->placeHTML($data);
