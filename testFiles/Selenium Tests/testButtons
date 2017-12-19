@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>Buttons test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buttons test</td></tr>
+</thead><tbody>
+<!--Open ext door-->
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '10 1.6 -10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('rotation', '5 0 0');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '14.25 1.6 -10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Close ext door-->
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '10 1.6 -10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('rotation', '5 0 0');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '14.25 1.6 -10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<!--Open door-->
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '4.1 7 10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('rotation', '3 0 0');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '0 7 10');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

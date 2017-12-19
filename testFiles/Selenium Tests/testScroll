@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>Scroll</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Scroll</td></tr>
+</thead><tbody>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('position', '2 7 -5.4');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('rotation', '6 -90 0');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].setAttribute('rotation', '10 -90 0');</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>AFRAME.scenes[0].children[0].children[0].components.raycaster.intersectedEls[0].click();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
