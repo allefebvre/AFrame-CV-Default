@@ -19,7 +19,8 @@ class DefaultTableGatewayTest extends TestCase {
     }
     
     public function testGetAllDefaultTables(){
-        $result = self::$defaultTableGW->getAllDefaultTables("section"); 
+        $defaultTableGW = new DefaultTableGateway(self::$connection);
+        $result = $defaultTableGW->getAllDefaultTables("section"); 
         $id = $result[0][0];
         $title = $result[1][0];
         
