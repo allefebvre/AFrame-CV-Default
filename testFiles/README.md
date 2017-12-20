@@ -6,10 +6,10 @@
 
 # Configuration
 
-edit  `etc/php/7.0/cli/php.ini`
+Edit  `etc/php/7.0/cli/php.ini`
 * add : `zend_extension=/usr/lib/php/20151012/xdebug.so`
 
-restart apache2
+Restart apache2
 
 # Test coverage
 
