@@ -2,17 +2,17 @@
 
 <!-- see http://www.phpunit.de/wiki/Documentation -->
 <phpunit>
-  <filter>
-	 <whitelist processUncoveredFilesFromWhitelist="true">
-		<directory suffix=".php">../model/</directory>
-		<exclude>
-			 <file>../model/ModelDefaultTable.php</file>
-			 <file>../model/ModelParameter.php</file>
-			 <file>../model/ModelPublication.php</file>
-		<file>../model/ModelResume.php</file>
-		   <file>../model/ModelSection.php</file>
-		   <file>../model/ModelTables.php</file>
-	    </exclude>
-	 </whitelist>
-  </filter>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../model/</directory>
+            <exclude>
+                <file>../model/ModelDefaultTable.php</file>
+                <file>../model/ModelParameter.php</file>
+                <file>../model/ModelPublication.php</file>
+                <file>../model/ModelResume.php</file>
+                <file>../model/ModelSection.php</file>
+                <file>../model/ModelTables.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

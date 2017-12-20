@@ -150,7 +150,7 @@ class PublicationGatewayTest extends TestCase {
     }
 
     public function testGetAllConferences() {
-         $results = self::$publicationGW->getAllConferences();
+        $results = self::$publicationGW->getAllConferences();
         $oldSize = count($results);
 
         self::$publicationGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00',  '', '', '', '', '', '', '', '', '', '', '', '', '', 2);
@@ -183,7 +183,7 @@ class PublicationGatewayTest extends TestCase {
     }
 
     public function testGetAllThesis() {
-         $results = self::$publicationGW->getAllThesis();
+        $results = self::$publicationGW->getAllThesis();
         $oldSize = count($results);
 
         self::$publicationGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', 4);
@@ -216,7 +216,7 @@ class PublicationGatewayTest extends TestCase {
     }
 
     public function testGetAllMiscellaneous() {
-         $results = self::$publicationGW->getAllMiscellaneous();
+        $results = self::$publicationGW->getAllMiscellaneous();
         $oldSize = count($results);
 
         self::$publicationGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', 5);
@@ -248,8 +248,8 @@ class PublicationGatewayTest extends TestCase {
         }
     }
     
-        public function testGetAllDocumentation() {
-         $results = self::$publicationGW->getAllDocumentations();
+    public function testGetAllDocumentation() {
+        $results = self::$publicationGW->getAllDocumentations();
         $oldSize = count($results);
 
         self::$publicationGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', 3);

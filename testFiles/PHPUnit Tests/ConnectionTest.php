@@ -8,8 +8,7 @@ class ConnectionTest extends TestCase {
     /**
      * @beforeClass
      */
-    public static function setUpBeforeClass()
-    {
+    public static function setUpBeforeClass() {
         require_once 'model/Connection.php';
     }
     

@@ -18,13 +18,6 @@ class LoginTest extends TestCase {
         self::$login = new Login(self::$connection);
     }
 
-    /**
-     * @before
-     */
-    public function setUp() {
-        
-    }
-
     public function testLogin() {
         self::$login = new Login(self::$connection);
         self::$login = new Login();

@@ -7,8 +7,7 @@ class SectionTest extends TestCase {
     /**
      * @beforeClass
      */
-    public static function setUpBeforeClass()
-    {
+    public static function setUpBeforeClass() {
         require_once 'model/Section.php';
     }
     

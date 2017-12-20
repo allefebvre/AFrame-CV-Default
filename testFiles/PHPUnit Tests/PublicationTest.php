@@ -7,8 +7,7 @@ class PublicationTest extends TestCase {
     /**
      * @beforeClass
      */
-    public static function setUpBeforeClass()
-    {
+    public static function setUpBeforeClass() {
         require_once 'model/Publication.php';
     }
     

@@ -7,8 +7,7 @@ class ResumeTest extends TestCase {
     /**
      * @beforeClass
      */
-    public static function setUpBeforeClass()
-    {
+    public static function setUpBeforeClass() {
         require_once 'model/Resume.php';
     }
     
