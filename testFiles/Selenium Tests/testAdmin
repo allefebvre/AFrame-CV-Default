@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>testAdmin</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">testAdmin</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/AFrame-CV-Default/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=Connection</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pseudo</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=addData</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[3]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.link-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=content</td>
+	<td>&lt;h1&gt;Education2&lt;/h1&gt;<br />&lt;table&gt;<br />&lt;tr&gt;<br />&lt;td class=&quot;leftPlane&quot;&gt;&lt;b&gt;Date&lt;/b&gt;&lt;/td&gt;<br />&lt;td class=&quot;rightPlane&quot;&gt;Education&lt;/td&gt;<br />&lt;/tr&gt;<br />&lt;/table&gt;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.link-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=content</td>
+	<td>&lt;h1&gt;test&lt;/h1&gt;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[2]/ul/li[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.link-div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=reference</td>
+	<td>guilg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=authors</td>
+	<td>gyiulogy</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=title</td>
+	<td>ghjkghj</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=date</td>
+	<td>2012-12-20</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=date</td>
+	<td>2001-12-02</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=backButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=changePassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_old</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>root2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_conf</td>
+	<td>root2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[name=&quot;Change password&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=OK</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pseudo</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>root2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=changePassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password_old</td>
+	<td>root2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_conf</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[name=&quot;Change password&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=OK</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

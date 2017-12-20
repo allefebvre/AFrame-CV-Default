@@ -1,6 +1,6 @@
 <div class="updateDefaultData">
     <div class="titleBar">
-        <a id="backButton" href="admin.php?sectionId=<?php echo $id; ?>&action=showResume">&#10229; Back</a>
+        <a id="backButton" href="admin.php?sectionId=<?php echo $data->getSectionId(); ?>&action=showResume">&#10229; Back</a>
         <div class="title">
             <h2>Table : Resume  ID : <?php echo $id; ?></h2> 
         </div>
