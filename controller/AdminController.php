@@ -341,7 +341,7 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $category_id ,$dViewError);
 
         if ($validate) {
             ModelPublication::updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
@@ -494,7 +494,7 @@ class AdminController {
         $category_id = Validation::cleanInt((int) $_POST['categorie_id']);
 
         $dViewError = array();
-        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $dViewError);
+        $validate = Validation::publicationValidation($reference, $authors, $title, $date, $category_id ,$dViewError);
 
         if ($validate) {
             ModelPublication::insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);

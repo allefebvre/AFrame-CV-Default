@@ -53,16 +53,22 @@ class Validation {
         return $validate;
     }  
     
+    public static function category_idValidation (int $category_id) :bool{
+        preg_match("#[1-5]$#", $category_id) == FALSE ? $validate=FALSE : $validate=TRUE;
+        return $validate;
+    }
+    
     /**
      * Check that fields of Publication's forms are valid
      * @param string $reference
      * @param string $authors
      * @param string $title
      * @param string $date
+     * @param int $category_id
      * @param array $dViewError
      * @return bool
      */
-    public static function publicationValidation (string $reference, string $authors, string $title, string $date, array &$dViewError) :bool {
+    public static function publicationValidation (string $reference, string $authors, string $title, string $date, int $category_id ,array &$dViewError) :bool {
         $validate = TRUE;
         if($reference === "") {
             $validate = FALSE;
@@ -84,6 +90,16 @@ class Validation {
             if(!$validateDate) {
                 $validate = FALSE;     
                 $dViewError[] = "'$date' : Wrong format for the date, please use this format YYYY-MM-DD !";               
+            }
+        }
+        if ($category_id == NULL){
+            $validate = FALSE;
+            $dViewError[] = "You did not fill the field 'Category_id' !";
+        } else{
+            $validateCategory_id = Validation::category_idValidation($category_id);
+            if(!$validateCategory_id) {
+                $validate = FALSE;     
+                $dViewError[] = "'$category_id' : Category_id need to be between 1 and 5 !";               
             }
         }
         

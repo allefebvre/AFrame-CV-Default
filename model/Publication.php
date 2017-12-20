@@ -217,7 +217,7 @@ class Publication {
                         . "<td><input name=\"date_display\" value=\"$this->date_display\" type=\"text\" size=\"100\"></td>"
                     . "</tr>"
                     . "<tr>"
-                        . "<td>Categorie id :</td>"
+                        . "<td>Categorie id* :</td>"
                         . "<td><input name=\"categorie_id\" value=\"$this->categorie_id\" type=\"text\" size=\"100\"></td>"
                     . "</tr>"
                 . "</table>";
