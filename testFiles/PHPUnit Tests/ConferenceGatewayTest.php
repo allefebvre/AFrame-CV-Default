@@ -71,7 +71,7 @@ class ConferenceGatewayTest extends TestCase {
         }
     }
     
-    public function testGetOneOther() {
+    public function testGetOneConference() {
         $id = 100;
         $reference = '_Reference_Test_';
         $authors = '_Authors_Test_';
