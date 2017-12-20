@@ -32,12 +32,13 @@ class SectionGatewayTest extends TestCase {
     }
 
     public function testGetAllSections() {     
-        $results = self::$sectionGW->getAllSections();
+        $sectionGW = new SectionGateway(self::$connection);
+        $results = $sectionGW->getAllSections();
         $oldSize = count($results);
         
-        self::$sectionGW->insert('_Title_Test2_');
+        $sectionGW->insert('_Title_Test2_');
 
-        $results = self::$sectionGW->getAllSections();
+        $results = $sectionGW->getAllSections();
         
         $this->assertEquals(count($results), $oldSize+1);
         
