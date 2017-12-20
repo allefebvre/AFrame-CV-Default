@@ -34,7 +34,8 @@ class ParameterGatewayTest extends TestCase {
     }
     
     public function testGetAllParameter() {
-        $results = self::$parameterGW->getAllParameter();
+        $parameterGW = new ParameterGateway(self::$connection);
+        $results = $parameterGW->getAllParameter();
         $oldSize = count($results);
         
         self::$connection->executeQuery("INSERT INTO `Parameter` (name, display, section, scroll) "
@@ -45,7 +46,7 @@ class ParameterGatewayTest extends TestCase {
                 ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
-        $results = self::$parameterGW->getAllParameter();
+        $results = $parameterGW->getAllParameter();
         
         $this->assertEquals(count($results), $oldSize+1);
         
@@ -112,6 +113,47 @@ class ParameterGatewayTest extends TestCase {
                 $this->assertEquals($section, $result['section']);
                 $this->assertEquals($scroll, $result['scroll']);
             }
+        }
+    }
+    
+    public function testCountParameterBySection() {
+        $oldSize = self::$parameterGW->countParameterBySection("_Section_Test_");
+        
+        self::$connection->executeQuery("INSERT INTO `Parameter` (name, display, section, scroll) "
+                . "VALUES (:name, :display, :section, :scroll);", array(
+                ':name' => array('_Test1_', PDO::PARAM_STR),
+                ':display' => array('_FALSE_Test_', PDO::PARAM_STR),
+                ':section' => array('_Section_Test_', PDO::PARAM_NULL),
+                ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
+        ));
+        
+        $newSize = self::$parameterGW->countParameterBySection("_Section_Test_");
+
+        $this->assertEquals($newSize, $oldSize+1);
+    }
+    
+    public function testGetAllParametersBySection() {
+        $results = self::$parameterGW->getAllParametersBySection('_Section_Test_');
+        $oldSize = count($results);
+        
+        self::$connection->executeQuery("INSERT INTO `Parameter` (name, display, section, scroll) "
+                . "VALUES (:name, :display, :section, :scroll);", array(
+                ':name' => array('_Test1_', PDO::PARAM_STR),
+                ':display' => array('_FALSE_Test_', PDO::PARAM_STR),
+                ':section' => array('_Section_Test_', PDO::PARAM_NULL),
+                ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
+        ));
+        
+        $results = self::$parameterGW->getAllParametersBySection('_Section_Test_');
+        
+        $this->assertEquals(count($results), $oldSize+1);
+        
+        foreach($results as $result) {
+            $this->assertTrue(isset($result['ID']));
+            $this->assertTrue(isset($result['name']));
+            $this->assertTrue(isset($result['display']));
+            $this->assertTrue(isset($result['section']));
+            $this->assertTrue(isset($result['scroll']));
         }
     }
 }
