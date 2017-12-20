@@ -24,10 +24,10 @@ class ConnectionTest extends TestCase {
      */
     public function testAddTable(){
         try {
-            self::$connection->executeQuery("DROP TABLE `AFrame-CV-Default`.`testPHPUnit`;");
+            self::$connection->executeQuery("DROP TABLE `AFrame-CV-Default-2`.`testPHPUnit`;");
         } catch (Exception $e) {}
         
-        self::$connection->executeQuery("CREATE TABLE `AFrame-CV-Default`.`testPHPUnit` ( `test1` INT NOT NULL , `test2` INT NOT NULL );");
+        self::$connection->executeQuery("CREATE TABLE `AFrame-CV-Default-2`.`testPHPUnit` ( `test1` INT NOT NULL , `test2` INT NOT NULL );");
         $this->assertEquals(0, self::$connection->errorCode());
     }
     
@@ -50,7 +50,7 @@ class ConnectionTest extends TestCase {
      * @depends testAddRow
      */
     public function testDropTable(){
-        self::$connection->executeQuery("DROP TABLE `AFrame-CV-Default`.`testPHPUnit`;");
+        self::$connection->executeQuery("DROP TABLE `AFrame-CV-Default-2`.`testPHPUnit`;");
         $this->assertEquals(0, self::$connection->errorCode());
     }
 }
