@@ -204,13 +204,12 @@ function checkSection(string $sectionTitle = NULL) :string {
                 <input type="hidden" name="action" value="saveParameters">
             </div>
         </form>
-        </br>
+        <br>
         <div>
-            <a id="addData" href="admin.php?action=showData" class="link">Add Data</a>
-            <a id="logout" href="admin.php?action=logout" class="link">Logout</a>
-            </br>
-            </br>
-            <div>
+            <div id="addData"><a href="admin.php?action=showData" class="link">Add Data</a><div>
+            <br><br><br><br>
+            <div id="account">
+                <a id="logout" href="admin.php?action=logout" class="link">Logout</a>
                 <a id="changePassword" href="admin.php?action=changePassword" class="link">Change password</a>
             </div>
         </div>
