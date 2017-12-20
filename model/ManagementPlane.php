@@ -62,7 +62,7 @@ class ManagementPlane {
     /**
      * Call this function once in the scene
      */
-    public function placeEntity() {
+    public function placeEntity(bool $mobile = false) {
         for ($index=0 ; $index<count($this->listPLane) ; $index++) {
             $plane = $this->listPLane[$index];
             $scale = $plane->getScale();
@@ -70,7 +70,7 @@ class ManagementPlane {
 
             <a-entity position="<?php echo $plane->getPosX() . " " . $plane->getPosY() . " " . $plane->getPosZ(); ?>" rotation="0 <?php echo $plane->getRotation(); ?> 0">
                 <?php if ($plane->getScroll()) { ?>
-                    <a-plane mixin="link" <?php echo $plane->getAction(); ?> scroll="<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" 
+                    <a-plane <?php if(!$mobile){ echo "mixin=\"link\""; } ?> <?php echo $plane->getAction(); ?> scroll="<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="6 3.375 1" 
                         html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff" shader="flat">
                     </a-plane>
 
@@ -93,7 +93,7 @@ class ManagementPlane {
                     </a-entity>
 
                 <?php } else { ?>
-                    <a-plane mixin="link" <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="<?php echo 6 * $scale; ?> <?php echo 3.375 * $scale; ?> 1" shader="flat" html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff"></a-plane>
+                    <a-plane <?php if(!$mobile){ echo "mixin=\"link\""; } ?> <?php echo $plane->getAction(); ?> scroll="htmlElement<?php echo $plane->getTargetId(); ?>" id="display<?php echo $plane->getTargetId(); ?>" scale="<?php echo 6 * $scale; ?> <?php echo 3.375 * $scale; ?> 1" shader="flat" html2canvas="target: <?php echo $plane->getTargetId(); ?>; width: 800; height: 450" color="#fff"></a-plane>
                     <?php } ?>
             </a-entity>
             <?php

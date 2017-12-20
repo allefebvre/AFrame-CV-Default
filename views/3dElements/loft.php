@@ -224,7 +224,12 @@ $numberMiddle = ModelParameter::countMiddlePlaneDisplay();
 if ($numberMiddle > 0) {
     ?>
     <a-box static-body mixin="wall" position="-2 2.5 0" scale="10 5 10"></a-box>
+    <?php if($mobile) { ?>
+        <a-box mixin="link" position="-2 0 8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+        <a-box mixin="link" position="-2 0 -8" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+        <a-box mixin="link" position="7 0 0" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <?php
+    }
 }
 ?>
 <a-box static-body mixin="wall" position="-10.35 7.5 -4.5" scale="0.2 5 20"></a-box>
@@ -589,6 +594,7 @@ if(!$mobile) {
     <a-box mixin="link" position="-1.5 5.2 3.5" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="1.5 5.2 -3"   scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
     <a-box mixin="link" position="-4.5 5.2 -3"  scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
-    
+    <a-box mixin="link" position="-1.8 5.2 -15.5" scale="0.3 0.3 0.3" mobile-move="target:camera" color="blue"></a-box>
+
     
 <?php } ?>

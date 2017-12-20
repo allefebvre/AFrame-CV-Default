@@ -22,5 +22,5 @@ require $dir . $views['displayPlane'];
         require $dir . $views['door'];
     }
 
-    $managementPlane->placeEntity(); ?>
+    $managementPlane->placeEntity($mobile); ?>
 </a-scene>
