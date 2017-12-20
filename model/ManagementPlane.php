@@ -55,9 +55,9 @@ class ManagementPlane {
     /**
      * Using for tests
      */
-    public function reset() {
+    /*public function reset() {
         $this->listPLane = array();
-    }
+    }*/
 
     /**
      * Call this function once in the scene
