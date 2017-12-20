@@ -15,10 +15,10 @@ class TableGatewayTest extends TestCase {
         require_once 'model/TablesGateway.php';
         require 'config/config.php';
         self::$connection = new Connection($base, $login, $password);
-        self::$tablesGW = new TablesGateway(self::$connection);
     }
 
     public function testGetAllTables() {
+        self::$tablesGW = new TablesGateway(self::$connection);
         $exepted = array("Login","Parameter","Publication","Token","categorie","resume","section");
         $results = self::$tablesGW->getAllTables();
         $i = 0;

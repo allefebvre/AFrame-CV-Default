@@ -50,7 +50,7 @@ class PublicationGatewayTest extends TestCase {
     }
 
     public function testGetAllPublication() {
-
+        self::$publicationGW = new PublicationGateway(self::$connection);
         $results = self::$publicationGW->getAllPublications();
         $oldSize = count($results);
 

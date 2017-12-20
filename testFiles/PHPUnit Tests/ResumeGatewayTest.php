@@ -38,6 +38,7 @@ class ResumeGatewayTest extends TestCase {
     }
     
     public function testGetResumeBySectionId() {
+        self::$resumeGW = new ResumeGateway(self::$connection);
         $dateCreation = date("Y-m-d");
         $dateModification = date("Y-m-d");
         $content = "_Content_Test_";

@@ -26,6 +26,8 @@ class LoginTest extends TestCase {
     }
 
     public function testLogin() {
+        self::$login = new Login(self::$connection);
+        self::$login = new Login();
         self::$login->changePassword("root");
         $this->assertEquals("", self::$login->login("root", "12"));
         $this->assertEquals("", self::$login->login("", ""));
