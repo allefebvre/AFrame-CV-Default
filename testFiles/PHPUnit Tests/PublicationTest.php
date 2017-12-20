@@ -141,7 +141,7 @@ class PublicationTest extends TestCase {
                         . "<td><input name=\"date_display\" value=\"$date_display\" type=\"text\" size=\"100\"></td>"
                     . "</tr>"
                     . "<tr>"
-                        . "<td>Categorie id :</td>"
+                        . "<td>Categorie id* :</td>"
                         . "<td><input name=\"categorie_id\" value=\"$categorie_id\" type=\"text\" size=\"100\"></td>"
                     . "</tr>"
                 . "</table>";
