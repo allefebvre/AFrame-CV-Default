@@ -32,6 +32,7 @@ class ManagementPlaneTest extends TestCase {
         self::$managementPlane->placeHTML(array());
     }
 
+
     /**
      * @depends testPlaceHTMLScroll
      */
@@ -67,6 +68,37 @@ class ManagementPlaneTest extends TestCase {
         $this->expectOutputString($expect);
 
         self::$managementPlane->placeEntity();
+    }
+    
+        
+    public function testPlaceHTMLScroll2() {
+        self::$managementPlane->addPlane(self::pathHTML, self::targetId, self::posX, self::posY, self::posZ, self::rotation, TRUE, "", self::scale);
+
+        $expect = "<div class=\"hide\">test</div><div class=\"hide\">test</div>";
+
+        $this->expectOutputString($expect);
+
+        $data = array();
+        $data['resumes'][0] = array();
+        $data['resumes'][0][0] = "test";
+        self::$managementPlane->placeHTML($data);
+    }
+    
+    public function testPlaceHTMLScroll3() {
+        self::$managementPlane->addPlane(self::pathHTML, self::targetId, self::posX, self::posY, self::posZ, self::rotation, TRUE, "", self::scale);
+
+        $expect = "<div class=\"hide\">test</div><div class=\"hide\">test</div><div class=\"hide\">test</div>";
+
+        $this->expectOutputString($expect);
+
+        $data = array();
+        $data['resumes'][0] = new class(){ 
+            public function getContent() : string{
+                return "";
+            }
+        };
+        
+        self::$managementPlane->placeHTML($data);
     }
 
 }
