@@ -19,13 +19,14 @@ class DefaultTableGatewayTest extends TestCase {
     }
     
     public function testGetAllDefaultTables(){
-        $result = self::$defaultTableGW->getAllDefaultTables("Diverse"); 
+        $defaultTableGW = new DefaultTableGateway(self::$connection);
+        $result = $defaultTableGW->getAllDefaultTables("Diverse"); 
         $id = $result[0][0];
         $diverse = $result[1][0];
         
         $this->assertEquals("ID", $id);        
         $this->assertEquals("diverse", $diverse);
-        }
+    }
     
     public function testDeleteDefaultLine(){
         self::$connection->executeQuery("INSERT INTO `Diverse`(`diverse`) VALUES (:diverse);", array(

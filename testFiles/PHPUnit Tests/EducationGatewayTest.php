@@ -34,12 +34,13 @@ class EducationGatewayTest extends TestCase {
     }
 
     public function testGetAllEducation() {     
-        $results = self::$educationGW->getAllEducation();
+        $educationGW = new EducationGateway(self::$connection);
+        $results = $educationGW->getAllEducation();
         $oldSize = count($results);
         
-        self::$educationGW->insert('_Date_Test_', '_Education_Test_');
+        $educationGW->insert('_Date_Test_', '_Education_Test_');
         
-        $results = self::$educationGW->getAllEducation();
+        $results = $educationGW->getAllEducation();
         
         $this->assertEquals(count($results), $oldSize+1);
         

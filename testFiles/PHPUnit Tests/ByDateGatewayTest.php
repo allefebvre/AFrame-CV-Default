@@ -20,7 +20,6 @@ class ByDateGatewayTest extends TestCase {
         require_once 'model/ConferenceGateway.php';
         require 'config/config.php';
         self::$connection = new Connection($base, $login, $password);
-        self::$byDateGW = new ByDateGateway(self::$connection);
         self::$otherGW = new OtherGateway(self::$connection);
         self::$journalGW = new JournalGateway(self::$connection);
         self::$conferenceGW = new ConferenceGateway(self::$connection);
@@ -50,15 +49,16 @@ class ByDateGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllByDates() {     
-        $results = self::$byDateGW->getAllByDates();
+    public function testGetAllByDates() {  
+        $byDateGW = new ByDateGateway(self::$connection);
+        $results = $byDateGW->getAllByDates();
         $oldSize = count($results);
         
         self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
         self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
         self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$byDateGW->getAllByDates();
+        $results = $byDateGW->getAllByDates();
         
         $this->assertEquals(count($results), $oldSize+3);
         

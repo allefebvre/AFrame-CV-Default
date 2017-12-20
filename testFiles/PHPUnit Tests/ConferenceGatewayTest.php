@@ -38,12 +38,13 @@ class ConferenceGatewayTest extends TestCase {
     }
 
     public function testGetAllConferences() {     
-        $results = self::$conferenceGW->getAllConferences();
+        $conferenceGW = new ConferenceGateway(self::$connection);
+        $results = $conferenceGW->getAllConferences();
         $oldSize = count($results);
         
-        self::$conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        $conferenceGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$conferenceGW->getAllConferences();
+        $results = $conferenceGW->getAllConferences();
         
         $this->assertEquals(count($results), $oldSize+1);
         

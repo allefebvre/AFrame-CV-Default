@@ -34,7 +34,8 @@ class ParameterGatewayTest extends TestCase {
     }
     
     public function testGetAllParameter() {
-        $results = self::$parameterGW->getAllParameter();
+        $parameterGW = new ParameterGateway(self::$connection);
+        $results = $parameterGW->getAllParameter();
         $oldSize = count($results);
         
         self::$connection->executeQuery("INSERT INTO `Parameter` (name, display, section, scroll) "
@@ -45,7 +46,7 @@ class ParameterGatewayTest extends TestCase {
                 ':scroll' => array('_FALSE_Test_', PDO::PARAM_STR)    
         ));
         
-        $results = self::$parameterGW->getAllParameter();
+        $results = $parameterGW->getAllParameter();
         
         $this->assertEquals(count($results), $oldSize+1);
         

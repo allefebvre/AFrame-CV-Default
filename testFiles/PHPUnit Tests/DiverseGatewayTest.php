@@ -31,13 +31,14 @@ class DiverseGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllDiverse() {     
-        $results = self::$diverseGW->getAllDiverse();
+    public function testGetAllDiverse() {  
+        $diverseGW = new DiverseGateway(self::$connection);
+        $results = $diverseGW->getAllDiverse();
         $oldSize = count($results);
         
-        self::$diverseGW->insert('_Diverse_Test_');
+        $diverseGW->insert('_Diverse_Test_');
 
-        $results = self::$diverseGW->getAllDiverse();
+        $results = $diverseGW->getAllDiverse();
         
         $this->assertEquals(count($results), $oldSize+1);
         

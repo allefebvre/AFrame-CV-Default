@@ -33,13 +33,14 @@ class SkillGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllSkills() {     
-        $results = self::$skillGW->getAllSkills();
+    public function testGetAllSkills() {  
+        $skillGW = new SkillGateway(self::$connection);
+        $results = $skillGW->getAllSkills();
         $oldSize = count($results);
         
-        self::$skillGW->insert('_Category_Test_', '_Details_Test_');
+        $skillGW->insert('_Category_Test_', '_Details_Test_');
 
-        $results = self::$skillGW->getAllSkills();
+        $results = $skillGW->getAllSkills();
         
         $this->assertEquals(count($results), $oldSize+1);
         

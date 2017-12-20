@@ -37,13 +37,14 @@ class JournalGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllJournals() {     
-        $results = self::$journalGW->getAllJournals();
+    public function testGetAllJournals() {   
+        $journalGW = new JournalGateway(self::$connection);
+        $results = $journalGW->getAllJournals();
         $oldSize = count($results);
         
-        self::$journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        $journalGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$journalGW->getAllJournals();
+        $results = $journalGW->getAllJournals();
         
         $this->assertEquals(count($results), $oldSize+1);
         

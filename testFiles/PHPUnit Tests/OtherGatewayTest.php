@@ -37,13 +37,14 @@ class OtherGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllOthers() {     
-        $results = self::$otherGW->getAllOthers();
+    public function testGetAllOthers() {
+        $otherGW = new OtherGateway(self::$connection);
+        $results = $otherGW->getAllOthers();
         $oldSize = count($results);
         
-        self::$otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
+        $otherGW->insert('_Reference_Test_', '_Authors_Test_', '_Title_Test_', '0000-00-00');
 
-        $results = self::$otherGW->getAllOthers();
+        $results = $otherGW->getAllOthers();
         
         $this->assertEquals(count($results), $oldSize+1);
         

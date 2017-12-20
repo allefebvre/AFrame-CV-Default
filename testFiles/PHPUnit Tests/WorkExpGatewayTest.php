@@ -34,12 +34,13 @@ class WorkExpGatewayTest extends TestCase {
     }
 
     public function testGetAllWorkExps() {     
-        $results = self::$workExpGW->getAllWorkExps();
+        $workExpGW = new WorkExpGateway(self::$connection);
+        $results = $workExpGW->getAllWorkExps();
         $oldSize = count($results);
         
-        self::$workExpGW->insert('_Date_Test_', '_WorkExp_Test_');
+        $workExpGW->insert('_Date_Test_', '_WorkExp_Test_');
 
-        $results = self::$workExpGW->getAllWorkExps();
+        $results = $workExpGW->getAllWorkExps();
         
         $this->assertEquals(count($results), $oldSize+1);
         

@@ -18,18 +18,13 @@ class LoginTest extends TestCase {
         self::$login = new Login(self::$connection);
     }
 
-    /**
-     * @before
-     */
-    public function setUp() {
-        
-    }
-
     public function testLogin() {
-        self::$login->changePassword("root");
-        $this->assertEquals("", self::$login->login("root", "12"));
-        $this->assertEquals("", self::$login->login("", ""));
-        $toTest = self::$login->login("root", "root");
+        $login = new Login();
+        $login = new Login(self::$connection);       
+        $login->changePassword("root");
+        $this->assertEquals("", $login->login("root", "12"));
+        $this->assertEquals("", $login->login("", ""));
+        $toTest = $login->login("root", "root");
         self::$connection->executeQuery("SELECT * FROM Token;");
         $token = self::$connection->getResults();
         $this->assertEquals($token[0][0], $toTest);

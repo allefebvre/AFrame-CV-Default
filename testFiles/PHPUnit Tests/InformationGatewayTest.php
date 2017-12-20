@@ -40,13 +40,14 @@ class InformationGatewayTest extends TestCase {
         ));
     }
 
-    public function testGetAllInformation() {     
-        $results = self::$informationGW->getAllInformation();
+    public function testGetAllInformation() {
+        $informationGW = new InformationGateway(self::$connection);
+        $results = $informationGW->getAllInformation();
         $oldSize = count($results);
         
-        self::$informationGW->insert('_Status_Test_', '_Name_Test_', '_Firstname_Test_', '_Photo_Test_', '_Age_Test_', '_Address_Test_', '_Phone_Test_', '_Mail_Test_');
+        $informationGW->insert('_Status_Test_', '_Name_Test_', '_Firstname_Test_', '_Photo_Test_', '_Age_Test_', '_Address_Test_', '_Phone_Test_', '_Mail_Test_');
 
-        $results = self::$informationGW->getAllInformation();
+        $results = $informationGW->getAllInformation();
         
         $this->assertEquals(count($results), $oldSize+1);
         
