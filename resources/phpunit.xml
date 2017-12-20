@@ -6,12 +6,19 @@
 	 <whitelist processUncoveredFilesFromWhitelist="true">
 		<directory suffix=".php">../model/</directory>
 		<exclude>
-			 <file>../model/ModelDefaultTable.php</file>
-			 <file>../model/ModelParameter.php</file>
-			 <file>../model/ModelPublication.php</file>
-		<file>../model/ModelResume.php</file>
-		   <file>../model/ModelSection.php</file>
-		   <file>../model/ModelTables.php</file>
+			<file>../model/ManagementPlane.php</file>
+			<file>../model/ModelByDate.php</file>
+			<file>../model/ModelConference.php</file>
+			<file>../model/ModelDefaultTable.php</file>
+			<file>../model/ModelDiverse.php</file>
+			<file>../model/ModelEducation.php</file>
+			<file>../model/ModelInformation.php</file>
+			<file>../model/ModelJournal.php</file>
+			<file>../model/ModelOther.php</file>
+			<file>../model/ModelParameter.php</file>
+			<file>../model/ModelSkill.php</file>
+			<file>../model/ModelTables.php</file>
+			<file>../model/ModelWorkExp.php</file>
 	    </exclude>
 	 </whitelist>
   </filter>
