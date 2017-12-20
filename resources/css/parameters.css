@@ -2,7 +2,7 @@
     float: right;
     display: block;
     vertical-align: top;
-    width: calc(100% - 360px);
+    width: calc(100% - 365px);
     height: 100%;
     position: absolute;
     top: 0px;
@@ -15,7 +15,7 @@
 }
 
 .parameters {
-    width: 360px;
+    width: 365px;
     background: #F4ECE5;
     height: 100%;
     display: block;
