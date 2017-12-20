@@ -21,7 +21,6 @@ require $dir . $views['displayPlane'];
     if ($door && !$mobile) {
         require $dir . $views['door'];
     }
-    require $dir . $views['publication'];
 
     $managementPlane->placeEntity(); ?>
 </a-scene>

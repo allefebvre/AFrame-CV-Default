@@ -240,7 +240,9 @@ if ($numberMiddle > 0) {
 <?php
 $parameterPublication = ModelParameter::getParameterPublications();
 if ($parameterPublication->getDisplay() === "TRUE") {
-    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane><?php
+    ?><a-plane src="#panneau" scale="1.5 1.5 1" position="16.4 2 -8" rotation="0 -90 0"></a-plane>
+    <a-entity position="-2 9.5 -14.25" text="align:center;value:Click on panel to access at PDF file !;font:kelsonsans" scale="10 8 1"></a-entity>
+<?php
 }
 ?>
 
