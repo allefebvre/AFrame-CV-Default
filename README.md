@@ -14,6 +14,12 @@ In this app there is an administrator space, where you can manage the display of
 </div>
 
 <div>
+<img src="resources/images/AFrame-CV-Default-Screenshot4.png" heigth="190" width="32%">
+<img src="resources/images/AFrame-CV-Default-Screenshot5.png" heigth="190" width="32%">
+<img src="resources/images/AFrame-CV-Default-Screenshot6.png" heigth="190" width="32%">
+</div>
+
+<div>
 <img src="resources/images/Admin3.png" heigth="190" width="32%">
 <img src="resources/images/Admin1.png" heigth="190" width="32%">
 <img src="resources/images/Admin2.png" heigth="190" width="32%">
