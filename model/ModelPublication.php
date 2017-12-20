@@ -225,4 +225,4 @@ class ModelPublication {
         $publicationGW->insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
 }
-?>  
+?>
