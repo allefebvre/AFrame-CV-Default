@@ -8,7 +8,7 @@ class PublicationGateway {
     }
     
     /**
-     * Get all Publication in Database
+     * Get all Publications in Database
      * @return array
      */
     public function getAllPublications() :array {
@@ -19,7 +19,7 @@ class PublicationGateway {
     }
     
     /**
-     * Get all Publication in Database by date
+     * Get all Publications in Database order by date
      * @return array
      */
     public function getAllPublicationsByDate() :array {
@@ -52,7 +52,7 @@ class PublicationGateway {
     }
     
     /**
-     * Get all Documentation in Database
+     * Get all Documentations in Database
      * @return array
      */
     public function getAllDocumentations() : array {
@@ -74,7 +74,7 @@ class PublicationGateway {
     }
     
     /**
-     * Get all Conferences in Database
+     * Get all Miscellaneous in Database
      * @return array
      */
     public function getAllMiscellaneous() : array {
@@ -85,7 +85,7 @@ class PublicationGateway {
     }
     
     /**
-     * Get a Conference by id in Database
+     * Get a Publication by id in Database
      * @param int $id
      * @return array
      */
@@ -99,7 +99,7 @@ class PublicationGateway {
     }
     
     /**
-     * Update a Conference by id in Database
+     * Update a Publication by id in Database
      * @param int $id
      * @param string $reference
      * @param string $authors
@@ -146,7 +146,7 @@ class PublicationGateway {
     }
     
     /**
-     * Insert a Conference in Database
+     * Insert a Publication in Database
      * @param string $reference
      * @param string $authors
      * @param string $title

@@ -3,7 +3,7 @@
 class ModelPublication {
     
     /**
-     * Get all Publication in Database
+     * Get all Publications in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -23,7 +23,7 @@ class ModelPublication {
     }
     
     /**
-     * Get all publication order by date
+     * Get all Publications order by date in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -85,7 +85,7 @@ class ModelPublication {
     }
     
     /**
-     * Get all Conferences in Database
+     * Get all Documentations in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -105,7 +105,7 @@ class ModelPublication {
     }
     
     /**
-     * Get all Conferences in Database
+     * Get all Thesis in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -125,7 +125,7 @@ class ModelPublication {
     }
     
     /**
-     * Get all Conferences in Database
+     * Get all Miscellaneous in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -134,8 +134,8 @@ class ModelPublication {
     public static function getAllMiscellaneous() :array {
  	global $base, $login, $password;
 
-        $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
-        $results = $conferenceGW->getAllMiscellaneous(); 
+        $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
+        $results = $publicationGW->getAllMiscellaneous(); 
         $data =  array();
         foreach ($results as $row){
             $data[]=new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
@@ -145,7 +145,7 @@ class ModelPublication {
     }
     
     /**
-     * Get a Conference by id in Database
+     * Get a Publication by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -155,15 +155,15 @@ class ModelPublication {
     public static function getOnePublication(int $id) : Publication {
  	global $base, $login, $password;
 
-        $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
-        $row = $conferenceGW->getOnePublication($id);
+        $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
+        $row = $publicationGW->getOnePublication($id);
         $data = new Publication ($row['ID'], $row['reference'], $row['authors'], $row['title'], $row['date'], $row['journal'], $row['volume'], $row['number'], $row['pages'], $row['note'], $row['abstract'], $row['keywords'], $row['series'], $row['localite'], $row['publisher'], $row['editor'], $row['pdf'], $row['date_display'], $row['categorie_id']);
        
         return $data;
     }
     
     /**
-     * Update a Conference by id in Database
+     * Update a Publication by id in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -190,12 +190,12 @@ class ModelPublication {
     public static function updateById(int $id, string $reference, string $authors, string $title, string $date, string $journal = NULL, string $volume = NULL, string $number = NULL, string $pages = NULL, string $note = NULL, string $abstract = NULL, string $keywords = NULL, string $series = NULL, string $localite = NULL, string $publisher = NULL, string $editor = NULL, string $pdf = NULL, string $date_display = NULL, int $category_id = NULL){
         global $base, $login, $password;
 
-        $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
-        $conferenceGW->updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+        $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
+        $publicationGW->updateById($id, $reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
     
     /**
-     * Insert a Conference in Database
+     * Insert a Publication in Database
      * @global string $base
      * @global string $login
      * @global string $password
@@ -221,8 +221,8 @@ class ModelPublication {
     public static function insert(string $reference, string $authors, string $title, string $date, string $journal = NULL, string $volume = NULL, string $number = NULL, string $pages = NULL, string $note = NULL, string $abstract = NULL, string $keywords = NULL, string $series = NULL, string $localite = NULL, string $publisher = NULL, string $editor = NULL, string $pdf = NULL, string $date_display = NULL, int $category_id = NULL){
         global $base, $login, $password;
 
-        $conferenceGW = new PublicationGateway(new Connection($base, $login, $password));
-        $conferenceGW->insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
+        $publicationGW = new PublicationGateway(new Connection($base, $login, $password));
+        $publicationGW->insert($reference, $authors, $title, $date, $journal, $volume, $number, $pages, $note, $abstract, $keywords, $series, $localite, $publisher, $editor, $pdf, $date_display, $category_id);
     }
 }
 ?>  
