@@ -6,6 +6,9 @@
     $base = "mysql:host=localhost;dbname=AFrame-CV-Default";
     $login = "root";
     $password = "root";
+    $GLOBALS['base'] = $base;
+    $GLOBALS['login'] = $login;
+    $GLOBALS['password'] = $password;
 
     //Views
     $views['head'] = "views/head.html";
