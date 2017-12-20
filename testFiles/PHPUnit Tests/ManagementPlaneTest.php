@@ -23,6 +23,7 @@ class ManagementPlaneTest extends TestCase {
     }
 
     public function testPlaceHTMLScroll() {
+        self::$managementPlane->reset();
         self::$managementPlane->addPlane(self::pathHTML, self::targetId, self::posX, self::posY, self::posZ, self::rotation, TRUE, "", self::scale);
 
         $expect = "<div class=\"hide\">test</div>";
