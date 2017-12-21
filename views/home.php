@@ -4,10 +4,17 @@ require $dir . $views['displayPlane'];
 ?>
 
 <!-- Display loading ... -->
-<div class="loading">
+<div class="loading" id="loading">
     Loading ...<br>
     <!--<img style="height: 50px; width: 50px" src="resources/images/loading.gif" alt="loading ..."/>-->
 </div>
+
+<script>
+    var loading = document.getElementById("loading");
+    setTimeout(function(){
+        loading.innerHTML = "";
+    }, 20000);
+</script>
 
 <?php if (!$mobile) { ?>
 <a-scene id="a-scene" physics inspector="url:resources/libraryJS/aframe-inspector.min.js" button-stats="key: p">
