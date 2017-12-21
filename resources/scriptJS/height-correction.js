@@ -1,5 +1,5 @@
 /**
- * Component for this project
+ * Using to prevent the camera to cross the ground
  */
 AFRAME.registerComponent('height-correction', {
     init: function () {
